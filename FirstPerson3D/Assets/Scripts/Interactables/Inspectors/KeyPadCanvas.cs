@@ -1,0 +1,114 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
+
+public class KeyPadCanvas : MonoBehaviour
+{
+    public GameObject keypadUI;
+    public GameObject displayField1;
+    public GameObject displayField2;
+    public GameObject displayField3;
+
+    private string password = "";
+    private int maxDigits;
+    private string input = "";
+
+
+    public void Activate(){
+        //open Keypad and freeze Game
+        GameManager.gameManager.SwitchCameras("2D");
+        keypadUI.SetActive(true);
+        Time.timeScale = 0f;
+        //Debug.Log("Keypad activated");
+    }
+
+    public void Close(){
+        //Close Keypad, unfreeze Game
+        GameManager.gameManager.SwitchCameras("3D");
+        StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().CheckPassword());
+
+        keypadUI.SetActive(false);
+        Time.timeScale = 1f;
+        //Close Canvas
+        gameObject.SetActive(false);
+        //reset Input and Display
+        input = "";
+        displayField1.GetComponent<TextMeshProUGUI>().text = "";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        //Debug.Log("Keypad deactivated");
+    }
+
+
+    public void InputFromButton(Button btn)
+    {
+        //get password and passwordlength
+        password = Reference.instance.currentKeypad.password;
+        //Debug.Log("Password: " + password);
+        maxDigits = password.Length;
+        //Debug.Log("Pressed Button " + btn.name);
+
+        //check input
+        if (btn.name == "C"){
+            input = "";
+            displayField1.GetComponent<TextMeshProUGUI>().text = "";
+            displayField2.GetComponent<TextMeshProUGUI>().text = "";
+            displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        }
+        //Only check Password when OK was pressed
+        else if(btn.name == "OK")
+        {
+            if (input == password){
+                Debug.Log("Correct Password!");
+
+                displayField1.GetComponent<TextMeshProUGUI>().text = "O";
+                displayField2.GetComponent<TextMeshProUGUI>().text = "K";
+                displayField3.GetComponent<TextMeshProUGUI>().text = "!";
+                input = "";
+                //Reference.instance.currentKeypad.door.doorUnlocked = true;
+                Reference.instance.currentKeypad.passwordCorrect = true;
+            }
+            else{
+                //check if the password was entered correctly before
+                // -> not needed anymore bc kepad only activates when pw is not correct yet?
+                if (!Reference.instance.currentKeypad.passwordCorrect)
+                {
+                    Debug.Log("Wrong Password! Access Denied.");
+
+                    displayField1.GetComponent<TextMeshProUGUI>().text = "N";
+                    displayField2.GetComponent<TextMeshProUGUI>().text = "O";
+                    displayField3.GetComponent<TextMeshProUGUI>().text = "!";
+                    input = "";
+                }
+            }
+        }
+        // If the button was neither C nor OK:
+        else
+        {
+            //check if the max number if digits has already been put in
+            if (input.Length <= maxDigits)
+            {
+                input += btn.name;
+
+                switch (input.Length)
+                {
+                    case 1:
+                        displayField1.GetComponent<TextMeshProUGUI>().text = input;
+                        //clear the other display fields
+                        displayField2.GetComponent<TextMeshProUGUI>().text = "";
+                        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+                        break;
+                    case 2:
+                        displayField2.GetComponent<TextMeshProUGUI>().text = input.Substring(input.Length - 1);
+                        break;
+                    case 3:
+                        displayField3.GetComponent<TextMeshProUGUI>().text = input.Substring(input.Length - 1);
+                        break;
+                }
+            }
+        }
+    }
+}

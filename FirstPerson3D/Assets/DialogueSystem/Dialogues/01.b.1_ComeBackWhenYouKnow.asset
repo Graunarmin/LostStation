@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64264cddca744e1b755175d9ceb9ab, type: 3}
+  m_Name: 01.b.1_ComeBackWhenYouKnow
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 1
+  journalPage: {fileID: 7400533655403628545, guid: 7eea2b0c542594a94b87b83a72a6e302,
+    type: 3}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueInfo:
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: Better come back when you know who you are then.
