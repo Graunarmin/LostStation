@@ -811,8 +811,8 @@ MonoBehaviour:
   interactionIcon: {fileID: 0}
   infoTextSwitchedOn: Disable Box
   state: 0
-  switchOn: {fileID: 1866847736}
-  switchOff: {fileID: 753421486}
+  switchOn: {fileID: 753421486}
+  switchOff: {fileID: 1866847736}
 --- !u!1 &36216635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1588,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 297001399}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4417,7 +4417,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 297001399}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5736,7 +5736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: -13, y: -9}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219897342
@@ -10850,7 +10850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: 57, y: 70}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466413504
@@ -13628,7 +13628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622940439}
   m_LocalRotation: {x: -0.579228, y: 0.40557975, z: 0.40557975, w: 0.579228}
-  m_LocalPosition: {x: 1.64, y: 1.56, z: -1.98}
+  m_LocalPosition: {x: 1.745, y: 1.43, z: -2.267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1975946484}
@@ -13679,7 +13679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 0}
   interactable: {fileID: 0}
-  journalPage: {fileID: 0}
+  journalPage: {fileID: 3813495441491490494, guid: 1c7cd8f3f986d41259d48674407ec281,
+    type: 3}
   location: {fileID: 1174497601}
   collectName: Door Key
   useMessage: Great! Hopefully this key unlocks the door ...
@@ -14674,7 +14675,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 69, y: 75}
-  m_SizeDelta: {x: 230, y: 150}
+  m_SizeDelta: {x: 200, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686065595
 MonoBehaviour:
@@ -26248,7 +26249,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 297001399}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -26994,12 +26995,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7728729, g: 0.9811321, b: 0.9379927, a: 1}
+  m_Color: {r: 0.5990566, g: 1, b: 0.97959906, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c03c72978d15ecb4d91060d3a10d14f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10225e39e00694a9a981f59aad11648c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29318,7 +29319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoTextActive: 
   infoTextInactive: 
-  interactionIcon: {fileID: 466413504}
+  interactionIcon: {fileID: 0}
   JigsawCanvas: {fileID: 59297847}
 --- !u!1 &1356748363 stripped
 GameObject:
@@ -29859,7 +29860,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 297001399}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -30411,7 +30412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 60}
+  m_AnchoredPosition: {x: 40, y: 45}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397840495
@@ -30592,7 +30593,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cca2d0e8ee4c41545aa02bb616316250, type: 2}
+  - {fileID: 2100000, guid: 4afd6f072a1fc4a28945ecd4cb2bd38b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34616,7 +34617,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 297001399}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -37944,7 +37945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
+  m_AnchoredPosition: {x: 1.5, y: 70}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866847736
