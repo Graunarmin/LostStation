@@ -4277,7 +4277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &147659241
 Transform:
   m_ObjectHideFlags: 0
@@ -4977,6 +4977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containedItems:
   - {fileID: 0}
+  containedDoors: []
 --- !u!1 &183727492
 GameObject:
   m_ObjectHideFlags: 0
@@ -6607,6 +6608,7 @@ MonoBehaviour:
   doorAnimation: {fileID: 3166231815090546450}
   openAnimationName: Door1Open
   closeAnimationName: Door1Close
+  doorLock: {fileID: 147659242}
 --- !u!114 &274442813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6637,7 +6639,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 6, z: 1}
+  m_Size: {x: 6, y: 6, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &275137497
 GameObject:
@@ -8853,6 +8855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containedItems:
   - {fileID: 1740257191}
+  - {fileID: 274442813}
+  containedDoors:
   - {fileID: 274442813}
 --- !u!1 &373252702
 GameObject:
@@ -25628,6 +25632,7 @@ MonoBehaviour:
   - {fileID: 24061139}
   - {fileID: 622940443}
   - {fileID: 1355445642}
+  containedDoors: []
 --- !u!135 &1174497602
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -36524,6 +36529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containedItems:
   - {fileID: 1353897970}
+  containedDoors: []
 --- !u!1 &1728773653
 GameObject:
   m_ObjectHideFlags: 0
@@ -47431,6 +47437,7 @@ MonoBehaviour:
   doorAnimation: {fileID: 7740277509161943453}
   openAnimationName: D1 Open
   closeAnimationName: D1 Close
+  doorLock: {fileID: 0}
 --- !u!95 &7740277509161943453
 Animator:
   serializedVersion: 3

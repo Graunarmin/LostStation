@@ -6,6 +6,8 @@ public class Region : MonoBehaviour
 {
     
     public List<Item> containedItems = new List<Item>();
+    //so the contained doors can be closed if we leave the region
+    public List<Door> containedDoors = new List<Door>();
     
     //public List<Lightning> lights = new List<Lightning>();
     
@@ -29,6 +31,7 @@ public class Region : MonoBehaviour
         //set current Region to null
         Reference.instance.currentRegions.Remove(this);
 
+        CloseDoors();
         //switch off colliders of all contained Items
         SetContainedItems(false);
     }
@@ -36,24 +39,45 @@ public class Region : MonoBehaviour
 
     public void SetContainedItems(bool colliderValue)
     {
-        foreach(Item item in containedItems){
+        if(containedItems.Count > 0)
+        {
+            foreach (Item item in containedItems)
+            {
 
-            var hasPrerequ = item.GetComponent<Prerequisite>();
-            //if item has a collider:
-            if (item.col != null){
-                //if it has a Prerequisite which is about acces
-                if (hasPrerequ && hasPrerequ.itemAccess){
-                    //the prerequisite has to be met to enable the collider
-                    if (hasPrerequ.Complete){
+                var hasPrerequ = item.GetComponent<Prerequisite>();
+                //if item has a collider:
+                if (item.col != null)
+                {
+                    //if it has a Prerequisite which is about acces
+                    if (hasPrerequ && hasPrerequ.itemAccess)
+                    {
+                        //the prerequisite has to be met to enable the collider
+                        if (hasPrerequ.Complete)
+                        {
+                            item.col.enabled = colliderValue;
+                            Debug.Log("ItemAccess granted");
+                        }
+
+                    }
+                    else
+                    {
+                        //turn collider on or off (depending in entering or exiting the region
                         item.col.enabled = colliderValue;
-                        Debug.Log("ItemAccess granted");
                     }
 
-                }else{
-                    //turn collider on or off (depending in entering or exiting the region
-                    item.col.enabled = colliderValue;
                 }
-                
+            }
+        }
+        
+    }
+
+    private void CloseDoors()
+    {
+        foreach(Door door in containedDoors)
+        {
+            if(door.gameObject.GetComponent<DoorOpener>() != null && door.doorOpen)
+            {
+                door.gameObject.GetComponent<DoorOpener>().CloseDoor();
             }
         }
     }

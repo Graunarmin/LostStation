@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Door : Item
 {
-
+    //indicates if the door is unlocked and can be opened by clicking on it
     public bool doorUnlocked;
+    //the keypad that unlocks the door (if any)
     public Keypad connectedKeypad;
+    //indicates if the door is currently open so that the player can go through
     public bool doorOpen;
 
     //from Parent:
