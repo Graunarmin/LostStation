@@ -155,12 +155,18 @@ public class JournalManager : MonoBehaviour
 
     private IEnumerator ShowUpdateIcon()
     {
+        //wait until the player is back in the game
+        yield return new WaitUntil(()
+            => !GameManager.gameManager.CurrentlyInteracting());
+
+        //show pop-up that journal was updated
         updateInfoCanvas.gameObject.SetActive(true);
         //PlaySound
         //...
 
         yield return new WaitForSeconds(2);
 
+        //hide pop-up
         updateInfoCanvas.gameObject.SetActive(false);
     }
 }
