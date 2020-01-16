@@ -8,7 +8,7 @@ public class JournalManager : MonoBehaviour
     public Image background;
     public Button next;
     public Button prev;
-
+    public Canvas updateInfoCanvas;
     private List<PageInfo> allPages = new List<PageInfo>();
     public PageInfo currentPage;
 
@@ -83,6 +83,7 @@ public class JournalManager : MonoBehaviour
                 allPages.Add(currentPage);
                 allPages.Sort(new SortPagesByNumber());
             }
+            StartCoroutine(ShowUpdateIcon());
         }
     }
 
@@ -150,5 +151,16 @@ public class JournalManager : MonoBehaviour
         {
             return x.pageNumber.CompareTo(y.pageNumber);
         }
+    }
+
+    private IEnumerator ShowUpdateIcon()
+    {
+        updateInfoCanvas.gameObject.SetActive(true);
+        //PlaySound
+        //...
+
+        yield return new WaitForSeconds(2);
+
+        updateInfoCanvas.gameObject.SetActive(false);
     }
 }
