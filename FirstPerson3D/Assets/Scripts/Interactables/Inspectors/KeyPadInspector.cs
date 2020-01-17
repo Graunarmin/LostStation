@@ -12,6 +12,10 @@ public class KeyPadInspector : Interactable
         if (!Reference.instance.currentKeypad.door.doorUnlocked){
 
             Reference.instance.keyPad.Activate();
+
+            //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+            TutorialManager.tutorialManager.FirstCanvas();
+
             StartCoroutine(CheckPassword());
         }
     }

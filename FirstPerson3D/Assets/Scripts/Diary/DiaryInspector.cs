@@ -11,6 +11,9 @@ public class DiaryInspector : Interactable
     public override void Interact()
     {
         diary.Activate(journalPage);
+
+        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+        TutorialManager.tutorialManager.FirstCanvas();
     }
 }
 

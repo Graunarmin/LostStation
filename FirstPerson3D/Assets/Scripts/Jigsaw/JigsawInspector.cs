@@ -9,6 +9,10 @@ public class JigsawInspector : Interactable
     public override void Interact()
     {
         JigsawCanvas.Activate();
+
+        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+        TutorialManager.tutorialManager.FirstCanvas();
+
         StartCoroutine(CheckSolution());
     }
 

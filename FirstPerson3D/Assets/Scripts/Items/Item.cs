@@ -58,7 +58,7 @@ public class Item : MonoBehaviour
         //if game not on pause && if neither 2D nor 3D inspector open
         if (!GameManager.gameManager.CurrentlyInteracting())
         {
-            //Set the current Item to the clicked on
+            //Set the current Item to the clicked one
             Reference.instance.currentItem = this;
             Debug.Log("Current Item: " + name);
 

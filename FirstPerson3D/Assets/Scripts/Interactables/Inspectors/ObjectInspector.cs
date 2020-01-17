@@ -24,5 +24,8 @@ public class ObjectInspector : Interactable
         //turn on observer Camera
         Reference.instance.obsCam.Activate();
 
+        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+        TutorialManager.tutorialManager.FirstCanvas();
+
     }
 }

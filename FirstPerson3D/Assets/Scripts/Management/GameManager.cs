@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private bool firstStep;
-
     #region userinput
 
     private void Update(){
@@ -95,10 +93,10 @@ public class GameManager : MonoBehaviour
             Reference.instance.journalManager.OpenJournal();
         }
 
-        if(!firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+        if(!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
         {
-            firstStep = true;
+            TutorialManager.tutorialManager.firstStep = true;
             TutorialManager.tutorialManager.ShowJournalTut();
 
         }
