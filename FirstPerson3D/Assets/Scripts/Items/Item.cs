@@ -68,8 +68,10 @@ public class Item : MonoBehaviour
 
             //update Info about Object
             var hasPrerequ = GetComponent<Prerequisite>();
-            //We don't need Info on a door thats opening and just sliding under our mouse ...
-            if (this is Door && ((Door)this).doorOpen)
+            //We don't need Info on a door thats opening and just sliding under our mouse (works)
+            //And neither do we need to see the speech-bubble while talking (!!FIX!!)
+            if ((this is Door && ((Door)this).doorOpen)
+                || gameObject.GetComponent<ConversationStarter>() != null)
             {
                 //do nothing
 
