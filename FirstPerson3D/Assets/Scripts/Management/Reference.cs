@@ -23,6 +23,7 @@ public class Reference : MonoBehaviour
         objectInfoDisplay.gameObject.SetActive(false);
         gameUICanvas.gameObject.SetActive(false);
         journal.gameObject.SetActive(false);
+        journalUpdateInfo.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -55,6 +56,7 @@ public class Reference : MonoBehaviour
 
     public JournalManager journalManager;
     public Canvas journal;
+    public Canvas journalUpdateInfo;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;
