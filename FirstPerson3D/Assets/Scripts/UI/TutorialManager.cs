@@ -21,7 +21,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Hello");
         if (tutorialManager == null)
         {
             tutorialManager = this;

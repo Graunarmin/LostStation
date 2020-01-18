@@ -17,7 +17,6 @@ public class DialogueEvents : ScriptableObject
     #region Dialogue  01
     public void SetAmAlice()
     {
-        Debug.Log("You chose 'Alice'");
         DialogueTracker.dialogueTracker.start = false;
 
         DialogueTracker.dialogueTracker.amAlice = true;
@@ -36,20 +35,16 @@ public class DialogueEvents : ScriptableObject
 
     public void SetWillHelp()
     {
-        Debug.Log("You chose to help");
         DialogueTracker.dialogueTracker.willHelp = true;
     }
 
     public void SetWontHelp()
     {
-        Debug.Log("You chose not to help");
         DialogueTracker.dialogueTracker.wontHelp = true;
-
     }
 
     public void SetAmNobody()
     {
-        Debug.Log("You chose 'Nobody'");
         DialogueTracker.dialogueTracker.start = false;
 
         DialogueTracker.dialogueTracker.amNobody = true;

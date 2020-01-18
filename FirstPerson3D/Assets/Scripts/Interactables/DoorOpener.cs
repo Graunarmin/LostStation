@@ -5,9 +5,13 @@ using TMPro;
 
 public class DoorOpener : Interactable
 {
-    public Animator doorAnimation;
-    public string openAnimationName;
-    public string closeAnimationName;
+    //public Animator doorAnimation;
+    //public string openAnimation;
+    //public string closeAnimation;
+    public List<Animator> animators = new List<Animator>();
+    public List<string> openingAnimations;
+    public List<string> closingAnimations;
+    
     public Collider doorLock;
     private Door door;
 
@@ -19,8 +23,15 @@ public class DoorOpener : Interactable
     public override void Interact()
     {
         //Debug.Log("Opening this door " + name);
-        doorAnimation.Play(openAnimationName);
-        doorLock.enabled = false;
+        //doorAnimation.Play(openAnimationName);
+        for (int i = 0; i < animators.Count; i++)
+        {
+            animators[i].Play(openingAnimations[i]);
+        }
+        if(doorLock != null)
+        {
+            doorLock.enabled = false;
+        }
         door.doorOpen = true;
     }
 
@@ -41,8 +52,15 @@ public class DoorOpener : Interactable
 
     public void CloseDoor()
     {
-        doorAnimation.Play(closeAnimationName);
-        doorLock.enabled = true;
+        //doorAnimation.Play(closeAnimationName);
+        for (int i = 0; i < animators.Count; i++)
+        {
+            animators[i].Play(closingAnimations[i]);
+        }
+        if (doorLock != null)
+        {
+            doorLock.enabled = true;
+        }
         door.doorOpen = false;
     }
 }
