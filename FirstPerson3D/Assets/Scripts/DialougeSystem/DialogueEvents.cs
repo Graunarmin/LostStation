@@ -38,7 +38,6 @@ public class DialogueEvents : ScriptableObject
     {
         Debug.Log("You chose to help");
         DialogueTracker.dialogueTracker.willHelp = true;
-
     }
 
     public void SetWontHelp()

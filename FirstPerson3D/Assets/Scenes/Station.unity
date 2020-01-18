@@ -13516,6 +13516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlightEnabled: 0
+  powerIsBack: 0
 --- !u!4 &598373201
 Transform:
   m_ObjectHideFlags: 0
@@ -23134,6 +23135,7 @@ MonoBehaviour:
   foundOutWhoYouAre: {fileID: 11400000, guid: c16014aaea84043ef972355c899a9e38, type: 2}
   tooDark: {fileID: 11400000, guid: 4412b1ae191494a31a68cbf0d8bdca4c, type: 2}
   gotFlashlight: 0
+  notMoving: {fileID: 11400000, guid: 39c6c3f3b730c466980f6c54ecebc7ba, type: 2}
 --- !u!1 &1043895254
 GameObject:
   m_ObjectHideFlags: 0

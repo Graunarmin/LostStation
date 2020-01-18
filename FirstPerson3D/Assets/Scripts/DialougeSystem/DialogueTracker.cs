@@ -22,6 +22,8 @@ public class DialogueTracker : MonoBehaviour
 
 
     #region Dialogue 01
+    public bool endFirstDialogue;
+
     public DialogueBase whoAreYou;
     public bool amAlice;
     public bool amNobody;
@@ -41,27 +43,44 @@ public class DialogueTracker : MonoBehaviour
     public bool gotFlashlight;
     #endregion
 
+    #region Dialogue 04
+    public bool endFourthDialogue;
+    public DialogueBase notMoving;
+    #endregion
 
     public DialogueBase ChooseDialogue()
     {
-        if (start)
+        if (!endFirstDialogue)
         {
-            return whoAreYou;
-        }
-        if (amAlice && wontHelp)
+            if (start)
+            {
+                return whoAreYou;
+            }
+            if (amAlice && wontHelp)
+            {
+                return willYouHelp;
+            }
+            if (comeBack)
+            {
+                return foundOutWhoYouAre;
+            }
+            if (amAlice && willHelp)
+            {
+                endFirstDialogue = true;
+                return tooDark;
+            }
+        }else if (!endFourthDialogue)
         {
-            return willYouHelp;
+            if (gotFlashlight && !GameManager.gameManager.powerIsBack)
+            {
+                return notMoving;
+            }
+            if (gotFlashlight && GameManager.gameManager.powerIsBack)
+            {
+                //Change later!
+                return notMoving;
+            }
         }
-        if (comeBack)
-        {
-            return foundOutWhoYouAre;
-        }
-        if(amAlice && willHelp)
-        {
-            return tooDark;
-        }
-
-
         return whoAreYou;
     }
 

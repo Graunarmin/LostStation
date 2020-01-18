@@ -127,9 +127,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region keep track of flashlight
+    #region keep track of what's happening
     public bool flashlightEnabled;
-
+    public bool powerIsBack;
     #endregion
 
     //is called by the "Canvas" Classes if the interactables in "Activate()" and "Close()"
