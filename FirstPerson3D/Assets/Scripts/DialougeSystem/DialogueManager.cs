@@ -163,9 +163,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void closeOptions()
+    public void CloseOptions()
     {
+        Debug.Log("Closing Dialogue Options");
         dialogueOptionUI.SetActive(false);
+    }
+
+    public void CloseDialogue()
+    {
+        inDialogue = false;
+        Reference.instance.dialogueCanvas.gameObject.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
     }
 
     private void OptionsParser(DialogueBase db)

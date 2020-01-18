@@ -15,13 +15,18 @@ public class UnityEventHandler : MonoBehaviour, IPointerDownHandler
         eventHandler.Invoke();
 
         //close the options
-        DialogueManager.instance.closeOptions();
+        DialogueManager.instance.CloseOptions();
         DialogueManager.instance.inDialogue = false;
 
         //and show follow-up dialogue (if there is any)
         if(myDialogue != null)
         {
             DialogueManager.instance.EnqueueDialogue(myDialogue);
+        }
+        else
+        {
+            DialogueManager.instance.CloseDialogue();
+
         }
     }
 }

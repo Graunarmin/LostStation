@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
 
         //if F is pressed: switch flashlight on or off
-        if (Input.GetKeyDown(KeyCode.F))
+        if (flashlightEnabled && Input.GetKeyDown(KeyCode.F))
         {
             if (Reference.instance.flashlight.gameObject.activeInHierarchy){
                 Reference.instance.flashlight.gameObject.SetActive(false);
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
             Reference.instance.journalManager.OpenJournal();
         }
 
-        if(!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+        if (!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
         {
             TutorialManager.tutorialManager.firstStep = true;
@@ -127,6 +127,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region keep track of flashlight
+    public bool flashlightEnabled;
+
+    #endregion
+
     //is called by the "Canvas" Classes if the interactables in "Activate()" and "Close()"
     public void SwitchCameras(string mode)
     {
@@ -153,7 +158,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    #region test if stuff is happening
+    #region Test if stuff is happening
     //test if there is currently an Inspector up
     public bool CurrentlyInteracting()
     {

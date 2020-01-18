@@ -17,25 +17,52 @@ public class DialogueTracker : MonoBehaviour
     }
     #endregion
 
-    #region bools
-
     public bool start = true;
+    public DialogueBase currentDialogue;
+
+
+    #region Dialogue 01
+    public DialogueBase whoAreYou;
     public bool amAlice;
-    public bool willHelp;
-    public bool wontHelp;
     public bool amNobody;
     public bool comeBack;
-    public bool foundOut;
 
-    #endregion
-
-    #region dialogues
-
-    public DialogueBase whoAreYou;
     public DialogueBase willYouHelp;
-    public DialogueBase foundOutWhoYouAre;
-
+    public bool willHelp;
+    public bool wontHelp;
     #endregion
 
-    public DialogueBase currentDialogue;
+    #region Dialogue 02
+    public DialogueBase foundOutWhoYouAre;
+    #endregion
+
+    #region Dialogue 03
+    public DialogueBase tooDark;
+    public bool gotFlashlight;
+    #endregion
+
+
+    public DialogueBase ChooseDialogue()
+    {
+        if (start)
+        {
+            return whoAreYou;
+        }
+        if (amAlice && wontHelp)
+        {
+            return willYouHelp;
+        }
+        if (comeBack)
+        {
+            return foundOutWhoYouAre;
+        }
+        if(amAlice && willHelp)
+        {
+            return tooDark;
+        }
+
+
+        return whoAreYou;
+    }
+
 }

@@ -5,15 +5,16 @@ using UnityEngine;
 //create Logic for events here!
 //use References to acces GameObjects
 
-[CreateAssetMenu(fileName = "New Event", menuName = "Event")]
-public class EventsDialogue01 : ScriptableObject
+[CreateAssetMenu(fileName = "New DialogueEvent", menuName = "DialogueEvent")]
+public class DialogueEvents : ScriptableObject
 {
-
+    
     public void AddJournalPage(JournalPage jp)
     {
         Reference.instance.journalManager.UpdateJournal(jp);
     }
 
+    #region Dialogue  01
     public void SetAmAlice()
     {
         Debug.Log("You chose 'Alice'");
@@ -71,4 +72,17 @@ public class EventsDialogue01 : ScriptableObject
         ResetAlice();
         
     }
+    #endregion
+
+    #region Dialogue 03
+
+    public void SetFlashlight()
+    {
+        DialogueTracker.dialogueTracker.gotFlashlight = true;
+        GameManager.gameManager.flashlightEnabled = true;
+        TutorialManager.tutorialManager.StartCoroutine(TutorialManager.tutorialManager.WaitForEndOfDialogue());
+        Debug.Log("Moving on");
+    }
+
+    #endregion
 }

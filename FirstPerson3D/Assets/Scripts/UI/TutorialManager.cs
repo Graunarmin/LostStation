@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     //public TextMeshProUGUI pauseGame;
     public TextMeshProUGUI openJournal;
     public TextMeshProUGUI closeOverlay;
+    public TextMeshProUGUI toggleFlashlight;
 
     [HideInInspector]
     public bool firstStep;
@@ -20,13 +21,12 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-
+        Debug.Log("Hello");
         if (tutorialManager == null)
         {
             tutorialManager = this;
         }
         openJournal.gameObject.SetActive(false);
-        openJournal.transform.parent.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
 
     }
@@ -45,7 +45,6 @@ public class TutorialManager : MonoBehaviour
     {
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
-        openJournal.transform.parent.gameObject.SetActive(true);
         openJournal.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial());
     }
@@ -54,14 +53,21 @@ public class TutorialManager : MonoBehaviour
     {
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
-        closeOverlay.transform.parent.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
+        StartCoroutine(CloseTutorial());
+    }
+
+    private void ShowFlashlightTut()
+    {
+        Reference.instance.camera2D.enabled = true;
+        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        toggleFlashlight.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial());
     }
 
     private IEnumerator CloseTutorial()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(2f);
 
         if (!GameManager.gameManager.CurrentlyInteracting())
         {
@@ -69,8 +75,18 @@ public class TutorialManager : MonoBehaviour
         }
 
         Reference.instance.gameUICanvas.gameObject.SetActive(false);
-        openJournal.transform.parent.gameObject.SetActive(false);
         openJournal.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
+        toggleFlashlight.gameObject.SetActive(false);
+    }
+
+    public IEnumerator WaitForEndOfDialogue()
+    {
+        yield return new WaitUntil(()
+            => !Reference.instance.dialogueCanvas.gameObject.activeInHierarchy);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ShowFlashlightTut();
     }
 }
