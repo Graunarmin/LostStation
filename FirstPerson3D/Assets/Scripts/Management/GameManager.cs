@@ -127,9 +127,24 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region keep track of what's happening
-    public bool flashlightEnabled;
+    //not in use yet, maybe for lights?
+    #region keep track of power
     public bool powerIsBack;
+
+    public delegate void PowerIsBack();
+    public static event PowerIsBack OnPowerIsBack;
+
+    public void FirePowerIsBack()
+    {
+        if (OnPowerIsBack != null)
+        {
+            OnPowerIsBack();
+        }
+    }
+    #endregion
+
+    #region keep track of flashlight
+    public bool flashlightEnabled;
     #endregion
 
     //is called by the "Canvas" Classes if the interactables in "Activate()" and "Close()"

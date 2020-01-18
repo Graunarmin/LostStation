@@ -811,6 +811,7 @@ MonoBehaviour:
   interactionIcon: {fileID: 0}
   infoTextSwitchedOn: Disable Box
   state: 0
+  changeOnClick: 1
   switchOn: {fileID: 753421486}
   switchOff: {fileID: 1866847736}
 --- !u!1 &36216635
@@ -13580,8 +13581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97fb315918c4489ae2e7466177f534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightEnabled: 0
   powerIsBack: 0
+  flashlightEnabled: 0
 --- !u!4 &598373201
 Transform:
   m_ObjectHideFlags: 0
@@ -20687,6 +20688,7 @@ MonoBehaviour:
   interactionIcon: {fileID: 0}
   infoTextSwitchedOn: Turn off generator
   state: 0
+  changeOnClick: 0
   switchOn: {fileID: 0}
   switchOff: {fileID: 0}
 --- !u!1 &938492071
@@ -21560,9 +21562,11 @@ GameObject:
   - component: {fileID: 957326859}
   - component: {fileID: 957326863}
   - component: {fileID: 957326862}
+  - component: {fileID: 957326864}
   - component: {fileID: 957326861}
   - component: {fileID: 957326860}
-  - component: {fileID: 957326864}
+  - component: {fileID: 957326865}
+  - component: {fileID: 957326866}
   m_Layer: 0
   m_Name: BobsLockerDoor
   m_TagString: Untagged
@@ -21619,7 +21623,7 @@ MonoBehaviour:
   interactable: {fileID: 0}
   journalPage: {fileID: 0}
   location: {fileID: 1342220812}
-  doorUnlocked: 0
+  doorUnlocked: 1
   connectedKeypad: {fileID: 0}
   doorOpen: 0
 --- !u!23 &957326862
@@ -21681,6 +21685,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.011222461, y: 0.009856236, z: 0.001}
   m_Center: {x: 0.000101324855, y: -0.000000087777146, z: 0.00021739138}
+--- !u!114 &957326865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957326858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08959f131be74413a90e7c4030229011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAccess: 0
+  requiredCollector: {fileID: 622940442}
+--- !u!114 &957326866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957326858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2b376fcb01c4c49beeae5e1b663f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAccess: 1
+  observedSwitcher: {fileID: 1355445645}
 --- !u!1 &957525983
 GameObject:
   m_ObjectHideFlags: 0
@@ -26610,7 +26642,6 @@ Transform:
   - {fileID: 24061137}
   - {fileID: 992345956}
   - {fileID: 2086398213}
-  - {fileID: 1355445641}
   m_Father: {fileID: 1911419757}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26631,7 +26662,6 @@ MonoBehaviour:
   - {fileID: 1209903902}
   - {fileID: 992345958}
   - {fileID: 24061139}
-  - {fileID: 1355445642}
   containedDoors: []
 --- !u!135 &1174497602
 SphereCollider:
@@ -28318,7 +28348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1249213245}
   m_Layer: 0
-  m_Name: ChangingRoom
+  m_Name: LockerRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28337,6 +28367,7 @@ Transform:
   m_Children:
   - {fileID: 1404010509}
   - {fileID: 1342220811}
+  - {fileID: 2051068846}
   m_Father: {fileID: 304515668}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30508,6 +30539,7 @@ GameObject:
   - component: {fileID: 1355445643}
   - component: {fileID: 1355445642}
   - component: {fileID: 1355445644}
+  - component: {fileID: 1355445645}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -30522,14 +30554,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355445640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.28, y: 1.42, z: 4.58}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 908215048}
-  m_Father: {fileID: 1174497600}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 2051068846}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1355445642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30545,7 +30577,7 @@ MonoBehaviour:
   col: {fileID: 0}
   interactable: {fileID: 0}
   journalPage: {fileID: 0}
-  location: {fileID: 1174497601}
+  location: {fileID: 2051068847}
 --- !u!65 &1355445643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30575,6 +30607,26 @@ MonoBehaviour:
   infoTextInactive: 
   interactionIcon: {fileID: 466413504}
   JigsawCanvas: {fileID: 59297847}
+--- !u!114 &1355445645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355445640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562a00fce6661482f99c84d9e0657245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoTextActive: 
+  infoTextInactive: 
+  interactionIcon: {fileID: 0}
+  infoTextSwitchedOn: 
+  state: 0
+  changeOnClick: 0
+  switchOn: {fileID: 0}
+  switchOff: {fileID: 0}
 --- !u!1 &1356748363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 80f6fe385afd5df4e8a3bd3b3e3e339f,
@@ -42921,6 +42973,67 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 55b4eba36716a764db2d060cf6e759c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74abbd23f73f1934d8226e2c311b9fc8, type: 3}
+--- !u!1 &2051068845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051068846}
+  - component: {fileID: 2051068848}
+  - component: {fileID: 2051068847}
+  m_Layer: 0
+  m_Name: Region_Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051068846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051068845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.8, y: 0, z: -5.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1355445641}
+  m_Father: {fileID: 1249213245}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2051068847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051068845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19705e46883b4f4a8f98386f098ccbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containedItems:
+  - {fileID: 1355445642}
+  containedDoors: []
+--- !u!135 &2051068848
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051068845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2054074932
 GameObject:
   m_ObjectHideFlags: 0

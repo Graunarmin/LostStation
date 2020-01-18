@@ -15,4 +15,9 @@ public class Prerequisite : MonoBehaviour
             return false;
         }
     }
+
+    public virtual void Print()
+    {
+        Debug.Log("Prerequisite");
+    }
 }

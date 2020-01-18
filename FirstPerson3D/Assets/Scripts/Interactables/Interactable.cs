@@ -31,29 +31,16 @@ public abstract class Interactable : MonoBehaviour
     //    Reference.instance.objectInfoDisplay.gameObject.transform.LookAt(Reference.instance.player);
     }
 
-    public virtual void ShowInfo(Prerequisite hasPrereq)
+    
+    public virtual void ShowInfo(bool allPrerequsComplete)
     {
         //EnableInfoCanvas();
-
-        //is not clickable bc. Prerequ is not met
-        if(hasPrereq && !hasPrereq.Complete)
+        if (allPrerequsComplete)
         {
-            //if(infoTextInactive != "")
-            //{
-            //    displayText.text = infoTextInactive;
-            //}
-        //is clickable bc. Prerequ is met
-        }else if(!hasPrereq || (hasPrereq && hasPrereq.Complete))
-        {
-            if(interactionIcon != null)
+            if (interactionIcon != null)
             {
                 interactionIcon.gameObject.SetActive(true);
             }
-            
-            //if (infoTextActive != "")
-            //{
-            //    displayText.text = infoTextActive;
-            //}
         }
     }
 
@@ -67,6 +54,33 @@ public abstract class Interactable : MonoBehaviour
         //Reference.instance.objectInfoDisplay.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
         //Reference.instance.objectInfoDisplay.gameObject.gameObject.SetActive(false);
     }
+
+    //public virtual void ShowInfo(Prerequisite hasPrereq)
+    //{
+    //    //EnableInfoCanvas();
+
+    //    //is not clickable bc. Prerequ is not met
+    //    if(hasPrereq && !hasPrereq.Complete)
+    //    {
+    //        //if(infoTextInactive != "")
+    //        //{
+    //        //    displayText.text = infoTextInactive;
+    //        //}
+    //    //is clickable bc. Prerequ is met
+    //    }else if(!hasPrereq || (hasPrereq && hasPrereq.Complete))
+    //    {
+    //        if(interactionIcon != null)
+    //        {
+    //            interactionIcon.gameObject.SetActive(true);
+    //        }
+
+    //        //if (infoTextActive != "")
+    //        //{
+    //        //    displayText.text = infoTextActive;
+    //        //}
+    //    }
+    //}
+
 
 
 }

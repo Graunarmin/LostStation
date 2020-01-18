@@ -25,10 +25,10 @@ public class Door : Item
         {
             if (!doorOpen)
             {
-                var hasPrerequ = GetComponent<Prerequisite>();
+                //var hasPrerequ = GetComponent<Prerequisite>();
                 if (interactable != null)
                 {
-                    interactable.ShowInfo(hasPrerequ);
+                    interactable.ShowInfo(AllPrerequsComplete());
                 }
             }
             

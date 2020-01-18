@@ -12,13 +12,12 @@ public class Keypad : Item
     {
         if (!door.doorUnlocked)
         {
-            var hasPrerequ = GetComponent<Prerequisite>();
             //make item interactable, if prerequisite is met
             if (interactable != null)
             {
                 Debug.Log("Current Keypad: " + name);
                 Reference.instance.currentKeypad = this;
-                if (!hasPrerequ || (hasPrerequ && hasPrerequ.Complete))
+                if (AllPrerequsComplete())
                 {
                     Reference.instance.keyPad.gameObject.SetActive(true);
                     interactable.enabled = true;

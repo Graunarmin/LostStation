@@ -16,7 +16,7 @@ public class Collectable : Item
         //make item interactable, if prerequisite is met
         if (interactable != null)
         {
-            if (!hasPrerequ || (hasPrerequ && hasPrerequ.Complete))
+            if (AllPrerequsComplete())
             {
                 interactable.enabled = true;
                 CheckForCollectable();

@@ -29,6 +29,13 @@ public class JigsawInspector : Interactable
         JigsawManager.jigsawManager.canvas.solved = true;
         GetComponent<Collider>().enabled = false;
 
+        if(GetComponent<Switcher>() != null)
+        {
+            GetComponent<Switcher>().ChangeState();
+        }
+
+        GameManager.gameManager.powerIsBack = true;
+
         Reference.instance.jigsawCanvas.Close();
     }
 }

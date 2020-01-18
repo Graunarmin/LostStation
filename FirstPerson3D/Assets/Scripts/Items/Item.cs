@@ -43,11 +43,12 @@ public class Item : MonoBehaviour
     {
         if (!GameManager.gameManager.CurrentlyInteracting())
         {
-            var hasPrerequ = GetComponent<Prerequisite>();
+            //var hasPrerequ = GetComponent<Prerequisite>();
+
             if (interactable != null)
             {
                 //change Cursor
-                interactable.ShowInfo(hasPrerequ);
+                interactable.ShowInfo(AllPrerequsComplete());
             }
         }
     }
@@ -67,7 +68,7 @@ public class Item : MonoBehaviour
             ManageJournalInfo();
 
             //update Info about Object
-            var hasPrerequ = GetComponent<Prerequisite>();
+
             //We don't need Info on a door thats opening and just sliding under our mouse (works)
             //And neither do we need to see the speech-bubble while talking (!!FIX!!)
             if ((this is Door && ((Door)this).doorOpen)
@@ -82,7 +83,7 @@ public class Item : MonoBehaviour
             {
                 if (interactable != null && gameObject.activeInHierarchy)
                 {
-                    interactable.ShowInfo(hasPrerequ);
+                    interactable.ShowInfo(AllPrerequsComplete());
                 }
             }
         }
@@ -98,11 +99,11 @@ public class Item : MonoBehaviour
 
     public virtual void ManageInteractables()
     {
-        var hasPrerequ = GetComponent<Prerequisite>();
+
         //make item interactable, if prerequisite is met
         if (interactable != null)
         {
-            if (!hasPrerequ || (hasPrerequ && hasPrerequ.Complete))
+            if (AllPrerequsComplete())
             {
                 interactable.enabled = true;
                 CheckForCollectable();
@@ -114,14 +115,20 @@ public class Item : MonoBehaviour
     //Check if the Item required a collectable 
     protected void CheckForCollectable()
     {
-        var hasPrerequ = GetComponent<Prerequisite>();
         // if it was required to hold a certain collectable:
         // dismiss this collectable now and close Inventory Display
-        if (hasPrerequ is CollectPrereq)
-        {
-            Reference.instance.collectHeld = null;
 
+        var prerequisites = GetComponents<Prerequisite>();
+        
+        foreach(Prerequisite p in prerequisites)
+        {
+            if(p is CollectPrereq)
+            {
+                Reference.instance.collectHeld = null;
+                return;
+            }
         }
+        
     }
 
     void OnMouseExit()
@@ -143,6 +150,33 @@ public class Item : MonoBehaviour
             Reference.instance.currentKeypad = null;
             //Debug.Log("current item is null");
         }
+    }
 
+    public bool AllPrerequsComplete()
+    {
+        var prerequisites = gameObject.GetComponents<Prerequisite>();
+
+        //either there is none - in which case it's "complete"
+        if(prerequisites.Length == 0)
+        {
+            //Debug.Log("No Prerequisites");
+            return true;
+        }
+
+        //foreach(Prerequisite p in prerequisites)
+        //{
+        //    Debug.Log("There are Prerequs: ");
+        //    p.Print();
+        //}
+
+        //or we have to test each prerequ and as soon as one is not met, it's incomplete
+        foreach (Prerequisite p in prerequisites)
+        {
+            if (!p.Complete)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -5,9 +5,6 @@ using TMPro;
 
 public class DoorOpener : Interactable
 {
-    //public Animator doorAnimation;
-    //public string openAnimation;
-    //public string closeAnimation;
     public List<Animator> animators = new List<Animator>();
     public List<string> openingAnimations;
     public List<string> closingAnimations;
@@ -24,8 +21,11 @@ public class DoorOpener : Interactable
     {
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
+
         if(animators.Count == 0)
         {
+            //just a workaround in case animation is missing
+            //careful: if deacivated it can't be closed again!
             gameObject.SetActive(false);
         }
         else
@@ -42,9 +42,10 @@ public class DoorOpener : Interactable
         door.doorOpen = true;
     }
 
-    public override void ShowInfo(Prerequisite hasPrereq)
+    public override void ShowInfo(bool allPrerequsComplete)
     {
-        if (!hasPrereq || (hasPrereq && hasPrereq.Complete))
+
+        if (allPrerequsComplete)
         {
             if (!door.doorOpen)
             {
@@ -53,7 +54,11 @@ public class DoorOpener : Interactable
                     interactionIcon.gameObject.SetActive(true);
                 }
             }
-            
+
+        }
+        else
+        {
+            //Debug.Log("not all prerequs complete");
         }
     }
 
@@ -70,4 +75,19 @@ public class DoorOpener : Interactable
         }
         door.doorOpen = false;
     }
+
+    //public override void ShowInfo(Prerequisite hasPrereq)
+    //{
+    //    if (!hasPrereq || (hasPrereq && hasPrereq.Complete))
+    //    {
+    //        if (!door.doorOpen)
+    //        {
+    //            if (interactionIcon != null)
+    //            {
+    //                interactionIcon.gameObject.SetActive(true);
+    //            }
+    //        }
+
+    //    }
+    //}
 }

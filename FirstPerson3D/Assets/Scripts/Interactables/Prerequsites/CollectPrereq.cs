@@ -27,4 +27,9 @@ public class CollectPrereq : Prerequisite
             
         }
     }
+
+    public override void Print()
+    {
+        Debug.Log("Collect Prerequisite");
+    }
 }

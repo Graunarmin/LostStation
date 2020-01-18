@@ -15,5 +15,10 @@ public class SwitchPrereq : Prerequisite
             return observedSwitcher.state;
         }
     }
+
+    public override void Print()
+    {
+        Debug.Log("Switcher Prerequisite");
+    }
 }
 

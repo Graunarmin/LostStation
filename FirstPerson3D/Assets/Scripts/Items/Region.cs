@@ -43,29 +43,56 @@ public class Region : MonoBehaviour
         {
             foreach (Item item in containedItems)
             {
-
-                var hasPrerequ = item.GetComponent<Prerequisite>();
+                var prerequisites = GetComponents<Prerequisite>();
                 //if item has a collider:
                 if (item.col != null)
                 {
-                    //if it has a Prerequisite which is about acces
-                    if (hasPrerequ && hasPrerequ.itemAccess)
+                    bool itemAccess = false;
+                    foreach(Prerequisite p in prerequisites)
                     {
-                        //the prerequisite has to be met to enable the collider
-                        if (hasPrerequ.Complete)
+                        //if it has a Prerequisite which is about acces
+                        if (p.itemAccess)
                         {
-                            item.col.enabled = colliderValue;
-                            Debug.Log("ItemAccess granted");
+                            itemAccess = true;
+                            //the prerequisite has to be met to enable the collider
+                            if (p.Complete)
+                            {
+                                item.col.enabled = colliderValue;
+                                Debug.Log("ItemAccess granted");
+                                return;
+                            }
                         }
-
+                        
                     }
-                    else
+                    if(!itemAccess)
                     {
                         //turn collider on or off (depending in entering or exiting the region
                         item.col.enabled = colliderValue;
                     }
-
                 }
+
+                //var hasPrerequ = item.GetComponent<Prerequisite>();
+                ////if item has a collider:
+                //if (item.col != null)
+                //{
+                //    //if it has a Prerequisite which is about acces
+                //    if (hasPrerequ && hasPrerequ.itemAccess)
+                //    {
+                //        //the prerequisite has to be met to enable the collider
+                //        if (hasPrerequ.Complete)
+                //        {
+                //            item.col.enabled = colliderValue;
+                //            Debug.Log("ItemAccess granted");
+                //        }
+
+                //    }
+                //    else
+                //    {
+                //        //turn collider on or off (depending in entering or exiting the region
+                //        item.col.enabled = colliderValue;
+                //    }
+
+                //}
             }
         }
         
