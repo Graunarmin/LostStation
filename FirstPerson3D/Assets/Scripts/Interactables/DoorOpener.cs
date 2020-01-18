@@ -24,9 +24,16 @@ public class DoorOpener : Interactable
     {
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
-        for (int i = 0; i < animators.Count; i++)
+        if(animators.Count == 0)
         {
-            animators[i].Play(openingAnimations[i]);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            for (int i = 0; i < animators.Count; i++)
+            {
+                animators[i].Play(openingAnimations[i]);
+            }
         }
         if(doorLock != null)
         {
