@@ -130,7 +130,12 @@ public class Item : MonoBehaviour
 
             //set current Item to null
             Reference.instance.currentItem = null;
-            //Reference.instance.currentKeypad = null;
+            if(Reference.instance.currentKeypad != null)
+            {
+                Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().StopCoroutine(
+                    Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().checkPassword);
+                Reference.instance.currentKeypad = null;
+            }
             //Debug.Log("current item is null");
         }
     }

@@ -32,6 +32,7 @@ public class SmashDoorCanvas : MonoBehaviour
             }
             else
             {
+                Debug.Log("Crowbar not collected");
                 Reference.instance.keyPad.Close();
                 //Add Journalpage "ouw"
             }
