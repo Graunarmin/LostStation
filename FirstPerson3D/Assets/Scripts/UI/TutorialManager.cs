@@ -51,6 +51,16 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitForEndOfInspect()
+    {
+        yield return new WaitUntil(()
+            => !Reference.instance.obsCam.gameObject.activeInHierarchy);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ShowInventoryTut();
+    }
+
     public void ShowInventoryTut()
     {
         Reference.instance.camera2D.enabled = true;
@@ -75,6 +85,17 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(CloseTutorial());
     }
 
+    //Is called from DialogueEvents when the flashlight is enabled
+    public IEnumerator WaitForEndOfDialogue()
+    {
+        yield return new WaitUntil(()
+            => !Reference.instance.dialogueCanvas.gameObject.activeInHierarchy);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ShowFlashlightTut();
+    }
+
     private void ShowFlashlightTut()
     {
         Reference.instance.camera2D.enabled = true;
@@ -82,6 +103,7 @@ public class TutorialManager : MonoBehaviour
         toggleFlashlight.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial());
     }
+
 
     private IEnumerator CloseTutorial()
     {
@@ -96,25 +118,5 @@ public class TutorialManager : MonoBehaviour
         openJournal.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
         toggleFlashlight.gameObject.SetActive(false);
-    }
-
-    public IEnumerator WaitForEndOfDialogue()
-    {
-        yield return new WaitUntil(()
-            => !Reference.instance.dialogueCanvas.gameObject.activeInHierarchy);
-
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        ShowFlashlightTut();
-    }
-
-    public IEnumerator WaitForEndOfInspect()
-    {
-        yield return new WaitUntil(()
-            => !Reference.instance.obsCam.gameObject.activeInHierarchy);
-
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        ShowInventoryTut();
     }
 }

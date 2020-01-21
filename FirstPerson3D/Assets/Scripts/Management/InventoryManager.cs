@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -22,9 +23,10 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     public Transform itemsParent;
-
     public int space = 6;
     public List<Collectable> items = new List<Collectable>();
+
+    public Image newItemInfo;
 
     InventorySlot[] slots;
 
@@ -58,7 +60,7 @@ public class InventoryManager : MonoBehaviour
 
     public void OpenInventory()
     {
-        if (Reference.instance.inventoryCanvas.gameObject.activeInHierarchy)
+        if (Reference.instance.inventory.gameObject.activeInHierarchy)
         {
             CloseInventory();
         }
@@ -66,6 +68,7 @@ public class InventoryManager : MonoBehaviour
         {
             GameManager.gameManager.SwitchCameras("2D");
             Reference.instance.inventoryCanvas.gameObject.SetActive(true);
+            Reference.instance.inventory.gameObject.SetActive(true);
         }
     }
 
@@ -76,6 +79,7 @@ public class InventoryManager : MonoBehaviour
             GameManager.gameManager.SwitchCameras("3D");
         }
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
+        Reference.instance.inventory.gameObject.SetActive(false);
     }
 
     void UpdateUI()
@@ -91,6 +95,26 @@ public class InventoryManager : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+        StartCoroutine(ShowUpdateIcon());
+    }
+
+    private IEnumerator ShowUpdateIcon()
+    {
+        //wait until the player is back in the game
+        yield return new WaitUntil(()
+            => !GameManager.gameManager.CurrentlyInteracting());
+
+        //show pop-up that journal was updated
+        Reference.instance.inventoryCanvas.gameObject.SetActive(true);
+        newItemInfo.gameObject.SetActive(true);
+        //PlaySound
+        //...
+
+        yield return new WaitForSeconds(2);
+
+        //hide pop-up
+        Reference.instance.inventoryCanvas.gameObject.SetActive(false);
+        newItemInfo.gameObject.SetActive(false);
     }
 
 }

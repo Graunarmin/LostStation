@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
 
     public bool InventoryOpen()
     {
-        return Reference.instance.inventoryCanvas.gameObject.activeInHierarchy;
+        return Reference.instance.inventory.gameObject.activeInHierarchy;
     }
 
     //test if game is on pause

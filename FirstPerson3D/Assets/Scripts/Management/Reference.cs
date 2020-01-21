@@ -26,6 +26,7 @@ public class Reference : MonoBehaviour
         journal.gameObject.SetActive(false);
         journalUpdateInfo.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
+        inventory.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -57,11 +58,11 @@ public class Reference : MonoBehaviour
     public TextMeshProUGUI ObjectInfoDisplayText;
     public SmashDoorCanvas smashDoorCanvas;
 
-    //public JournalManager journalManager;
     public Canvas journal;
     public Canvas journalUpdateInfo;
 
     public Canvas inventoryCanvas;
+    public GameObject inventory;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;
