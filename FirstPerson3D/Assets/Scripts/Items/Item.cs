@@ -130,7 +130,7 @@ public class Item : MonoBehaviour
 
             //set current Item to null
             Reference.instance.currentItem = null;
-            Reference.instance.currentKeypad = null;
+            //Reference.instance.currentKeypad = null;
             //Debug.Log("current item is null");
         }
     }

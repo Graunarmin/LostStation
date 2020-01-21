@@ -14,10 +14,13 @@ public class CollectPrereq : Prerequisite
             {
                 if (InventoryManager.invManager.items.Contains(requiredCollector.collectableItem))
                 {
+                    Debug.Log("Required Item in inventory");
                     return true;
                 }
+                Debug.Log("Required Item NOT in inventory");
                 return false;
             }
+            Debug.Log("Required Item NOT in inventory");
             return false;
         }
     }

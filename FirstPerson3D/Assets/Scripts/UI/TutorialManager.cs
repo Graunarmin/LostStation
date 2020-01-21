@@ -28,7 +28,9 @@ public class TutorialManager : MonoBehaviour
             tutorialManager = this;
         }
         openJournal.gameObject.SetActive(false);
+        openInventory.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
+        toggleFlashlight.gameObject.SetActive(false);
 
     }
     #endregion
@@ -116,6 +118,7 @@ public class TutorialManager : MonoBehaviour
 
         Reference.instance.gameUICanvas.gameObject.SetActive(false);
         openJournal.gameObject.SetActive(false);
+        openInventory.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
         toggleFlashlight.gameObject.SetActive(false);
     }

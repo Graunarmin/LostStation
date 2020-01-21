@@ -27,9 +27,8 @@ public class KeyPadCanvas : MonoBehaviour
 
     public void Close(){
         //Close Keypad, unfreeze Game
+        StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().checkPassword);
         GameManager.gameManager.SwitchCameras("3D");
-        StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().CheckPassword());
-
         keypadUI.SetActive(false);
         Time.timeScale = 1f;
         //Close Canvas

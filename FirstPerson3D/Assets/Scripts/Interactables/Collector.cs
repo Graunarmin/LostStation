@@ -37,6 +37,9 @@ public class Collector : Interactable
 
     public void InspectObject()
     {
+        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+        TutorialManager.tutorialManager.FirstCanvas();
+
         //"duplicate" the clicked on Object
         GameObject item = Instantiate(gameObject);
 

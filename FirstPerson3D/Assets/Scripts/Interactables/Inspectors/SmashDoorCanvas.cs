@@ -26,6 +26,7 @@ public class SmashDoorCanvas : MonoBehaviour
         {
             if (InventoryManager.invManager.items.Contains(crowbar))
             {
+                Debug.Log("Crowbar collected");
                 Reference.instance.keyPad.SmashedKeyPad();
                 //Add journalPag "yay"
             }
