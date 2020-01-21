@@ -5,6 +5,24 @@ using UnityEngine.UI;
 
 public class JournalManager : MonoBehaviour
 {
+
+    #region Singleton
+    public static JournalManager journalManager;
+    private void Awake()
+    {
+
+        if (journalManager == null)
+        {
+            journalManager = this;
+        }
+        else
+        {
+            Debug.LogWarning("More than one instance of Journal!");
+        }
+
+    }
+    #endregion
+
     public Image background;
     public Button next;
     public Button prev;
@@ -13,7 +31,7 @@ public class JournalManager : MonoBehaviour
     public PageInfo currentPage;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //Subscribe to the event that new information can be added to the journal
         GameManager.OnNewJournalInfo += UpdateJournal;

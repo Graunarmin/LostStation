@@ -1,17 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Item))]
 public class Collector : Interactable
 {
-    //public string infoText;
 
     [HideInInspector]
     public Collectable collectableItem;
-    //to control if the item can be collected atm
-    //bool collectablePresent;
+
     private void Awake()
     {
         collectableItem = GetComponent<Collectable>();
@@ -19,14 +14,25 @@ public class Collector : Interactable
 
     public override void Interact()
     {
-        //on click we collect the item
-        Reference.instance.collectHeld = collectableItem;
-        //Reference.instance.inventoryDisplay.Activate();
+        PickUpItem();
+    }
+
+    public void PickUpItem()
+    {
         //Hide the Object Information
         HideInfo();
+        //Inspect Object before we add it to the backpack
         InspectObject();
+
+        bool wasPickedUp =
+            InventoryManager.invManager.AddItem(gameObject.GetComponent<Collectable>());
+
         //and set it to inactive so it is no longer visible or accessible
-        gameObject.SetActive(false);
+        if (wasPickedUp)
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 
     public void InspectObject()

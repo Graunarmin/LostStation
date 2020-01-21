@@ -9,9 +9,10 @@ public class Item : MonoBehaviour
     public Collider col;
     [HideInInspector]
     public Interactable interactable;
+
+    public ItemAsset itemInfo;
+
     public JournalPage journalPage;
-
-
     public Region location;
 
     //is always called (when Object is active)
@@ -106,30 +107,12 @@ public class Item : MonoBehaviour
             if (AllPrerequsComplete())
             {
                 interactable.enabled = true;
-                CheckForCollectable();
+                //CheckForCollectable();
                 interactable.Interact();
             }
         }
     }
-
-    //Check if the Item required a collectable 
-    protected void CheckForCollectable()
-    {
-        // if it was required to hold a certain collectable:
-        // dismiss this collectable now and close Inventory Display
-
-        var prerequisites = GetComponents<Prerequisite>();
-        
-        foreach(Prerequisite p in prerequisites)
-        {
-            if(p is CollectPrereq)
-            {
-                Reference.instance.collectHeld = null;
-                return;
-            }
-        }
-        
-    }
+   
 
     void OnMouseExit()
     {
@@ -179,4 +162,23 @@ public class Item : MonoBehaviour
         }
         return true;
     }
+
+    //Check if the Item required a collectable 
+    //protected void CheckForCollectable()
+    //{
+    //    // if it was required to hold a certain collectable:
+    //    // dismiss this collectable now and close Inventory Display
+
+    //    var prerequisites = GetComponents<Prerequisite>();
+
+    //    foreach(Prerequisite p in prerequisites)
+    //    {
+    //        if(p is CollectPrereq)
+    //        {
+    //            Reference.instance.collectHeld = null;
+    //            return;
+    //        }
+    //    }
+
+    //}
 }

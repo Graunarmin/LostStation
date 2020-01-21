@@ -24,23 +24,23 @@ public class InventoryDispaly : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        string displayName = "none";
-        if(Reference.instance.collectHeld != null)
-        {
-            if (Reference.instance.collectHeld.useMessage != "")
-            {
-                Debug.Log(Reference.instance.collectHeld.useMessage);
-                displayText.text = Reference.instance.collectHeld.useMessage;
-            }
-            else
-            {
-                if (Reference.instance.collectHeld.collectName != "")
-                {
-                    displayName = Reference.instance.collectHeld.collectName;
-                }
-                displayText.text = "Item Held: " + displayName;
-            }
-        }
+        //string displayName = "none";
+        //if(Reference.instance.collectHeld != null)
+        //{
+        //    if (Reference.instance.collectHeld.useMessage != "")
+        //    {
+        //        Debug.Log(Reference.instance.collectHeld.useMessage);
+        //        displayText.text = Reference.instance.collectHeld.useMessage;
+        //    }
+        //    else
+        //    {
+        //        if (Reference.instance.collectHeld.collectName != "")
+        //        {
+        //            displayName = Reference.instance.collectHeld.collectName;
+        //        }
+        //        displayText.text = "Item Held: " + displayName;
+        //    }
+        //}
         
     }
 

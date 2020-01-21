@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-[CreateAssetMenu(fileName = "New Dialogue Option", menuName = "DialogueOptions")]
+[CreateAssetMenu(fileName = "New Dialogue Option", menuName = "Dialogue/DialogueOptions")]
 public class DialogueOptions : DialogueBase
 {
     public CharacterProfile character;

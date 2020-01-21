@@ -11,7 +11,7 @@ public class DialogueEvents : ScriptableObject
     
     public void AddJournalPage(JournalPage jp)
     {
-        Reference.instance.journalManager.UpdateJournal(jp);
+        JournalManager.journalManager.UpdateJournal(jp);
     }
 
     #region Dialogue  01

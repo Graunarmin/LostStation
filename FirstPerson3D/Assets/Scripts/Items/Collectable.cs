@@ -19,7 +19,7 @@ public class Collectable : Item
             if (AllPrerequsComplete())
             {
                 interactable.enabled = true;
-                CheckForCollectable();
+                //CheckForCollectable();
                 interactable.Interact();
             }
         }

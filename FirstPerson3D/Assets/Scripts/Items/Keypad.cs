@@ -21,7 +21,7 @@ public class Keypad : Item
                 {
                     Reference.instance.keyPad.gameObject.SetActive(true);
                     interactable.enabled = true;
-                    CheckForCollectable();
+                    //CheckForCollectable();
                     interactable.Interact();
                 }
                     

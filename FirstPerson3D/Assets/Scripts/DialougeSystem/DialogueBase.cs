@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "New Dialogue", menuName ="Dialogues")]
+[CreateAssetMenu(fileName = "New Dialogue", menuName ="Dialogue/DialogueBase")]
 public class DialogueBase : ScriptableObject
 {
     public bool givesJournalInfo;

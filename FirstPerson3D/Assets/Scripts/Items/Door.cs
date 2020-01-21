@@ -37,19 +37,17 @@ public class Door : Item
 
     public override void ManageInteractables()
     {
-
-        var hasPrerequ = GetComponent<Prerequisite>();
         //make item interactable, if prerequisite is met
         if (interactable != null)
         {
             Reference.instance.currentDoor = this;
 
-            if (!hasPrerequ || (hasPrerequ && hasPrerequ.Complete))
+            if (AllPrerequsComplete())
             {
 
                 Debug.Log("I'm opening because I was unlocked!");
                 interactable.enabled = true;
-                CheckForCollectable();
+                //CheckForCollectable();
                 interactable.Interact();
             }
             else

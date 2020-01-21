@@ -4,32 +4,21 @@ using UnityEngine;
 
 public class CollectPrereq : Prerequisite
 {
-
-    //if true check for collectable instead of switcher
-    //public bool requireCollectable;
-
-    //if requireCollectable is true, check this collector
     public Collector requiredCollector;
 
     //check if Prerequisite is met
     public override bool Complete
     {
         get{
-            if(Reference.instance.collectHeld != null)
+            if(InventoryManager.invManager.items.Count > 0)
             {
-                return Reference.instance.collectHeld.collectName
-                    == requiredCollector.collectableItem.collectName;
-            }
-            else
-            {
+                if (InventoryManager.invManager.items.Contains(requiredCollector.collectableItem))
+                {
+                    return true;
+                }
                 return false;
             }
-            
+            return false;
         }
-    }
-
-    public override void Print()
-    {
-        Debug.Log("Collect Prerequisite");
     }
 }

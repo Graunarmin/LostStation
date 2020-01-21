@@ -27,7 +27,7 @@ public class DiaryCanvas : MonoBehaviour
         Time.timeScale = 1f;
 
         //add journalPage to journal
-        Reference.instance.journalManager.UpdateJournal(journalPage);
+       JournalManager.journalManager.UpdateJournal(journalPage);
         journalPage = null;
     }
 }

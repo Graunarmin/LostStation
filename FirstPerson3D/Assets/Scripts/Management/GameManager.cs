@@ -6,7 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
-    #region singleton
+    #region Singleton
     public static GameManager gameManager;
 
     //very bad singleton, look up how it's done properly!!
@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
         if (gameManager == null)
         {
             gameManager = this;
+        }
+        else
+        {
+            Debug.LogWarning("More than one instance of GameManager!");
         }
 
     }
@@ -27,7 +31,7 @@ public class GameManager : MonoBehaviour
         //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
         if (Input.GetMouseButtonDown(1) && Reference.instance.currentItem != null)
         {
-            if (!JournalOpen())
+            if (!JournalOpen() && !InventoryOpen())
             {
                 if (Reference.instance.ivCanvas.gameObject.activeInHierarchy)
                 {
@@ -55,14 +59,35 @@ public class GameManager : MonoBehaviour
                     Reference.instance.jigsawCanvas.Close();
                 }
             }
-            else //If Jorunal open
+            //else if both are open close both
+            else if (InventoryOpen() && JournalOpen())
             {
-                Reference.instance.journalManager.CloseJournal();
+                InventoryManager.invManager.CloseInventory();
+                JournalManager.journalManager.CloseJournal();
+            }
+            //if inventory open
+            else if (InventoryOpen())
+            {
+                InventoryManager.invManager.CloseInventory();
+            }
+            //If Jorunal open
+            else if (JournalOpen())
+            {
+                JournalManager.journalManager.CloseJournal();
             }
         }
-        else if (Input.GetMouseButtonDown(1) && JournalOpen())
+        else if (Input.GetMouseButtonDown(1) && JournalOpen() && !InventoryOpen())
         {
-            Reference.instance.journalManager.CloseJournal();
+            JournalManager.journalManager.CloseJournal();
+        }
+        else if (Input.GetMouseButtonDown(1) && InventoryOpen() && !JournalOpen())
+        {
+            InventoryManager.invManager.CloseInventory();
+        }
+        else if (Input.GetMouseButtonDown(1) && InventoryOpen() && JournalOpen())
+        {
+            InventoryManager.invManager.CloseInventory();
+            JournalManager.journalManager.CloseJournal();
         }
 
 
@@ -87,12 +112,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //if I is pressed: toggle journal
-        if (Input.GetKeyDown(KeyCode.I))
+        //if J is pressed: toggle journal
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            Reference.instance.journalManager.OpenJournal();
+            JournalManager.journalManager.OpenJournal();
         }
 
+        //if I is pressed: toggle inventory
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+           InventoryManager.invManager.OpenInventory();
+        }
+
+        //Show first Tutorial on first move
         if (!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
         {
@@ -177,7 +209,7 @@ public class GameManager : MonoBehaviour
     //test if there is currently an Inspector up
     public bool CurrentlyInteracting()
     {
-        return (InspectorOpen() || JournalOpen() || GameIsOnPause());
+        return (InspectorOpen() || JournalOpen() || GameIsOnPause() || InventoryOpen());
     }
 
     public bool InspectorOpen()
@@ -193,6 +225,11 @@ public class GameManager : MonoBehaviour
     public bool JournalOpen()
     {
         return Reference.instance.journal.gameObject.activeInHierarchy;
+    }
+
+    public bool InventoryOpen()
+    {
+        return Reference.instance.inventoryCanvas.gameObject.activeInHierarchy;
     }
 
     //test if game is on pause

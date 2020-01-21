@@ -229,7 +229,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (DialogueTracker.dialogueTracker.currentDialogue.journalPage != null)
         {
-            Reference.instance.journalManager.UpdateJournal(DialogueTracker.dialogueTracker.currentDialogue.journalPage);
+            JournalManager.journalManager.UpdateJournal(DialogueTracker.dialogueTracker.currentDialogue.journalPage);
         }
         DialogueTracker.dialogueTracker.currentDialogue = null;
     }

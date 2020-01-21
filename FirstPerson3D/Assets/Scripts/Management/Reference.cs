@@ -25,6 +25,7 @@ public class Reference : MonoBehaviour
         smashDoorCanvas.gameObject.SetActive(false);
         journal.gameObject.SetActive(false);
         journalUpdateInfo.gameObject.SetActive(false);
+        inventoryCanvas.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -56,9 +57,11 @@ public class Reference : MonoBehaviour
     public TextMeshProUGUI ObjectInfoDisplayText;
     public SmashDoorCanvas smashDoorCanvas;
 
-    public JournalManager journalManager;
+    //public JournalManager journalManager;
     public Canvas journal;
     public Canvas journalUpdateInfo;
+
+    public Canvas inventoryCanvas;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;
@@ -76,8 +79,6 @@ public class Reference : MonoBehaviour
     public Keypad currentKeypad;
     [HideInInspector]
     public Door currentDoor;
-
-    public Collectable collectHeld = null;
 
     public bool currentlyInteracting;
 

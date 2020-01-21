@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     //public TextMeshProUGUI pauseGame;
     public TextMeshProUGUI openJournal;
+    public TextMeshProUGUI openInventory;
     public TextMeshProUGUI closeOverlay;
     public TextMeshProUGUI toggleFlashlight;
 
@@ -14,7 +15,8 @@ public class TutorialManager : MonoBehaviour
     public bool firstStep;
     [HideInInspector]
     public bool firstCanvas;
-
+    [HideInInspector]
+    public bool firstCollectable;
 
     #region singleton
     public static TutorialManager tutorialManager;
@@ -38,6 +40,23 @@ public class TutorialManager : MonoBehaviour
             firstCanvas = true;
             ShowCloseTut();
         }
+    }
+
+    public void FirstCollectable()
+    {
+        if (!firstCollectable)
+        {
+            firstCollectable = true;
+            StartCoroutine(WaitForEndOfInspect());
+        }
+    }
+
+    public void ShowInventoryTut()
+    {
+        Reference.instance.camera2D.enabled = true;
+        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        openInventory.gameObject.SetActive(true);
+        StartCoroutine(CloseTutorial());
     }
 
     public void ShowJournalTut()
@@ -87,5 +106,15 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 
         ShowFlashlightTut();
+    }
+
+    public IEnumerator WaitForEndOfInspect()
+    {
+        yield return new WaitUntil(()
+            => !Reference.instance.obsCam.gameObject.activeInHierarchy);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ShowInventoryTut();
     }
 }
