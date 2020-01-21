@@ -46,42 +46,47 @@ public class KeyPadCanvas : MonoBehaviour
     public void InputFromButton(Button btn)
     {
         //get password and passwordlength
-        password = Reference.instance.currentKeypad.password;
-        //Debug.Log("Password: " + password);
-        maxDigits = password.Length;
+        if(Reference.instance.currentKeypad.password != "0")
+        {
+            password = Reference.instance.currentKeypad.password;
+            //Debug.Log("Password: " + password);
+            maxDigits = password.Length;
+        }
+        // in case there is no password:
+        else
+        {
+            password = null;
+            maxDigits = 3;
+        }
+        
+        
         //Debug.Log("Pressed Button " + btn.name);
 
         //check input
         if (btn.name == "C"){
-            input = "";
-            displayField1.GetComponent<TextMeshProUGUI>().text = "";
-            displayField2.GetComponent<TextMeshProUGUI>().text = "";
-            displayField3.GetComponent<TextMeshProUGUI>().text = "";
+
+            CButton();
         }
         //Only check Password when OK was pressed
         else if(btn.name == "OK")
         {
-            if (input == password){
-                Debug.Log("Correct Password!");
+            //if there was no password: Open Smash-Canvas, reset everything and wait for input
+            //Debug.Log("Passwort: " + password);
+            if(password == null)
+            {
+                CButton();
+                Reference.instance.smashDoorCanvas.Activate();
+            }
+            else if (input == password){
 
-                displayField1.GetComponent<TextMeshProUGUI>().text = "O";
-                displayField2.GetComponent<TextMeshProUGUI>().text = "K";
-                displayField3.GetComponent<TextMeshProUGUI>().text = "!";
-                input = "";
-                //Reference.instance.currentKeypad.door.doorUnlocked = true;
-                Reference.instance.currentKeypad.passwordCorrect = true;
+                CorrectPassword();
             }
             else{
                 //check if the password was entered correctly before
                 // -> not needed anymore bc kepad only activates when pw is not correct yet?
                 if (!Reference.instance.currentKeypad.passwordCorrect)
                 {
-                    Debug.Log("Wrong Password! Access Denied.");
-
-                    displayField1.GetComponent<TextMeshProUGUI>().text = "N";
-                    displayField2.GetComponent<TextMeshProUGUI>().text = "O";
-                    displayField3.GetComponent<TextMeshProUGUI>().text = "!";
-                    input = "";
+                    WrongPassword();
                 }
             }
         }
@@ -110,5 +115,46 @@ public class KeyPadCanvas : MonoBehaviour
                 }
             }
         }
+    }
+
+    //Clear input and input field
+    public void CButton()
+    {
+        input = "";
+        displayField1.GetComponent<TextMeshProUGUI>().text = "";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+    }
+
+    public void CorrectPassword()
+    {
+        Debug.Log("Correct Password!");
+
+        displayField1.GetComponent<TextMeshProUGUI>().text = "O";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "K";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "!";
+        input = "";
+        //Reference.instance.currentKeypad.door.doorUnlocked = true;
+        Reference.instance.currentKeypad.passwordCorrect = true;
+    }
+
+    public void WrongPassword()
+    {
+        Debug.Log("Wrong Password! Access Denied.");
+
+        displayField1.GetComponent<TextMeshProUGUI>().text = "N";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "O";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "!";
+        input = "";
+    }
+
+    public void SmashedKeyPad()
+    {
+        displayField1.GetComponent<TextMeshProUGUI>().text = "X";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "X";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "X";
+        input = "";
+        //Reference.instance.currentKeypad.door.doorUnlocked = true;
+        Reference.instance.currentKeypad.passwordCorrect = true;
     }
 }

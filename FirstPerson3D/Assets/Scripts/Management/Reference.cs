@@ -22,6 +22,7 @@ public class Reference : MonoBehaviour
         dialogueCanvas.gameObject.SetActive(false);
         objectInfoDisplay.gameObject.SetActive(false);
         gameUICanvas.gameObject.SetActive(false);
+        smashDoorCanvas.gameObject.SetActive(false);
         journal.gameObject.SetActive(false);
         journalUpdateInfo.gameObject.SetActive(false);
 
@@ -53,6 +54,7 @@ public class Reference : MonoBehaviour
     public InventoryDispaly inventoryDisplay;
     public Canvas objectInfoDisplay;
     public TextMeshProUGUI ObjectInfoDisplayText;
+    public SmashDoorCanvas smashDoorCanvas;
 
     public JournalManager journalManager;
     public Canvas journal;
@@ -70,7 +72,7 @@ public class Reference : MonoBehaviour
     public List<Region> currentRegions = new List<Region>();
     [HideInInspector]
     public Item currentItem;
-    [HideInInspector]
+    //[HideInInspector]
     public Keypad currentKeypad;
     [HideInInspector]
     public Door currentDoor;
