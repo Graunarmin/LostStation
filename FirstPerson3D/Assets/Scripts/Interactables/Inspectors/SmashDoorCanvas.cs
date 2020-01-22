@@ -5,14 +5,24 @@ using UnityEngine;
 public class SmashDoorCanvas : MonoBehaviour
 {
     public Collectable crowbar;
+
+    public GameObject content;
     public void Activate()
     {
         gameObject.SetActive(true);
+        StartCoroutine(ActivatePopUp());
     }
 
     public void Close()
     {
         gameObject.SetActive(false);
+        content.SetActive(false);
+    }
+
+    private IEnumerator ActivatePopUp()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        content.SetActive(true);
     }
 
     public void TryAgain()

@@ -73,7 +73,7 @@ public class KeyPadCanvas : MonoBehaviour
             //Debug.Log("Passwort: " + password);
             if(password == null)
             {
-                CButton();
+                NoPassword();
                 Reference.instance.smashDoorCanvas.Activate();
             }
             else if (input == password){
@@ -155,5 +155,13 @@ public class KeyPadCanvas : MonoBehaviour
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
         Reference.instance.currentKeypad.passwordCorrect = true;
+    }
+
+    public void NoPassword()
+    {
+        displayField1.GetComponent<TextMeshProUGUI>().text = "";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        input = "";
     }
 }

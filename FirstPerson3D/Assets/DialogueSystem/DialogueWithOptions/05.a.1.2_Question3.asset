@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
+  m_Name: 05.a.1.2_Question3
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 0
+  journalPage: {fileID: 0}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueInfo:
+  - character: {fileID: 0}
+    myText: 'Question 3:'
+  character: {fileID: 0}
+  questionText: What is a ridiculous fear of Your's?
+  optionsInfo:
+  - buttonName: Birds
+    nextDialogue: {fileID: 0}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - buttonName: Stars
+    nextDialogue: {fileID: 11400000, guid: 131c0a39e8e9246b491cc2444d17c974, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - buttonName: Toxic Bait
+    nextDialogue: {fileID: 11400000, guid: 131c0a39e8e9246b491cc2444d17c974, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []

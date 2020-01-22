@@ -95,6 +95,7 @@ public class InventoryManager : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+        Debug.Log("Starting Coroutine");
         StartCoroutine(ShowUpdateIcon());
     }
 
@@ -104,6 +105,7 @@ public class InventoryManager : MonoBehaviour
         yield return new WaitUntil(()
             => !GameManager.gameManager.CurrentlyInteracting());
 
+        Debug.Log("Show Update Icon");
         //show pop-up that journal was updated
         Reference.instance.inventoryCanvas.gameObject.SetActive(true);
         newItemInfo.gameObject.SetActive(true);
