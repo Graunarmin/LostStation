@@ -18,9 +18,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialogueInfo:
-  - character: {fileID: 0}
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
     myText: 'Question 2:'
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
   questionText: Where did you meet your partner?
   optionsInfo:
   - buttonName: University
@@ -34,7 +34,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - buttonName: Pride
-    nextDialogue: {fileID: 0}
+    nextDialogue: {fileID: 11400000, guid: fa0904e4892754a54801273b5200dd52, type: 2}
     myEvent:
       m_PersistentCalls:
         m_Calls: []

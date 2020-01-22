@@ -18,13 +18,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialogueInfo:
-  - character: {fileID: 0}
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
     myText: 'Question 3:'
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
   questionText: What is a ridiculous fear of Your's?
   optionsInfo:
   - buttonName: Birds
-    nextDialogue: {fileID: 0}
+    nextDialogue: {fileID: 11400000, guid: 3e3272b0d763e4a4ba379b3d4212f59c, type: 2}
     myEvent:
       m_PersistentCalls:
         m_Calls: []

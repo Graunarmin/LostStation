@@ -48,6 +48,11 @@ public class DialogueTracker : MonoBehaviour
     public DialogueBase notMoving;
     #endregion
 
+    #region Dialogue05
+    public DialogueBase tookYouLongEngough;
+    public bool accessDenied;
+    #endregion
+
     public DialogueBase ChooseDialogue()
     {
         if (!endFirstDialogue)
@@ -75,10 +80,9 @@ public class DialogueTracker : MonoBehaviour
             {
                 return notMoving;
             }
-            if (gotFlashlight && GameManager.gameManager.powerIsBack)
+            else if (gotFlashlight && GameManager.gameManager.powerIsBack)
             {
-                //Change later!
-                return notMoving;
+                return tookYouLongEngough;
             }
         }
         return whoAreYou;
