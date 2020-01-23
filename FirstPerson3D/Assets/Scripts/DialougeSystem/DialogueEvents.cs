@@ -79,4 +79,23 @@ public class DialogueEvents : ScriptableObject
     }
 
     #endregion
+
+    #region Dialogue 05
+
+    public void SetNotBob()
+    {
+        DialogueTracker.dialogueTracker.notBob = true;
+    }
+
+    public void ResetNotBob()
+    {
+        DialogueTracker.dialogueTracker.notBob = false;
+    }
+
+    public void SetAccessGranted()
+    {
+        DialogueTracker.dialogueTracker.accessGranted = true;
+    }
+
+    #endregion
 }

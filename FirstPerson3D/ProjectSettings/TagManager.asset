@@ -7,6 +7,7 @@ TagManager:
   - Fire
   - DrawingLine
   - 2DCam
+  - BackgroundCam
   layers:
   - Default
   - TransparentFX

@@ -44,14 +44,26 @@ public class DialogueTracker : MonoBehaviour
     #endregion
 
     #region Dialogue 04
-    public bool endFourthDialogue;
     public DialogueBase notMoving;
+    public bool endSecurityDialogue;
     #endregion
 
     #region Dialogue05
     public DialogueBase tookYouLongEngough;
-    public bool accessDenied;
+    public bool notBob;
+    public bool accessGranted;
     #endregion
+
+    #region Dialogue06
+    public DialogueBase helloAlice;
+
+    #endregion
+
+    #region Dialogue07
+    public DialogueBase helloBob;
+
+    #endregion
+
 
     public DialogueBase ChooseDialogue()
     {
@@ -74,15 +86,24 @@ public class DialogueTracker : MonoBehaviour
                 endFirstDialogue = true;
                 return tooDark;
             }
-        }else if (!endFourthDialogue)
+        }else if (!endSecurityDialogue)
         {
             if (gotFlashlight && !GameManager.gameManager.powerIsBack)
             {
                 return notMoving;
             }
-            else if (gotFlashlight && GameManager.gameManager.powerIsBack)
+            else if (gotFlashlight && GameManager.gameManager.powerIsBack && !accessGranted)
             {
+                if (notBob)
+                {
+                    return helloAlice;
+                }
+
                 return tookYouLongEngough;
+            }
+            if (accessGranted)
+            {
+                return helloBob;
             }
         }
         return whoAreYou;

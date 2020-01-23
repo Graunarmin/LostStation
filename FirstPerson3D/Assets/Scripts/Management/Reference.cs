@@ -42,6 +42,7 @@ public class Reference : MonoBehaviour
     public CrosshairCanvas crosshair;
 
     public Camera camera2D;
+    public Camera backgroundCam;
     public Camera firstPersonCam;
 
     public Transform player;

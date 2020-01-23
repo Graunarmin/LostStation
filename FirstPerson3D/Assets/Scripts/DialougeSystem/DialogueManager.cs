@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     public Image dialoguePortrait;
     public TextMeshProUGUI dialogueName;
     public TextMeshProUGUI dialogueText;
-    public float typingSpeed = 0.005f;
+    public float typingSpeed = 0.00001f;
 
     public Queue<DialogueBase.Info> dialogueInfo = new Queue<DialogueBase.Info>();
     #endregion
@@ -85,35 +85,38 @@ public class DialogueManager : MonoBehaviour
         DequeueDialogue();
     }
 
+    //Get's also called on Click of Continue-Button
     public void DequeueDialogue()
     {
         //autocomplete text on click 
         if (isCurrentlyTyping)
         {
-            CompleteText();
             StopAllCoroutines();
+            CompleteText();
             isCurrentlyTyping = false;
             return;
         }
 
         //if we have no more dialogue: return
-        if (dialogueInfo.Count == 0)
+        else if (dialogueInfo.Count == 0)
         {
             EndOfDialogue();
             return;
         }
 
-        DialogueBase.Info info = dialogueInfo.Dequeue();
-        completeText = info.myText;
+        else
+        {
+            DialogueBase.Info info = dialogueInfo.Dequeue();
+            completeText = info.myText;
 
-        dialogueText.text = info.myText;
+            //dialogueText.text = completeText;
 
-        dialoguePortrait.sprite = info.character.myPortrait;
-        dialogueName.text = info.character.myName;
+            dialoguePortrait.sprite = info.character.myPortrait;
+            dialogueName.text = info.character.myName;
 
-
-        dialogueText.text = "";
-        StartCoroutine(TypeText(info));
+            dialogueText.text = "";
+            StartCoroutine(TypeText(info));
+        }
     }
 
     IEnumerator TypeText(DialogueBase.Info info)
@@ -122,7 +125,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char c in info.myText.ToCharArray())
         {
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
             dialogueText.text += c;
         }
 
@@ -159,7 +162,7 @@ public class DialogueManager : MonoBehaviour
             AddJournalPage();
             Reference.instance.dialogueCanvas.gameObject.SetActive(false);
             GameManager.gameManager.SwitchCameras("3D");
-
+            Time.timeScale = 1f;
         }
     }
 
@@ -174,6 +177,7 @@ public class DialogueManager : MonoBehaviour
         inDialogue = false;
         Reference.instance.dialogueCanvas.gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
+        Time.timeScale = 1f;
     }
 
     private void OptionsParser(DialogueBase db)

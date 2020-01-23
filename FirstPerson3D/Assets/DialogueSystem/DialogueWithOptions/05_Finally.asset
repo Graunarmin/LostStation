@@ -29,7 +29,9 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: I have a keycard!
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
-    myText: This is Bob Henderson's keycard
+    myText: '...'
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: This is Bob Henderson's keycard.
   character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
   questionText: Are you Bob Henderson?
   optionsInfo:
@@ -38,8 +40,19 @@ MonoBehaviour:
     myEvent:
       m_PersistentCalls:
         m_Calls: []
-  - buttonName: No, I'm Alice
+  - buttonName: I'm Alice, but ...
     nextDialogue: {fileID: 11400000, guid: 385d7e1b6985044649992514c5439cb7, type: 2}
     myEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetNotBob
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
