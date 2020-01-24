@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a37cbe59ecf9b428284c3f2f51ddb8fe, type: 3}
-  m_Name: Page05_HurtHand
+  m_Name: Page05_SuspiciousClothes
   m_EditorClassIdentifier: 
   doublePage: 0
   pageNumber: 3
-  pagePic: {fileID: 21300000, guid: 02b6c9353452a46e9b05bd94ac49d1f9, type: 3}
+  pagePic: {fileID: 21300000, guid: 0c2d7b91b7caf4e04b2628a3de0341d7, type: 3}

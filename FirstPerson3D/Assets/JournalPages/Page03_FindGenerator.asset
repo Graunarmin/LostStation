@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePage: 0
   pageNumber: 2
-  pagePic: {fileID: 21300000, guid: 6845d3c6af00c454ebab180dcea7f8ab, type: 3}
+  pagePic: {fileID: 21300000, guid: 2f61e1c90029b430ab2e71a926b9d9fb, type: 3}
