@@ -16,6 +16,8 @@ public class Reference : MonoBehaviour
         }
 
         //deactivate all the stuff that is not visible yet
+
+        backgroundCam.gameObject.SetActive(false);
         crosshair.gameObject.SetActive(true);
         flashlight.gameObject.SetActive(false);
         pauseMenu.pauseMenuUI.gameObject.SetActive(false);

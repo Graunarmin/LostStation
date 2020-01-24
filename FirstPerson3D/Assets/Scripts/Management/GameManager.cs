@@ -189,7 +189,8 @@ public class GameManager : MonoBehaviour
 
                 Reference.instance.firstPersonCam.enabled = false;
                 Reference.instance.firstPersonCam.gameObject.SetActive(false);
-                //Reference.instance.camera2D.gameObject.SetActive(true);
+
+                Reference.instance.backgroundCam.gameObject.SetActive(true);
                 Reference.instance.backgroundCam.enabled = true;
                 Reference.instance.camera2D.enabled = true;
                 break;
@@ -199,7 +200,7 @@ public class GameManager : MonoBehaviour
 
                 Reference.instance.camera2D.enabled = false;
                 Reference.instance.backgroundCam.enabled = false;
-                //Reference.instance.camera2D.gameObject.SetActive(false);
+                Reference.instance.backgroundCam.gameObject.SetActive(false);
 
                 Reference.instance.firstPersonCam.gameObject.SetActive(true);
                 Reference.instance.firstPersonCam.enabled = true;

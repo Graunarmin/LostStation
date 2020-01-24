@@ -5,6 +5,8 @@ using UnityEngine;
 public class SmashDoorCanvas : MonoBehaviour
 {
     public Collectable crowbar;
+    //The page that get's added in case the crowbar was not collected
+    public JournalPage journalPage;
 
     public GameObject content;
     public void Activate()
@@ -38,19 +40,21 @@ public class SmashDoorCanvas : MonoBehaviour
             {
                 Debug.Log("Crowbar collected");
                 Reference.instance.keyPad.SmashedKeyPad();
-                //Add journalPag "yay"
             }
             else
             {
                 Debug.Log("Crowbar not collected");
                 Reference.instance.keyPad.Close();
                 //Add Journalpage "ouw"
+                GameManager.gameManager.FireNewJournalEntry(journalPage);
             }
         }
         else
         {
+            Debug.Log("Crowbar not collected");
             Reference.instance.keyPad.Close();
             //Add Journalpage "ouw"
+            GameManager.gameManager.FireNewJournalEntry(journalPage);
         }
         Close();
         
