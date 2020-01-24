@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     public Image dialoguePortrait;
     public TextMeshProUGUI dialogueName;
     public TextMeshProUGUI dialogueText;
-    public float typingSpeed = 0.00001f;
+    public float typingSpeed = 0.001f;
 
     public Queue<DialogueBase.Info> dialogueInfo = new Queue<DialogueBase.Info>();
     #endregion
