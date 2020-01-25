@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -28,11 +29,15 @@ public class InventoryManager : MonoBehaviour
 
     public Image newItemInfo;
 
+    public GameObject descriptionPanel;
+    public TextMeshProUGUI itemDescription;
+
     InventorySlot[] slots;
 
     void Start()
     {
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        descriptionPanel.SetActive(false);
     }
 
     public bool AddItem(Collectable item)
@@ -82,6 +87,18 @@ public class InventoryManager : MonoBehaviour
         Reference.instance.inventory.gameObject.SetActive(false);
     }
 
+    public void ShowDescription(Collectable item)
+    {
+        descriptionPanel.SetActive(true);
+        itemDescription.text = item.itemInfo.descriptionText;
+    }
+
+    public void HideDescription()
+    {
+        descriptionPanel.SetActive(false);
+        itemDescription.text = "";
+    }
+
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -95,7 +112,7 @@ public class InventoryManager : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
-        Debug.Log("Starting Coroutine");
+        //Debug.Log("Starting Coroutine");
         StartCoroutine(ShowUpdateIcon());
     }
 
@@ -105,7 +122,8 @@ public class InventoryManager : MonoBehaviour
         yield return new WaitUntil(()
             => !GameManager.gameManager.CurrentlyInteracting());
 
-        Debug.Log("Show Update Icon");
+        //Debug.Log("Show Update Icon");
+        GameManager.gameManager.SwitchOn2DCam();
         //show pop-up that journal was updated
         Reference.instance.inventoryCanvas.gameObject.SetActive(true);
         newItemInfo.gameObject.SetActive(true);
@@ -117,6 +135,11 @@ public class InventoryManager : MonoBehaviour
         //hide pop-up
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         newItemInfo.gameObject.SetActive(false);
+
+        if (!TutorialManager.tutorialManager.TutorialOpen())
+        {
+            GameManager.gameManager.SwitchOff2DCam();
+        }
     }
 
 }

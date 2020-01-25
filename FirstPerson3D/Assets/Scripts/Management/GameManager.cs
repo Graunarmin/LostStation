@@ -198,6 +198,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SwitchOn2DCam()
+    {
+        Reference.instance.camera2D.enabled = true;
+    }
+
+    public void SwitchOff2DCam()
+    {
+        if (!CurrentlyInteracting())
+        {
+            Reference.instance.camera2D.enabled = false;
+        }
+    }
 
     #region Test if stuff is happening
     //test if there is currently an Inspector up

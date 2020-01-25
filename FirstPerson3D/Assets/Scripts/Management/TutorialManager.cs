@@ -67,7 +67,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowInventoryTut()
     {
-        Reference.instance.camera2D.enabled = true;
+        GameManager.gameManager.SwitchOn2DCam();
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         openInventory.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(openInventory));
@@ -75,7 +75,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowJournalTut()
     {
-        Reference.instance.camera2D.enabled = true;
+        GameManager.gameManager.SwitchOn2DCam();
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         openJournal.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(openJournal));
@@ -83,7 +83,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowCloseTut()
     {
-        Reference.instance.camera2D.enabled = true;
+        GameManager.gameManager.SwitchOn2DCam();
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(closeOverlay));
@@ -102,7 +102,7 @@ public class TutorialManager : MonoBehaviour
 
     private void ShowFlashlightTut()
     {
-        Reference.instance.camera2D.enabled = true;
+        GameManager.gameManager.SwitchOn2DCam();
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         toggleFlashlight.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(toggleFlashlight));
@@ -124,7 +124,7 @@ public class TutorialManager : MonoBehaviour
 
     private bool OtherTutorialOpen()
     {
-        //match eatch tutorial with all others
+        //match each tutorial with all the others
         foreach(GameObject tutorial in allTutorials)
         {
             foreach(GameObject tut2 in allTutorials)
@@ -135,10 +135,23 @@ public class TutorialManager : MonoBehaviour
                     //and if they are both active
                     if (tutorial.activeInHierarchy && tut2.activeInHierarchy)
                     {
+                        //then two tutorials are open and the camera can not yet be switched
                         return true;
                     }
                 }
                 
+            }
+        }
+        return false;
+    }
+
+    public bool TutorialOpen()
+    {
+        foreach(GameObject tutorial in allTutorials)
+        {
+            if (tutorial.activeInHierarchy)
+            {
+                return true;
             }
         }
         return false;

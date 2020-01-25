@@ -16,3 +16,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   journalPage: {fileID: 3813495441491490494, guid: 1c7cd8f3f986d41259d48674407ec281,
     type: 3}
+  descriptionText: 'I better keep this keycard ... '

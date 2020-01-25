@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Crowbar
   icon: {fileID: 0}
   journalPage: {fileID: 0}
+  descriptionText: Heavy. Might come in handy ... in case I need to smash something.

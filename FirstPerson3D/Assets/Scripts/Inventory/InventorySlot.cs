@@ -24,8 +24,20 @@ public class InventorySlot : MonoBehaviour
         //removeButton.interactable = true;
     }
 
-    //public void OnRemoveButton()
-    //{
-    //    InventoryManager.invManager.RemoveItem(item);
-    //}
+    public void Hover()
+    {
+        if(item != null)
+        {
+            //Show Info
+            InventoryManager.invManager.ShowDescription(item);
+        }
+       
+    }
+
+    public void HoverExit()
+    {
+        //Hide Info
+        InventoryManager.invManager.HideDescription();
+    }
+
 }
