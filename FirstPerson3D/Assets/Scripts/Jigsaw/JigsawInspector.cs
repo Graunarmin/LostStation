@@ -37,5 +37,8 @@ public class JigsawInspector : Interactable
         GameManager.gameManager.powerIsBack = true;
 
         Reference.instance.jigsawCanvas.Close();
+
+        //Remove the Jigsaw-Inspector Component from the Item so the Puzzle-Icon is no longer shown
+        Destroy(this);
     }
 }

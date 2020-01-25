@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DarkGreen
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.38381097, g: 0.6509434, b: 0.576016, a: 1}
-  topRight: {r: 0.38431373, g: 0.6509804, b: 0.5764706, a: 1}
-  bottomLeft: {r: 0.19446424, g: 0.3584906, b: 0.31162593, a: 1}
-  bottomRight: {r: 0.1764706, g: 0.34117648, b: 0.29411766, a: 1}
+  topLeft: {r: 0.6016376, g: 0.754717, b: 0.71154076, a: 1}
+  topRight: {r: 0.6, g: 0.7529412, b: 0.70980394, a: 1}
+  bottomLeft: {r: 0.24862051, g: 0.3490566, b: 0.32227364, a: 1}
+  bottomRight: {r: 0.3529412, g: 0.47058824, b: 0.4392157, a: 1}

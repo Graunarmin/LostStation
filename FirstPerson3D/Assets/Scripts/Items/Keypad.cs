@@ -6,34 +6,47 @@ public class Keypad : Item
 {
     public Door door;
     public string password;
-    public bool passwordCorrect;
+    private bool passwordCorrect;
 
     public override void ManageInteractables()
     {
-        if (!door.doorUnlocked)
+        if (!door.DoorIsUnlocked())
         {
             //make item interactable, if prerequisite is met
             if (interactable != null)
             {
+                ManageJournalInfo();
                 Debug.Log("Current Keypad: " + name);
                 Reference.instance.currentKeypad = this;
                 if (AllPrerequsComplete())
                 {
                     Reference.instance.keyPad.gameObject.SetActive(true);
                     interactable.enabled = true;
-                    //CheckForCollectable();
                     interactable.Interact();
-                }
-                    
-           
+                }           
             }
-
         }
         else
         {
             Debug.Log("Door was already unlocked!");
         }
         
+    }
+
+    public void SetPasswordCorrect()
+    {
+        passwordCorrect = true;
+        location.RemoveItem(this);
+    }
+
+    public bool PasswordCorrect()
+    {
+        return passwordCorrect;
+    }
+
+    public string GetPassword()
+    {
+        return password;
     }
 
 }

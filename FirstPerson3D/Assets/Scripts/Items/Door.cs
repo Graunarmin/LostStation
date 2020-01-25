@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Door : Item
 {
-    //indicates if the door is unlocked and can be opened by clicking on it
-    public bool doorUnlocked;
     //the keypad that unlocks the door (if any)
     public Keypad connectedKeypad;
+
+    //indicates if the door is unlocked and can be opened by clicking on it
+    private bool doorUnlocked;
     //indicates if the door is currently open so that the player can go through
-    public bool doorOpen;
+    private bool doorOpen;
 
     //from Parent:
     //Awake: disable Collider
     //Start: get interactable Component
-    //OnMouseOver: Highlighten
+    //OnMouseOver: Icon
     //OnMouseDown: MangeInteractables()
 
     protected override void OnMouseEnter()
@@ -44,6 +45,7 @@ public class Door : Item
 
             if (AllPrerequsComplete())
             {
+                ManageJournalInfo();
 
                 Debug.Log("I'm opening because I was unlocked!");
                 interactable.enabled = true;
@@ -55,5 +57,30 @@ public class Door : Item
                 Debug.Log("I'm locked, sorry");
             }
         }
+    }
+
+    public void UnlockDoor()
+    {
+        doorUnlocked = true;
+    }
+
+    public bool DoorIsUnlocked()
+    {
+        return doorUnlocked;
+    }
+
+    public void OpenDoor()
+    {
+        doorOpen = true;
+    }
+
+    public void CloseDoor()
+    {
+        doorOpen = false;
+    }
+
+    public bool DoorIsOpen()
+    {
+        return doorOpen;
     }
 }

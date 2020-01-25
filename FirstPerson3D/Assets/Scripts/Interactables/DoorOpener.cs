@@ -39,7 +39,7 @@ public class DoorOpener : Interactable
         {
             doorLock.enabled = false;
         }
-        door.doorOpen = true;
+        door.OpenDoor();
     }
 
     public override void ShowInfo(bool allPrerequsComplete)
@@ -47,7 +47,7 @@ public class DoorOpener : Interactable
 
         if (allPrerequsComplete)
         {
-            if (!door.doorOpen)
+            if (!door.DoorIsOpen())
             {
                 if (interactionIcon != null)
                 {
@@ -73,7 +73,7 @@ public class DoorOpener : Interactable
         {
             doorLock.enabled = true;
         }
-        door.doorOpen = false;
+        door.CloseDoor();
     }
 
     //public override void ShowInfo(Prerequisite hasPrereq)

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
                 if (Reference.instance.keyPad.gameObject.activeInHierarchy)
                 {
                     Reference.instance.keyPad.Close();
-                    //StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().CheckPassword());
                 }
                 if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
                 {
@@ -132,16 +131,6 @@ public class GameManager : MonoBehaviour
             TutorialManager.tutorialManager.ShowJournalTut();
 
         }
-
-        //if(CurrentlyInteracting() || GameIsOnPause())
-        //{
-        //    Reference.instance.crosshair.gameObject.SetActive(false);
-        //}
-        //else
-        //{
-        //    Reference.instance.crosshair.gameObject.SetActive(true);
-        //}
-
     }
 
     #endregion
@@ -244,16 +233,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
-    //replaced by Image!
-    //add a crosshair to the center of the screen
-    //void OnGUI(){
-    //    if (!gameManager.CurrentlyInteracting() && !gameManager.GameIsOnPause())
-    //    {
-    //        GUI.color = Color.green;
-    //        GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
-    //    }
-    //}
-
+    #region End of Game
+    //end the game and roll the credits
+    public void EndGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    #endregion
 
 }

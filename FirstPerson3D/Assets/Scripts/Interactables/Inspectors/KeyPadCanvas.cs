@@ -34,10 +34,7 @@ public class KeyPadCanvas : MonoBehaviour
         //Close Canvas
         gameObject.SetActive(false);
         //reset Input and Display
-        input = "";
-        displayField1.GetComponent<TextMeshProUGUI>().text = "";
-        displayField2.GetComponent<TextMeshProUGUI>().text = "";
-        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        ResetInput();
         //Debug.Log("Keypad deactivated");
     }
 
@@ -45,9 +42,9 @@ public class KeyPadCanvas : MonoBehaviour
     public void InputFromButton(Button btn)
     {
         //get password and passwordlength
-        if(Reference.instance.currentKeypad.password != "0")
+        if(Reference.instance.currentKeypad.GetPassword() != "0")
         {
-            password = Reference.instance.currentKeypad.password;
+            password = Reference.instance.currentKeypad.GetPassword();
             //Debug.Log("Password: " + password);
             maxDigits = password.Length;
         }
@@ -83,7 +80,7 @@ public class KeyPadCanvas : MonoBehaviour
             else{
                 //check if the password was entered correctly before
                 // -> not needed anymore bc kepad only activates when pw is not correct yet?
-                if (!Reference.instance.currentKeypad.passwordCorrect)
+                if (!Reference.instance.currentKeypad.PasswordCorrect())
                 {
                     WrongPassword();
                 }
@@ -119,10 +116,7 @@ public class KeyPadCanvas : MonoBehaviour
     //Clear input and input field
     public void CButton()
     {
-        input = "";
-        displayField1.GetComponent<TextMeshProUGUI>().text = "";
-        displayField2.GetComponent<TextMeshProUGUI>().text = "";
-        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        ResetInput();
     }
 
     public void CorrectPassword()
@@ -134,7 +128,7 @@ public class KeyPadCanvas : MonoBehaviour
         displayField3.GetComponent<TextMeshProUGUI>().text = "!";
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
-        Reference.instance.currentKeypad.passwordCorrect = true;
+        Reference.instance.currentKeypad.SetPasswordCorrect();
     }
 
     public void WrongPassword()
@@ -154,14 +148,19 @@ public class KeyPadCanvas : MonoBehaviour
         displayField3.GetComponent<TextMeshProUGUI>().text = "X";
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
-        Reference.instance.currentKeypad.passwordCorrect = true;
+        Reference.instance.currentKeypad.SetPasswordCorrect();
     }
 
     public void NoPassword()
     {
-        displayField1.GetComponent<TextMeshProUGUI>().text = "";
-        displayField2.GetComponent<TextMeshProUGUI>().text = "";
-        displayField3.GetComponent<TextMeshProUGUI>().text = "";
+        ResetInput();
+    }
+
+    private void ResetInput()
+    {
+        displayField1.GetComponent<TextMeshProUGUI>().text = "-";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "-";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "-";
         input = "";
     }
 }

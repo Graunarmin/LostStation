@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
-    //public TextMeshProUGUI pauseGame;
-    public TextMeshProUGUI openJournal;
-    public TextMeshProUGUI openInventory;
-    public TextMeshProUGUI closeOverlay;
-    public TextMeshProUGUI toggleFlashlight;
+    public GameObject openJournal;
+    public GameObject openInventory;
+    public GameObject closeOverlay;
+    public GameObject toggleFlashlight;
 
     [HideInInspector]
     public bool firstStep;
@@ -17,6 +17,8 @@ public class TutorialManager : MonoBehaviour
     public bool firstCanvas;
     [HideInInspector]
     public bool firstCollectable;
+
+    private List<GameObject> allTutorials = new List<GameObject>();
 
     #region singleton
     public static TutorialManager tutorialManager;
@@ -68,7 +70,7 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         openInventory.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial());
+        StartCoroutine(CloseTutorial(openInventory));
     }
 
     public void ShowJournalTut()
@@ -76,7 +78,7 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         openJournal.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial());
+        StartCoroutine(CloseTutorial(openJournal));
     }
 
     public void ShowCloseTut()
@@ -84,7 +86,7 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial());
+        StartCoroutine(CloseTutorial(closeOverlay));
     }
 
     //Is called from DialogueEvents when the flashlight is enabled
@@ -103,23 +105,42 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.camera2D.enabled = true;
         Reference.instance.gameUICanvas.gameObject.SetActive(true);
         toggleFlashlight.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial());
+        StartCoroutine(CloseTutorial(toggleFlashlight));
     }
 
 
-    private IEnumerator CloseTutorial()
+    private IEnumerator CloseTutorial(GameObject tutorial)
     {
         yield return new WaitForSecondsRealtime(2f);
 
-        if (!GameManager.gameManager.CurrentlyInteracting())
+        if (!GameManager.gameManager.CurrentlyInteracting() && !OtherTutorialOpen())
         {
             Reference.instance.camera2D.enabled = false;
+            Reference.instance.gameUICanvas.gameObject.SetActive(false);
         }
 
-        Reference.instance.gameUICanvas.gameObject.SetActive(false);
-        openJournal.gameObject.SetActive(false);
-        openInventory.gameObject.SetActive(false);
-        closeOverlay.gameObject.SetActive(false);
-        toggleFlashlight.gameObject.SetActive(false);
+        tutorial.SetActive(false);
+    }
+
+    private bool OtherTutorialOpen()
+    {
+        //match eatch tutorial with all others
+        foreach(GameObject tutorial in allTutorials)
+        {
+            foreach(GameObject tut2 in allTutorials)
+            {
+                //if they are not the same
+                if(tutorial != tut2)
+                {
+                    //and if they are both active
+                    if (tutorial.activeInHierarchy && tut2.activeInHierarchy)
+                    {
+                        return true;
+                    }
+                }
+                
+            }
+        }
+        return false;
     }
 }

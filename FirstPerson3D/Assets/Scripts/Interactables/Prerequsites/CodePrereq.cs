@@ -10,7 +10,7 @@ public class CodePrereq : Prerequisite
     {
         get
         {
-            return GetComponent<Door>().doorUnlocked;
+            return GetComponent<Door>().DoorIsUnlocked();
             //if (Reference.instance.currentDoor != null)
             //{
             //    return Reference.instance.currentDoor.connectedKeypad.passwordCorrect;

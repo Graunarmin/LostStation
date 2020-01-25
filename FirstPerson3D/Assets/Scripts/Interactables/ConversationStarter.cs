@@ -9,9 +9,6 @@ public class ConversationStarter : Interactable
 
     public override void Interact()
     {
-        //inDialogue = true
-        //currentlySpeaking = true
-        //DialogueManager.instance.EnqueueDialogue(dialogue);
         diaCanvas.Activate();
 
         //based on what happened so far, choose the next dialogue

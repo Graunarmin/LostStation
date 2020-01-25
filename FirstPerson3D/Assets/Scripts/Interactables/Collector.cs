@@ -24,12 +24,14 @@ public class Collector : Interactable
         //Inspect Object before we add it to the backpack
         InspectObject();
 
+        //pick item up if there is enough free space in inventory
         bool wasPickedUp =
             InventoryManager.invManager.AddItem(gameObject.GetComponent<Collectable>());
 
         //and set it to inactive so it is no longer visible or accessible
         if (wasPickedUp)
         {
+            collectableItem.location.RemoveItem(collectableItem);
             gameObject.SetActive(false);
         }
         
