@@ -26,8 +26,15 @@ public class DiaryCanvas : MonoBehaviour
         //unfreeze game
         Time.timeScale = 1f;
 
-        //add journalPage to journal
-       JournalManager.journalManager.UpdateJournal(journalPage);
-        journalPage = null;
+        if(gameObject.GetComponent<DrawCode>() != null)
+        {
+            if (gameObject.GetComponent<DrawCode>().lockscreen.unlocked)
+            {
+                //add journalPage to journal
+                JournalManager.journalManager.UpdateJournal(journalPage);
+                journalPage = null;
+            }
+        }
+        gameObject.GetComponent<DrawCode>().DeleteForm();
     }
 }

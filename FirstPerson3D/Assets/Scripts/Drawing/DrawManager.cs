@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//Basic, from Tutorial, not used in game!
 public class DrawManager : MonoBehaviour//, IPointerClickHandler
 {
     public static DrawManager drawManager;

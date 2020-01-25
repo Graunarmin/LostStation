@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//adapted, used in game
 public class DrawCode : MonoBehaviour//, IPointerClickHandler
 {
     public static DrawCode drawCode;
@@ -11,7 +12,7 @@ public class DrawCode : MonoBehaviour//, IPointerClickHandler
     [SerializeField]
     private GameObject lineHolderPrefab;
     public List<LinePoint> form;
-    public GameObject lockscreen;
+    public Lockscreen lockscreen;
     public GameObject textArea;
     public bool firstClickOccured;
     public bool secondClickOccured;
@@ -44,7 +45,7 @@ public class DrawCode : MonoBehaviour//, IPointerClickHandler
         DeleteForm();
         if (correctForm)
         {
-            lockscreen.gameObject.SetActive(false);
+            lockscreen.Unlock();
             textArea.gameObject.SetActive(true);
         }
     }
@@ -104,10 +105,10 @@ public class DrawCode : MonoBehaviour//, IPointerClickHandler
         if (clickedPoints.Count != form.Count)
             return false;
 
-        return compareLists(clickedPoints, form);
+        return CompareLists(clickedPoints, form);
     }
 
-    private bool compareLists(List<LinePoint> list1, List<LinePoint> list2)
+    private bool CompareLists(List<LinePoint> list1, List<LinePoint> list2)
     {
         for (int n = 0; n < list1.Count; n++)
         {
@@ -118,7 +119,7 @@ public class DrawCode : MonoBehaviour//, IPointerClickHandler
         }
         return true;
     }
-
+    
     public void DeleteForm()
     {
         GameObject[] allLines = GameObject.FindGameObjectsWithTag("DrawingLine");
