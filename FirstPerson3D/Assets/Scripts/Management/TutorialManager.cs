@@ -67,24 +67,21 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowInventoryTut()
     {
-        GameManager.gameManager.SwitchOn2DCam();
-        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         openInventory.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(openInventory));
     }
 
     public void ShowJournalTut()
     {
-        GameManager.gameManager.SwitchOn2DCam();
-        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         openJournal.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(openJournal));
     }
 
     public void ShowCloseTut()
     {
-        GameManager.gameManager.SwitchOn2DCam();
-        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(closeOverlay));
     }
@@ -102,8 +99,7 @@ public class TutorialManager : MonoBehaviour
 
     private void ShowFlashlightTut()
     {
-        GameManager.gameManager.SwitchOn2DCam();
-        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         toggleFlashlight.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(toggleFlashlight));
     }
@@ -115,8 +111,7 @@ public class TutorialManager : MonoBehaviour
 
         if (!GameManager.gameManager.CurrentlyInteracting() && !OtherTutorialOpen())
         {
-            Reference.instance.camera2D.enabled = false;
-            Reference.instance.gameUICanvas.gameObject.SetActive(false);
+            Reference.instance.TutorialCanvas.gameObject.SetActive(false);
         }
 
         tutorial.SetActive(false);
@@ -140,18 +135,6 @@ public class TutorialManager : MonoBehaviour
                     }
                 }
                 
-            }
-        }
-        return false;
-    }
-
-    public bool TutorialOpen()
-    {
-        foreach(GameObject tutorial in allTutorials)
-        {
-            if (tutorial.activeInHierarchy)
-            {
-                return true;
             }
         }
         return false;

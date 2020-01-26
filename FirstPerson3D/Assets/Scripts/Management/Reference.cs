@@ -23,7 +23,7 @@ public class Reference : MonoBehaviour
         pauseMenu.pauseMenuUI.gameObject.SetActive(false);
         dialogueCanvas.gameObject.SetActive(false);
         objectInfoDisplay.gameObject.SetActive(false);
-        gameUICanvas.gameObject.SetActive(false);
+        TutorialCanvas.gameObject.SetActive(false);
         smashDoorCanvas.gameObject.SetActive(false);
         journal.gameObject.SetActive(false);
         journalUpdateInfo.gameObject.SetActive(false);
@@ -55,7 +55,7 @@ public class Reference : MonoBehaviour
     public DialogueManager dialogueManager;
     public DialogueCanvas dialogueCanvas;
 
-    public Canvas gameUICanvas;
+    public Canvas TutorialCanvas;
     public InventoryDispaly inventoryDisplay;
     public Canvas objectInfoDisplay;
     public TextMeshProUGUI ObjectInfoDisplayText;

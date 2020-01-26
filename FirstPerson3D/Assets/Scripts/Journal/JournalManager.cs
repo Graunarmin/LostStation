@@ -68,9 +68,7 @@ public class JournalManager : MonoBehaviour
 
     public void UpdateJournal(JournalPage page)
     {
-        Debug.Log("Update Journal");
-        //show update Symbol on User Interface
-        //...
+        //Debug.Log("Update Journal");
 
         //if page is not already visible, we add it to the journal
         if (!JournalTracker.journalTracker.journalPages[page])
@@ -80,7 +78,7 @@ public class JournalManager : MonoBehaviour
             if (JournalTracker.journalTracker.journalPages[page.otherPage])
             {
                 currentPage = page.doublePage;
-                Debug.Log("Add " + page.gameObject.name);
+                //Debug.Log("Add " + page.gameObject.name);
                 //replace single page by double page
                 foreach(PageInfo p in allPages)
                 {
@@ -96,7 +94,7 @@ public class JournalManager : MonoBehaviour
             //if this is the first of the two pages to be visible, we see only this one
             else
             {
-                Debug.Log("Add " + page.gameObject.name);
+                //Debug.Log("Add " + page.gameObject.name);
                 currentPage = page.info;
                 allPages.Add(currentPage);
                 allPages.Sort(new SortPagesByNumber());

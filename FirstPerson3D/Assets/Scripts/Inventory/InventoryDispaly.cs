@@ -17,7 +17,7 @@ public class InventoryDispaly : MonoBehaviour
     public void Activate()
     {
         displayText = GetComponent<TextMeshProUGUI>();
-        Reference.instance.gameUICanvas.gameObject.SetActive(true);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         UpdateDisplay();
         StartCoroutine(Close());
     }
@@ -48,6 +48,6 @@ public class InventoryDispaly : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         //Reference.instance.collectHeld = null;
-        Reference.instance.gameUICanvas.gameObject.SetActive(false);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(false);
     }
 }

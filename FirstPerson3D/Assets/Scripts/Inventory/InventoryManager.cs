@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     public int space = 6;
     public List<Collectable> items = new List<Collectable>();
 
-    public Image newItemInfo;
+    public Canvas newItemInfo;
 
     public GameObject descriptionPanel;
     public TextMeshProUGUI itemDescription;
@@ -112,7 +112,6 @@ public class InventoryManager : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
-        //Debug.Log("Starting Coroutine");
         StartCoroutine(ShowUpdateIcon());
     }
 
@@ -123,9 +122,7 @@ public class InventoryManager : MonoBehaviour
             => !GameManager.gameManager.CurrentlyInteracting());
 
         //Debug.Log("Show Update Icon");
-        GameManager.gameManager.SwitchOn2DCam();
         //show pop-up that journal was updated
-        Reference.instance.inventoryCanvas.gameObject.SetActive(true);
         newItemInfo.gameObject.SetActive(true);
         //PlaySound
         //...
@@ -133,13 +130,7 @@ public class InventoryManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         //hide pop-up
-        Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         newItemInfo.gameObject.SetActive(false);
-
-        if (!TutorialManager.tutorialManager.TutorialOpen())
-        {
-            GameManager.gameManager.SwitchOff2DCam();
-        }
     }
 
 }

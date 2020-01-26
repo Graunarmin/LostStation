@@ -21,23 +21,29 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: It's way too dark in here.
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
-    myText: Isn't there at least a candle?
+    myText: Isn't there anything that spends a litte light?
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
-    myText: There is no candle.
+    myText: Nothing, no. There's a Blackout.
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
-    myText: A torch?
+    myText: You don't say.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Not even a glowstick or something?
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
-    myText: No torch.
+    myText: No glowstick, no. Unless ...
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
-    myText: Anything that spends a little light?
+    myText: Unless what?
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
-    myText: Well, I mean, if you knew how to use it ...
+    myText: Unless this would qualify as an emergency.
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
-    myText: Excuse me?
-  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
-  questionText: Well, I could give you the safety-flashlight.
+    myText: Are you kidding me?
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: This IS an emergency!
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: I can hand you the emergency flashlight then, I guess.
+  character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+  questionText: Amazing idea, really.
   optionsInfo:
-  - buttonName: Why, thank you
+  - buttonName: Thanks so much.
     nextDialogue: {fileID: 0}
     myEvent:
       m_PersistentCalls:
@@ -53,7 +59,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - buttonName: Good idea
+  - buttonName: Useless metalhead.
     nextDialogue: {fileID: 0}
     myEvent:
       m_PersistentCalls:
