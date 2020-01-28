@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New DialogueEvent", menuName = "DialogueEvent")]
 public class DialogueEvents : ScriptableObject
 {
-    
+
     public void AddJournalPage(JournalPage jp)
     {
         JournalManager.journalManager.UpdateJournal(jp);
@@ -36,6 +36,7 @@ public class DialogueEvents : ScriptableObject
     public void SetWillHelp()
     {
         DialogueTracker.dialogueTracker.willHelp = true;
+        DialogueTracker.dialogueTracker.wontHelp = false;
     }
 
     public void SetWontHelp()
@@ -80,7 +81,14 @@ public class DialogueEvents : ScriptableObject
 
     #endregion
 
+
+
     #region Dialogue 05
+
+    public void SetHaveBeenHereBefore()
+    {
+        DialogueTracker.dialogueTracker.haveBeenHereBefore = true;
+    }
 
     public void SetNotBob()
     {

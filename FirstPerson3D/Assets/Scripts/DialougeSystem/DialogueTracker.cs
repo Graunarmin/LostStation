@@ -14,6 +14,9 @@ public class DialogueTracker : MonoBehaviour
             dialogueTracker = this;
         }
 
+        //when the keycard is collected we get notified here
+        InventoryManager.OnKeyCardCollected += SetKeyCardCollected;
+
     }
     #endregion
 
@@ -50,8 +53,21 @@ public class DialogueTracker : MonoBehaviour
 
     #region Dialogue05
     public DialogueBase tookYouLongEngough;
+    public DialogueBase tookYouLongEnoughWOCard;
+    public DialogueBase beenHereWCard;
+    public DialogueBase beenHereWOCard;
+
+    public bool keyCardCollected;
+    public bool haveBeenHereBefore;
     public bool notBob;
     public bool accessGranted;
+
+
+    public void SetKeyCardCollected()
+    {
+        Debug.Log("I noticed that Keycard was collected");
+        keyCardCollected = true;
+    }
     #endregion
 
     #region Dialogue06
@@ -92,15 +108,43 @@ public class DialogueTracker : MonoBehaviour
             {
                 return notMoving;
             }
-            else if (gotFlashlight && GameManager.gameManager.powerIsBack && !accessGranted)
-            {
-                if (notBob)
-                {
-                    return helloAlice;
-                }
 
-                return tookYouLongEngough;
+            //if we did not yet answer the security questions correctly
+            else if(gotFlashlight && GameManager.gameManager.powerIsBack && !accessGranted)
+            {
+                //if keycard collected and not talked about this before
+                if (keyCardCollected && !haveBeenHereBefore)
+                {
+                    if (notBob)
+                    {
+                        return helloAlice;
+                    }
+
+                    return tookYouLongEngough;
+                }
+                //if keycard collected and talked about this before
+                else if (keyCardCollected && haveBeenHereBefore)
+                {
+                    if (notBob)
+                    {
+                        return helloAlice;
+                    }
+
+                    return beenHereWCard;
+                }
+                //if not keycard collected and not talked about this before
+                else if (!keyCardCollected && !haveBeenHereBefore)
+                {
+                    return tookYouLongEnoughWOCard;
+                }
+                //if not keycard collected and talked about this before
+                else if (!keyCardCollected && haveBeenHereBefore)
+                {
+                    return beenHereWOCard;
+                }
             }
+
+            //if we answered all questions correctly
             if (accessGranted)
             {
                 return helloBob;

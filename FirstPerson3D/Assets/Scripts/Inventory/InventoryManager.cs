@@ -34,6 +34,10 @@ public class InventoryManager : MonoBehaviour
 
     InventorySlot[] slots;
 
+    //notify everyone who needs the keycard
+    public delegate void KeyCardCollected();
+    public static event KeyCardCollected OnKeyCardCollected;
+
     void Start()
     {
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -53,6 +57,13 @@ public class InventoryManager : MonoBehaviour
         }
 
         items.Add(item);
+        if(item.itemInfo.name == "Keycard")
+        {
+            if(OnKeyCardCollected != null)
+            {
+                OnKeyCardCollected();
+            }
+        }
         UpdateUI();
         return true;
     }

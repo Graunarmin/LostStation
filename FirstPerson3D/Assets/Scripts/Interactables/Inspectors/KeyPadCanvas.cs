@@ -158,9 +158,9 @@ public class KeyPadCanvas : MonoBehaviour
 
     private void ResetInput()
     {
-        displayField1.GetComponent<TextMeshProUGUI>().text = "-";
-        displayField2.GetComponent<TextMeshProUGUI>().text = "-";
-        displayField3.GetComponent<TextMeshProUGUI>().text = "-";
+        displayField1.GetComponent<TextMeshProUGUI>().text = "";
+        displayField2.GetComponent<TextMeshProUGUI>().text = "";
+        displayField3.GetComponent<TextMeshProUGUI>().text = "";
         input = "";
     }
 }

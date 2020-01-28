@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08125668, g: 0.20754719, b: 0.17495608, a: 0.65882355}
+  m_Color: {r: 0.08125668, g: 0.20754719, b: 0.17495608, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8680,7 +8680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &346069551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12945,9 +12945,9 @@ RectTransform:
   m_Father: {fileID: 346069554}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960.00006, y: -570}
   m_SizeDelta: {x: 230, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529292659
@@ -13679,8 +13679,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Leave
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 173a3687ca6cb4aaeaf877da916d3b7d, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: c374895d33ce9450b86b90fcbaa53429, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b719b6eb2259441e7a2478d8c9f7089b, type: 2}
+  m_sharedMaterial: {fileID: 4733503474228217159, guid: b719b6eb2259441e7a2478d8c9f7089b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17546,8 +17547,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Try again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 173a3687ca6cb4aaeaf877da916d3b7d, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: c374895d33ce9450b86b90fcbaa53429, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b719b6eb2259441e7a2478d8c9f7089b, type: 2}
+  m_sharedMaterial: {fileID: 4733503474228217159, guid: b719b6eb2259441e7a2478d8c9f7089b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25206,6 +25208,12 @@ MonoBehaviour:
   notMoving: {fileID: 11400000, guid: 39c6c3f3b730c466980f6c54ecebc7ba, type: 2}
   endSecurityDialogue: 0
   tookYouLongEngough: {fileID: 11400000, guid: fec64c0978266407b89df4b5d9cf58fc, type: 2}
+  tookYouLongEnoughWOCard: {fileID: 11400000, guid: 6494a8a9745d6498f8d18131bb594d3d,
+    type: 2}
+  beenHereWCard: {fileID: 11400000, guid: 42a69e57592444ed58975b852ba8e44a, type: 2}
+  beenHereWOCard: {fileID: 11400000, guid: 3bf1a6ff7a46f49aa9c746553ec4f805, type: 2}
+  keyCardCollected: 0
+  haveBeenHereBefore: 0
   notBob: 0
   accessGranted: 0
   helloAlice: {fileID: 11400000, guid: 624f5366a434642dab67dcf5590ceb99, type: 2}
@@ -35954,8 +35962,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Smash
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 173a3687ca6cb4aaeaf877da916d3b7d, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: c374895d33ce9450b86b90fcbaa53429, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b719b6eb2259441e7a2478d8c9f7089b, type: 2}
+  m_sharedMaterial: {fileID: 4733503474228217159, guid: b719b6eb2259441e7a2478d8c9f7089b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41565,9 +41574,9 @@ RectTransform:
   m_Father: {fileID: 346069554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960.0001, y: -380}
   m_SizeDelta: {x: 635.3, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774339020
@@ -44363,9 +44372,9 @@ RectTransform:
   m_Father: {fileID: 346069554}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960.00006, y: -740}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948586610
@@ -49026,7 +49035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08125668, g: 0.20754719, b: 0.17495608, a: 0.65882355}
+  m_Color: {r: 0.08125668, g: 0.20754719, b: 0.17495608, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

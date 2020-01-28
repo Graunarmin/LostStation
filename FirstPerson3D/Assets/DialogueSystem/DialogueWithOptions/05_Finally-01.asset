@@ -10,13 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
-  m_Name: 05_Finally
+  m_Name: 05_Finally-01
   m_EditorClassIdentifier: 
   givesJournalInfo: 0
   journalPage: {fileID: 0}
   dialogueEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+        m_MethodName: SetHaveBeenHereBefore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   dialogueInfo:
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
     myText: Finally. Took you long enough.

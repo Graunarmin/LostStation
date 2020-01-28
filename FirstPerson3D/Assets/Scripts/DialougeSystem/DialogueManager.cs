@@ -75,6 +75,12 @@ public class DialogueManager : MonoBehaviour
         //check if dialogue contains options and handle them
         OptionsParser(db);
 
+        //invoke the event that is supposed to happen with this dialogue (not on click!)
+        if(db.dialogueEvent != null)
+        {
+            db.dialogueEvent.Invoke();
+        }
+
         //enqueue all text from the dialogue
         foreach (DialogueBase.Info info in db.dialogueInfo)
         {
