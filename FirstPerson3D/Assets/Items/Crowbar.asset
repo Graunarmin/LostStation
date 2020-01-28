@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Crowbar
   m_EditorClassIdentifier: 
   itemName: Crowbar
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 70db99faf8aea401882d5747b7c135bc, type: 3}
   journalPage: {fileID: 0}
   descriptionText: Heavy. Might come in handy ... in case I need to, like, smash something?

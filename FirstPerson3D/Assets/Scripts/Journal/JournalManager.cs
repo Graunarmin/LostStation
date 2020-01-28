@@ -180,7 +180,7 @@ public class JournalManager : MonoBehaviour
         //PlaySound
         //...
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
 
         //hide pop-up
         updateInfoCanvas.gameObject.SetActive(false);

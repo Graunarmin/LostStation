@@ -244,13 +244,4 @@ public class GameManager : MonoBehaviour
         return Reference.instance.pauseMenu.gameIsPaused;
     }
     #endregion
-
-    #region End of Game
-    //end the game and roll the credits
-    public void EndGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    #endregion
-
 }

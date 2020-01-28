@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Keycard
   m_EditorClassIdentifier: 
   itemName: Keycard
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 31d2f07a3f2c84145a588edd0b5919ad, type: 3}
   journalPage: {fileID: 3813495441491490494, guid: 1c7cd8f3f986d41259d48674407ec281,
     type: 3}
   descriptionText: I better keep this keycard ... Could be useful.

@@ -127,7 +127,7 @@ public class InventoryManager : MonoBehaviour
         //PlaySound
         //...
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
 
         //hide pop-up
         newItemInfo.gameObject.SetActive(false);

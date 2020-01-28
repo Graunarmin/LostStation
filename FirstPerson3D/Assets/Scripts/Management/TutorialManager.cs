@@ -69,21 +69,21 @@ public class TutorialManager : MonoBehaviour
     {
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         openInventory.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial(openInventory));
+        StartCoroutine(CloseTutorial(openInventory, 3f));
     }
 
     public void ShowJournalTut()
     {
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         openJournal.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial(openJournal));
+        StartCoroutine(CloseTutorial(openJournal, 2f));
     }
 
     public void ShowCloseTut()
     {
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial(closeOverlay));
+        StartCoroutine(CloseTutorial(closeOverlay, 2f));
     }
 
     //Is called from DialogueEvents when the flashlight is enabled
@@ -101,13 +101,13 @@ public class TutorialManager : MonoBehaviour
     {
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         toggleFlashlight.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial(toggleFlashlight));
+        StartCoroutine(CloseTutorial(toggleFlashlight, 2f));
     }
 
 
-    private IEnumerator CloseTutorial(GameObject tutorial)
+    private IEnumerator CloseTutorial(GameObject tutorial, float time)
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(time);
 
         if (!GameManager.gameManager.CurrentlyInteracting() && !OtherTutorialOpen())
         {

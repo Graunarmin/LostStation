@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Switcher : Interactable
 {
-    public string infoTextSwitchedOn;
     public bool state;
     public bool changeOnClick;
     //public string infoTextSwitchedOff;
