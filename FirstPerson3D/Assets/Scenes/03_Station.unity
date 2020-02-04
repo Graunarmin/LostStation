@@ -24675,6 +24675,7 @@ GameObject:
   - component: {fileID: 957326860}
   - component: {fileID: 957326865}
   - component: {fileID: 957326866}
+  - component: {fileID: 957326867}
   m_Layer: 0
   m_Name: BobsLockerDoor
   m_TagString: Untagged
@@ -24748,7 +24749,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f9d0a63e38a8b44b81141237271a628, type: 2}
+  - {fileID: 2100000, guid: d83be12c9183f4ac7bf45e9b0a2eb0e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24818,6 +24819,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAccess: 1
   observedSwitcher: {fileID: 1355445645}
+--- !u!95 &957326867
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957326858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d9e7bb72fd07470bbc05d48335ef43b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &957525983
 GameObject:
   m_ObjectHideFlags: 0
