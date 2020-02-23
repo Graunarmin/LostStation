@@ -16,8 +16,10 @@ public class Generator : Item
 
     private void Awake()
     {
-        lights.gameObject.SetActive(false);
-        lamps.gameObject.SetActive(false);
+        //lets switch on the lights for testing!
+        lights.gameObject.SetActive(true);
+        lamps.gameObject.SetActive(true);
+
         roofON.gameObject.SetActive(false);
         roofOFF.gameObject.SetActive(true);
 

@@ -10,9 +10,9 @@ public class CollectPrereq : Prerequisite
     public override bool Complete
     {
         get{
-            if(InventoryManager.invManager.items.Count > 0)
+            if(InventoryManager.invManager.GetContainerSize() > 0)
             {
-                if (InventoryManager.invManager.items.Contains(requiredCollector.collectableItem))
+                if (InventoryManager.invManager.ContainerContainsItem(requiredCollector.collectableItem))
                 {
                     Debug.Log("Required Item in inventory");
                     return true;

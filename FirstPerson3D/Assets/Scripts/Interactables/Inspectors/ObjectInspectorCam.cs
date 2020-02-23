@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInspectorCam : MonoBehaviour
+public class ObjectInspectorCam : MonoBehaviour, IPuzzleCanvas
 {
     [HideInInspector]
     public Transform model;

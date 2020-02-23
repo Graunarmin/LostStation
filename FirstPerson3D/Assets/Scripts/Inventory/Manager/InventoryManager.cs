@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : ItemContainerManager
 {
     #region Singleton
     public static InventoryManager invManager;
@@ -23,55 +23,54 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
-    public Transform itemsParent;
-    public int space = 6;
-    public List<Collectable> items = new List<Collectable>();
-
     public Canvas newItemInfo;
-
     public GameObject descriptionPanel;
     public TextMeshProUGUI itemDescription;
-
-    InventorySlot[] slots;
 
     //notify everyone who needs the keycard
     public delegate void KeyCardCollected();
     public static event KeyCardCollected OnKeyCardCollected;
 
-    void Start()
+    protected override void Start()
     {
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        base.Start();
+        container.SetSpace(4);
         descriptionPanel.SetActive(false);
     }
 
-    public bool AddItem(Collectable item)
+    //is called by Collector
+    public override bool AddItem(Item item)
     {
-        //Check if this was the first collectable and if so
-        //show info on how to access inventory
-        TutorialManager.tutorialManager.FirstCollectable();
-
-        if(items.Count >= space)
+        if (container.AddItem(item))
         {
-            Debug.Log("Not enough room");
-            return false;
-        }
-
-        items.Add(item);
-        if(item.itemInfo.name == "Keycard")
-        {
-            if(OnKeyCardCollected != null)
+            if (item.itemInfo.name == "Keycard")
             {
-                OnKeyCardCollected();
+                if (OnKeyCardCollected != null)
+                {
+                    OnKeyCardCollected();
+                }
             }
+            UpdateUI();
+            return true;
         }
-        UpdateUI();
-        return true;
+        return false;
     }
 
-    public void RemoveItem(Collectable item)
+    //not called yet
+    public override void RemoveItem(Item item)
     {
-        items.Remove(item);
+        container.RemoveItem(item);
         UpdateUI();
+    }
+
+    protected override void UpdateUI()
+    {
+        base.UpdateUI();
+
+        if (!GameManager.gameManager.Crafting())
+        {
+            StartCoroutine(ShowUpdateIcon());
+        }
     }
 
     public void OpenInventory()
@@ -94,11 +93,15 @@ public class InventoryManager : MonoBehaviour
         {
             GameManager.gameManager.SwitchCameras("3D");
         }
+        if (Reference.instance.craftingArea.gameObject.activeInHierarchy)
+        {
+            Reference.instance.craftingArea.Close();
+        }
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);
     }
 
-    public void ShowDescription(Collectable item)
+    public void ShowDescription(Item item)
     {
         descriptionPanel.SetActive(true);
         itemDescription.text = item.itemInfo.descriptionText;
@@ -108,22 +111,6 @@ public class InventoryManager : MonoBehaviour
     {
         descriptionPanel.SetActive(false);
         itemDescription.text = "";
-    }
-
-    void UpdateUI()
-    {
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (i < items.Count)
-            {
-                slots[i].AddItemToSlot(items[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
-        }
-        StartCoroutine(ShowUpdateIcon());
     }
 
     private IEnumerator ShowUpdateIcon()

@@ -12,7 +12,9 @@ public class Item : MonoBehaviour
 
     public ItemAsset itemInfo;
 
+    //delete, contained in ItemAsset!
     public JournalPage journalPage;
+    //maybe shift over to ItemAsset as well?
     public Region location;
 
     //is always called (when Object is active)
@@ -99,9 +101,12 @@ public class Item : MonoBehaviour
 
     public virtual void ManageJournalInfo()
     {
-        if (journalPage != null)
+        if(itemInfo != null)
         {
-            GameManager.gameManager.FireNewJournalEntry(journalPage);
+            if (itemInfo.journalPage != null)
+            {
+                GameManager.gameManager.FireNewJournalEntry(itemInfo.journalPage);
+            }
         }
     }
 

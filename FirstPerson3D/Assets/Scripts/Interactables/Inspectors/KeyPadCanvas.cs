@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class KeyPadCanvas : MonoBehaviour
+public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
 {
     public GameObject keypadUI;
     public GameObject displayField1;

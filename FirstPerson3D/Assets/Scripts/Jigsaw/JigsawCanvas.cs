@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JigsawCanvas : MonoBehaviour
+public class JigsawCanvas : MonoBehaviour, IPuzzleCanvas
 {
 
     public bool solved;

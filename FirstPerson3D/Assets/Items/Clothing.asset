@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a10175f6929ea4eaaad9557185171140, type: 3}
-  m_Name: Crowbar
+  m_Name: Clothing
   m_EditorClassIdentifier: 
-  itemName: Crowbar
-  icon: {fileID: 21300000, guid: 70db99faf8aea401882d5747b7c135bc, type: 3}
-  journalPage: {fileID: 0}
-  descriptionText: Heavy. Might come in handy ... in case I need to, like, smash something?
+  itemName: Clothing
+  icon: {fileID: 0}
+  location: {fileID: 0}
+  journalPage: {fileID: 5890423548391857175, guid: a8d6a2bb3ae004efe8293d5963e551b2,
+    type: 3}
+  descriptionText: 
+  craftingMaterial: 0
+  isConsumed: 0

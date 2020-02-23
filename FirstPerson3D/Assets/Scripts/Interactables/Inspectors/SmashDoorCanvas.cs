@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmashDoorCanvas : MonoBehaviour
+public class SmashDoorCanvas : MonoBehaviour, IPuzzleCanvas
 {
     public Collectable crowbar;
     //The page that get's added in case the crowbar was not collected
     public JournalPage journalPage;
 
     public GameObject content;
+
     public void Activate()
     {
         gameObject.SetActive(true);
@@ -34,9 +35,9 @@ public class SmashDoorCanvas : MonoBehaviour
 
     public void Smash()
     {
-        if(InventoryManager.invManager.items.Count > 0)
+        if(InventoryManager.invManager.GetContainerSize() > 0)
         {
-            if (InventoryManager.invManager.items.Contains(crowbar))
+            if (InventoryManager.invManager.ContainerContainsItem(crowbar))
             {
                 Debug.Log("Crowbar collected");
                 Reference.instance.keyPad.SmashedKeyPad();

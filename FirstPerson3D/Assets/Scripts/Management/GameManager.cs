@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour
 
     #region userinput
 
+    private KeyCode flashlight = KeyCode.F;
+    private KeyCode inventory = KeyCode.I;
+    private KeyCode journal = KeyCode.J;
+    private KeyCode pause = KeyCode.P;
+
+    public void SetInventoryKey(KeyCode code)
+    {
+        inventory = code;
+    }
+
     private void Update(){
         //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
         if (Input.GetMouseButtonDown(1) && Reference.instance.currentItem != null)
@@ -91,7 +101,7 @@ public class GameManager : MonoBehaviour
 
 
         //if P is pressed: freeze game and show pause Menu
-        if (Input.GetKeyDown(KeyCode.P)){
+        if (Input.GetKeyDown(pause)){
             if (gameManager.GameIsOnPause()){
                 Reference.instance.pauseMenu.ResumeGame();  
             }
@@ -101,7 +111,7 @@ public class GameManager : MonoBehaviour
         }
 
         //if F is pressed: switch flashlight on or off
-        if (flashlightEnabled && Input.GetKeyDown(KeyCode.F))
+        if (flashlightEnabled && Input.GetKeyDown(flashlight))
         {
             if (Reference.instance.flashlight.gameObject.activeInHierarchy){
                 Reference.instance.flashlight.gameObject.SetActive(false);
@@ -112,13 +122,13 @@ public class GameManager : MonoBehaviour
         }
 
         //if J is pressed: toggle journal
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(journal))
         {
             JournalManager.journalManager.OpenJournal();
         }
 
         //if I is pressed: toggle inventory
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(inventory))
         {
            InventoryManager.invManager.OpenInventory();
         }
@@ -168,6 +178,7 @@ public class GameManager : MonoBehaviour
     public bool flashlightEnabled;
     #endregion
 
+    #region Camera
     //is called by the "Canvas" Classes if the interactables in "Activate()" and "Close()"
     public void SwitchCameras(string mode)
     {
@@ -210,6 +221,7 @@ public class GameManager : MonoBehaviour
             Reference.instance.camera2D.enabled = false;
         }
     }
+    #endregion
 
     #region Test if stuff is happening
     //test if there is currently an Inspector up
@@ -226,6 +238,11 @@ public class GameManager : MonoBehaviour
                 Reference.instance.dialogueCanvas.gameObject.activeInHierarchy||
                 Reference.instance.diary.gameObject.activeInHierarchy ||
                 Reference.instance.jigsawCanvas.gameObject.activeInHierarchy);
+    }
+
+    public bool Crafting()
+    {
+        return Reference.instance.craftingArea.gameObject.activeInHierarchy;
     }
 
     public bool JournalOpen()

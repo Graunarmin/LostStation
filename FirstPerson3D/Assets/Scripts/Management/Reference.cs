@@ -5,6 +5,8 @@ using TMPro;
 
 public class Reference : MonoBehaviour
 {
+    //Lights managermaent in Generator class!
+
     #region singleton
     public static Reference instance;
 
@@ -29,6 +31,7 @@ public class Reference : MonoBehaviour
         journalUpdateInfo.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
         inventory.gameObject.SetActive(false);
+        craftingArea.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -66,6 +69,7 @@ public class Reference : MonoBehaviour
 
     public Canvas inventoryCanvas;
     public GameObject inventory;
+    public CraftingPanel craftingArea;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;
@@ -74,7 +78,7 @@ public class Reference : MonoBehaviour
     public JigsawCanvas jigsawCanvas;
 
 
-    //to be fille by code
+    //to be filled by code
     [HideInInspector]
     public List<Region> currentRegions = new List<Region>();
     [HideInInspector]
