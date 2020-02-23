@@ -22,12 +22,13 @@ public class InventoryEventHandler : MonoBehaviour
     #endregion
 
     [SerializeField] Image draggableItem;
+    [SerializeField] ResultSlot resultSlot;
     private ItemSlot dragItemSlot;
 
     public void BeginDrag(ItemSlot itemSlot, BaseEventData data)
     {
         //only drag if this item is a crafting Material!
-        if (itemSlot.GetItem() != null)
+        if (GameManager.gameManager.Crafting() && itemSlot.GetItem() != null)
         {
             if (itemSlot.GetItem().itemInfo.craftingMaterial || itemSlot.GetItem().itemInfo.isResultItem)
             {
@@ -48,14 +49,13 @@ public class InventoryEventHandler : MonoBehaviour
                 draggableItem.gameObject.GetComponent<Image>().enabled = true;
             }
         }
-         
     }
 
     public void Drag(ItemSlot itemSlot, BaseEventData data)
     {
         //Drag Item along
         //draggableItem is only enabled, if it is a crafing material
-        if (draggableItem.enabled)
+        if (GameManager.gameManager.Crafting() && draggableItem.enabled)
         {
             //cast as PointerEventData to get Cursor Position
             PointerEventData pointerData = data as PointerEventData;
@@ -67,7 +67,7 @@ public class InventoryEventHandler : MonoBehaviour
     public void EndDrag(ItemSlot itemSlot)
     {
         //Counts the starting slot
-        if(itemSlot.GetItem() != null)
+        if(GameManager.gameManager.Crafting() && itemSlot.GetItem() != null)
         {
             itemSlot.icon.enabled = true;
         }
@@ -81,22 +81,23 @@ public class InventoryEventHandler : MonoBehaviour
 
     public void Drop(ItemSlot dropItemSlot)
     {
-        if(dragItemSlot != null)
+        if(GameManager.gameManager.Crafting() && dragItemSlot != null)
         {
-            if (dropItemSlot.CanReceiveItem(dragItemSlot.GetItem()))
+            if (dropItemSlot.CanReceiveItem(dragItemSlot.GetItem()) )
             {
                 //drag from Inventory to crafting area
-                if(dropItemSlot is CraftingSlot && dragItemSlot is InventorySlot)
+                if(dropItemSlot is CraftingSlot && dragItemSlot is InventorySlot && resultSlot.IsEmpty())
                 {
                     CraftingManager.craftManager.AddItem(dragItemSlot.GetItem());
                     InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from crafting area to inventory
-                else if(dropItemSlot is InventorySlot && dragItemSlot is CraftingSlot)
+                else if(dropItemSlot is InventorySlot && dragItemSlot is CraftingSlot && resultSlot.IsEmpty())
                 {
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     CraftingManager.craftManager.RemoveItem(dragItemSlot.GetItem());
                 }
+                //drag from result to inventory
                 else if(dropItemSlot is InventorySlot && dragItemSlot is ResultSlot)
                 {
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());

@@ -71,4 +71,9 @@ public class ItemSlot : MonoBehaviour
         }
         return false;
     }
+
+    public virtual bool IsEmpty()
+    {
+        return item == null;
+    }
 }

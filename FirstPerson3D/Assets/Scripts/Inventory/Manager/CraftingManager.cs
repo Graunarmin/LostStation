@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingManager : ItemContainerManager
 {
@@ -21,6 +22,8 @@ public class CraftingManager : ItemContainerManager
     }
     #endregion
 
+    public delegate void FilterEquipped();
+    public static event FilterEquipped OnFilterEquipped;
     [SerializeField] FlashlightFilter flashlightFilter;
 
     private void Update()
@@ -30,7 +33,31 @@ public class CraftingManager : ItemContainerManager
             if (InventoryManager.invManager.ContainerContainsItem(flashlightFilter))
             {
                 flashlightFilter.Equip();
+                if (OnFilterEquipped != null)
+                {
+                    OnFilterEquipped();
+                }
             }
+        }
+    }
+
+    [SerializeField] List<Button> craftingButtons = new List<Button>();
+
+    protected override void Start()
+    {
+        base.Start();
+
+        foreach(Button button in craftingButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+    }
+
+    public void ResetButtons()
+    {
+        foreach (Button button in craftingButtons)
+        {
+            button.gameObject.SetActive(false);
         }
     }
 

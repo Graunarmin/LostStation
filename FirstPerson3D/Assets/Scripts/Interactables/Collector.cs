@@ -29,7 +29,7 @@ public class Collector : Interactable
             InventoryManager.invManager.AddItem(gameObject.GetComponent<Collectable>());
 
         //and set it to inactive so it is no longer visible or accessible
-        if (wasPickedUp)
+        if (wasPickedUp && collectableItem.CompletelyCollected())
         {
             collectableItem.location.RemoveItem(collectableItem);
             gameObject.SetActive(false);

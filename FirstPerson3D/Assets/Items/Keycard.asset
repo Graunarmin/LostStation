@@ -18,5 +18,6 @@ MonoBehaviour:
   journalPage: {fileID: 3813495441491490494, guid: 1c7cd8f3f986d41259d48674407ec281,
     type: 3}
   descriptionText: I better keep this keycard ... Could be useful.
-  craftingMaterial: 1
-  isConsumed: 1
+  craftingMaterial: 0
+  isConsumed: 0
+  isResultItem: 0

@@ -6,5 +6,10 @@ using UnityEngine;
 //[System.Serializable]
 public class Collectable : Item
 {
-  
+    [SerializeField] bool disappearsOnCollect;
+
+    public bool CompletelyCollected()
+    {
+        return disappearsOnCollect;
+    }
 }

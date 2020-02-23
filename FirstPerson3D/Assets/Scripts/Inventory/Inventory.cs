@@ -55,7 +55,10 @@ public class Inventory : MonoBehaviour, IItemContainer
             Debug.Log("Inventory contains " + item.name);
             return true;
         }
-        Debug.Log("Inventory does not contain " + item.name);
+        else
+        {
+            Debug.Log("Inventory does not contain " + item.name);
+        }
         return false;
     }
 

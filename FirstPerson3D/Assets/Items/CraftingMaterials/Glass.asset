@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Glass
   m_EditorClassIdentifier: 
   itemName: Glass
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ae2352b6d72e3431db06c3e02f34fc39, type: 3}
   location: {fileID: 0}
   journalPage: {fileID: 0}
   descriptionText: Some shards of glass. Better be careful.
   craftingMaterial: 1
   isConsumed: 1
+  isResultItem: 0

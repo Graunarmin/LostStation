@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
-{ 
+{
     public void Activate()
     {
+        //CraftingInspector inspector = interactable as CraftingInspector;
+
         gameObject.SetActive(true);
         //Cameras are already managed in InventoryManager
         InventoryManager.invManager.OpenInventory();
@@ -19,8 +22,14 @@ public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
         gameObject.SetActive(false);
         //Cameras are already managed in InventoryManager
         InventoryManager.invManager.CloseInventory();
+        CraftingManager.craftManager.ResetButtons();
         //so the inventory can again be opened by pressing I
         GameManager.gameManager.SetInventoryKey(KeyCode.I);
         Time.timeScale = 1f;
+    }
+
+    public void SetButton(Button button)
+    {
+        button.gameObject.SetActive(true);
     }
 }
