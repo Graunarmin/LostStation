@@ -27,6 +27,8 @@ public class InventoryManager : ItemContainerManager
     public GameObject descriptionPanel;
     public TextMeshProUGUI itemDescription;
     public Canvas warning;
+    public GameObject inventoryFull;
+    public GameObject cantCraft;
 
     //notify everyone who needs the keycard
     public delegate void KeyCardCollected();
@@ -61,8 +63,10 @@ public class InventoryManager : ItemContainerManager
     private IEnumerator ShowWarning()
     {
         warning.gameObject.SetActive(true);
+        inventoryFull.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
         warning.gameObject.SetActive(false);
+        inventoryFull.gameObject.SetActive(false);
     }
 
     //not called yet

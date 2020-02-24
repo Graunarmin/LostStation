@@ -7,14 +7,9 @@ public class Tests : MonoBehaviour
     public Collectable keycard;
     public Collectable crowbar;
     public Item filter;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        //FinishChapter02();
-        //FinishChapter03();
-    }
+    public Alien fireAlien;
+    public Alien airAlien;
+    public Alien waterAlien;
 
     private void Update()
     {
@@ -29,6 +24,11 @@ public class Tests : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             FinishChapter03();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            FinishChapter04();
         }
     }
 
@@ -63,6 +63,15 @@ public class Tests : MonoBehaviour
         //craft Filter and put it in backpack
         InventoryManager.invManager.AddItem(filter);
 
+    }
+
+    private void FinishChapter04()
+    {
+        //CollectAllAliens
+        InventoryManager.invManager.RemoveItem(filter);
+        InventoryManager.invManager.AddItem(fireAlien);
+        InventoryManager.invManager.AddItem(waterAlien);
+        InventoryManager.invManager.AddItem(airAlien);
     }
 
 }
