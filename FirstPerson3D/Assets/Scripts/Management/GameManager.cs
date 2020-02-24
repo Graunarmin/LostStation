@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Update(){
         //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
-        if (Input.GetMouseButtonDown(1) && Reference.instance.currentItem != null)
+        if (Input.GetMouseButtonDown(1))// && Reference.instance.currentItem != null)
         {
             if (!JournalOpen() && !InventoryOpen())
             {

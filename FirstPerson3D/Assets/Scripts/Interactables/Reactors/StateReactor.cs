@@ -6,10 +6,8 @@ public abstract class StateReactor : MonoBehaviour
 {
     public Switcher switcher;
 
-    protected virtual void Awake(){
-
-        //switcher = GetComponent<Switcher>();
-
+    protected virtual void Awake()
+    {
         //add Reacht Function to event
         switcher.Change += React; 
     }

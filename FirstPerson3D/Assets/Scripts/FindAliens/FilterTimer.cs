@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FilterTimer : MonoBehaviour
 {
@@ -23,54 +24,72 @@ public class FilterTimer : MonoBehaviour
     private void Start()
     {
         CraftingManager.OnFilterEquipped += FilterEquipped;
+        AlienManager.OnFoundAllAliens += UnequipFilter;
     }
 
+    public delegate void FilterBroken();
+    public static event FilterBroken OnFilterBroken;
+
     [SerializeField] Item frame;
+    [SerializeField] Canvas crack;
 
     private void FilterEquipped()
     {
-        //change color of flashlight
-        Reference.instance.flashlight.color = new Color(255, 194, 182, Reference.instance.flashlight.color.a);
+        //make aliens visible:
+        //aliens are listening to OnFilterEquipped as well, nothing to do here
 
-        //make the aliens visible
+        //change color of flashlight
+        Reference.instance.flashlight.color = new Color(255/255, 194/255, 182/255, Reference.instance.flashlight.color.a);
 
         //start timer until Unequip
         StartCoroutine(Timer());
     }
 
-    private IEnumerator Timer()
+    public IEnumerator Timer()
     {
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(60);
         ShowCracks();
 
         yield return new WaitForSeconds(30);
 
-        UnequipFilter();
+        AlienFilterBroken();
 
     }
 
     private void ShowCracks()
     {
         Debug.Log("Be careful, time runs out!");
+
         //show first cracks in Lense
+        crack.gameObject.SetActive(true);
+    }
+
+    private void AlienFilterBroken()
+    {
+        //make aliens invisible
+        //and stop coroutine counting them
+        if (OnFilterBroken != null)
+        {
+            OnFilterBroken();
+        }
+
+        UnequipFilter();
     }
 
     public void UnequipFilter()
     {
         Debug.Log("Unequipping the Filter!");
+
         //stop timer
         StopCoroutine(Timer());
 
-        //make aliens invisible
-
         //change color of flashlight back to normal
-        Reference.instance.flashlight.color = new Color(253, 240, 161, Reference.instance.flashlight.color.a);
+        Reference.instance.flashlight.color = new Color(253/255, 240/255, 161/255, Reference.instance.flashlight.color.a);
 
         //remove crack
+        crack.gameObject.SetActive(true);
 
         //put frame into inventory
         InventoryManager.invManager.AddItem(frame);
     }
-
-
 }

@@ -77,6 +77,8 @@ public class Reference : MonoBehaviour
     public DiaryCanvas diary;
     public JigsawCanvas jigsawCanvas;
 
+    public Generator generator;
+
 
     //to be filled by code
     [HideInInspector]

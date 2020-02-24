@@ -10,28 +10,40 @@ public class Generator : Item
     public GameObject lamps;
     public GameObject roofON;
     public GameObject roofOFF;
-
-    
-
+    private bool active;
 
     private void Awake()
     {
-        //lets switch on the lights for testing!
+       
+        gameObject.GetComponent<LightSwitch>().SwitchOffLights();
+
+        //but lets switch on the lights for testing!
         lights.gameObject.SetActive(true);
         lamps.gameObject.SetActive(true);
 
-        roofON.gameObject.SetActive(false);
-        roofOFF.gameObject.SetActive(true);
+        //roofON.gameObject.SetActive(false);
+        //roofOFF.gameObject.SetActive(true);
 
-        observedSwitcher.Change += SwitchOnLights;
+        //observedSwitcher.Change += SwitchOnLights;
+        observedSwitcher.Change += GeneratorActive;
     }
 
-    private void SwitchOnLights()
-    {
-        lights.gameObject.SetActive(true);
-        lamps.gameObject.SetActive(true);
-        roofON.gameObject.SetActive(true);
-        roofOFF.gameObject.SetActive(false);
+    //private void SwitchOnLights()
+    //{
+    //    lights.gameObject.SetActive(true);
+    //    lamps.gameObject.SetActive(true);
+    //    roofON.gameObject.SetActive(true);
+    //    roofOFF.gameObject.SetActive(false);
 
+    //}
+
+    private void GeneratorActive()
+    {
+        active = true;
+    }
+
+    public bool isActive()
+    {
+        return active;
     }
 }

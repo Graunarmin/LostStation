@@ -65,7 +65,7 @@ public class DialogueTracker : MonoBehaviour
 
     public void SetKeyCardCollected()
     {
-        Debug.Log("I noticed that Keycard was collected");
+        //Debug.Log("I noticed that Keycard was collected");
         keyCardCollected = true;
     }
     #endregion

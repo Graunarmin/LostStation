@@ -17,7 +17,7 @@ public class Collector : Interactable
         PickUpItem();
     }
 
-    public void PickUpItem()
+    public virtual void PickUpItem()
     {
         //Hide the Object Information
         HideInfo();

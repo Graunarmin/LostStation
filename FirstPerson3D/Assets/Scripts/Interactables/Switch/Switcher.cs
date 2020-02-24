@@ -49,8 +49,8 @@ public class Switcher : Interactable
             {
                 if (switchOn != null && switchOff != null)
                 {
-                    switchOn.gameObject.SetActive(false);
-                    switchOff.gameObject.SetActive(true);
+                    switchOff.gameObject.SetActive(false);
+                    switchOn.gameObject.SetActive(true);
                 }
             }
             //switched off
@@ -58,8 +58,8 @@ public class Switcher : Interactable
             {
                 if (switchOn != null && switchOff != null)
                 {
-                    switchOn.gameObject.SetActive(true);
-                    switchOff.gameObject.SetActive(false);
+                    switchOff.gameObject.SetActive(true);
+                    switchOn.gameObject.SetActive(false);
                 }
             }
 

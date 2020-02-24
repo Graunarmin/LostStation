@@ -13,6 +13,11 @@ public class Region : MonoBehaviour
     {
         Debug.Log("Hi, I'm entering the " + name);
 
+        EnterRegion();
+    }
+
+    public void EnterRegion()
+    {
         //add Region to List of current Regions
         Reference.instance.currentRegions.Add(this);
 
@@ -20,10 +25,16 @@ public class Region : MonoBehaviour
         SetContainedItems(true);
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("And now I'm leaving the " + name);
 
+        ExitRegion();
+    }
+
+    public void ExitRegion()
+    {
         //set current Region to null
         Reference.instance.currentRegions.Remove(this);
 
