@@ -59,6 +59,7 @@ public class Tests : MonoBehaviour
 
     private void FinishChapter03()
     {
+        InventoryManager.invManager.RemoveItem(crowbar);
         //craft Filter and put it in backpack
         InventoryManager.invManager.AddItem(filter);
 

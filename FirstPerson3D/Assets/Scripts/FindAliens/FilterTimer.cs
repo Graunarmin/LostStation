@@ -21,10 +21,12 @@ public class FilterTimer : MonoBehaviour
     }
     #endregion
 
+    private Color originalFlashlightColor;
     private void Start()
     {
         CraftingManager.OnFilterEquipped += FilterEquipped;
         AlienManager.OnFoundAllAliens += UnequipFilter;
+        originalFlashlightColor = Reference.instance.flashlight.color;
     }
 
     public delegate void FilterBroken();
@@ -51,9 +53,7 @@ public class FilterTimer : MonoBehaviour
         ShowCracks();
 
         yield return new WaitForSeconds(30);
-
         AlienFilterBroken();
-
     }
 
     private void ShowCracks()
@@ -62,17 +62,22 @@ public class FilterTimer : MonoBehaviour
 
         //show first cracks in Lense
         crack.gameObject.SetActive(true);
+
+        //play a cracking sound
+        //...
     }
 
     private void AlienFilterBroken()
     {
+        //stop timer
+        StopCoroutine(Timer());
+
         //make aliens invisible
         //and stop coroutine counting them
         if (OnFilterBroken != null)
         {
             OnFilterBroken();
         }
-
         UnequipFilter();
     }
 
@@ -80,14 +85,11 @@ public class FilterTimer : MonoBehaviour
     {
         Debug.Log("Unequipping the Filter!");
 
-        //stop timer
-        StopCoroutine(Timer());
-
         //change color of flashlight back to normal
-        Reference.instance.flashlight.color = new Color(253/255, 240/255, 161/255, Reference.instance.flashlight.color.a);
+        Reference.instance.flashlight.color = originalFlashlightColor;
 
         //remove crack
-        crack.gameObject.SetActive(true);
+        crack.gameObject.SetActive(false);
 
         //put frame into inventory
         InventoryManager.invManager.AddItem(frame);

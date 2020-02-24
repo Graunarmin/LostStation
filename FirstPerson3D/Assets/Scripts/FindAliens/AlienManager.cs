@@ -75,14 +75,22 @@ public class AlienManager : MonoBehaviour
         //and stop counting the aliens
         StopCoroutine(CountAliens());
 
+        //disable colliders
+        alienRegion.ExitRegion();
+
         //make all aliens invisible
         foreach (Alien alien in aliens)
         {
-            alien.gameObject.SetActive(true);
+            alien.gameObject.SetActive(false);
         }
-        alienRegion.ExitRegion();
+
+        foreach(Alien alien in collectedAliens)
+        {
+            InventoryManager.invManager.RemoveItem(alien);
+        }
         //and clear the List of collected aliens
         collectedAliens.Clear();
+       
     }
 
     private IEnumerator CountAliens()
@@ -92,7 +100,7 @@ public class AlienManager : MonoBehaviour
 
         if(OnFoundAllAliens != null)
         {
-            //unsubscribe the methods cause all aliens have been found
+            //unsubscribe the methods because all aliens have been found
             CraftingManager.OnFilterEquipped -= MakeAliensVisible;
             FilterTimer.OnFilterBroken -= MakeAliensInvisible;
             //tell everyone that all aliens have been found

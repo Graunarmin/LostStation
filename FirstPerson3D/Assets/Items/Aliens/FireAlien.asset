@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3210e719abc5e456fa9529deabe2f2e3, type: 3}
   location: {fileID: 0}
   journalPage: {fileID: 0}
-  descriptionText: Pleas, don't set my backback on fire, allright?
+  descriptionText: Don't set my backback on fire, ok?
   craftingMaterial: 0
   isConsumed: 0
   isResultItem: 0

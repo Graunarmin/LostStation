@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Inventory : MonoBehaviour, IItemContainer
 {
     [SerializeField] int space;
+    
     private List<Item> items = new List<Item>();
-
 
     public bool AddItem(Item item)
     {
@@ -19,11 +20,11 @@ public class Inventory : MonoBehaviour, IItemContainer
             Debug.Log("Not enough room");
             return false;
         }
-
         items.Add(item);
         return true;
     }
 
+    
     public bool RemoveItem(Item item)
     {
         items.Remove(item);

@@ -28,11 +28,12 @@ public class CraftingManager : ItemContainerManager
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (GameManager.gameManager.InventoryOpen() && Input.GetKeyDown(KeyCode.E))
         {
             if (InventoryManager.invManager.ContainerContainsItem(flashlightFilter))
             {
                 flashlightFilter.Equip();
+                InventoryManager.invManager.HideDescription();
                 if (OnFilterEquipped != null)
                 {
                     OnFilterEquipped();

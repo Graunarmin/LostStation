@@ -26,6 +26,7 @@ public class InventoryManager : ItemContainerManager
     public Canvas newItemInfo;
     public GameObject descriptionPanel;
     public TextMeshProUGUI itemDescription;
+    public Canvas warning;
 
     //notify everyone who needs the keycard
     public delegate void KeyCardCollected();
@@ -53,7 +54,15 @@ public class InventoryManager : ItemContainerManager
             UpdateUI();
             return true;
         }
+        StartCoroutine(ShowWarning());
         return false;
+    }
+
+    private IEnumerator ShowWarning()
+    {
+        warning.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        warning.gameObject.SetActive(false);
     }
 
     //not called yet
@@ -65,11 +74,20 @@ public class InventoryManager : ItemContainerManager
 
     protected override void UpdateUI()
     {
-        base.UpdateUI();
-
-        if (!GameManager.gameManager.Crafting())
+        for (int i = 0; i < slots.Length; i++)
         {
-            StartCoroutine(ShowUpdateIcon());
+            if (i < container.Size())
+            {
+                slots[i].AddItemToSlot(container.GetItemAtIndex(i));
+                if (!GameManager.gameManager.Crafting())
+                {
+                    StartCoroutine(ShowUpdateIcon());
+                }
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
         }
     }
 
@@ -97,6 +115,7 @@ public class InventoryManager : ItemContainerManager
         {
             Reference.instance.craftingArea.Close();
         }
+        HideDescription();
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);
     }
