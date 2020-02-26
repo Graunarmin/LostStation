@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CopperWire
   m_EditorClassIdentifier: 
   itemName: CopperWire
-  icon: {fileID: 21300000, guid: ef0c9ca4a4a064e05b76b7981c991749, type: 3}
+  icon: {fileID: 21300000, guid: 14dd1524e647741c59b6f7b4b6c15224, type: 3}
   location: {fileID: 0}
   journalPage: {fileID: 0}
   descriptionText: Some Wire.
