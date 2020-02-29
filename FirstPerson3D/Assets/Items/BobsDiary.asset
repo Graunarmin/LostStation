@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a10175f6929ea4eaaad9557185171140, type: 3}
-  m_Name: Diary
+  m_Name: BobsDiary
   m_EditorClassIdentifier: 
-  itemName: Diary
+  itemName: BobsDiary
   icon: {fileID: 0}
+  location: {fileID: 0}
   journalPage: {fileID: 0}
+  descriptionText: 
+  craftingMaterial: 0
+  isConsumed: 0
+  isResultItem: 0

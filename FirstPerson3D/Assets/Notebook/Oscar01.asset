@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37cbe59ecf9b428284c3f2f51ddb8fe, type: 3}
+  m_Name: Oscar01
+  m_EditorClassIdentifier: 
+  doublePage: 1
+  pageNumber: 1
+  pagePic: {fileID: 21300000, guid: 8d5f84b40f8334504bc9c3025485f090, type: 3}
+  pageText: "Thursday\nWe finally found a way. Well, Laura did. She barely talks anymore.
+    No wonder. Don't really know, how I feel about this. They don't seem to be affected
+    in any way, but how can we know for sure? Olivia says they don't feel like we
+    do. I'm pretty certain they don't want to be used like that though. Who would?
+    And what right do we have to do this? But these questions are not asked aloud.
+    \n\nWednesday \nHow can Olivia claim they 'don't mind' when at least twice a week
+    they escape I have to go catch them?\n\nSaturday \nThey seem to have really strong
+    bonds. When in captivity, they are only calm when all three of them are together.
+    Try\n"

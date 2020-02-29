@@ -8,5 +8,7 @@ public class PageInfo : ScriptableObject
     public bool doublePage;
     public int pageNumber;
     public Sprite pagePic;
+    [TextArea(1, 50)]
+    public string pageText;
 }
 

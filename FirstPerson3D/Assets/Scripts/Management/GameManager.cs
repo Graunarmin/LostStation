@@ -67,12 +67,16 @@ public class GameManager : MonoBehaviour
                 {
                     Reference.instance.jigsawCanvas.Close();
                 }
+                if (Reference.instance.oscarsNotebook.gameObject.activeInHierarchy)
+                {
+                    Reference.instance.oscarsNotebook.Close();
+                }
             }
             //else if both are open close both
             else if (InventoryOpen() && JournalOpen())
             {
                 InventoryManager.invManager.CloseInventory();
-                JournalManager.journalManager.CloseJournal();
+                JournalManager.journalManager.CloseNotebook();
             }
             //if inventory open
             else if (InventoryOpen())
@@ -82,12 +86,12 @@ public class GameManager : MonoBehaviour
             //If Jorunal open
             else if (JournalOpen())
             {
-                JournalManager.journalManager.CloseJournal();
+                JournalManager.journalManager.CloseNotebook();
             }
         }
         else if (Input.GetMouseButtonDown(1) && JournalOpen() && !InventoryOpen())
         {
-            JournalManager.journalManager.CloseJournal();
+            JournalManager.journalManager.CloseNotebook();
         }
         else if (Input.GetMouseButtonDown(1) && InventoryOpen() && !JournalOpen())
         {
@@ -96,7 +100,7 @@ public class GameManager : MonoBehaviour
         else if (Input.GetMouseButtonDown(1) && InventoryOpen() && JournalOpen())
         {
             InventoryManager.invManager.CloseInventory();
-            JournalManager.journalManager.CloseJournal();
+            JournalManager.journalManager.CloseNotebook();
         }
 
 
@@ -124,7 +128,7 @@ public class GameManager : MonoBehaviour
         //if J is pressed: toggle journal
         if (Input.GetKeyDown(journal))
         {
-            JournalManager.journalManager.OpenJournal();
+            JournalManager.journalManager.OpenNotebook();
         }
 
         //if I is pressed: toggle inventory
@@ -237,7 +241,8 @@ public class GameManager : MonoBehaviour
                 Reference.instance.keyPad.gameObject.activeInHierarchy ||
                 Reference.instance.dialogueCanvas.gameObject.activeInHierarchy||
                 Reference.instance.diary.gameObject.activeInHierarchy ||
-                Reference.instance.jigsawCanvas.gameObject.activeInHierarchy);
+                Reference.instance.jigsawCanvas.gameObject.activeInHierarchy ||
+                Reference.instance.oscarsNotebook.gameObject.activeInHierarchy);
     }
 
     public bool Crafting()
