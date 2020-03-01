@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JournalManager : MonoBehaviour
+public class JournalManager : Notebook
 {
 
     #region Singleton
@@ -23,12 +23,7 @@ public class JournalManager : MonoBehaviour
     }
     #endregion
 
-    public Image background;
-    public Button next;
-    public Button prev;
     public Canvas updateInfoCanvas;
-    private List<PageInfo> allPages = new List<PageInfo>();
-    public PageInfo currentPage;
 
     // Start is called before the first frame update
     void Start()
@@ -39,13 +34,14 @@ public class JournalManager : MonoBehaviour
 
     }
 
-    public void OpenJournal()
+    public override void OpenNotebook()
     {
         //Debug.Log("Opening Journal");
-        CheckButtons();
+        //CheckButtons();
+        base.OpenNotebook();
         if (Reference.instance.journal.gameObject.activeInHierarchy)
         {
-            CloseJournal();
+            CloseNotebook();
         }
         else
         {
@@ -57,12 +53,13 @@ public class JournalManager : MonoBehaviour
 
     }
 
-    public void CloseJournal()
+    public override void CloseNotebook()
     {
-        if (!GameManager.gameManager.InspectorOpen())
-        {
-            GameManager.gameManager.SwitchCameras("3D");
-        }
+        //if (!GameManager.gameManager.InspectorOpen())
+        //{
+        //    GameManager.gameManager.SwitchCameras("3D");
+        //}
+        base.CloseNotebook();
         Reference.instance.journal.gameObject.SetActive(false);
     }
 
@@ -103,62 +100,62 @@ public class JournalManager : MonoBehaviour
         }
     }
 
-    public void ShowNextPage()
-    {
-        //Debug.Log("Next Page");
-        currentPage =  allPages[allPages.IndexOf(currentPage) + 1];
-        background.GetComponent<Image>().sprite = currentPage.pagePic;
-        CheckButtons();
+    //public override void ShowNextPage()
+    //{
+    //    //Debug.Log("Next Page");
+    //    currentPage =  allPages[allPages.IndexOf(currentPage) + 1];
+    //    background.GetComponent<Image>().sprite = currentPage.pagePic;
+    //    CheckButtons();
 
-    }
+    //}
 
-    public void ShowPreviousPage()
-    {
-        //Debug.Log("Previous Page");
-        currentPage = allPages[allPages.IndexOf(currentPage) - 1];
-        background.GetComponent<Image>().sprite = currentPage.pagePic;
-        CheckButtons();
-    }
+    //public override void ShowPreviousPage()
+    //{
+    //    //Debug.Log("Previous Page");
+    //    currentPage = allPages[allPages.IndexOf(currentPage) - 1];
+    //    background.GetComponent<Image>().sprite = currentPage.pagePic;
+    //    CheckButtons();
+    //}
 
-    private bool HasFollowingPages()
-    {
-        if(allPages.IndexOf(currentPage) != allPages.Count-1)
-        {
-            return true;
-        }
-        return false;
-    }
+    //protected override bool HasFollowingPages()
+    //{
+    //    if(allPages.IndexOf(currentPage) != allPages.Count-1)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
-    private bool HasPreviousPages()
-    {
-        if (allPages.IndexOf(currentPage) != 0)
-        {
-            return true;
-        }
-        return false;
-    }
+    //protected override bool HasPreviousPages()
+    //{
+    //    if (allPages.IndexOf(currentPage) != 0)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
-    private void CheckButtons()
-    {
-        if (!HasFollowingPages())
-        {
-            //Hide "Next" Button
-            next.transform.localScale = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            next.transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (!HasPreviousPages())
-        {
-            //Hide "Previous" Button
-            prev.transform.localScale = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            prev.transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
+    //protected override void CheckButtons()
+    //{
+    //    if (!HasFollowingPages())
+    //    {
+    //        //Hide "Next" Button
+    //        next.transform.localScale = new Vector3(0, 0, 0);
+    //    }
+    //    else
+    //    {
+    //        next.transform.localScale = new Vector3(1, 1, 1);
+    //    }
+    //    if (!HasPreviousPages())
+    //    {
+    //        //Hide "Previous" Button
+    //        prev.transform.localScale = new Vector3(0, 0, 0);
+    //    }
+    //    else
+    //    {
+    //        prev.transform.localScale = new Vector3(1, 1, 1);
+    //    }
+    //}
 
 
     public class SortPagesByNumber : Comparer<PageInfo>

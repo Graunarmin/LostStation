@@ -20,7 +20,10 @@ public class DiaryCanvas : MonoBehaviour
     public void Close()
     {
         //Camera.main.orthographic = false;
-        GameManager.gameManager.SwitchCameras("3D");
+        if (!GameManager.gameManager.JournalOpen() && !GameManager.gameManager.InventoryOpen())
+        {
+            GameManager.gameManager.SwitchCameras("3D");
+        }
         //hide canvas
         gameObject.SetActive(false);
         //unfreeze game

@@ -38,6 +38,7 @@ public class Reference : MonoBehaviour
         keyPad.gameObject.SetActive(false);
         diary.gameObject.SetActive(false);
         jigsawCanvas.gameObject.SetActive(false);
+        oscarsNotebook.gameObject.SetActive(false);
 
     }
     #endregion
@@ -76,6 +77,7 @@ public class Reference : MonoBehaviour
     public KeyPadCanvas keyPad;
     public DiaryCanvas diary;
     public JigsawCanvas jigsawCanvas;
+    public OscarNotebookCanvas oscarsNotebook;
 
     public Generator generator;
 
