@@ -39799,7 +39799,7 @@ MonoBehaviour:
   containedDoors: []
   animations:
   - animator: {fileID: 957326867}
-    name: BobLockerLightON
+    animationName: BobLockerLightON
     requiredItem: {fileID: 11400000, guid: 7e71b05993ca2448b84f889369817ec7, type: 2}
     playOnlyOnce: 1
     alreadyPlayed: 0

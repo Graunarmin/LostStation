@@ -8,7 +8,7 @@ public class DoorOpener : Interactable
     public List<Animator> animators = new List<Animator>();
     public List<string> openingAnimations;
     public List<string> closingAnimations;
-    
+
     public Collider doorLock;
     private Door door;
 
@@ -22,7 +22,7 @@ public class DoorOpener : Interactable
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
 
-        if(animators.Count == 0)
+        if (animators.Count == 0)
         {
             //just a workaround in case animation is missing
             //careful: if deacivated it can't be closed again!
@@ -35,7 +35,9 @@ public class DoorOpener : Interactable
                 animators[i].Play(openingAnimations[i]);
             }
         }
-        if(doorLock != null)
+
+
+        if (doorLock != null)
         {
             doorLock.enabled = false;
         }

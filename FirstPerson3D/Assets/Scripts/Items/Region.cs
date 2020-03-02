@@ -1,22 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-
-[Serializable]
-public struct CustomAnimation
-{
-    public Animator animator;
-    public string name;
-    public ItemAsset requiredItem;
-    public bool playOnlyOnce;
-    public bool alreadyPlayed;
-
-    public void SetAlreadyPlayed()
-    {
-        alreadyPlayed = true;
-    }
-}
 
 public class Region : MonoBehaviour
 {
@@ -26,7 +10,7 @@ public class Region : MonoBehaviour
     public List<Door> containedDoors = new List<Door>();
 
     //animations that are to be played when region is entered
-    [SerializeField] List<CustomAnimation> animations;
+    [SerializeField] List<AnimationPlayer> animations;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,7 +29,7 @@ public class Region : MonoBehaviour
 
         if(animations.Count > 0)
         {
-            PlayAnimations();
+            PlayAnimationsEnter();
         }
     }
 
@@ -127,33 +111,15 @@ public class Region : MonoBehaviour
         }
     }
 
-    private void PlayAnimations()
+    private void PlayAnimationsEnter()
     {
-        foreach(CustomAnimation animation in animations)
+        if(animations.Count > 0)
         {
-            Debug.Log("Scanning Animations");
-            //if the animation was not already played
-            if (!animation.alreadyPlayed)
+            foreach (AnimationPlayer animation in animations)
             {
-                Debug.Log("Not played yet");
-                //if we need an item to see the animation
-                if (animation.requiredItem != null)
-                {
-                    Debug.Log("requires item");
-                    //do we have the item?
-                    if (InventoryManager.invManager.ContainerContainsItem(animation.requiredItem))
-                    {
-                        Debug.Log("item vorhanden");
-                        animation.animator.Play(animation.name);
-                        if (animation.playOnlyOnce)
-                        {
-                            Debug.Log("Play animation");
-                            animation.SetAlreadyPlayed();
-                        }
-                    }
-                }
-                
+                animation.PlayAnimation();
             }
         }
+        
     }
 }
