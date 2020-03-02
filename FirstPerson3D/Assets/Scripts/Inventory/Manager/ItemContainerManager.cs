@@ -66,6 +66,15 @@ public abstract class ItemContainerManager : MonoBehaviour
         return false;
     }
 
+    public bool ContainerContainsItem(ItemAsset item)
+    {
+        if (container.ContainsItem(item))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public IItemContainer GetContainer()
     {
         return container;

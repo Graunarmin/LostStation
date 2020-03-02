@@ -1,13 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+[Serializable]
+public struct CustomAnimation
+{
+    public Animator animator;
+    public string name;
+    public ItemAsset requiredItem;
+    public bool playOnlyOnce;
+    public bool alreadyPlayed;
+
+    public void SetAlreadyPlayed()
+    {
+        alreadyPlayed = true;
+    }
+}
 
 public class Region : MonoBehaviour
 {
     
     public List<Item> containedItems = new List<Item>();
     //so the contained doors can be closed if we leave the region
-    public List<Door> containedDoors = new List<Door>(); 
+    public List<Door> containedDoors = new List<Door>();
+
+    //animations that are to be played when region is entered
+    [SerializeField] List<CustomAnimation> animations;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +42,11 @@ public class Region : MonoBehaviour
 
         //switch on colliders of all contained Items
         SetContainedItems(true);
+
+        if(animations.Count > 0)
+        {
+            PlayAnimations();
+        }
     }
 
 
@@ -99,6 +123,36 @@ public class Region : MonoBehaviour
             if(door.gameObject.GetComponent<DoorOpener>() != null && door.DoorIsOpen())
             {
                 door.gameObject.GetComponent<DoorOpener>().CloseDoor();
+            }
+        }
+    }
+
+    private void PlayAnimations()
+    {
+        foreach(CustomAnimation animation in animations)
+        {
+            Debug.Log("Scanning Animations");
+            //if the animation was not already played
+            if (!animation.alreadyPlayed)
+            {
+                Debug.Log("Not played yet");
+                //if we need an item to see the animation
+                if (animation.requiredItem != null)
+                {
+                    Debug.Log("requires item");
+                    //do we have the item?
+                    if (InventoryManager.invManager.ContainerContainsItem(animation.requiredItem))
+                    {
+                        Debug.Log("item vorhanden");
+                        animation.animator.Play(animation.name);
+                        if (animation.playOnlyOnce)
+                        {
+                            Debug.Log("Play animation");
+                            animation.SetAlreadyPlayed();
+                        }
+                    }
+                }
+                
             }
         }
     }
