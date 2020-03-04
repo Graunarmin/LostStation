@@ -5,29 +5,34 @@ using UnityEngine.UI;
 
 public class ImageInspectorCanvas : MonoBehaviour
 {
-    public Image imageHolder;
 
-    public void Activate(Sprite pic)
+    public void Activate(Image pic)
     {
         //So we can't click on anything in the background
-        GameManager.gameManager.SwitchCameras("2D");
+        //GameManager.gameManager.SwitchCameras("2D");
         Time.timeScale = 0f;
         Reference.instance.currentItem.location.SetContainedItems(false);
         Reference.instance.currentItem.col.enabled = false;
 
         gameObject.SetActive(true);
-        imageHolder.sprite = pic;
+        pic.gameObject.SetActive(true);
 
     }
 
     public void Close()
     {
-        GameManager.gameManager.SwitchCameras("3D");
+        //GameManager.gameManager.SwitchCameras("3D");
         Reference.instance.currentItem.location.SetContainedItems(true);
         Reference.instance.currentItem.col.enabled = true;
 
+        Image []children = GetComponentsInChildren<Image>();
+
+        foreach(Image child in children)
+        {
+            child.gameObject.SetActive(false);
+        }
+
         gameObject.SetActive(false);
-        imageHolder.sprite = null;
         Time.timeScale = 1f;
     }
 }

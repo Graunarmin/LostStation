@@ -109,14 +109,14 @@ public class InventoryEventHandler : MonoBehaviour
                 //drag from inventory to pillar
                 else if (dropItemSlot is AlienSlot && dragItemSlot is InventorySlot)
                 {
-                    PortalManager.portal.AddItem(dragItemSlot.GetItem());
+                    //PortalManager.portal.AddItem(dragItemSlot.GetItem());
                     InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from pillar back to inventory
                 else if (dropItemSlot is InventorySlot && dragItemSlot is AlienSlot)
                 {
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
-                    PortalManager.portal.RemoveItem(dragItemSlot.GetItem());
+                    //PortalManager.portal.RemoveItem(dragItemSlot.GetItem());
                 }
                 else
                 {
