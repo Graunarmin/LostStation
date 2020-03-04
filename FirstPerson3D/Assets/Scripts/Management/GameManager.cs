@@ -242,7 +242,8 @@ public class GameManager : MonoBehaviour
                 Reference.instance.dialogueCanvas.gameObject.activeInHierarchy||
                 Reference.instance.diary.gameObject.activeInHierarchy ||
                 Reference.instance.jigsawCanvas.gameObject.activeInHierarchy ||
-                Reference.instance.oscarsNotebook.gameObject.activeInHierarchy);
+                Reference.instance.oscarsNotebook.gameObject.activeInHierarchy ||
+                Reference.instance.portalPanel.gameObject.activeInHierarchy);
     }
 
     public bool Crafting()
@@ -252,7 +253,7 @@ public class GameManager : MonoBehaviour
 
     public bool PortalPuzzle()
     {
-        return true;
+        return Reference.instance.portalPanel.gameObject.activeInHierarchy;
     }
 
     public bool JournalOpen()

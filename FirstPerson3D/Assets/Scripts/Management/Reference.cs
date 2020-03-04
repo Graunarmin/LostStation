@@ -32,6 +32,7 @@ public class Reference : MonoBehaviour
         inventoryCanvas.gameObject.SetActive(false);
         inventory.gameObject.SetActive(false);
         craftingArea.gameObject.SetActive(false);
+        portalPanel.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -71,6 +72,7 @@ public class Reference : MonoBehaviour
     public Canvas inventoryCanvas;
     public GameObject inventory;
     public CraftingPanel craftingArea;
+    public PortalPanel portalPanel;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;
