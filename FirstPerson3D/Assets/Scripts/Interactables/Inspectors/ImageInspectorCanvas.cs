@@ -9,7 +9,7 @@ public class ImageInspectorCanvas : MonoBehaviour
     public void Activate(Image pic)
     {
         //So we can't click on anything in the background
-        //GameManager.gameManager.SwitchCameras("2D");
+        GameManager.gameManager.SwitchCameras("2D");
         Time.timeScale = 0f;
         Reference.instance.currentItem.location.SetContainedItems(false);
         Reference.instance.currentItem.col.enabled = false;
@@ -21,7 +21,7 @@ public class ImageInspectorCanvas : MonoBehaviour
 
     public void Close()
     {
-        //GameManager.gameManager.SwitchCameras("3D");
+        GameManager.gameManager.SwitchCameras("3D");
         Reference.instance.currentItem.location.SetContainedItems(true);
         Reference.instance.currentItem.col.enabled = true;
 

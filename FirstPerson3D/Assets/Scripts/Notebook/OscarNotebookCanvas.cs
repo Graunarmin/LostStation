@@ -22,5 +22,7 @@ public class OscarNotebookCanvas : Notebook, IPuzzleCanvas
         HideText();
         CloseNotebook();
         gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        GameManager.gameManager.SwitchCameras("3D");
     }
 }
