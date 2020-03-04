@@ -27,10 +27,11 @@ public class InventoryEventHandler : MonoBehaviour
 
     public void BeginDrag(ItemSlot itemSlot, BaseEventData data)
     {
-        //only drag if this item is a crafting Material!
-        if (GameManager.gameManager.Crafting() && itemSlot.GetItem() != null)
+        //only drag if this item is a crafting Material, a result item or an alien
+        if ((GameManager.gameManager.Crafting() || GameManager.gameManager.PortalPuzzle())
+            && itemSlot.GetItem() != null)
         {
-            if (itemSlot.GetItem().itemInfo.craftingMaterial || itemSlot.GetItem().itemInfo.isResultItem)
+            if (itemSlot.GetItem().itemInfo.craftingMaterial || itemSlot.GetItem().itemInfo.isResultItem || itemSlot.GetItem() is Alien)
             {
                 //cast data as PointerEventData to get Cursor Position
                 PointerEventData pointerData = data as PointerEventData;
@@ -55,7 +56,7 @@ public class InventoryEventHandler : MonoBehaviour
     {
         //Drag Item along
         //draggableItem is only enabled, if it is a crafing material
-        if (GameManager.gameManager.Crafting() && draggableItem.enabled)
+        if (draggableItem.gameObject.activeInHierarchy)
         {
             //cast as PointerEventData to get Cursor Position
             PointerEventData pointerData = data as PointerEventData;
@@ -66,8 +67,9 @@ public class InventoryEventHandler : MonoBehaviour
 
     public void EndDrag(ItemSlot itemSlot)
     {
-        //Counts the starting slot
-        if(GameManager.gameManager.Crafting() && itemSlot.GetItem() != null)
+        //Called from the the starting slot
+        if((GameManager.gameManager.Crafting() || GameManager.gameManager.PortalPuzzle())
+            && itemSlot.GetItem() != null)
         {
             itemSlot.icon.enabled = true;
         }
@@ -81,27 +83,40 @@ public class InventoryEventHandler : MonoBehaviour
 
     public void Drop(ItemSlot dropItemSlot)
     {
-        if(GameManager.gameManager.Crafting() && dragItemSlot != null)
+        if((GameManager.gameManager.Crafting() || GameManager.gameManager.PortalPuzzle())
+            && dragItemSlot != null)
         {
             if (dropItemSlot.CanReceiveItem(dragItemSlot.GetItem()) )
             {
                 //drag from Inventory to crafting area
-                if(dropItemSlot is CraftingSlot && dragItemSlot is InventorySlot && resultSlot.IsEmpty())
+                if (dropItemSlot is CraftingSlot && dragItemSlot is InventorySlot && resultSlot.IsEmpty())
                 {
                     CraftingManager.craftManager.AddItem(dragItemSlot.GetItem());
                     InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from crafting area to inventory
-                else if(dropItemSlot is InventorySlot && dragItemSlot is CraftingSlot && resultSlot.IsEmpty())
+                else if (dropItemSlot is InventorySlot && dragItemSlot is CraftingSlot && resultSlot.IsEmpty())
                 {
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     CraftingManager.craftManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from result to inventory
-                else if(dropItemSlot is InventorySlot && dragItemSlot is ResultSlot)
+                else if (dropItemSlot is InventorySlot && dragItemSlot is ResultSlot)
                 {
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     ResultManager.resManager.RemoveItem(dragItemSlot.GetItem());
+                }
+                //drag from inventory to pillar
+                else if (dropItemSlot is AlienSlot && dragItemSlot is InventorySlot)
+                {
+                    PortalManager.portal.AddItem(dragItemSlot.GetItem());
+                    InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
+                }
+                //drag from pillar back to inventory
+                else if (dropItemSlot is InventorySlot && dragItemSlot is AlienSlot)
+                {
+                    InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
+                    PortalManager.portal.RemoveItem(dragItemSlot.GetItem());
                 }
                 else
                 {

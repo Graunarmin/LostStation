@@ -250,6 +250,11 @@ public class GameManager : MonoBehaviour
         return Reference.instance.craftingArea.gameObject.activeInHierarchy;
     }
 
+    public bool PortalPuzzle()
+    {
+        return true;
+    }
+
     public bool JournalOpen()
     {
         return Reference.instance.journal.gameObject.activeInHierarchy;
