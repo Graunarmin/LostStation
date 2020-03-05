@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
 {
+    [SerializeField] Image shade;
+
     public void Activate()
     {
         //CraftingInspector inspector = interactable as CraftingInspector;
 
         gameObject.SetActive(true);
+        shade.gameObject.SetActive(true);
         //Cameras are already managed in InventoryManager
         InventoryManager.invManager.OpenInventory();
         //so the inventory can no longer be opened by pressing I
@@ -20,6 +23,7 @@ public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
     public void Close()
     {
         gameObject.SetActive(false);
+        shade.gameObject.SetActive(false);
         //Cameras are already managed in InventoryManager
         InventoryManager.invManager.CloseInventory();
         CraftingManager.craftManager.ResetButtons();

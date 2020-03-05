@@ -115,6 +115,10 @@ public class InventoryManager : ItemContainerManager
         {
             Reference.instance.craftingArea.Close();
         }
+        if (Reference.instance.portalPanel.gameObject.activeInHierarchy)
+        {
+            Reference.instance.portalPanel.Close();
+        }
         HideDescription();
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);

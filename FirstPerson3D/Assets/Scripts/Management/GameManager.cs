@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour
                 {
                     Reference.instance.oscarsNotebook.Close();
                 }
+                //if (Reference.instance.portalPanel.gameObject.activeInHierarchy)
+                //{
+                //    Reference.instance.portalPanel.Close();
+                //}
             }
             //else if both are open close both
             else if (InventoryOpen() && JournalOpen())
