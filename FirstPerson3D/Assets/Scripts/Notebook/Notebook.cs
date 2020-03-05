@@ -22,11 +22,7 @@ public class Notebook : MonoBehaviour
 
     public virtual void CloseNotebook()
     {
-        if(!GameManager.gameManager.JournalOpen() && !GameManager.gameManager.InventoryOpen())
-        {
-            GameManager.gameManager.SwitchCameras("3D");
-        }
-
+        GameManager.gameManager.SwitchCameras("3D");
         //close the canvas (override)
     }
 

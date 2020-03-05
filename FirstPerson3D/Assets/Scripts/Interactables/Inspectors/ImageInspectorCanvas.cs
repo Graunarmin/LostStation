@@ -21,7 +21,6 @@ public class ImageInspectorCanvas : MonoBehaviour
 
     public void Close()
     {
-        GameManager.gameManager.SwitchCameras("3D");
         Reference.instance.currentItem.location.SetContainedItems(true);
         Reference.instance.currentItem.col.enabled = true;
 
@@ -31,8 +30,9 @@ public class ImageInspectorCanvas : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-
-        gameObject.SetActive(false);
         Time.timeScale = 1f;
+        gameObject.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
+        
     }
 }

@@ -39,7 +39,7 @@ public class JournalManager : Notebook
         //Debug.Log("Opening Journal");
         //CheckButtons();
         base.OpenNotebook();
-        if (Reference.instance.journal.gameObject.activeInHierarchy)
+        if (GameManager.gameManager.JournalOpen())
         {
             CloseNotebook();
         }
@@ -55,12 +55,9 @@ public class JournalManager : Notebook
 
     public override void CloseNotebook()
     {
-        //if (!GameManager.gameManager.InspectorOpen())
-        //{
-        //    GameManager.gameManager.SwitchCameras("3D");
-        //}
-        base.CloseNotebook();
         Reference.instance.journal.gameObject.SetActive(false);
+        base.CloseNotebook();
+        
     }
 
     public void UpdateJournal(JournalPage page)
@@ -99,64 +96,6 @@ public class JournalManager : Notebook
             StartCoroutine(ShowUpdateIcon());
         }
     }
-
-    //public override void ShowNextPage()
-    //{
-    //    //Debug.Log("Next Page");
-    //    currentPage =  allPages[allPages.IndexOf(currentPage) + 1];
-    //    background.GetComponent<Image>().sprite = currentPage.pagePic;
-    //    CheckButtons();
-
-    //}
-
-    //public override void ShowPreviousPage()
-    //{
-    //    //Debug.Log("Previous Page");
-    //    currentPage = allPages[allPages.IndexOf(currentPage) - 1];
-    //    background.GetComponent<Image>().sprite = currentPage.pagePic;
-    //    CheckButtons();
-    //}
-
-    //protected override bool HasFollowingPages()
-    //{
-    //    if(allPages.IndexOf(currentPage) != allPages.Count-1)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    //protected override bool HasPreviousPages()
-    //{
-    //    if (allPages.IndexOf(currentPage) != 0)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    //protected override void CheckButtons()
-    //{
-    //    if (!HasFollowingPages())
-    //    {
-    //        //Hide "Next" Button
-    //        next.transform.localScale = new Vector3(0, 0, 0);
-    //    }
-    //    else
-    //    {
-    //        next.transform.localScale = new Vector3(1, 1, 1);
-    //    }
-    //    if (!HasPreviousPages())
-    //    {
-    //        //Hide "Previous" Button
-    //        prev.transform.localScale = new Vector3(0, 0, 0);
-    //    }
-    //    else
-    //    {
-    //        prev.transform.localScale = new Vector3(1, 1, 1);
-    //    }
-    //}
-
 
     public class SortPagesByNumber : Comparer<PageInfo>
     {

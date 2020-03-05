@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a10175f6929ea4eaaad9557185171140, type: 3}
-  m_Name: OscarsDiary
+  m_Name: CraftingRecipe
   m_EditorClassIdentifier: 
-  itemName: OscarsDiary
+  itemName: New Item
   icon: {fileID: 0}
   location: {fileID: 0}
   journalPage: {fileID: 0}

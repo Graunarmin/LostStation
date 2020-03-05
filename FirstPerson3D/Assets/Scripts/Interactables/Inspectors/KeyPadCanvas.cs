@@ -28,11 +28,11 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
     public void Close(){
         //Close Keypad, unfreeze Game
         StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().checkPassword);
-        GameManager.gameManager.SwitchCameras("3D");
         keypadUI.SetActive(false);
         Time.timeScale = 1f;
         //Close Canvas
         gameObject.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
         //reset Input and Display
         ResetInput();
         //Debug.Log("Keypad deactivated");

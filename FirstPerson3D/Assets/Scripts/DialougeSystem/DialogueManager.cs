@@ -166,9 +166,9 @@ public class DialogueManager : MonoBehaviour
         {
             inDialogue = false;
             AddJournalPage();
+            Time.timeScale = 1f;
             Reference.instance.dialogueCanvas.gameObject.SetActive(false);
             GameManager.gameManager.SwitchCameras("3D");
-            Time.timeScale = 1f;
         }
     }
 
@@ -181,9 +181,9 @@ public class DialogueManager : MonoBehaviour
     public void CloseDialogue()
     {
         inDialogue = false;
+        Time.timeScale = 1f;
         Reference.instance.dialogueCanvas.gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
-        Time.timeScale = 1f;
     }
 
     private void OptionsParser(DialogueBase db)

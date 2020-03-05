@@ -20,9 +20,8 @@ public class OscarNotebookCanvas : Notebook, IPuzzleCanvas
     public void Close()
     {
         HideText();
-        CloseNotebook();
         gameObject.SetActive(false);
+        CloseNotebook();
         Time.timeScale = 1f;
-        GameManager.gameManager.SwitchCameras("3D");
     }
 }

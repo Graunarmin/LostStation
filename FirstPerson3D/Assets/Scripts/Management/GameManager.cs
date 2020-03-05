@@ -157,8 +157,15 @@ public class GameManager : MonoBehaviour
     {
         if (OnNewJournalInfo != null)
         {
-            OnNewJournalInfo(page);
+            StartCoroutine(WaitUntilNoInteraction(page));
         }
+    }
+
+    private IEnumerator WaitUntilNoInteraction(JournalPage page)
+    {
+        yield return new WaitUntil(()
+            => !CurrentlyInteracting());
+        OnNewJournalInfo(page);
     }
     #endregion
 
@@ -188,9 +195,10 @@ public class GameManager : MonoBehaviour
     {
         switch (mode)
         {
+            
             case "2D":
                 //Camera.main.orthographic = true;
-
+                Debug.Log("Switching to 2D");
                 Reference.instance.firstPersonCam.enabled = false;
                 Reference.instance.firstPersonCam.gameObject.SetActive(false);
 
@@ -202,27 +210,18 @@ public class GameManager : MonoBehaviour
             case "3D":
                 //Camera.main.orthographic = false;
 
-                Reference.instance.camera2D.enabled = false;
-                Reference.instance.backgroundCam.enabled = false;
-                Reference.instance.backgroundCam.gameObject.SetActive(false);
+                //always switch off the canvas/ game object BEFORE switching to 3D!
+                if (!CurrentlyInteracting())
+                {
+                    Debug.Log("Switching to 3D");
+                    Reference.instance.camera2D.enabled = false;
+                    Reference.instance.backgroundCam.enabled = false;
+                    Reference.instance.backgroundCam.gameObject.SetActive(false);
 
-                Reference.instance.firstPersonCam.gameObject.SetActive(true);
-                Reference.instance.firstPersonCam.enabled = true;
-                
+                    Reference.instance.firstPersonCam.gameObject.SetActive(true);
+                    Reference.instance.firstPersonCam.enabled = true;
+                }
                 break;
-        }
-    }
-
-    public void SwitchOn2DCam()
-    {
-        Reference.instance.camera2D.enabled = true;
-    }
-
-    public void SwitchOff2DCam()
-    {
-        if (!CurrentlyInteracting())
-        {
-            Reference.instance.camera2D.enabled = false;
         }
     }
     #endregion
@@ -246,16 +245,6 @@ public class GameManager : MonoBehaviour
                 Reference.instance.portalPanel.gameObject.activeInHierarchy);
     }
 
-    public bool Crafting()
-    {
-        return Reference.instance.craftingArea.gameObject.activeInHierarchy;
-    }
-
-    public bool PortalPuzzle()
-    {
-        return Reference.instance.portalPanel.gameObject.activeInHierarchy;
-    }
-
     public bool JournalOpen()
     {
         return Reference.instance.journal.gameObject.activeInHierarchy;
@@ -266,10 +255,21 @@ public class GameManager : MonoBehaviour
         return Reference.instance.inventory.gameObject.activeInHierarchy;
     }
 
-    //test if game is on pause
     public bool GameIsOnPause()
     {
         return Reference.instance.pauseMenu.gameIsPaused;
+    }
+
+    //Means the Inventory is active
+    public bool Crafting()
+    {
+        return Reference.instance.craftingArea.gameObject.activeInHierarchy;
+    }
+
+    //Means the Inventory is active
+    public bool PortalPuzzle()
+    {
+        return Reference.instance.portalPanel.gameObject.activeInHierarchy;
     }
     #endregion
 }

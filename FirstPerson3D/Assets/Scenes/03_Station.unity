@@ -8442,6 +8442,8 @@ MonoBehaviour:
   - {fileID: 1968360019}
   - {fileID: 657322977}
   alienRegion: {fileID: 1477913928}
+  journalPage: {fileID: 1101112177115765162, guid: 108be016a9cdf49d8b296702c3c8fd22,
+    type: 3}
 --- !u!1 &219897340
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,7 +8588,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220469374}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ca89ff6b66b44a72ba5ab041312e504, type: 3}
   m_Name: 
@@ -12093,7 +12095,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335197238}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ca89ff6b66b44a72ba5ab041312e504, type: 3}
   m_Name: 
@@ -15739,8 +15741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 0}
   interactable: {fileID: 0}
-  itemInfo: {fileID: 0}
-  journalPage: {fileID: 0}
+  itemInfo: {fileID: 11400000, guid: 985719f994d2642d5be946985a5cdc46, type: 2}
+  journalPage: {fileID: 1101112177115765162, guid: 9b87e54e78b3e484ba73639ed26b58ca,
+    type: 3}
   location: {fileID: 556709833}
 --- !u!65 &436779943
 BoxCollider:
@@ -17664,7 +17667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &487187742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27152,7 +27155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771186844}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ca89ff6b66b44a72ba5ab041312e504, type: 3}
   m_Name: 
@@ -38123,6 +38126,10 @@ MonoBehaviour:
   - {fileID: 5890423548391857175, guid: a8d6a2bb3ae004efe8293d5963e551b2, type: 3}
   - {fileID: 1544499841774135580, guid: 921d6c20a94834fce9488d0e2ca924fd, type: 3}
   - {fileID: 1101112177115765162, guid: eaaf95f5a356548929cb1329b1d88fec, type: 3}
+  - {fileID: 1101112177115765162, guid: 70ed7dfe8e1914452804096df1711a56, type: 3}
+  - {fileID: 1101112177115765162, guid: 108be016a9cdf49d8b296702c3c8fd22, type: 3}
+  - {fileID: 1101112177115765162, guid: e064215062bfe45528849f4c3701825b, type: 3}
+  - {fileID: 1101112177115765162, guid: 9b87e54e78b3e484ba73639ed26b58ca, type: 3}
 --- !u!1 &1108822796
 GameObject:
   m_ObjectHideFlags: 0
@@ -50571,7 +50578,8 @@ MonoBehaviour:
   col: {fileID: 0}
   interactable: {fileID: 0}
   itemInfo: {fileID: 11400000, guid: 0628e0c4fbc2745d9ae3e3d6b48ffb98, type: 2}
-  journalPage: {fileID: 0}
+  journalPage: {fileID: 1101112177115765162, guid: 70ed7dfe8e1914452804096df1711a56,
+    type: 3}
   location: {fileID: 1162086966}
 --- !u!65 &1347060154
 BoxCollider:
@@ -56004,7 +56012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533009176}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ca89ff6b66b44a72ba5ab041312e504, type: 3}
   m_Name: 

@@ -21,7 +21,7 @@ public class DialogueCanvas : MonoBehaviour
         DialogueManager.instance.isDialogueOption = false;
         DialogueManager.instance.inDialogue = false;
         Time.timeScale = 1f;
-        GameManager.gameManager.SwitchCameras("3D");
         gameObject.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
     }
 }

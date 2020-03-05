@@ -56,7 +56,7 @@ public class InventoryManager : ItemContainerManager
             UpdateUI();
             return true;
         }
-        StartCoroutine(ShowWarning());
+        //StartCoroutine(ShowWarning());
         return false;
     }
 
@@ -111,10 +111,6 @@ public class InventoryManager : ItemContainerManager
 
     public void CloseInventory()
     {
-        if (!GameManager.gameManager.InspectorOpen())
-        {
-            GameManager.gameManager.SwitchCameras("3D");
-        }
         if (Reference.instance.craftingArea.gameObject.activeInHierarchy)
         {
             Reference.instance.craftingArea.Close();
@@ -122,6 +118,7 @@ public class InventoryManager : ItemContainerManager
         HideDescription();
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
     }
 
     public void ShowDescription(Item item)

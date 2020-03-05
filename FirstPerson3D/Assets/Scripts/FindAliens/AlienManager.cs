@@ -24,6 +24,7 @@ public class AlienManager : MonoBehaviour
 
     [SerializeField] List<Alien> aliens = new List<Alien>();
     [SerializeField] Region alienRegion;
+    [SerializeField] JournalPage journalPage;
     private List<Alien> collectedAliens = new List<Alien>();
 
     public delegate void FoundAllAliens();
@@ -105,6 +106,8 @@ public class AlienManager : MonoBehaviour
             FilterTimer.OnFilterBroken -= MakeAliensInvisible;
             //tell everyone that all aliens have been found
             OnFoundAllAliens();
+            //add the journal Page
+            GameManager.gameManager.FireNewJournalEntry(journalPage);
         }
     }
 
