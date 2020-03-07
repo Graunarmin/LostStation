@@ -9,6 +9,7 @@ public class PortalContainer : MonoBehaviour, IItemContainer
 
     //use array so the item appears in the slot we dragged it onto
     private Item[] aliens = new Item[4];
+    public List<Item> insertedAliens = new List<Item>();
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class PortalContainer : MonoBehaviour, IItemContainer
             Debug.Log("Not enough room here");
             return false;
         }
+        insertedAliens.Add(item);
         aliens[index] = item;
         return true;
     }
@@ -98,6 +100,7 @@ public class PortalContainer : MonoBehaviour, IItemContainer
         {
             if(aliens[i] == item)
             {
+                insertedAliens.Remove(item);
                 aliens[i] = null;
                 return true;
             }
@@ -112,19 +115,28 @@ public class PortalContainer : MonoBehaviour, IItemContainer
             if (aliens[i].itemInfo == item)
             {
                 aliens[i] = null;
+                insertedAliens.Remove(aliens[i]);
                 return true;
             }
         }
         return false;
     }
 
+    //returns the number of inserted Aliens,
+    //NOT the size of the array (which is always 4)!
     public int Size()
     {
-        return space;
+        Debug.Log("Inserted Aliens: " + insertedAliens.Count);
+        return insertedAliens.Count;
     }
 
     public void SetSpace(int spaces)
     {
         aliens = new Item[spaces];
+    }
+
+    public List<Item> GetContainer()
+    {
+        return insertedAliens;
     }
 }

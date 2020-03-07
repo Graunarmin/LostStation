@@ -96,4 +96,8 @@ public class Inventory : MonoBehaviour, IItemContainer
         space = spaces;
     }
 
+    public List<Item> GetContainer()
+    {
+        return items;
+    }
 }

@@ -1,4 +1,6 @@
-﻿public interface IItemContainer
+﻿using System.Collections.Generic;
+
+public interface IItemContainer
 {
     bool AddItem(Item item, int index = 0);
     bool RemoveItem(Item item);
@@ -9,4 +11,5 @@
     bool IsFull();
     int Size();
     void SetSpace(int spaces);
+    List<Item> GetContainer();
 }

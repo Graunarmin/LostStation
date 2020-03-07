@@ -23,6 +23,7 @@ public class PortalManager : ItemContainerManager
 
     [SerializeField] PortalPanel portalPanel;
 
+
     private AlienSlot activeSlot;
 
     protected override void Start()
@@ -82,5 +83,48 @@ public class PortalManager : ItemContainerManager
             }
         }
         return -1;
+    }
+
+    public bool AllAliensInside()
+    {
+        return (container.Size() == 3);
+    }
+
+    private bool CorrectOrder()
+    {
+        List<Item> testList = container.GetContainer();
+        if((testList[0].itemInfo.itemName == "FireAlien" || testList[0].itemInfo.itemName == "WaterAlien")
+            && (testList[1].itemInfo.itemName == "FireAlien" || testList[1].itemInfo.itemName == "WaterAlien")
+            && testList[2].itemInfo.itemName == "AirAlien")
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool AliensPlacedCorrectly()
+    {
+        return (portalPanel.AliensInRightSlot() &&
+               activeSlot.slotName == "Earth");
+    }
+
+    public void CheckSolution()
+    {
+        if (AliensPlacedCorrectly() && CorrectOrder())
+        {
+            Debug.Log("Loading ...");
+        }
+        else
+        {
+            Debug.Log("Error!");
+        }
+    }
+
+    public void OpenControls()
+    {
+        //open up canvas with controls
+        //React to Input
+        //Check Solution
+        CheckSolution();
     }
 }
