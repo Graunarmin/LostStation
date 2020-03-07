@@ -21,13 +21,14 @@ public class PortalManager : ItemContainerManager
     }
     #endregion
 
+    [SerializeField] PortalPanel portalPanel;
+
     private AlienSlot activeSlot;
-    [SerializeField] ItemSlot[] alienSlots;
 
     protected override void Start()
     {
         container = new PortalContainer();
-        slots = alienSlots;
+        slots = portalPanel.GetPillars();
     }
 
     //Gets the active slot from PortalPanel
@@ -40,47 +41,41 @@ public class PortalManager : ItemContainerManager
     {
         if (container.AddItem(item, GetIndexOfActiveSlot()))
         {
-            AddItemToUI(item);
+            UpdateUI(item, true);
             return true;
         }
         return false;
     }
 
-    private void AddItemToUI(Item item)
-    {
-        slots[GetIndexOfActiveSlot()].AddItemToSlot(item);
-    }
-
     public override void RemoveItem(Item item)
     {
         container.RemoveItem(item);
-        RemoveItemFromUI();
+        UpdateUI(null, false);
     }
 
     public override void RemoveItem(ItemAsset item)
     {
         container.RemoveItem(item);
-        RemoveItemFromUI();
+        UpdateUI(null, false);
     }
 
-    private void RemoveItemFromUI()
+    protected override void UpdateUI(Item item, bool add)
     {
-        slots[GetIndexOfActiveSlot()].ClearSlot();
-    }
-
-    protected override void UpdateUI(Item item)
-    {
-        //split up in AddItem and RemoveItem
+        if (add)
+        {
+            slots[GetIndexOfActiveSlot()].AddItemToSlot(item);
+        }
+        else
+        {
+            slots[GetIndexOfActiveSlot()].ClearSlot();
+        }
     }
 
     //Get the index of where the active Slot is in the slots array
     private int GetIndexOfActiveSlot()
     {
-        Debug.Log("Active Slot: " + activeSlot.name);
-        //Debug.Log("Slots: " + slots.Length);
         for (int i = 0; i < slots.Length; i++)
         {
-            //Debug.Log("Comparing to " + slots[i]);
             if(slots[i] == activeSlot)
             {
                 return i;

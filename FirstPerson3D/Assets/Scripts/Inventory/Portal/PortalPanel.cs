@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PortalPanel : MonoBehaviour, IPuzzleCanvas
 {
-    [SerializeField] AlienSlot air;
-    [SerializeField] AlienSlot water;
-    [SerializeField] AlienSlot fire;
-    [SerializeField] AlienSlot earth;
+    public AlienSlot air;
+    public AlienSlot water;
+    public AlienSlot fire;
+    public AlienSlot earth;
+
     [SerializeField] Image shade;
 
     public void Activate()
@@ -35,7 +36,11 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         //so the inventory can again be opened by pressing I
         GameManager.gameManager.SetInventoryKey(KeyCode.I);
         Time.timeScale = 1f;
+    }
 
+    public ItemSlot[] GetPillars()
+    {
+        return new ItemSlot[] { air, fire, water, earth };
     }
 
     //show (activate) the respective ItemSlot of the selected pillar
@@ -43,25 +48,21 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
     {
         if(item.itemInfo.itemName == "AirPillar")
         {
-            Debug.Log("Activate Air Pillar");
             air.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(air);
         }
         else if (item.itemInfo.itemName == "WaterPillar")
         {
-            Debug.Log("Activate Water Pillar");
             water.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(water);
         }
         else if (item.itemInfo.itemName == "FirePillar")
         {
-            Debug.Log("Activate Fire Pillar");
             fire.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(fire);
         }
         else if (item.itemInfo.itemName == "EarthPillar")
         {
-            Debug.Log("Activate Earth Pillar");
             earth.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(earth);
         }

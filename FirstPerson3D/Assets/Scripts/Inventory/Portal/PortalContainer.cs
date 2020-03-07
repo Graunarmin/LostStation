@@ -17,15 +17,9 @@ public class PortalContainer : MonoBehaviour, IItemContainer
 
     public bool AddItem(Item item, int index)
     {
-        Debug.Log("Add at index " + index);
-        if (aliens[index] != null)
+        if (aliens[index] != null || IsFull())
         {
             Debug.Log("Not enough room here");
-            return false;
-        }
-        if (IsFull())
-        {
-            Debug.Log("Is Full");
             return false;
         }
         aliens[index] = item;
@@ -102,7 +96,6 @@ public class PortalContainer : MonoBehaviour, IItemContainer
     {
         for (int i = 0; i < space; i++)
         {
-            //Debug.Log("Comparing " + aliens[i].name + " with " + item.name);
             if(aliens[i] == item)
             {
                 aliens[i] = null;
@@ -116,7 +109,6 @@ public class PortalContainer : MonoBehaviour, IItemContainer
     {
         for (int i = 0; i < space; i++)
         {
-            //Debug.Log("Comparing " + aliens[i].name + " with " + item.name);
             if (aliens[i].itemInfo == item)
             {
                 aliens[i] = null;

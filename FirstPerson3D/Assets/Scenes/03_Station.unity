@@ -37013,6 +37013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 664897862}
+  portalPanel: {fileID: 1063206752}
 --- !u!1001 &1081681124
 PrefabInstance:
   m_ObjectHideFlags: 0

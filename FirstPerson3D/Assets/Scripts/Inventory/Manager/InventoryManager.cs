@@ -76,7 +76,7 @@ public class InventoryManager : ItemContainerManager
         UpdateUI();
     }
 
-    protected override void UpdateUI(Item item = null)
+    protected override void UpdateUI(Item item = null, bool add = false)
     {
         for (int i = 0; i < slots.Length; i++)
         {
