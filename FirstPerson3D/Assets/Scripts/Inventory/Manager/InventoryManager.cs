@@ -122,6 +122,7 @@ public class InventoryManager : ItemContainerManager
         HideDescription();
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);
+        Debug.Log("Closing Inventory");
         GameManager.gameManager.SwitchCameras("3D");
     }
 

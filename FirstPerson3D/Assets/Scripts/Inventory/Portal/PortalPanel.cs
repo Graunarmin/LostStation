@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class PortalPanel : MonoBehaviour, IPuzzleCanvas
 {
-    public AlienSlot air;
-    public AlienSlot water;
-    public AlienSlot fire;
-    public AlienSlot earth;
+    [SerializeField] AlienSlot air;
+    [SerializeField] AlienSlot water;
+    [SerializeField] AlienSlot fire;
+    [SerializeField] AlienSlot earth;
+
+    [SerializeField] Sprite airPillarIcon;
+    [SerializeField] Sprite waterPillarIcon;
+    [SerializeField] Sprite firePillarIcon;
+    [SerializeField] Sprite earthPillarIcon;
 
     [SerializeField] Image shade;
 
@@ -31,8 +36,8 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         shade.gameObject.SetActive(false);
         DeactivatePillars();
         //Cameras are already managed in InventoryManager
-        InventoryManager.invManager.CloseInventory();
-        CraftingManager.craftManager.ResetButtons();
+        //This Canvas is always closed by InventoryManager!
+        //InventoryManager.invManager.CloseInventory();
         //so the inventory can again be opened by pressing I
         GameManager.gameManager.SetInventoryKey(KeyCode.I);
         Time.timeScale = 1f;
@@ -48,21 +53,25 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
     {
         if(item.itemInfo.itemName == "AirPillar")
         {
+            gameObject.GetComponent<Image>().sprite = airPillarIcon;
             air.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(air);
         }
         else if (item.itemInfo.itemName == "WaterPillar")
         {
+            gameObject.GetComponent<Image>().sprite = waterPillarIcon;
             water.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(water);
         }
         else if (item.itemInfo.itemName == "FirePillar")
         {
+            gameObject.GetComponent<Image>().sprite = firePillarIcon;
             fire.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(fire);
         }
         else if (item.itemInfo.itemName == "EarthPillar")
         {
+            gameObject.GetComponent<Image>().sprite = earthPillarIcon;
             earth.gameObject.SetActive(true);
             PortalManager.portal.SetSlot(earth);
         }
@@ -75,6 +84,7 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         fire.gameObject.SetActive(false);
         earth.gameObject.SetActive(false);
         PortalManager.portal.SetSlot(null);
+        gameObject.GetComponent<Image>().sprite = null;
     }
 
 }
