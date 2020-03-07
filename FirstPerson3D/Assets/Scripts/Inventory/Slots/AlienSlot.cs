@@ -8,8 +8,10 @@ public class AlienSlot : ItemSlot
     {
         if (item == null && receivedItem is Alien)
         {
+            Debug.Log(name + " can receive the " + receivedItem.name + " item");
             return true;
         }
+        Debug.Log(name + " can't receive the " + receivedItem.name + " item");
         return false;
     }
 }

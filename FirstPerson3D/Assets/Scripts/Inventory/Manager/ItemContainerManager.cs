@@ -4,13 +4,14 @@ using UnityEngine;
 
 public abstract class ItemContainerManager : MonoBehaviour
 {
-    protected IItemContainer container = new Inventory();
+    protected IItemContainer container;
     protected ItemSlot[] slots;
 
     public Transform itemsParent;
 
     protected virtual void Start()
     {
+        container = new Inventory();
         slots = itemsParent.GetComponentsInChildren<ItemSlot>();
         container.SetSpace(2);
     }
@@ -37,7 +38,7 @@ public abstract class ItemContainerManager : MonoBehaviour
         UpdateUI();
     }
 
-    protected virtual void UpdateUI()
+    protected virtual void UpdateUI(Item item = null)
     {
         for (int i = 0; i < slots.Length; i++)
         {

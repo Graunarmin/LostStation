@@ -38,6 +38,7 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
 
     }
 
+    //show (activate) the respective ItemSlot of the selected pillar
     public void ActivatePillar(Item item)
     {
         if(item.itemInfo.itemName == "AirPillar")

@@ -1,6 +1,6 @@
 ﻿public interface IItemContainer
 {
-    bool AddItem(Item item);
+    bool AddItem(Item item, int index = 0);
     bool RemoveItem(Item item);
     bool RemoveItem(ItemAsset item);
     Item GetItemAtIndex(int index);
@@ -9,6 +9,4 @@
     bool IsFull();
     int Size();
     void SetSpace(int spaces);
-
-
 }

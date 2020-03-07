@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour, IItemContainer
     
     private List<Item> items = new List<Item>();
 
-    public bool AddItem(Item item)
+    public bool AddItem(Item item, int index = 0)
     {
         //Check if this was the first collectable and if so
         //show info on how to access inventory
