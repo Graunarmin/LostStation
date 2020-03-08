@@ -49,7 +49,7 @@ public class FilterTimer : MonoBehaviour
 
     public IEnumerator Timer()
     {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(30);
         ShowCracks();
 
         yield return new WaitForSeconds(30);
@@ -69,9 +69,6 @@ public class FilterTimer : MonoBehaviour
 
     private void AlienFilterBroken()
     {
-        //stop timer
-        StopCoroutine(Timer());
-
         //make aliens invisible
         //and stop coroutine counting them
         if (OnFilterBroken != null)
@@ -84,7 +81,8 @@ public class FilterTimer : MonoBehaviour
     public void UnequipFilter()
     {
         Debug.Log("Unequipping the Filter!");
-
+        //stop timer
+        StopAllCoroutines();
         //change color of flashlight back to normal
         Reference.instance.flashlight.color = originalFlashlightColor;
 
