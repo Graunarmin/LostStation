@@ -83,7 +83,7 @@ public class InventoryManager : ItemContainerManager
             if (i < container.Size())
             {
                 slots[i].AddItemToSlot(container.GetItemAtIndex(i));
-                if (!GameManager.gameManager.Crafting())
+                if (!GameManager.gameManager.Crafting() && !GameManager.gameManager.PortalPuzzle())
                 {
                     StartCoroutine(ShowUpdateIcon());
                 }

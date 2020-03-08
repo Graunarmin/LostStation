@@ -3400,7 +3400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ERROR \nconnect life forms to correct pillar"
+  m_text: "ERROR \nconnect life forms to correct post"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aaa764808d39546948f3f8d9fd2441d5, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 96d05ffce04734b01b1b4cf8921f2eeb, type: 2}
@@ -38115,7 +38115,7 @@ GameObject:
   - component: {fileID: 1084187840}
   - component: {fileID: 1084187839}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ControlPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
