@@ -38,112 +38,126 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update(){
-        //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
-        if (Input.GetMouseButtonDown(1))// && Reference.instance.currentItem != null)
+
+        if (!Reference.instance.loadingScreen.activeInHierarchy)
         {
-            if (!JournalOpen() && !InventoryOpen())
+            //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
+            if (Input.GetMouseButtonDown(1))// && Reference.instance.currentItem != null)
             {
-                if (Reference.instance.ivCanvas.gameObject.activeInHierarchy)
+                if (!JournalOpen() && !InventoryOpen())
                 {
-                    Reference.instance.ivCanvas.Close();
+                    if (Reference.instance.ivCanvas.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.ivCanvas.Close();
+                    }
+                    if (Reference.instance.obsCam.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.obsCam.Close();
+                    }
+                    if (Reference.instance.keyPad.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.keyPad.Close();
+                    }
+                    if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.dialogueCanvas.Close();
+                    }
+                    if (Reference.instance.diary.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.diary.Close();
+                    }
+                    if (Reference.instance.jigsawCanvas.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.jigsawCanvas.Close();
+                    }
+                    if (Reference.instance.oscarsNotebook.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.oscarsNotebook.Close();
+                    }
+                    if (Reference.instance.portalControls.gameObject.activeInHierarchy)
+                    {
+                        Debug.Log("GameManager calling close");
+                        Reference.instance.portalControls.Close();
+                    }
                 }
-                if (Reference.instance.obsCam.gameObject.activeInHierarchy)
+                //else if both are open close both
+                else if (InventoryOpen() && JournalOpen())
                 {
-                    Reference.instance.obsCam.Close();
+                    InventoryManager.invManager.CloseInventory();
+                    JournalManager.journalManager.CloseNotebook();
                 }
-                if (Reference.instance.keyPad.gameObject.activeInHierarchy)
+                //if inventory open
+                else if (InventoryOpen())
                 {
-                    Reference.instance.keyPad.Close();
+                    InventoryManager.invManager.CloseInventory();
                 }
-                if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
+                //If Jorunal open
+                else if (JournalOpen())
                 {
-                    Reference.instance.dialogueCanvas.Close();
-                }
-                if (Reference.instance.diary.gameObject.activeInHierarchy)
-                {
-                    Reference.instance.diary.Close();
-                }
-                if (Reference.instance.jigsawCanvas.gameObject.activeInHierarchy)
-                {
-                    Reference.instance.jigsawCanvas.Close();
-                }
-                if (Reference.instance.oscarsNotebook.gameObject.activeInHierarchy)
-                {
-                    Reference.instance.oscarsNotebook.Close();
+                    JournalManager.journalManager.CloseNotebook();
                 }
             }
-            //else if both are open close both
-            else if (InventoryOpen() && JournalOpen())
+            else if (Input.GetMouseButtonDown(1) && JournalOpen() && !InventoryOpen())
+            {
+                JournalManager.journalManager.CloseNotebook();
+            }
+            else if (Input.GetMouseButtonDown(1) && InventoryOpen() && !JournalOpen())
+            {
+                InventoryManager.invManager.CloseInventory();
+            }
+            else if (Input.GetMouseButtonDown(1) && InventoryOpen() && JournalOpen())
             {
                 InventoryManager.invManager.CloseInventory();
                 JournalManager.journalManager.CloseNotebook();
             }
-            //if inventory open
-            else if (InventoryOpen())
+
+
+            //if P is pressed: freeze game and show pause Menu
+            if (Input.GetKeyDown(pause))
             {
-                InventoryManager.invManager.CloseInventory();
+                if (gameManager.GameIsOnPause())
+                {
+                    Reference.instance.pauseMenu.ResumeGame();
+                }
+                else
+                {
+                    Reference.instance.pauseMenu.PauseGame();
+                }
             }
-            //If Jorunal open
-            else if (JournalOpen())
+
+            //if F is pressed: switch flashlight on or off
+            if (flashlightEnabled && Input.GetKeyDown(flashlight))
             {
-                JournalManager.journalManager.CloseNotebook();
+                if (Reference.instance.flashlight.gameObject.activeInHierarchy)
+                {
+                    Reference.instance.flashlight.gameObject.SetActive(false);
+                }
+                else
+                {
+                    Reference.instance.flashlight.gameObject.SetActive(true);
+                }
             }
-        }
-        else if (Input.GetMouseButtonDown(1) && JournalOpen() && !InventoryOpen())
-        {
-            JournalManager.journalManager.CloseNotebook();
-        }
-        else if (Input.GetMouseButtonDown(1) && InventoryOpen() && !JournalOpen())
-        {
-            InventoryManager.invManager.CloseInventory();
-        }
-        else if (Input.GetMouseButtonDown(1) && InventoryOpen() && JournalOpen())
-        {
-            InventoryManager.invManager.CloseInventory();
-            JournalManager.journalManager.CloseNotebook();
-        }
 
-
-        //if P is pressed: freeze game and show pause Menu
-        if (Input.GetKeyDown(pause)){
-            if (gameManager.GameIsOnPause()){
-                Reference.instance.pauseMenu.ResumeGame();  
+            //if J is pressed: toggle journal
+            if (Input.GetKeyDown(journal))
+            {
+                JournalManager.journalManager.OpenNotebook();
             }
-            else{
-                Reference.instance.pauseMenu.PauseGame();
+
+            //if I is pressed: toggle inventory
+            if (Input.GetKeyDown(inventory))
+            {
+                InventoryManager.invManager.OpenInventory();
             }
-        }
 
-        //if F is pressed: switch flashlight on or off
-        if (flashlightEnabled && Input.GetKeyDown(flashlight))
-        {
-            if (Reference.instance.flashlight.gameObject.activeInHierarchy){
-                Reference.instance.flashlight.gameObject.SetActive(false);
+            //Show first Tutorial on first move
+            if (!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+                Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+            {
+                TutorialManager.tutorialManager.firstStep = true;
+                TutorialManager.tutorialManager.ShowJournalTut();
+
             }
-            else{
-                Reference.instance.flashlight.gameObject.SetActive(true);
-            }
-        }
-
-        //if J is pressed: toggle journal
-        if (Input.GetKeyDown(journal))
-        {
-            JournalManager.journalManager.OpenNotebook();
-        }
-
-        //if I is pressed: toggle inventory
-        if (Input.GetKeyDown(inventory))
-        {
-           InventoryManager.invManager.OpenInventory();
-        }
-
-        //Show first Tutorial on first move
-        if (!TutorialManager.tutorialManager.firstStep && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
-            Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
-        {
-            TutorialManager.tutorialManager.firstStep = true;
-            TutorialManager.tutorialManager.ShowJournalTut();
-
         }
     }
 
@@ -242,7 +256,8 @@ public class GameManager : MonoBehaviour
                 Reference.instance.diary.gameObject.activeInHierarchy ||
                 Reference.instance.jigsawCanvas.gameObject.activeInHierarchy ||
                 Reference.instance.oscarsNotebook.gameObject.activeInHierarchy ||
-                Reference.instance.portalPanel.gameObject.activeInHierarchy);
+                Reference.instance.portalPanel.gameObject.activeInHierarchy ||
+                Reference.instance.portalControls.gameObject.activeInHierarchy);
     }
 
     public bool JournalOpen()

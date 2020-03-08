@@ -33,6 +33,7 @@ public class Reference : MonoBehaviour
         inventory.gameObject.SetActive(false);
         craftingArea.gameObject.SetActive(false);
         portalPanel.gameObject.SetActive(false);
+        portalControls.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -72,7 +73,11 @@ public class Reference : MonoBehaviour
     public Canvas inventoryCanvas;
     public GameObject inventory;
     public CraftingPanel craftingArea;
+    //contains the 4 pillars
     public PortalPanel portalPanel;
+    //portal controls screen
+    public PortalControlsCanvas portalControls;
+    public GameObject loadingScreen;
 
     public ImageInspectorCanvas ivCanvas;
     public ObjectInspectorCam obsCam;

@@ -22,6 +22,8 @@ public class PortalManager : ItemContainerManager
     #endregion
 
     [SerializeField] PortalPanel portalPanel;
+    [SerializeField] PortalControlsCanvas controlPanel;
+    [SerializeField] EndOfGame end;
 
 
     private AlienSlot activeSlot;
@@ -85,11 +87,55 @@ public class PortalManager : ItemContainerManager
         return -1;
     }
 
+    //opens up canvas with controls
+    public void OpenControls()
+    {
+        //Close the panel behind
+        InventoryManager.invManager.CloseInventory();
+        //open up canvas with controls
+        controlPanel.Activate();
+        controlPanel.ActivateControls();
+    }
+
+    //Checks the solution after the player hit die "Load" Button
+    public void CheckSolution()
+    {
+        if (AliensPlacedCorrectly() && CorrectOrder())
+        {
+            Debug.Log("Loading ...");
+            controlPanel.ActivateLoadingScreen();
+            StartCoroutine(LoadPortal());
+
+        }
+        else if(AliensPlacedCorrectly() && !CorrectOrder())
+        {
+            Debug.Log("Error in Order!");
+            controlPanel.ThrowErrorOrder();
+            StartCoroutine(HideError());
+        }
+        else
+        {
+            Debug.Log("ERROR");
+            controlPanel.ThrowError();
+            StartCoroutine(HideError());
+        }
+    }
+
+    //checks if all three aliens have been inserted into a pillar
     public bool AllAliensInside()
     {
         return (container.Size() == 3);
     }
 
+    //checks if each alien is in it's repective pillar
+    //if everyone is in the right place and the player opened the
+    //controls it's obvious they did it from the earth pillar
+    private bool AliensPlacedCorrectly()
+    {
+        return (portalPanel.AliensInRightSlot());
+    }
+
+    //checks if all aliens have been inserted in the correct orde
     private bool CorrectOrder()
     {
         List<Item> testList = container.GetContainer();
@@ -102,29 +148,15 @@ public class PortalManager : ItemContainerManager
         return false;
     }
 
-    private bool AliensPlacedCorrectly()
+    private IEnumerator LoadPortal()
     {
-        return (portalPanel.AliensInRightSlot() &&
-               activeSlot.slotName == "Earth");
+        yield return new WaitForSecondsRealtime(5);
+        end.EndGame();
     }
 
-    public void CheckSolution()
+    private IEnumerator HideError()
     {
-        if (AliensPlacedCorrectly() && CorrectOrder())
-        {
-            Debug.Log("Loading ...");
-        }
-        else
-        {
-            Debug.Log("Error!");
-        }
-    }
-
-    public void OpenControls()
-    {
-        //open up canvas with controls
-        //React to Input
-        //Check Solution
-        CheckSolution();
+        yield return new WaitForSecondsRealtime(2.5f);
+        controlPanel.Close();
     }
 }

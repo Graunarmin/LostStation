@@ -7,6 +7,11 @@ public class EndOfGame : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        EndGame();
+    }
+
+    public void EndGame()
+    {
         //Show black screen first, maybe some text?
         //Or other animation
         Cursor.lockState = CursorLockMode.None;

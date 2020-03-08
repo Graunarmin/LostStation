@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ImageInspectorCanvas : MonoBehaviour
 {
+    [SerializeField] List<GameObject> children = new List<GameObject>();
 
     public void Activate(Image pic)
     {
@@ -16,7 +17,6 @@ public class ImageInspectorCanvas : MonoBehaviour
 
         gameObject.SetActive(true);
         pic.gameObject.SetActive(true);
-
     }
 
     public void Close()
@@ -24,9 +24,7 @@ public class ImageInspectorCanvas : MonoBehaviour
         Reference.instance.currentItem.location.SetContainedItems(true);
         Reference.instance.currentItem.col.enabled = true;
 
-        Image []children = GetComponentsInChildren<Image>();
-
-        foreach(Image child in children)
+        foreach(GameObject child in children)
         {
             child.gameObject.SetActive(false);
         }
