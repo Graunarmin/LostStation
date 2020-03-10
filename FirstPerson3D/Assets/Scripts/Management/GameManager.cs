@@ -76,8 +76,15 @@ public class GameManager : MonoBehaviour
                     }
                     if (Reference.instance.portalControls.gameObject.activeInHierarchy)
                     {
-                        Debug.Log("GameManager calling close");
                         Reference.instance.portalControls.Close();
+                    }
+                    if (Reference.instance.elevatorControls.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.elevatorControls.Close();
+                    }
+                    if (Reference.instance.elevatorPuzzle.gameObject.activeInHierarchy)
+                    {
+                        Reference.instance.elevatorPuzzle.Close();
                     }
                 }
                 //else if both are open close both
@@ -160,6 +167,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    
 
     #endregion
 
@@ -257,7 +266,9 @@ public class GameManager : MonoBehaviour
                 Reference.instance.jigsawCanvas.gameObject.activeInHierarchy ||
                 Reference.instance.oscarsNotebook.gameObject.activeInHierarchy ||
                 Reference.instance.portalPanel.gameObject.activeInHierarchy ||
-                Reference.instance.portalControls.gameObject.activeInHierarchy);
+                Reference.instance.portalControls.gameObject.activeInHierarchy ||
+                Reference.instance.elevatorPuzzle.gameObject.activeInHierarchy ||
+                Reference.instance.elevatorControls.gameObject.activeInHierarchy);
     }
 
     public bool JournalOpen()

@@ -34,6 +34,8 @@ public class Reference : MonoBehaviour
         craftingArea.gameObject.SetActive(false);
         portalPanel.gameObject.SetActive(false);
         portalControls.gameObject.SetActive(false);
+        elevatorControls.gameObject.SetActive(false);
+        elevatorPuzzle.gameObject.SetActive(false);
 
         ivCanvas.gameObject.SetActive(false);
         obsCam.gameObject.SetActive(false);
@@ -66,6 +68,8 @@ public class Reference : MonoBehaviour
     public Canvas objectInfoDisplay;
     public TextMeshProUGUI ObjectInfoDisplayText;
     public SmashDoorCanvas smashDoorCanvas;
+    public ElevatorPuzzleCanvas elevatorPuzzle;
+    public ElevatorControlsCanvas elevatorControls;
 
     public Canvas journal;
     public Canvas journalUpdateInfo;
@@ -102,5 +106,6 @@ public class Reference : MonoBehaviour
     public bool currentlyInteracting;
 
     #endregion
+
 }
 
