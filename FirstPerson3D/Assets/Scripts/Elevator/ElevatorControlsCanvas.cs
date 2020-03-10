@@ -31,6 +31,12 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     public void Reactivate()
     {
         gameObject.SetActive(true);
+        if (circuit.circuitSet)
+        {
+            controlsButton.interactable = false;
+            ActivateUp();
+
+        }
     }
 
     public void Close()
@@ -38,6 +44,28 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
         gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.gameManager.SwitchCameras("3D");
+    }
+
+    private void ActivateUp()
+    {
+        //enable the entrance door
+        //...
+        //disable exit door
+        //...
+        upButton.interactable = true;
+        downButton.interactable = false;
+
+    }
+
+    private void ActivateDown()
+    {
+        //...
+        //disable the entrance door
+        //...
+        //enable exit door
+        //...
+        upButton.interactable = false;
+        downButton.interactable = true;
     }
 
     public void TalkButton()
@@ -49,24 +77,14 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     {
         //play animation + Sound
         //...
-        //disable the entrance door
-        //...
-        //enable exit door
-        //...
-        upButton.interactable = false;
-        downButton.interactable = true;
+        ActivateDown();
     }
 
     public void DownButton()
     {
         //play animation + Sound
         //...
-        //enable the entrance door
-        //...
-        //disable exit door
-        //...
-        upButton.interactable = true;
-        downButton.interactable = false;
+        ActivateUp();
     }
 
     public void ControlsButton()

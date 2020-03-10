@@ -23,11 +23,10 @@ public class LinePoint : MonoBehaviour, IPointerClickHandler
             pointPos = Reference.instance.camera2D.ScreenToWorldPoint(pointerEventData.position);
             //pointClicked = true;
 
-            Debug.Log(name + " Game Object Clicked at " + pointerEventData.position);
-            Debug.Log("My position: " + pointPos);
+            //Debug.Log(name + " Game Object Clicked at " + pointerEventData.position);
+            //Debug.Log("My position: " + pointPos);
 
-            //DrawManager.drawManager.HandlePointClick(this);
-            DrawCode.drawCode.HandlePointClick(this);
+            DrawManager.pattern.HandlePointClick(this);
         //}
 
     }

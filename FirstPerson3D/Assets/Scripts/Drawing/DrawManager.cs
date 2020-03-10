@@ -4,41 +4,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//Basic, from Tutorial, not used in game!
+//adapted, used in game
 public class DrawManager : MonoBehaviour//, IPointerClickHandler
 {
-    public static DrawManager drawManager;
 
-    [SerializeField]
-    private GameObject lineHolderPrefab;
-    public List<LinePoint> form;
-    private List<LinePoint> clickedPoints = new List<LinePoint>();
+    #region Singleton
+    public static DrawManager pattern;
+
+    private void Awake()
+    {
+        if (pattern == null)
+        {
+            pattern = this;
+        }
+    }
+    #endregion
+
+    [SerializeField] GameObject lineHolderPrefab;
     public bool firstClickOccured;
     public bool secondClickOccured;
     private LinePoint startPoint;
     private LinePoint nextPoint;
+    private List<LinePoint> clickedPoints = new List<LinePoint>();
 
-    private void Awake()
-    {
-        if (drawManager == null)
-        {
-            drawManager = this;
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            bool correctForm = TestForm();
-            Debug.Log(correctForm);
-            if (!correctForm)
-            {
-                DeleteForm();
-            }
-        }
-    }
-
+    #region drawing
     public void HandlePointClick(LinePoint point)
     {
         if (!firstClickOccured)
@@ -85,28 +74,22 @@ public class DrawManager : MonoBehaviour//, IPointerClickHandler
         LineRenderer lRend = newLineGen.GetComponent<LineRenderer>();
 
         lRend.positionCount = 2;
-        lRend.SetPosition(0, new Vector3(pos1.pointPos.x, pos1.pointPos.y, 50));
-        lRend.SetPosition(1, new Vector3(pos2.pointPos.x, pos2.pointPos.y, 50));
+        lRend.SetPosition(0, new Vector3(pos1.pointPos.x, pos1.pointPos.y, 20));
+        lRend.SetPosition(1, new Vector3(pos2.pointPos.x, pos2.pointPos.y, 20));
     }
+    #endregion
 
-    private bool TestForm()
+    #region testing
+    public bool TestForm(List<LinePoint> form)
     {
-        bool firstRun;
-        bool secondRun;
-
         if (clickedPoints.Count != form.Count)
+        {
             return false;
-
-        firstRun = compareLists(clickedPoints, form);
-
-        clickedPoints.Reverse();
-        
-        secondRun = compareLists(clickedPoints, form);
-
-        return (firstRun || secondRun);
+        }
+        return CompareLists(clickedPoints, form);
     }
 
-    private bool compareLists(List<LinePoint> list1, List<LinePoint> list2)
+    private bool CompareLists(List<LinePoint> list1, List<LinePoint> list2)
     {
         for (int n = 0; n < list1.Count; n++)
         {
@@ -117,12 +100,14 @@ public class DrawManager : MonoBehaviour//, IPointerClickHandler
         }
         return true;
     }
+    #endregion
 
-    private void DeleteForm()
+    //reset everything
+    public void DeleteForm()
     {
         GameObject[] allLines = GameObject.FindGameObjectsWithTag("DrawingLine");
 
-        foreach(GameObject line in allLines)
+        foreach (GameObject line in allLines)
         {
             Destroy(line);
         }
@@ -133,17 +118,5 @@ public class DrawManager : MonoBehaviour//, IPointerClickHandler
         secondClickOccured = false;
         startPoint = null;
         nextPoint = null;
-}
-
-
-
-    //public void DrawNewLine(Vector3[] positions)
-    //{
-    //    GameObject newLineGen = Instantiate(lineHolderPrefab);
-    //    LineRenderer lRend = newLineGen.GetComponent<LineRenderer>();
-
-    //    lRend.positionCount = positions.Length;
-    //    lRend.SetPositions(positions);
-
-    //}
+    }
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
 {
     [SerializeField] ElevatorControlsCanvas controls;
+    [SerializeField] List<LinePoint> form;
+    public bool circuitSet;
+
 
     public void Activate()
     {
@@ -16,5 +19,36 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         //only return to Controls Canvas, don't close everything completely
         gameObject.SetActive(false);
         controls.Reactivate();
+    }
+
+    private void SetCircuit()
+    {
+        circuitSet = true;
+        Close();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Enter();
+        }
+    }
+
+    public void Enter()
+    {
+        bool correctForm = TestForm();
+        //Debug.Log(correctForm);
+
+        DrawManager.pattern.DeleteForm();
+        if (correctForm)
+        {
+            SetCircuit();
+        }
+    }
+
+    private bool TestForm()
+    {
+        return DrawManager.pattern.TestForm(form);
     }
 }

@@ -6,6 +6,8 @@ public class DiaryCanvas : MonoBehaviour
 {
     private JournalPage journalPage;
 
+    [SerializeField] Lockscreen lockscreen;
+
     public void Activate(JournalPage jPage)
     {
         //Camera.main.orthographic = true;
@@ -25,15 +27,23 @@ public class DiaryCanvas : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
 
-        if (gameObject.GetComponent<DrawCode>() != null)
+        if (lockscreen.unlocked)
         {
-            if (gameObject.GetComponent<DrawCode>().lockscreen.unlocked)
-            {
-                //add journalPage to journal
-                JournalManager.journalManager.UpdateJournal(journalPage);
-                journalPage = null;
-            }
+            //add journalPage to journal
+            JournalManager.journalManager.UpdateJournal(journalPage);
+            journalPage = null;
         }
-        gameObject.GetComponent<DrawCode>().DeleteForm();
+        DrawManager.pattern.DeleteForm();
+
+        //if (gameObject.GetComponent<DrawManager>() != null)
+        //{
+        //    if (gameObject.GetComponent<DrawManager>().lockscreen.unlocked)
+        //    {
+        //        //add journalPage to journal
+        //        JournalManager.journalManager.UpdateJournal(journalPage);
+        //        journalPage = null;
+        //    }
+        //}
+        
     }
 }
