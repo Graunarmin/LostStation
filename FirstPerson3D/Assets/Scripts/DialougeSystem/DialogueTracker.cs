@@ -153,4 +153,9 @@ public class DialogueTracker : MonoBehaviour
         return whoAreYou;
     }
 
+    public DialogueBase ChooseTalkButtonDialogue()
+    {
+        return null;
+    }
+
 }

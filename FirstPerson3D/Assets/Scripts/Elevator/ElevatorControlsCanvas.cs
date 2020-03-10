@@ -10,6 +10,8 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     [SerializeField] Button talkButton;
     [SerializeField] Button controlsButton;
     [SerializeField] ElevatorPuzzleCanvas circuit;
+    [SerializeField] DialogueBase dialogue;
+    [SerializeField] DialogueCanvas diaCanvas;
     
 
     private void Awake()
@@ -59,7 +61,6 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     private void ActivateDown()
     {
-        //...
         //disable the entrance door
         //...
         //enable exit door
@@ -70,7 +71,10 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void TalkButton()
     {
+        diaCanvas.Activate();
         //start Conversation with Roboter
+        DialogueManager.instance.EnqueueDialogue(
+            DialogueTracker.dialogueTracker.ChooseDialogue());
     }
 
     public void UpButton()

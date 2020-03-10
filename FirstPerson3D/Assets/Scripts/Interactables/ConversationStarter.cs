@@ -13,6 +13,6 @@ public class ConversationStarter : Interactable
 
         //based on what happened so far, choose the next dialogue
         DialogueManager.instance.EnqueueDialogue(
-            DialogueTracker.dialogueTracker.ChooseDialogue());
+            DialogueTracker.dialogueTracker.ChooseTalkButtonDialogue());
     }
 }
