@@ -165,18 +165,17 @@ public class DialogueTracker : MonoBehaviour
 
     public DialogueBase ChooseTalkButtonDialogue()
     {
-        if (!helpedOnce)
+        if (!helpedOnce && !Reference.instance.elevatorPuzzle.circuitSet)
         {
             return howCanIHelp;
-        }else if(helpedOnce && !helpedTwice)
+        }else if(helpedOnce && !helpedTwice && !Reference.instance.elevatorPuzzle.circuitSet)
         {
             return secondTime;
         }
-        else if (helpedTwice)
+        else
         {
             return lunchbreak;
         }
-        return lunchbreak;
     }
     #endregion
 

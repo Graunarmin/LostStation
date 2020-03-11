@@ -12,6 +12,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     [SerializeField] ElevatorPuzzleCanvas circuit;
     [SerializeField] DialogueCanvas diaCanvas;
 
+
     private bool upButtonState;
     private bool downButtonState;
     private bool controlsButtonState;
@@ -55,26 +56,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
         GameManager.gameManager.SwitchCameras("3D");
     }
 
-    private void ActivateUp()
-    {
-        //enable the entrance door
-        //...
-        //disable exit door
-        //...
-        upButton.interactable = true;
-        downButton.interactable = false;
-
-    }
-
-    private void ActivateDown()
-    {
-        //disable the entrance door
-        //...
-        //enable exit door
-        //...
-        upButton.interactable = false;
-        downButton.interactable = true;
-    }
+    
 
     public void TalkButton()
     {
@@ -115,16 +97,32 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void UpButton()
     {
-        //play animation + Sound
-        //...
         ActivateDown();
+        ElevatorManager.elevator.Up();
+        Close();
+
     }
 
     public void DownButton()
     {
-        //play animation + Sound
-        //...
         ActivateUp();
+        ElevatorManager.elevator.Down();
+        Close();
+    }
+
+    
+
+    private void ActivateUp()
+    {
+        upButton.interactable = true;
+        downButton.interactable = false;
+
+    }
+
+    private void ActivateDown()
+    {
+        upButton.interactable = false;
+        downButton.interactable = true;
     }
 
     public void ControlsButton()

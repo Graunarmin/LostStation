@@ -8,7 +8,7 @@ public class Door : Item
     public Keypad connectedKeypad;
 
     //indicates if the door is unlocked and can be opened by clicking on it
-    private bool doorUnlocked;
+    [SerializeField] bool doorUnlocked;
     //indicates if the door is currently open so that the player can go through
     private bool doorOpen;
 
@@ -43,7 +43,7 @@ public class Door : Item
         {
             Reference.instance.currentDoor = this;
 
-            if (AllPrerequsComplete())
+            if (AllPrerequsComplete() && doorUnlocked)
             {
                 ManageJournalInfo();
 
@@ -62,6 +62,11 @@ public class Door : Item
     public void UnlockDoor()
     {
         doorUnlocked = true;
+    }
+
+    public void LockDoor()
+    {
+        doorUnlocked = false;
     }
 
     public bool DoorIsUnlocked()

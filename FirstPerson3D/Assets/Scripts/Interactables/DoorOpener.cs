@@ -19,6 +19,11 @@ public class DoorOpener : Interactable
 
     public override void Interact()
     {
+        OpenDoor();
+    }
+
+    public void OpenDoor()
+    {
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
 
