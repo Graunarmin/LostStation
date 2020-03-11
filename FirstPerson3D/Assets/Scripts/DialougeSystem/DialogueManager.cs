@@ -48,6 +48,17 @@ public class DialogueManager : MonoBehaviour
     private string completeText;
     #endregion
 
+    public delegate void DialogueClosed();
+    public static event DialogueClosed OnDialogueClosed;
+
+    public void FireOnDialogueClosed()
+    {
+        if(OnDialogueClosed != null)
+        {
+            OnDialogueClosed();
+        }
+    }
+
     #region basic dialogue
 
     public void EnqueueDialogue(DialogueBase db)
@@ -166,23 +177,25 @@ public class DialogueManager : MonoBehaviour
         {
             inDialogue = false;
             AddJournalPage();
-            Time.timeScale = 1f;
+            //Time is reset in Gamemanager
             Reference.instance.dialogueCanvas.gameObject.SetActive(false);
+            FireOnDialogueClosed();
             GameManager.gameManager.SwitchCameras("3D");
         }
     }
 
     public void CloseOptions()
     {
-        Debug.Log("Closing Dialogue Options");
+        //Debug.Log("Closing Dialogue Options");
         dialogueOptionUI.SetActive(false);
     }
 
     public void CloseDialogue()
     {
         inDialogue = false;
-        Time.timeScale = 1f;
+        //Time is reset in GameManager
         Reference.instance.dialogueCanvas.gameObject.SetActive(false);
+        FireOnDialogueClosed();
         GameManager.gameManager.SwitchCameras("3D");
     }
 

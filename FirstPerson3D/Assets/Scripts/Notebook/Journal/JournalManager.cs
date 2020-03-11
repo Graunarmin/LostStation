@@ -109,14 +109,15 @@ public class JournalManager : Notebook
     {
         //wait until the player is back in the game
         yield return new WaitUntil(()
-            => !GameManager.gameManager.CurrentlyInteracting());
+            => !GameManager.gameManager.CurrentlyInteracting()
+            || Reference.instance.elevatorControls.gameObject.activeInHierarchy);
 
         //show pop-up that journal was updated
         updateInfoCanvas.gameObject.SetActive(true);
         //PlaySound
         //...
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSecondsRealtime(2.5f);
 
         //hide pop-up
         updateInfoCanvas.gameObject.SetActive(false);

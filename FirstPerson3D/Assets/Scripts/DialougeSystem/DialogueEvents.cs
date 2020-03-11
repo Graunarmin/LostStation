@@ -106,4 +106,18 @@ public class DialogueEvents : ScriptableObject
     }
 
     #endregion
+
+    #region Intercom Dialogue
+
+    public void SetHelpedOnce()
+    {
+        DialogueTracker.dialogueTracker.helpedOnce = true;
+    }
+
+    public void SetHelpedTwice()
+    {
+        DialogueTracker.dialogueTracker.helpedTwice = true;
+    }
+
+    #endregion
 }

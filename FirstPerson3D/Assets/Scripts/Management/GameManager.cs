@@ -237,6 +237,8 @@ public class GameManager : MonoBehaviour
                 if (!CurrentlyInteracting())
                 {
                     Debug.Log("Switching to 3D");
+                    Time.timeScale = 1f;
+
                     Reference.instance.camera2D.enabled = false;
                     Reference.instance.backgroundCam.enabled = false;
                     Reference.instance.backgroundCam.gameObject.SetActive(false);

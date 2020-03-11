@@ -10,9 +10,11 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     [SerializeField] Button talkButton;
     [SerializeField] Button controlsButton;
     [SerializeField] ElevatorPuzzleCanvas circuit;
-    [SerializeField] DialogueBase dialogue;
     [SerializeField] DialogueCanvas diaCanvas;
-    
+
+    private bool upButtonState;
+    private bool downButtonState;
+    private bool controlsButtonState;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
         downButton.interactable = false;
         talkButton.interactable = true;
         controlsButton.interactable = true;
+        DialogueManager.OnDialogueClosed += ReactivateAfterDialogue;
     }
 
     public void Activate()
@@ -30,7 +33,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     }
 
-    public void Reactivate()
+    public void ReactivateAfterCircuit()
     {
         gameObject.SetActive(true);
         if (circuit.circuitSet)
@@ -39,6 +42,10 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
             ActivateUp();
 
         }
+    }
+    public void ReactivateAfterDialogue()
+    {
+        ResetButtons();
     }
 
     public void Close()
@@ -71,10 +78,39 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void TalkButton()
     {
+        //deactivate all buttons in the background
+        //so wo don't accidentally click on them
+        SaveButtonStates();
+        DisableAllButtons();
+
+        //activate dialogue canvas
         diaCanvas.Activate();
-        //start Conversation with Roboter
+        //start Conversation with Robot
         DialogueManager.instance.EnqueueDialogue(
-            DialogueTracker.dialogueTracker.ChooseDialogue());
+            DialogueTracker.dialogueTracker.ChooseTalkButtonDialogue());
+    }
+
+    private void SaveButtonStates()
+    {
+        upButtonState = upButton.interactable;
+        downButtonState = downButton.interactable;
+        controlsButtonState = controlsButton.interactable;
+    }
+
+    private void DisableAllButtons()
+    {
+        upButton.interactable = false;
+        downButton.interactable = false;
+        talkButton.interactable = false;
+        controlsButton.interactable = false;
+    }
+
+    private void ResetButtons()
+    {
+        upButton.interactable = upButtonState;
+        downButton.interactable = downButtonState;
+        controlsButton.interactable = controlsButtonState;
+        talkButton.interactable = true;
     }
 
     public void UpButton()

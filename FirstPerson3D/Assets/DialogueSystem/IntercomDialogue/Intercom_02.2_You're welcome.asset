@@ -19,5 +19,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialogueInfo:
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: You're welcome Bob.

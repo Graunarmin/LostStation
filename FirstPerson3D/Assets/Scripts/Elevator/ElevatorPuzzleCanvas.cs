@@ -18,7 +18,7 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
     {
         //only return to Controls Canvas, don't close everything completely
         gameObject.SetActive(false);
-        controls.Reactivate();
+        controls.ReactivateAfterCircuit();
     }
 
     private void SetCircuit()

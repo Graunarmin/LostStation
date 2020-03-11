@@ -18,32 +18,54 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialogueInfo:
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: Yes?
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: So ... you talked really fast before, could you maybe please repeat the
       pattern?
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: Why don't you just write it down, Bob?
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: Great idea. I will!
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: "Ok, so, again, you start three down from the top left. Then one up 45\xB0
       clockwise and one up straight. Two to the right, then three down. "
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: "One to the left, one up, and 2 down with 225\xB0. From there 4 to the
       right, one up 45\xB0, one up 315\xB0, one up 45\xB0, one up straight and one
       to the left."
-  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
   questionText: And remember, only hit the keypoints, not every point on the way.
   optionsInfo:
   - buttonName: Got it.
     nextDialogue: {fileID: 11400000, guid: 75507012b19f04c7485fb1eb923b131c, type: 2}
     myEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetHelpedTwice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - buttonName: Thanks!
     nextDialogue: {fileID: 11400000, guid: 75507012b19f04c7485fb1eb923b131c, type: 2}
     myEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetHelpedTwice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

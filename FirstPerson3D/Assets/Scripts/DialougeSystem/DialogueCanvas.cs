@@ -20,8 +20,9 @@ public class DialogueCanvas : MonoBehaviour
         DialogueManager.instance.dialogueOptionUI.SetActive(false);
         DialogueManager.instance.isDialogueOption = false;
         DialogueManager.instance.inDialogue = false;
-        Time.timeScale = 1f;
         gameObject.SetActive(false);
+        DialogueManager.instance.FireOnDialogueClosed();
+        //time is reset in game manager
         GameManager.gameManager.SwitchCameras("3D");
     }
 }

@@ -153,9 +153,31 @@ public class DialogueTracker : MonoBehaviour
         return whoAreYou;
     }
 
+    #region Intercom Dialogue
+
+    public DialogueBase howCanIHelp;
+    public bool helpedOnce;
+
+    public DialogueBase secondTime;
+    public bool helpedTwice;
+
+    public DialogueBase lunchbreak;
+
     public DialogueBase ChooseTalkButtonDialogue()
     {
-        return null;
+        if (!helpedOnce)
+        {
+            return howCanIHelp;
+        }else if(helpedOnce && !helpedTwice)
+        {
+            return secondTime;
+        }
+        else if (helpedTwice)
+        {
+            return lunchbreak;
+        }
+        return lunchbreak;
     }
+    #endregion
 
 }

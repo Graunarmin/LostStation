@@ -7083,7 +7083,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &159406024
 MonoBehaviour:
@@ -12519,6 +12519,7 @@ MonoBehaviour:
   talkButton: {fileID: 1687277628}
   controlsButton: {fileID: 1981340208}
   circuit: {fileID: 184032514}
+  diaCanvas: {fileID: 159406024}
 --- !u!1 &291770023
 GameObject:
   m_ObjectHideFlags: 0
@@ -40055,6 +40056,11 @@ MonoBehaviour:
   accessGranted: 0
   helloAlice: {fileID: 11400000, guid: 624f5366a434642dab67dcf5590ceb99, type: 2}
   helloBob: {fileID: 11400000, guid: 8150e9c2e6ef242c68d93e1017ffba29, type: 2}
+  howCanIHelp: {fileID: 11400000, guid: 2d04f6ed020364419b8f3ce7408de9f8, type: 2}
+  helpedOnce: 0
+  secondTime: {fileID: 11400000, guid: f46b5bf511e904eeba38e86a6d2cfb91, type: 2}
+  helpedTwice: 0
+  lunchbreak: {fileID: 11400000, guid: 6211b81513c2c4d1bb83a5cf9cc24626, type: 2}
 --- !u!1 &1043895254
 GameObject:
   m_ObjectHideFlags: 0
@@ -42834,6 +42840,8 @@ MonoBehaviour:
   - {fileID: 1101112177115765162, guid: eaaf95f5a356548929cb1329b1d88fec, type: 3}
   - {fileID: 1101112177115765162, guid: 70ed7dfe8e1914452804096df1711a56, type: 3}
   - {fileID: 1101112177115765162, guid: 108be016a9cdf49d8b296702c3c8fd22, type: 3}
+  - {fileID: 1101112177115765162, guid: 1abb6a42c2f154fc79f45319aac65fe3, type: 3}
+  - {fileID: 1101112177115765162, guid: b25a2c7bae87243b7960898f7e9139dd, type: 3}
   - {fileID: 1101112177115765162, guid: e064215062bfe45528849f4c3701825b, type: 3}
   - {fileID: 1101112177115765162, guid: 9b87e54e78b3e484ba73639ed26b58ca, type: 3}
 --- !u!1 &1108822796
