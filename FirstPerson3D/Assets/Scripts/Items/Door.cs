@@ -9,6 +9,8 @@ public class Door : Item
 
     //indicates if the door is unlocked and can be opened by clicking on it
     [SerializeField] bool doorUnlocked;
+    //if door is only temporarily closed (e.g.elevator)
+    [SerializeField] bool doorBlocked;
     //indicates if the door is currently open so that the player can go through
     private bool doorOpen;
 
@@ -43,7 +45,7 @@ public class Door : Item
         {
             Reference.instance.currentDoor = this;
 
-            if (AllPrerequsComplete() && doorUnlocked)
+            if (AllPrerequsComplete() && !doorBlocked)
             {
                 ManageJournalInfo();
 
@@ -88,4 +90,20 @@ public class Door : Item
     {
         return doorOpen;
     }
+
+    public void BlockDoor()
+    {
+        doorBlocked = true;
+    }
+
+    public void UnblockDoor()
+    {
+        doorBlocked = false;
+    }
+
+    public bool DoorIsAccessible()
+    {
+        return doorBlocked;
+    }
+        
 }

@@ -27,12 +27,12 @@ public class ElevatorManager : MonoBehaviour
         {
             entrance.GetComponent<DoorOpener>().CloseDoor();
         }
-        entrance.LockDoor();
+        entrance.BlockDoor();
         if (exit.DoorIsOpen())
         {
             exit.GetComponent<DoorOpener>().CloseDoor();
         }
-        exit.LockDoor();
+        exit.BlockDoor();
     }
 
     public void Up()
@@ -54,13 +54,13 @@ public class ElevatorManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(4f);
         Debug.Log("Arrived upstairs");
-        exit.UnlockDoor();
+        exit.UnblockDoor();
     }
 
     private IEnumerator RideDown()
     {
         yield return new WaitForSecondsRealtime(4f);
         Debug.Log("Arrived downstairs");
-        entrance.UnlockDoor();
+        entrance.UnblockDoor();
     }
 }

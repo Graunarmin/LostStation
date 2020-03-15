@@ -1287,6 +1287,7 @@ MonoBehaviour:
   location: {fileID: 1626550216}
   connectedKeypad: {fileID: 1994388757}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &40799405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8485,6 +8486,7 @@ MonoBehaviour:
   location: {fileID: 369615425}
   connectedKeypad: {fileID: 1740257191}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &195535823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11838,6 +11840,7 @@ MonoBehaviour:
   location: {fileID: 369615425}
   connectedKeypad: {fileID: 1740257191}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &274442814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37234,6 +37237,7 @@ MonoBehaviour:
   location: {fileID: 1342220812}
   connectedKeypad: {fileID: 0}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!23 &957326862
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62845,6 +62849,7 @@ MonoBehaviour:
   location: {fileID: 139466243}
   connectedKeypad: {fileID: 1613738413}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &1549597830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68564,6 +68569,7 @@ MonoBehaviour:
   location: {fileID: 599031954}
   connectedKeypad: {fileID: 0}
   doorUnlocked: 0
+  doorBlocked: 1
 --- !u!65 &1694363707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80048,6 +80054,7 @@ MonoBehaviour:
   location: {fileID: 0}
   connectedKeypad: {fileID: 0}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &1947370356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85605,6 +85612,7 @@ MonoBehaviour:
   location: {fileID: 0}
   connectedKeypad: {fileID: 0}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!1 &2112632248
 GameObject:
   m_ObjectHideFlags: 0
@@ -86125,6 +86133,7 @@ MonoBehaviour:
   location: {fileID: 307502427}
   connectedKeypad: {fileID: 0}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &2129589430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94758,6 +94767,7 @@ MonoBehaviour:
   location: {fileID: 369615425}
   connectedKeypad: {fileID: 1740257191}
   doorUnlocked: 0
+  doorBlocked: 0
 --- !u!65 &7740277509161943455
 BoxCollider:
   m_ObjectHideFlags: 0

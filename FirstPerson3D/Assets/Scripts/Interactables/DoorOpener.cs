@@ -83,18 +83,4 @@ public class DoorOpener : Interactable
         door.CloseDoor();
     }
 
-    //public override void ShowInfo(Prerequisite hasPrereq)
-    //{
-    //    if (!hasPrereq || (hasPrereq && hasPrereq.Complete))
-    //    {
-    //        if (!door.doorOpen)
-    //        {
-    //            if (interactionIcon != null)
-    //            {
-    //                interactionIcon.gameObject.SetActive(true);
-    //            }
-    //        }
-
-    //    }
-    //}
 }
