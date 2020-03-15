@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecc0e2dc0a734ddab874ae27df4c9af, type: 3}
+  m_Name: Lense_Recipe
+  m_EditorClassIdentifier: 
+  neededMaterials:
+  - item: {fileID: 11400000, guid: 7338f0b08ba5f47cc8fce2d00d6bffc4, type: 2}
+  - item: {fileID: 11400000, guid: 32e81db3d76514e5fb099f6a40ec0180, type: 2}
+  result: {fileID: 6201516905960687124, guid: 6226244fd94584d72b35f8c3be3dfdd5, type: 3}

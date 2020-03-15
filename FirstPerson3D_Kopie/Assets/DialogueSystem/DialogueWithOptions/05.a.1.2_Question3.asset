@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
+  m_Name: 05.a.1.2_Question3
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 0
+  journalPage: {fileID: 0}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueInfo:
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: 'Question 3:'
+  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  questionText: What is a ridiculous fear of Your's?
+  optionsInfo:
+  - buttonName: Birds
+    nextDialogue: {fileID: 11400000, guid: 501574f28e6bb4eec9e2fa1249190c04, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetAccessGranted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - buttonName: Stars
+    nextDialogue: {fileID: 11400000, guid: 131c0a39e8e9246b491cc2444d17c974, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetNotBob
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - buttonName: Toxic Bait
+    nextDialogue: {fileID: 11400000, guid: 131c0a39e8e9246b491cc2444d17c974, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetNotBob
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

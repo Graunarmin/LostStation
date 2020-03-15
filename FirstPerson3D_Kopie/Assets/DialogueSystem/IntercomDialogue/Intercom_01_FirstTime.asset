@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
+  m_Name: Intercom_01_FirstTime
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 0
+  journalPage: {fileID: 0}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueInfo:
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: Hello, how can I help you?
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Hi, it's ... Bob.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: The Buttons in the elevator don't seem to be working ...
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: And you forgot the pattern again.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Well ... Yes. Sorry.
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: Everytime, Bob,
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: I'm sorry. I will remember this time. Promise.
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: Sure. All right.
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: "You start three down from the top left. Then one up 45\xB0 clockwise
+      and one up straight. Two to the right, then three down. "
+  - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+    myText: "One to the left, one up, and 2 down with 225\xB0. From there 4 to the
+      right, one up 45\xB0, one up 315\xB0, one up 45\xB0, one up straight and one
+      to the left."
+  character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+  questionText: And remember, only hit the keypoints, not every point on the way.
+  optionsInfo:
+  - buttonName: '... What?'
+    nextDialogue: {fileID: 0}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetHelpedOnce
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - buttonName: Ok. Thanks
+    nextDialogue: {fileID: 0}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetHelpedOnce
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

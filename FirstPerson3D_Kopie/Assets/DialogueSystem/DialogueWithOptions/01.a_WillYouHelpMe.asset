@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
+  m_Name: 01.a_WillYouHelpMe
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 0
+  journalPage: {fileID: 0}
+  dialogueInfo:
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: Hello Alice.
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: Why are you here? You don't work here.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: No, I'm here to visit my sister ... What happened here? Why is it so dark?
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: There was a blackout due to an unknown factor.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Can't you fix it?
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: I'm not moving as long as there is any uncertainty regarding my lunch-charge.
+  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  questionText: Will you help me?
+  optionsInfo:
+  - buttonName: Sure ...
+    nextDialogue: {fileID: 11400000, guid: 4f13e7a781e474deeb0a6353c6832dac, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetWillHelp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - buttonName: Help yourself
+    nextDialogue: {fileID: 11400000, guid: b2b4da188a97447d992ec1255ec33673, type: 2}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetWontHelp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62fda023499645e7954fca71d8104ce, type: 3}
+  m_Name: 03_TooDark
+  m_EditorClassIdentifier: 
+  givesJournalInfo: 0
+  journalPage: {fileID: 0}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueInfo:
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: It's way too dark in here.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Isn't there anything that spends a litte light?
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: Nothing, no. There's a Blackout.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: You don't say.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Not even a glowstick or something?
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: No glowstick, no. Unless ...
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Unless what?
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: Unless this would qualify as an emergency.
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: Are you kidding me?
+  - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+    myText: This IS an emergency!
+  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+    myText: I can hand you the emergency flashlight then, I guess.
+  character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+  questionText: Amazing idea, really.
+  optionsInfo:
+  - buttonName: Thanks so much.
+    nextDialogue: {fileID: 0}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetFlashlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - buttonName: Useless metalhead.
+    nextDialogue: {fileID: 0}
+    myEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4dbce8ac29b3048a2926bd46b0735c75, type: 2}
+          m_MethodName: SetFlashlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
