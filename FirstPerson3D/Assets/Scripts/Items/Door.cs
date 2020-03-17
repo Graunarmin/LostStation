@@ -53,10 +53,12 @@ public class Door : Item
                 interactable.enabled = true;
                 //CheckForCollectable();
                 interactable.Interact();
+                AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorOpen);
             }
             else
             {
                 Debug.Log("I'm locked, sorry");
+                AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorLocked);
             }
         }
     }
@@ -91,6 +93,8 @@ public class Door : Item
         return doorOpen;
     }
 
+    //Prevent doors from being opened even though they are unlocked,
+    //e.g. while elevator is moving
     public void BlockDoor()
     {
         doorBlocked = true;
