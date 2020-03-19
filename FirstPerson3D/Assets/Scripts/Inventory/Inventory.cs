@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         if (IsFull())
         {
             Debug.Log("Not enough room");
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
             return false;
         }
         items.Add(item);

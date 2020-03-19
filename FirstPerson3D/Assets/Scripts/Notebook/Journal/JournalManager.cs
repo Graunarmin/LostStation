@@ -38,13 +38,14 @@ public class JournalManager : Notebook
     {
         //Debug.Log("Opening Journal");
         //CheckButtons();
-        base.OpenNotebook();
+        //base.OpenNotebook();
         if (GameManager.gameManager.JournalOpen())
         {
             CloseNotebook();
         }
         else
         {
+            base.OpenNotebook();
             GameManager.gameManager.SwitchCameras("2D");
             Reference.instance.journal.gameObject.SetActive(true);
             //show currentPage
@@ -113,6 +114,7 @@ public class JournalManager : Notebook
             || Reference.instance.elevatorControls.gameObject.activeInHierarchy);
 
         //show pop-up that journal was updated
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.newJournalPage);
         updateInfoCanvas.gameObject.SetActive(true);
         //PlaySound
         //...

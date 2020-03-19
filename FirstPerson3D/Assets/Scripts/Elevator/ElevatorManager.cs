@@ -63,4 +63,9 @@ public class ElevatorManager : MonoBehaviour
         Debug.Log("Arrived downstairs");
         entrance.UnblockDoor();
     }
+
+    public void ButtonSound()
+    {
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
+    }
 }

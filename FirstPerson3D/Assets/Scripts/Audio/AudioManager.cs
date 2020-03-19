@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public Sound turnPage;
     public Sound newItem;
     public Sound openInventory;
+    public Sound inventoryFull;
     public Sound craftingSlot;
     public Sound dropItemWrong;
     public Sound crafting;
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
         return new Sound[]{theme,doorOpen, doorClose, doorLocked,
         smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
         flashlightFilterBroken, keypadButtons, passwordCorrect, passwordWrong,
-        newJournalPage,openJournal, turnPage, newItem, openInventory, craftingSlot,
+        newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, craftingSlot,
         dropItemWrong, crafting, craftingImpossible, getResult, elevatorButtons,
         openPost,insertAlien, portalControls, loadingPortal, errorPortal};
     }
@@ -80,7 +81,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlaySound(theme);
+        //PlaySound(theme);
     }
 
     public void PlaySound(Sound sound)

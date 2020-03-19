@@ -97,6 +97,7 @@ public class InventoryManager : ItemContainerManager
 
     public void OpenInventory()
     {
+        
         if (Reference.instance.inventory.gameObject.activeInHierarchy)
         {
             CloseInventory();
@@ -106,6 +107,10 @@ public class InventoryManager : ItemContainerManager
             GameManager.gameManager.SwitchCameras("2D");
             Reference.instance.inventoryCanvas.gameObject.SetActive(true);
             Reference.instance.inventory.gameObject.SetActive(true);
+        }
+        if(!GameManager.gameManager.PortalPuzzle() && !GameManager.gameManager.Crafting())
+        {
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.openInventory);
         }
     }
 
@@ -122,7 +127,7 @@ public class InventoryManager : ItemContainerManager
         HideDescription();
         Reference.instance.inventoryCanvas.gameObject.SetActive(false);
         Reference.instance.inventory.gameObject.SetActive(false);
-        Debug.Log("Closing Inventory");
+        //Debug.Log("Closing Inventory");
         GameManager.gameManager.SwitchCameras("3D");
     }
 
@@ -146,9 +151,8 @@ public class InventoryManager : ItemContainerManager
 
         //Debug.Log("Show Update Icon");
         //show pop-up that journal was updated
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.newItem);
         newItemInfo.gameObject.SetActive(true);
-        //PlaySound
-        //...
 
         yield return new WaitForSeconds(3);
 

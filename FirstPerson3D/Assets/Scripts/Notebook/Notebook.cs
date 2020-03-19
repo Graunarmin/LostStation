@@ -17,11 +17,13 @@ public class Notebook : MonoBehaviour
     public virtual void OpenNotebook()
     {
         //Debug.Log("Open Notebook");
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.openJournal);
         CheckButtons();
     }
 
     public virtual void CloseNotebook()
     {
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.openJournal);
         GameManager.gameManager.SwitchCameras("3D");
         //close the canvas (override)
     }
@@ -29,6 +31,7 @@ public class Notebook : MonoBehaviour
     public virtual void ShowNextPage()
     {
         //Debug.Log("Next Page");
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.turnPage);
         currentPage = allPages[allPages.IndexOf(currentPage) + 1];
         background.GetComponent<Image>().sprite = currentPage.pagePic;
         CheckButtons();
@@ -41,6 +44,7 @@ public class Notebook : MonoBehaviour
     public virtual void ShowPreviousPage()
     {
         //Debug.Log("Previous Page");
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.turnPage);
         currentPage = allPages[allPages.IndexOf(currentPage) - 1];
         background.GetComponent<Image>().sprite = currentPage.pagePic;
         CheckButtons();
