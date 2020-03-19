@@ -28,9 +28,7 @@ public class AudioManager : MonoBehaviour
     public Sound crafting;
     public Sound craftingImpossible;
     public Sound getResult;
-    public Sound aliens;
     public Sound elevatorButtons;
-    public Sound elevatorRide;
     public Sound openPost;
     public Sound insertAlien;
     public Sound portalControls;
@@ -43,8 +41,8 @@ public class AudioManager : MonoBehaviour
         smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
         flashlightFilterBroken, keypadButtons, passwordCorrect, passwordWrong,
         newJournalPage,openJournal, turnPage, newItem, openInventory, craftingSlot,
-        dropItemWrong, crafting, craftingImpossible, getResult, aliens, elevatorButtons,
-        elevatorRide, openPost,insertAlien, portalControls, loadingPortal, errorPortal};
+        dropItemWrong, crafting, craftingImpossible, getResult, elevatorButtons,
+        openPost,insertAlien, portalControls, loadingPortal, errorPortal};
     }
 
     #endregion

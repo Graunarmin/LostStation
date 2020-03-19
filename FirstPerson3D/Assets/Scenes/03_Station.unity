@@ -40967,7 +40967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1063206751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40985,8 +40985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 478.30078, y: 540}
-  m_SizeDelta: {x: 956.7, y: 1080}
+  m_AnchoredPosition: {x: 415.4, y: 540}
+  m_SizeDelta: {x: 750.5, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063206752
 MonoBehaviour:
@@ -41004,10 +41004,10 @@ MonoBehaviour:
   water: {fileID: 151348538}
   fire: {fileID: 1047673078}
   earth: {fileID: 1449510983}
-  airPillarIcon: {fileID: 21300000, guid: 686d68e6db4cb4f0d8da2ba7f533ddcf, type: 3}
-  waterPillarIcon: {fileID: 21300000, guid: efa485e68c7ac42e4870ad4356e4af31, type: 3}
-  firePillarIcon: {fileID: 21300000, guid: 3036332391ab14631b1983c100dd9941, type: 3}
-  earthPillarIcon: {fileID: 21300000, guid: 073719f17152f4923a4ad12f282b361b, type: 3}
+  airPillarIcon: {fileID: 21300000, guid: beb1c15e90ed444b0a435d09222f622a, type: 3}
+  waterPillarIcon: {fileID: 21300000, guid: 425a4574cf93f41de95d5617f60a7034, type: 3}
+  firePillarIcon: {fileID: 21300000, guid: a86f7019afc744dfcbdb9148b7fc32a0, type: 3}
+  earthPillarIcon: {fileID: 21300000, guid: 514add8aabd08473a924610d5874d1bb, type: 3}
   submitButton: {fileID: 4921431976053775993}
   shade: {fileID: 359300502}
   journalPage: {fileID: 1101112177115765162, guid: e064215062bfe45528849f4c3701825b,
@@ -41030,7 +41030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 686d68e6db4cb4f0d8da2ba7f533ddcf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 480b85f0d44aa445dbff0cc1fef722af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -67006,182 +67006,170 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme:
     clip: {fileID: 8300000, guid: 34e9a588550083b41bbc3dfef3e114ef, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   doorOpen:
     clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   doorClose:
     clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   doorLocked:
     clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   smashDoor:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   flashlightToggle:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  flashlightFilter:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  flashlightFilterCrack:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  flashlightFilterBroken:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  keypadButtons:
     clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
     volume: 0
     pitch: 0
     loop: 0
     source: {fileID: 0}
+  flashlightFilter:
+    clip: {fileID: 8300000, guid: 0c47c264341294ec2b4c2f1da10aebf3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  flashlightFilterCrack:
+    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  flashlightFilterBroken:
+    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  keypadButtons:
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   passwordCorrect:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   passwordWrong:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   newJournalPage:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   openJournal:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   turnPage:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 0c47c264341294ec2b4c2f1da10aebf3, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   newItem:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   openInventory:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   craftingSlot:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   dropItemWrong:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   crafting:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   craftingImpossible:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   getResult:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  aliens:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   elevatorButtons:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  elevatorRide:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   openPost:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   insertAlien:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   portalControls:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 0c47c264341294ec2b4c2f1da10aebf3, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   loadingPortal:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   errorPortal:
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!224 &1642220710
@@ -87844,12 +87832,12 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 444.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -307.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -87869,7 +87857,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -87879,7 +87867,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89576,12 +89564,12 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 674.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -307.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89601,7 +89589,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89611,7 +89599,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89864,12 +89852,12 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 674.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -537.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89889,7 +89877,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89899,7 +89887,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -89943,7 +89931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1542778312166111740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90184,12 +90172,12 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 444.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -537.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -90209,7 +90197,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -90219,7 +90207,7 @@ PrefabInstance:
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287692528331055310, guid: 2e41ddcd108d243689f8b5caa6d30cab,
         type: 3}
@@ -92330,6 +92318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AirSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942220992240287844, guid: f512e8cc4b64f47ee9a2fb89d7e241cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942220992240287847, guid: f512e8cc4b64f47ee9a2fb89d7e241cc,
         type: 3}
