@@ -41,7 +41,7 @@ MonoBehaviour:
     maximumLODLevelMode: 0
   m_RenderPipelineSettings:
     supportShadowMask: 1
-    supportSSR: 0
+    supportSSR: 1
     supportSSAO: 1
     supportSubsurfaceScattering: 1
     increaseSssSampleCount: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
       planarReflectionProbeCacheSize: 2
       planarReflectionTextureSize: 1024
       reflectionProbeCacheSize: 64
-      reflectionCubemapSize: 256
+      reflectionCubemapSize: 128
       reflectionCacheCompressed: 0
       planarReflectionCacheCompressed: 0
       skyReflectionSize: 256
@@ -120,7 +120,8 @@ MonoBehaviour:
   enableSRPBatcher: 1
   shaderVariantLogLevel: 0
   diffusionProfileSettings: {fileID: 0}
-  diffusionProfileSettingsList: []
+  diffusionProfileSettingsList:
+  - {fileID: 11400000, guid: 0fcf1ba35b3f6424380498f6073091d9, type: 2}
   m_Version: 6
   m_ObsoleteFrameSettings:
     overrides: 0
