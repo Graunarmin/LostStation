@@ -135,14 +135,7 @@ public class GameManager : MonoBehaviour
             //if F is pressed: switch flashlight on or off
             if (flashlightEnabled && Input.GetKeyDown(flashlight))
             {
-                if (Reference.instance.flashlight.gameObject.activeInHierarchy)
-                {
-                    Reference.instance.flashlight.gameObject.SetActive(false);
-                }
-                else
-                {
-                    Reference.instance.flashlight.gameObject.SetActive(true);
-                }
+                ToggleFlashlight();
             }
 
             //if J is pressed: toggle journal
@@ -167,9 +160,23 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
-    
+    #region flashlight
 
+    private void ToggleFlashlight()
+    {
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightToggle);
+
+        if (Reference.instance.flashlight.gameObject.activeInHierarchy)
+        {
+            Reference.instance.flashlight.gameObject.SetActive(false);
+        }
+        else
+        {
+            Reference.instance.flashlight.gameObject.SetActive(true);
+        }
+    }
     #endregion
 
     #region keep track of journal

@@ -60,6 +60,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void TalkButton()
     {
+        //AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
         //deactivate all buttons in the background
         //so wo don't accidentally click on them
         SaveButtonStates();
@@ -97,6 +98,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void UpButton()
     {
+        //AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
         ActivateDown();
         ElevatorManager.elevator.Up();
         Close();
@@ -105,6 +107,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void DownButton()
     {
+        //AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
         ActivateUp();
         ElevatorManager.elevator.Down();
         Close();
@@ -127,6 +130,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void ControlsButton()
     {
+        //AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
         //close this canvas so there is no confusion when clicking
         gameObject.SetActive(false);
         //open circuit Canvas

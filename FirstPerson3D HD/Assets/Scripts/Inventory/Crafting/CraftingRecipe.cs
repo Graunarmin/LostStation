@@ -31,12 +31,12 @@ public class CraftingRecipe : ScriptableObject
         return true;
     }
 
-    public void Craft(IItemContainer itemContainer)
+    public bool Craft(IItemContainer itemContainer)
     {
         if (CanCraft(itemContainer))
         {
             Debug.Log("Crafting!");
-            foreach(CraftingMaterial material in neededMaterials)
+            foreach (CraftingMaterial material in neededMaterials)
             {
                 if (material.item.isConsumed)
                 {
@@ -46,8 +46,9 @@ public class CraftingRecipe : ScriptableObject
 
             //Add result to Result-Slot
             ResultManager.resManager.AddItem(result);
-
+            return true;
         }
+        return false;
     }
 
   

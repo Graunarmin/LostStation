@@ -91,39 +91,41 @@ public class InventoryEventHandler : MonoBehaviour
                 //drag from Inventory to crafting area
                 if (dropItemSlot is CraftingSlot && dragItemSlot is InventorySlot && resultSlot.IsEmpty())
                 {
+                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.craftingSlot);
                     CraftingManager.craftManager.AddItem(dragItemSlot.GetItem());
                     InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from crafting area to inventory
                 else if (dropItemSlot is InventorySlot && dragItemSlot is CraftingSlot && resultSlot.IsEmpty())
                 {
+                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.craftingSlot);
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     CraftingManager.craftManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from result to inventory
                 else if (dropItemSlot is InventorySlot && dragItemSlot is ResultSlot)
                 {
+                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.getResult);
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     ResultManager.resManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from inventory to pillar
                 else if (dropItemSlot is AlienSlot && dragItemSlot is InventorySlot)
                 {
+                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.craftingSlot);
                     PortalManager.portal.AddItem(dragItemSlot.GetItem());
                     InventoryManager.invManager.RemoveItem(dragItemSlot.GetItem());
                 }
                 //drag from pillar back to inventory
                 else if (dropItemSlot is InventorySlot && dragItemSlot is AlienSlot)
                 {
+                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.craftingSlot);
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     PortalManager.portal.RemoveItem(dragItemSlot.GetItem());
                 }
-                else
-                {
-                    //let icon snap back to it's original position
-                }
-                
             }
+            
         }
+  
     }
 }

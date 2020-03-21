@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 using TMPro;
 
 public class DoorOpener : Interactable
@@ -12,9 +11,6 @@ public class DoorOpener : Interactable
 
     public Collider doorLock;
     private Door door;
-
-    public PlayableDirector playableDirectorOpen;
-    public PlayableDirector playableDirectorClose;
 
     private void Awake()
     {
@@ -42,7 +38,6 @@ public class DoorOpener : Interactable
             for (int i = 0; i < animators.Count; i++)
             {
                 animators[i].Play(openingAnimations[i]);
-                playableDirectorOpen.Play ();
             }
         }
 
@@ -80,7 +75,6 @@ public class DoorOpener : Interactable
         for (int i = 0; i < animators.Count; i++)
         {
             animators[i].Play(closingAnimations[i]);
-            playableDirectorClose.Play();
         }
         if (doorLock != null)
         {
@@ -89,18 +83,4 @@ public class DoorOpener : Interactable
         door.CloseDoor();
     }
 
-    //public override void ShowInfo(Prerequisite hasPrereq)
-    //{
-    //    if (!hasPrereq || (hasPrereq && hasPrereq.Complete))
-    //    {
-    //        if (!door.doorOpen)
-    //        {
-    //            if (interactionIcon != null)
-    //            {
-    //                interactionIcon.gameObject.SetActive(true);
-    //            }
-    //        }
-
-    //    }
-    //}
 }

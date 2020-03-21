@@ -15,6 +15,10 @@ public class ItemSlot : MonoBehaviour
 
         icon.sprite = item.itemInfo.icon;
         icon.enabled = true;
+        if(!GameManager.gameManager.PortalPuzzle() && !GameManager.gameManager.Crafting())
+        {
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.openInventory);
+        }
         //removeButton.interactable = true;
     }
 

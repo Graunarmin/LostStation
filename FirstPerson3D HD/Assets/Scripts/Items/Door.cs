@@ -9,6 +9,8 @@ public class Door : Item
 
     //indicates if the door is unlocked and can be opened by clicking on it
     [SerializeField] bool doorUnlocked;
+    //if door is only temporarily closed (e.g.elevator)
+    [SerializeField] bool doorBlocked;
     //indicates if the door is currently open so that the player can go through
     private bool doorOpen;
 
@@ -43,7 +45,7 @@ public class Door : Item
         {
             Reference.instance.currentDoor = this;
 
-            if (AllPrerequsComplete() && doorUnlocked)
+            if (AllPrerequsComplete() && !doorBlocked)
             {
                 ManageJournalInfo();
 
@@ -51,10 +53,12 @@ public class Door : Item
                 interactable.enabled = true;
                 //CheckForCollectable();
                 interactable.Interact();
+                //AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorOpen);
             }
             else
             {
                 Debug.Log("I'm locked, sorry");
+                //AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorLocked);
             }
         }
     }
@@ -88,4 +92,22 @@ public class Door : Item
     {
         return doorOpen;
     }
+
+    //Prevent doors from being opened even though they are unlocked,
+    //e.g. while elevator is moving
+    public void BlockDoor()
+    {
+        doorBlocked = true;
+    }
+
+    public void UnblockDoor()
+    {
+        doorBlocked = false;
+    }
+
+    public bool DoorIsAccessible()
+    {
+        return doorBlocked;
+    }
+        
 }

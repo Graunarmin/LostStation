@@ -41,8 +41,9 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void InputFromButton(Button btn)
     {
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.keypadButtons);
         //get password and passwordlength
-        if(Reference.instance.currentKeypad.GetPassword() != "0")
+        if (Reference.instance.currentKeypad.GetPassword() != "0")
         {
             password = Reference.instance.currentKeypad.GetPassword();
             //Debug.Log("Password: " + password);
@@ -129,11 +130,14 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
         Reference.instance.currentKeypad.SetPasswordCorrect();
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordCorrect);
     }
 
     public void WrongPassword()
     {
         Debug.Log("Wrong Password! Access Denied.");
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordWrong);
+
 
         displayField1.GetComponent<TextMeshProUGUI>().text = "N";
         displayField2.GetComponent<TextMeshProUGUI>().text = "O";
@@ -149,6 +153,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
         Reference.instance.currentKeypad.SetPasswordCorrect();
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.smashDoor);
     }
 
     public void NoPassword()
