@@ -1311,6 +1311,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &39470713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5221,7 +5232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.407
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5229,15 +5240,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5245,7 +5256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4351349087935228, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8987,7 +8998,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1318322546}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &173272498
 MeshRenderer:
@@ -9256,19 +9267,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1822811081740728, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4406544723037318, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.040000916
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4406544723037318, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4499999
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4406544723037318, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4406544723037318, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11723,6 +11734,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 184032514}
         m_MethodName: Enter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24265,6 +24287,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &470495598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32617,15 +32650,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657322974}
-  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: -1.746, y: 1.902, z: -0.561}
+  m_LocalRotation: {x: 0, y: -0.6427876, z: 0.7660445, w: 0}
+  m_LocalPosition: {x: -1.737, y: 1.797, z: 2.792}
   m_LocalScale: {x: 0.4, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1153915238}
   - {fileID: 1917919063}
   m_Father: {fileID: 1477913927}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 180}
 --- !u!114 &657322976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32682,7 +32715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 664897862}
   m_Layer: 5
-  m_Name: Pillars
+  m_Name: Posts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47157,7 +47190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987891324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3800001, y: 0.29, z: -1.12}
+  m_LocalPosition: {x: -1.3800001, y: 0.29, z: -1.211}
   m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children:
   - {fileID: 1064733379}
@@ -50331,8 +50364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 478.30078, y: 540}
-  m_SizeDelta: {x: 956.7, y: 1080}
+  m_AnchoredPosition: {x: 415.4, y: 540}
+  m_SizeDelta: {x: 750.5, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063206752
 MonoBehaviour:
@@ -50350,10 +50383,10 @@ MonoBehaviour:
   water: {fileID: 151348538}
   fire: {fileID: 1047673078}
   earth: {fileID: 1449510983}
-  airPillarIcon: {fileID: 21300000, guid: 686d68e6db4cb4f0d8da2ba7f533ddcf, type: 3}
-  waterPillarIcon: {fileID: 21300000, guid: efa485e68c7ac42e4870ad4356e4af31, type: 3}
-  firePillarIcon: {fileID: 21300000, guid: 3036332391ab14631b1983c100dd9941, type: 3}
-  earthPillarIcon: {fileID: 21300000, guid: 073719f17152f4923a4ad12f282b361b, type: 3}
+  airPillarIcon: {fileID: 21300000, guid: 72cea74a9f9594e49aaabe41a473e97e, type: 3}
+  waterPillarIcon: {fileID: 21300000, guid: 02c74965e74ec304e9e7b830f7589be7, type: 3}
+  firePillarIcon: {fileID: 21300000, guid: ed6a8edb429475c45a74d6e503fe6a5f, type: 3}
+  earthPillarIcon: {fileID: 21300000, guid: a12c63bebf1359d4db69b9ecb12e8552, type: 3}
   submitButton: {fileID: 4921431976053775993}
   shade: {fileID: 359300502}
   journalPage: {fileID: 1101112177115765162, guid: e064215062bfe45528849f4c3701825b,
@@ -50376,7 +50409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 686d68e6db4cb4f0d8da2ba7f533ddcf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab27f2a1f343ca343bedd4172e8d9622, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -55560,8 +55593,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160874019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6999998, y: 0.49, z: -0.8699999}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 1.6999998, y: 0.295, z: -0.8699999}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 967806697}
   m_Father: {fileID: 1552648178}
@@ -57790,15 +57823,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223816310}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -1.652, y: 1.24, z: -6.25}
+  m_LocalRotation: {x: 0, y: -0.17364816, z: 0.9848078, w: 0}
+  m_LocalPosition: {x: -1.529, y: 1.988, z: -5.978}
   m_LocalScale: {x: 0.4, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 944882008}
   - {fileID: 1773532514}
   m_Father: {fileID: 1477913927}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 180}
 --- !u!136 &1223816312
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -66240,8 +66273,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318154328}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.354, y: 0.93599993, z: -30.78}
+  m_LocalRotation: {x: 0.0055386163, y: 0.011877834, z: -0.00006579112, w: 0.99991417}
+  m_LocalPosition: {x: -0.789, y: 0.36799997, z: -33.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755547785}
@@ -66451,11 +66484,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318322545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: 0.357, z: 0.08}
+  m_LocalPosition: {x: 0.009, y: 0.402, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 173272496}
   - {fileID: 117228882}
+  - {fileID: 173272496}
   m_Father: {fileID: 1552648178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73208,7 +73241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477913926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: 0, z: 0}
+  m_LocalPosition: {x: -7.763, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1223816311}
@@ -73434,6 +73467,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 584947099}
         m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 584947099}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76106,6 +76150,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 290745888}
         m_MethodName: DownButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80401,6 +80456,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 584947099}
+        m_MethodName: ButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1614014058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83483,6 +83549,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 290745888}
         m_MethodName: TalkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87437,15 +87514,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4444695180855720, guid: f88c6ad57910d8648807bcf0c131f49d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.397501
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4444695180855720, guid: f88c6ad57910d8648807bcf0c131f49d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.053465944
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4444695180855720, guid: f88c6ad57910d8648807bcf0c131f49d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05776967
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4444695180855720, guid: f88c6ad57910d8648807bcf0c131f49d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -100912,7 +100989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968360016}
   m_LocalRotation: {x: -0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: -1.633, y: 1.7, z: -10.65}
+  m_LocalPosition: {x: -6.621, y: 1.696, z: -10.638}
   m_LocalScale: {x: 0.4, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1911105153}
@@ -101762,6 +101839,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 290745888}
         m_MethodName: ControlsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -103412,6 +103500,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 184032514}
         m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037646096}
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -110237,7 +110336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1542778311929783183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110683,7 +110782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1542778312166111740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113173,6 +113272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 4942220992240287844, guid: f512e8cc4b64f47ee9a2fb89d7e241cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4942220992240287847, guid: f512e8cc4b64f47ee9a2fb89d7e241cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113583,8 +113687,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: -52}
-  m_SizeDelta: {x: 960, y: 1080}
+  m_AnchoredPosition: {x: 11.2, y: -72.1}
+  m_SizeDelta: {x: 777, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921431976786097180
 CanvasRenderer:
@@ -113607,12 +113711,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9003701, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 087718afd7a4d4b859fd86897e9b4942, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d7b87745964c0f4286eddd998d0fb8c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -116358,9 +116462,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6309806667450693495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.538, y: 2.524, z: 0.7}
-  m_LocalScale: {x: 40, y: 100, z: 40}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.014, y: -0.77, z: -0.075}
+  m_LocalScale: {x: 40, y: 80, z: 40}
   m_Children: []
   m_Father: {fileID: 987891325}
   m_RootOrder: 2
