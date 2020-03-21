@@ -40,6 +40,8 @@ public class FilterTimer : MonoBehaviour
         //make aliens visible:
         //aliens are listening to OnFilterEquipped as well, nothing to do here
 
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilter);
         //change color of flashlight
         Reference.instance.flashlight.color = new Color(255/255, 194/255, 182/255, Reference.instance.flashlight.color.a);
 
@@ -59,7 +61,8 @@ public class FilterTimer : MonoBehaviour
     private void ShowCracks()
     {
         Debug.Log("Be careful, time runs out!");
-
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilterCrack);
         //show first cracks in Lense
         crack.gameObject.SetActive(true);
 
@@ -75,6 +78,9 @@ public class FilterTimer : MonoBehaviour
         {
             OnFilterBroken();
         }
+
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilterBroken);
         UnequipFilter();
     }
 

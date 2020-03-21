@@ -38,23 +38,31 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void ActivateControls()
     {
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.portalControls);
         controls.gameObject.SetActive(true);
     }
 
     public void ActivateLoadingScreen()
     {
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.loadingPortal);
         controls.gameObject.SetActive(false);
         loadingScreen.gameObject.SetActive(true);
     }
 
     public void ThrowErrorOrder()
     {
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.errorPortal);
         controls.gameObject.SetActive(false);
         errorOrder.gameObject.SetActive(true);
     }
 
     public void ThrowError()
     {
+        //Play Sound
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.errorPortal);
         controls.gameObject.SetActive(false);
         error.gameObject.SetActive(true);
     }
@@ -62,5 +70,10 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
     public void LoadPortal()
     {
         PortalManager.portal.CheckSolution();
+    }
+
+    public void ButtonSound()
+    {
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.portalControlButtons);
     }
 }

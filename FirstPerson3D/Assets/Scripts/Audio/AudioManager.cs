@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
     public Sound openPost;
     public Sound insertAlien;
     public Sound portalControls;
+    public Sound portalControlButtons;
     public Sound loadingPortal;
     public Sound errorPortal;
 
@@ -43,7 +44,7 @@ public class AudioManager : MonoBehaviour
         flashlightFilterBroken, keypadButtons, passwordCorrect, passwordWrong,
         newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, craftingSlot,
         dropItemWrong, crafting, craftingImpossible, getResult, elevatorButtons,
-        openPost,insertAlien, portalControls, loadingPortal, errorPortal};
+        openPost,insertAlien, portalControls, portalControlButtons, loadingPortal, errorPortal};
     }
 
     #endregion
