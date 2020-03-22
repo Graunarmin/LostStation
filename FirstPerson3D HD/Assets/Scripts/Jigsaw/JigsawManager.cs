@@ -159,7 +159,7 @@ public class JigsawManager : MonoBehaviour
             piece.pieceLocked = false;
             piece.GetComponent<Image>().raycastTarget = true;
             piece.socket.GetComponent<Image>().raycastTarget = true;
-            piece.ReturnToInventory();
+            piece.ReturnToInventory(false);
             piece.piecePickedUp = false;
 
         }

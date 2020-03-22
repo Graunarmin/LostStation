@@ -130,13 +130,13 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
         Reference.instance.currentKeypad.SetPasswordCorrect();
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordCorrect);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
     }
 
     public void WrongPassword()
     {
         Debug.Log("Wrong Password! Access Denied.");
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordWrong);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionWrong);
 
 
         displayField1.GetComponent<TextMeshProUGUI>().text = "N";

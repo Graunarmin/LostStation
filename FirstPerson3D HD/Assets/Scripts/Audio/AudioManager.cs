@@ -6,9 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     #region Sound References
     public Sound theme;
-    //by animation
-    //public Sound doorOpen;
-    //public Sound doorClose;
     public Sound doorLocked;
     public Sound smashDoor;
     public Sound flashlightToggle;
@@ -16,9 +13,12 @@ public class AudioManager : MonoBehaviour
     public Sound flashlightFilterCrack;
     public Sound flashlightFilterBroken;
     public Sound keypadButtons;
-    //Those should work for the correct pattern in the elevator as well
-    public Sound passwordCorrect;
-    public Sound passwordWrong;
+    //Those should be the same for keypad, jigsaw and elevator
+    public Sound solutionCorrect;
+    public Sound solutionWrong;
+    public Sound jigsawPieceCorrect;
+    public Sound jigsawPieceWrong;
+    public Sound returnJigsawPieceToInventory;
     public Sound newJournalPage;
     public Sound openJournal;
     public Sound turnPage;
@@ -38,8 +38,10 @@ public class AudioManager : MonoBehaviour
     public Sound[] BuildArray()
     {
         return new Sound[]{theme, doorLocked, smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
-        flashlightFilterBroken, keypadButtons, passwordCorrect, passwordWrong, newJournalPage,openJournal, turnPage, 
-        newItem, openInventory, inventoryFull, craftingSlot, crafting, craftingImpossible, getResult, elevatorButtons,
+        flashlightFilterBroken, keypadButtons, solutionCorrect, solutionWrong, jigsawPieceCorrect,
+        jigsawPieceWrong, returnJigsawPieceToInventory, 
+        newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, 
+        craftingSlot, crafting, craftingImpossible, getResult, elevatorButtons,
         portalControls, portalControlButtons, loadingPortal, errorPortal};
     }
 

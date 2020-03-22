@@ -43,7 +43,7 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         DrawManager.pattern.DeleteForm();
         if (correctForm)
         {
-            AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordCorrect);
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
             SetCircuit();
         }
     }
