@@ -58,7 +58,7 @@ public class Door : Item
             else
             {
                 Debug.Log("I'm locked, sorry");
-                //AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorLocked);
+                AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorLocked);
             }
         }
     }
