@@ -7,6 +7,8 @@ public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
 {
     [SerializeField] Image shade;
     [SerializeField] ResultSlot resultSlot;
+    [SerializeField] CraftingSlot ingredient1;
+    [SerializeField] CraftingSlot ingredient2;
 
     public void Activate()
     {
@@ -23,23 +25,24 @@ public class CraftingPanel : MonoBehaviour, IPuzzleCanvas
 
     public bool Close()
     {
-        //Don't close if the result was not yet added to backpack
-        if(resultSlot.GetItem() != null)
+        //Only close if all crafting slots are empty
+        if(resultSlot.GetItem() == null && ingredient1.GetItem() == null && ingredient2.GetItem() == null)
         {
-            AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
-            Debug.Log("Please clear result slot before closing");
-            return false;
+            gameObject.SetActive(false);
+            shade.gameObject.SetActive(false);
+            //Cameras are already managed in InventoryManager
+            InventoryManager.invManager.CloseInventory();
+            CraftingManager.craftManager.ResetButtons();
+            //so the inventory can again be opened by pressing I
+            GameManager.gameManager.SetInventoryKey(KeyCode.I);
+            Time.timeScale = 1f;
+            return true;
+            
         }
-        //else if the slot is empty, close everything;
-        gameObject.SetActive(false);
-        shade.gameObject.SetActive(false);
-        //Cameras are already managed in InventoryManager
-        InventoryManager.invManager.CloseInventory();
-        CraftingManager.craftManager.ResetButtons();
-        //so the inventory can again be opened by pressing I
-        GameManager.gameManager.SetInventoryKey(KeyCode.I);
-        Time.timeScale = 1f;
-        return true;
+        //else play error sound and don't close
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
+        Debug.Log("Please clear result slot before closing");
+        return false;
     }
 
     public void SetButton(Button button)
