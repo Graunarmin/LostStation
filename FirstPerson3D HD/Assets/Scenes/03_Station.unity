@@ -25244,6 +25244,7 @@ GameObject:
   - component: {fileID: 491849328}
   - component: {fileID: 491849330}
   - component: {fileID: 491849329}
+  - component: {fileID: 491849331}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -25427,6 +25428,19 @@ MonoBehaviour:
   kernelSize: 5
   lightAngle: 1
   maxDepthBias: 0.001
+--- !u!114 &491849331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491849326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1343dd016bcaa04983e43d9e29fbad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosession: 0
 --- !u!1 &492391230
 GameObject:
   m_ObjectHideFlags: 0
@@ -29876,7 +29890,7 @@ MonoBehaviour:
   backgroundCam: {fileID: 1558606887}
   firstPersonCam: {fileID: 1266793409}
   player: {fileID: 1266793406}
-  flashlight: {fileID: 491849328}
+  flashlight: {fileID: 491849331}
   pauseMenu: {fileID: 145076572}
   dialogueManager: {fileID: 1043503925}
   dialogueCanvas: {fileID: 159406024}
@@ -59156,8 +59170,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 25, y: 5, z: 15}
-  m_Center: {x: -7, y: 2, z: -2}
+  m_Size: {x: 23, y: 5, z: 15}
+  m_Center: {x: -8, y: 2, z: -2}
 --- !u!114 &1249213247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72338,7 +72352,7 @@ SphereCollider:
   m_GameObject: {fileID: 1444760907}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.039
   m_Center: {x: 0.005000002, y: -0.002677589, z: 0.001992982}
@@ -77645,7 +77659,7 @@ SphereCollider:
   m_GameObject: {fileID: 1565320115}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.035
   m_Center: {x: 0.005000015, y: -0.0026775878, z: 0.001992981}
@@ -95783,12 +95797,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  dragJigsawPiece:
-    clip: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   jigsawPieceCorrect:
     clip: {fileID: 8300000, guid: 3179443f97a8085418fae2c92d129b10, type: 3}
     volume: 1
@@ -107095,6 +107103,7 @@ GameObject:
   - component: {fileID: 2129589430}
   - component: {fileID: 2129589429}
   - component: {fileID: 2129589428}
+  - component: {fileID: 2129589431}
   m_Layer: 0
   m_Name: LockerRoomDoor
   m_TagString: Untagged
@@ -107172,8 +107181,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 2.5, z: 3}
-  m_Center: {x: -11.6, y: 1.5, z: 3.9}
+  m_Size: {x: 1.5, y: 2.5, z: 3}
+  m_Center: {x: -11.4, y: 1.5, z: 3.9}
+--- !u!114 &2129589431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129589426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9f8b9694a25ef40b10b8fa0faf8f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAccess: 0
 --- !u!1 &2129874538
 GameObject:
   m_ObjectHideFlags: 0

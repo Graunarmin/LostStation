@@ -21,12 +21,11 @@ public class FilterTimer : MonoBehaviour
     }
     #endregion
 
-    private Color originalFlashlightColor;
+    
     private void Start()
     {
         CraftingManager.OnFilterEquipped += FilterEquipped;
         AlienManager.OnFoundAllAliens += UnequipFilter;
-        originalFlashlightColor = Reference.instance.flashlight.color;
     }
 
     public delegate void FilterBroken();
@@ -43,7 +42,7 @@ public class FilterTimer : MonoBehaviour
         //Play Sound
         AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilter);
         //change color of flashlight
-        Reference.instance.flashlight.color = new Color(255/255, 194/255, 182/255, Reference.instance.flashlight.color.a);
+        Reference.instance.flashlight.ChangeColor( new Color(255/255, 194/255, 182/255, Reference.instance.flashlight.GetAlpha()));
 
         //start timer until Unequip
         StartCoroutine(Timer());
@@ -90,7 +89,7 @@ public class FilterTimer : MonoBehaviour
         //stop timer
         StopAllCoroutines();
         //change color of flashlight back to normal
-        Reference.instance.flashlight.color = originalFlashlightColor;
+        Reference.instance.flashlight.ResetColor();
 
         //remove crack
         crack.gameObject.SetActive(false);

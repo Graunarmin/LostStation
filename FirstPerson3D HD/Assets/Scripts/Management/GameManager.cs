@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
             //if F is pressed: switch flashlight on or off
             if (flashlightEnabled && Input.GetKeyDown(flashlight))
             {
-                ToggleFlashlight();
+                Reference.instance.flashlight.Toggle();
             }
 
             //if J is pressed: toggle journal
@@ -158,23 +158,6 @@ public class GameManager : MonoBehaviour
                 TutorialManager.tutorialManager.ShowJournalTut();
 
             }
-        }
-    }
-    #endregion
-
-    #region flashlight
-
-    private void ToggleFlashlight()
-    {
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightToggle);
-
-        if (Reference.instance.flashlight.gameObject.activeInHierarchy)
-        {
-            Reference.instance.flashlight.gameObject.SetActive(false);
-        }
-        else
-        {
-            Reference.instance.flashlight.gameObject.SetActive(true);
         }
     }
     #endregion
