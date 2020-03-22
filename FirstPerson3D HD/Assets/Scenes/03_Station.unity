@@ -109206,6 +109206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shade: {fileID: 359300502}
+  resultSlot: {fileID: 408460487}
 --- !u!222 &1542778311157184932
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
         //ActivateControls();
     }
 
-    public void Close()
+    public bool Close()
     {
         Debug.Log("Close was called!");
         controls.gameObject.SetActive(false);
@@ -34,6 +34,7 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
 
         gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
+        return true;
     }
 
     public void ActivateControls()

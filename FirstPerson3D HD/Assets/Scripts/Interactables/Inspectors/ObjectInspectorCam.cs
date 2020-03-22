@@ -66,7 +66,7 @@ public class ObjectInspectorCam : MonoBehaviour, IPuzzleCanvas
         gameObject.SetActive(true);
     }
 
-    public void Close()
+    public bool Close()
     {
         //clear out model
         Destroy(model.gameObject);
@@ -76,6 +76,7 @@ public class ObjectInspectorCam : MonoBehaviour, IPuzzleCanvas
 
         //turn cam off
         gameObject.SetActive(false);
+        return true;
     }
 
 }

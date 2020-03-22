@@ -25,7 +25,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         //Debug.Log("Keypad activated");
     }
 
-    public void Close(){
+    public bool Close(){
         //Close Keypad, unfreeze Game
         StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().checkPassword);
         keypadUI.SetActive(false);
@@ -36,6 +36,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         //reset Input and Display
         ResetInput();
         //Debug.Log("Keypad deactivated");
+        return true;
     }
 
 

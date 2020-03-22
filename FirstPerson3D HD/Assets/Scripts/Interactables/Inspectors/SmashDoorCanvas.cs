@@ -16,10 +16,11 @@ public class SmashDoorCanvas : MonoBehaviour, IPuzzleCanvas
         StartCoroutine(ActivatePopUp());
     }
 
-    public void Close()
+    public bool Close()
     {
         gameObject.SetActive(false);
         content.SetActive(false);
+        return true;
     }
 
     private IEnumerator ActivatePopUp()

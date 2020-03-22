@@ -18,12 +18,13 @@ public class JigsawCanvas : MonoBehaviour, IPuzzleCanvas
     }
         
 
-    public void Close()
+    public bool Close()
     {
         StopCoroutine(Reference.instance.currentItem.GetComponent<JigsawInspector>().CheckSolution());
         JigsawManager.jigsawManager.ResetGame();
         Time.timeScale = 1f;
         gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
+        return true;
     }
 }

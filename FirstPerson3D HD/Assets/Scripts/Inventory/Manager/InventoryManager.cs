@@ -116,19 +116,23 @@ public class InventoryManager : ItemContainerManager
 
     public void CloseInventory()
     {
+        bool craftingSlotEmpty = true;
         if (Reference.instance.craftingArea.gameObject.activeInHierarchy)
         {
-            Reference.instance.craftingArea.Close();
+            craftingSlotEmpty = Reference.instance.craftingArea.Close();
         }
         if (Reference.instance.portalPanel.gameObject.activeInHierarchy)
         {
             Reference.instance.portalPanel.Close();
         }
-        HideDescription();
-        Reference.instance.inventoryCanvas.gameObject.SetActive(false);
-        Reference.instance.inventory.gameObject.SetActive(false);
-        //Debug.Log("Closing Inventory");
-        GameManager.gameManager.SwitchCameras("3D");
+        if (craftingSlotEmpty)
+        {
+            HideDescription();
+            Reference.instance.inventoryCanvas.gameObject.SetActive(false);
+            Reference.instance.inventory.gameObject.SetActive(false);
+            //Debug.Log("Closing Inventory");
+            GameManager.gameManager.SwitchCameras("3D");
+        }
     }
 
     public void ShowDescription(Item item)

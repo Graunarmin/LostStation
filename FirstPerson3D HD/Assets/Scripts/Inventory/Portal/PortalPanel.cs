@@ -36,7 +36,7 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         Time.timeScale = 0f;
     }
 
-    public void Close()
+    public bool Close()
     {
         gameObject.SetActive(false);
         shade.gameObject.SetActive(false);
@@ -47,6 +47,7 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         //so the inventory can again be opened by pressing I
         GameManager.gameManager.SetInventoryKey(KeyCode.I);
         Time.timeScale = 1f;
+        return true;
     }
 
     public ItemSlot[] GetPillars()

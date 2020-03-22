@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IPuzzleCanvas
 {
     void Activate();
-    void Close();
+    bool Close();
 }
