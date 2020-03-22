@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public bool playTheme;
+
     #region Sound References
     public Sound theme;
     public Sound doorLocked;
@@ -80,7 +82,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //PlaySound(theme);
+        if (playTheme)
+        {
+            PlaySound(theme);
+        }
+        
     }
 
     public void PlaySound(Sound sound)

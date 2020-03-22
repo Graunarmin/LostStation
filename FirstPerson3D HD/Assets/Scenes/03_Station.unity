@@ -66287,8 +66287,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318154328}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.354, y: 0.93599993, z: -30.78}
+  m_LocalRotation: {x: 0.0055386163, y: 0.011877834, z: -0.00006579112, w: 0.99991417}
+  m_LocalPosition: {x: -0.789, y: 0.36799997, z: -33.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755547785}
@@ -95739,9 +95739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme:
     clip: {fileID: 8300000, guid: 34e9a588550083b41bbc3dfef3e114ef, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   doorLocked:
     clip: {fileID: 8300000, guid: ce7d960d97705934b8fc869d05c6a146, type: 3}
@@ -95852,7 +95852,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   craftingSlot:
-    clip: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
+    clip: {fileID: 8300000, guid: 3179443f97a8085418fae2c92d129b10, type: 3}
     volume: 1
     pitch: 1
     loop: 0
