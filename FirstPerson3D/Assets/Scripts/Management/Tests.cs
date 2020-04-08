@@ -11,6 +11,11 @@ public class Tests : MonoBehaviour
     public Alien airAlien;
     public Alien waterAlien;
 
+    private bool chapter1;
+    private bool chapter2;
+    private bool chapter3;
+    private bool chapter4;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -34,44 +39,65 @@ public class Tests : MonoBehaviour
 
     private void FinishChapter01()
     {
-        //Get the flashlight and find the keycard
+        if (!chapter1)
+        {
+            //Get the flashlight and find the keycard
 
-        //set flashlight to enabled
-        DialogueTracker.dialogueTracker.gotFlashlight = true;
-        GameManager.gameManager.flashlightEnabled = true;
+            //set flashlight to enabled
+            DialogueTracker.dialogueTracker.gotFlashlight = true;
+            //GameManager.gameManager.flashlightEnabled = true;
+            Reference.instance.flashlight.ReceiveFlashlight();
 
-        //set Keycard to collected
-        keycard.GetComponent<Interactable>().Interact();
+            //set Keycard to collected
+            keycard.GetComponent<Interactable>().Interact();
+
+            chapter1 = true;
+        }
     }
 
     private void FinishChapter02()
     {
-        //get the crowbar and repair the generator
+        if (!chapter2)
+        {
+            //get the crowbar and repair the generator
 
-        //set crowbar to collected
-        crowbar.GetComponent<Interactable>().Interact();
+            //set crowbar to collected
+            crowbar.GetComponent<Interactable>().Interact();
 
-        //set Generator to active
-        JigsawManager.jigsawManager.canvas.solved = true;
-        GameManager.gameManager.powerIsBack = true;
-        Reference.instance.generator.GetComponent<Switcher>().ChangeState();
+            //set Generator to active
+            JigsawManager.jigsawManager.canvas.solved = true;
+            GameManager.gameManager.powerIsBack = true;
+            Reference.instance.generator.GetComponent<Switcher>().ChangeState();
+
+            chapter2 = true;
+        }
     }
 
     private void FinishChapter03()
     {
-        InventoryManager.invManager.RemoveItem(crowbar);
-        //craft Filter and put it in backpack
-        InventoryManager.invManager.AddItem(filter);
+        if (!chapter3)
+        {
+            InventoryManager.invManager.RemoveItem(crowbar);
+            //craft Filter and put it in backpack
+            InventoryManager.invManager.AddItem(filter);
+
+            chapter3 = true;
+        }
 
     }
 
     private void FinishChapter04()
     {
-        //CollectAllAliens
-        InventoryManager.invManager.RemoveItem(filter);
-        InventoryManager.invManager.AddItem(fireAlien);
-        InventoryManager.invManager.AddItem(waterAlien);
-        InventoryManager.invManager.AddItem(airAlien);
+        if (!chapter4)
+        {
+            //CollectAllAliens
+            InventoryManager.invManager.RemoveItem(filter);
+            InventoryManager.invManager.AddItem(fireAlien);
+            InventoryManager.invManager.AddItem(waterAlien);
+            InventoryManager.invManager.AddItem(airAlien);
+
+            chapter4 = true;
+        }
     }
 
 }

@@ -53,7 +53,7 @@ public class Door : Item
                 interactable.enabled = true;
                 //CheckForCollectable();
                 interactable.Interact();
-                AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorOpen);
+                //AudioManager.audioManager.PlaySound(AudioManager.audioManager.doorOpen);
             }
             else
             {

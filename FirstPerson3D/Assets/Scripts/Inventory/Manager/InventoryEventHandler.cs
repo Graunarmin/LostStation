@@ -123,18 +123,9 @@ public class InventoryEventHandler : MonoBehaviour
                     InventoryManager.invManager.AddItem(dragItemSlot.GetItem());
                     PortalManager.portal.RemoveItem(dragItemSlot.GetItem());
                 }
-                else
-                {
-                    //let icon snap back to it's original position
-                    AudioManager.audioManager.PlaySound(AudioManager.audioManager.dropItemWrong);
-                }
-
             }
             
         }
-        else
-        {
-            AudioManager.audioManager.PlaySound(AudioManager.audioManager.dropItemWrong);
-        }
+  
     }
 }

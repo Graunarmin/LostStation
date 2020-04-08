@@ -3329,6 +3329,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82925155}
   m_Mesh: {fileID: 649549479072420111, guid: 7ff8fcebee096441aada36f8b8dd5da1, type: 3}
+--- !u!114 &84154056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5482483307677499737, guid: 9f251b08107954af18f9af7884e1df67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1542778311335172468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e317d541b9eab4e01991b47baa82b5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &84532696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20309,6 +20321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491849327}
   - component: {fileID: 491849328}
+  - component: {fileID: 491849329}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -20391,6 +20404,19 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &491849329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491849326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1343dd016bcaa04983e43d9e29fbad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPossession: 0
 --- !u!1 &492391230
 GameObject:
   m_ObjectHideFlags: 0
@@ -23870,7 +23896,7 @@ MonoBehaviour:
   backgroundCam: {fileID: 1558606887}
   firstPersonCam: {fileID: 1266793409}
   player: {fileID: 1266793406}
-  flashlight: {fileID: 491849328}
+  flashlight: {fileID: 491849329}
   pauseMenu: {fileID: 145076572}
   dialogueManager: {fileID: 1043503925}
   dialogueCanvas: {fileID: 159406024}
@@ -26476,6 +26502,18 @@ CapsuleCollider:
   m_Height: 2.4
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &661936789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5482483307677499737, guid: 9f251b08107954af18f9af7884e1df67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1542778312422258619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e317d541b9eab4e01991b47baa82b5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664897861
 GameObject:
   m_ObjectHideFlags: 0
@@ -48279,7 +48317,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 25, y: 5, z: 15}
-  m_Center: {x: -7, y: 2, z: -2}
+  m_Center: {x: -8, y: 2, z: -2}
 --- !u!114 &1249213247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67070,20 +67108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df50b966d7084e5c86650cc0b02c2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playTheme: 0
   theme:
     clip: {fileID: 8300000, guid: 34e9a588550083b41bbc3dfef3e114ef, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  doorOpen:
-    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  doorClose:
-    clip: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
@@ -67130,16 +67157,34 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  passwordCorrect:
-    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
-    volume: 1
-    pitch: 1
+  solutionCorrect:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
     loop: 0
     source: {fileID: 0}
-  passwordWrong:
-    clip: {fileID: 8300000, guid: baed077d02ebb424eacd94f79d330f68, type: 3}
-    volume: 1
-    pitch: 1
+  solutionWrong:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  jigsawPieceCorrect:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  jigsawPieceWrong:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  returnJigsawPieceToInventory:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
     loop: 0
     source: {fileID: 0}
   newJournalPage:
@@ -67184,12 +67229,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  dropItemWrong:
-    clip: {fileID: 8300000, guid: c892b3f9e5493428da80721b1895552e, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   crafting:
     clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
     volume: 1
@@ -67209,18 +67248,6 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   elevatorButtons:
-    clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  openPost:
-    clip: {fileID: 8300000, guid: 0d090eb0ded494c9d81e033cd4dc925f, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  insertAlien:
     clip: {fileID: 8300000, guid: 616b037fdee1a4e09b587bcbaab8667a, type: 3}
     volume: 1
     pitch: 1
@@ -86395,6 +86422,7 @@ GameObject:
   - component: {fileID: 2129589430}
   - component: {fileID: 2129589429}
   - component: {fileID: 2129589428}
+  - component: {fileID: 2129589431}
   m_Layer: 0
   m_Name: LockerRoomDoor
   m_TagString: Untagged
@@ -86474,6 +86502,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 2.5, z: 3}
   m_Center: {x: -11.6, y: 1.5, z: 3.9}
+--- !u!114 &2129589431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129589426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9f8b9694a25ef40b10b8fa0faf8f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAccess: 1
 --- !u!1 &2129874538
 GameObject:
   m_ObjectHideFlags: 0
@@ -88420,6 +88461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shade: {fileID: 359300502}
+  resultSlot: {fileID: 408460487}
+  ingredient1: {fileID: 661936789}
+  ingredient2: {fileID: 84154056}
 --- !u!222 &1542778311157184932
 CanvasRenderer:
   m_ObjectHideFlags: 0

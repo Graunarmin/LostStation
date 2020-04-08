@@ -17,11 +17,12 @@ public class OscarNotebookCanvas : Notebook, IPuzzleCanvas
         OpenNotebook();
     }
 
-    public void Close()
+    public bool Close()
     {
         HideText();
         gameObject.SetActive(false);
         CloseNotebook();
         Time.timeScale = 1f;
+        return true;
     }
 }

@@ -125,7 +125,7 @@ public class Piece : MonoBehaviour, IDragHandler, IEndDragHandler
         piecePickedUp = false;
     }
 
-
+    //if piece was let go over correct socket
     public void PlacePiece(Vector3 newPosition)
     {
         SetDownPiece();
@@ -137,7 +137,10 @@ public class Piece : MonoBehaviour, IDragHandler, IEndDragHandler
 
         //Fedback-Effects:
         //Instantiate(JigsawManager.jigsawManager.edgeParticles, newPosition, JigsawManager.jigsawManager.edgeParticles.rotation);
+
         //Play(sound)
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.jigsawPieceCorrect);
+
         //change color back to normal
         GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
@@ -147,9 +150,10 @@ public class Piece : MonoBehaviour, IDragHandler, IEndDragHandler
     public void WrongPiece()
     {
         GetComponent<Image>().color = new Color(1, 1, 1, transparency);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.jigsawPieceWrong);
     }
 
-    public void ReturnToInventory()
+    public void ReturnToInventory(bool sound = true)
     {
         if (!pieceLocked)
         {
@@ -161,6 +165,13 @@ public class Piece : MonoBehaviour, IDragHandler, IEndDragHandler
             //Change Parent of piece  back to Inventory.Pieces
             transform.SetParent(JigsawManager.jigsawManager.inventoryPieces);
             JigsawManager.jigsawManager.currentPiece = null;
+
+            
+        }
+        //There should not be a sound when the game is reset when closed, only in game!
+        if (sound)
+        {
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.returnJigsawPieceToInventory);
         }
     }
 

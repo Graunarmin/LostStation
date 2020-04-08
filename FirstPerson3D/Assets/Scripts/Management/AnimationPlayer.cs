@@ -23,11 +23,16 @@ public class AnimationPlayer
                 //do we have the item?
                 if (InventoryManager.invManager.ContainerContainsItem(requiredItem))
                 {
+                    Debug.Log("Item for Animation is in Backpack");
                     animator.Play(animationName);
                     if (playOnlyOnce)
                     {
                         SetAlreadyPlayed();
                     }
+                }
+                else
+                {
+                    Debug.Log("Item for Animation not in Backpack");
                 }
             }
             else

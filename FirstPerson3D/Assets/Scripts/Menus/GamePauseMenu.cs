@@ -12,13 +12,13 @@ public class GamePauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        gameIsPaused = false;
         //set speed back to normal
         Time.timeScale = 1f;
         //PauseMenus Game-Objekt deaktivieren
         pauseMenuUI.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
-
-        gameIsPaused = false;
+        
         Debug.Log("Resume Game!");
     }
 

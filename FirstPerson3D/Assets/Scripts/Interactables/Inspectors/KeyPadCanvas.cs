@@ -25,7 +25,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         //Debug.Log("Keypad activated");
     }
 
-    public void Close(){
+    public bool Close(){
         //Close Keypad, unfreeze Game
         StopCoroutine(Reference.instance.currentKeypad.GetComponent<KeyPadInspector>().checkPassword);
         keypadUI.SetActive(false);
@@ -36,6 +36,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         //reset Input and Display
         ResetInput();
         //Debug.Log("Keypad deactivated");
+        return true;
     }
 
 
@@ -130,13 +131,13 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         input = "";
         //Reference.instance.currentKeypad.door.doorUnlocked = true;
         Reference.instance.currentKeypad.SetPasswordCorrect();
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordCorrect);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
     }
 
     public void WrongPassword()
     {
         Debug.Log("Wrong Password! Access Denied.");
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordWrong);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionWrong);
 
 
         displayField1.GetComponent<TextMeshProUGUI>().text = "N";

@@ -56,7 +56,7 @@ public class Reference : MonoBehaviour
     public Camera firstPersonCam;
 
     public Transform player;
-    public Light flashlight;
+    public Flashlight flashlight;
 
     public GamePauseMenu pauseMenu;
 

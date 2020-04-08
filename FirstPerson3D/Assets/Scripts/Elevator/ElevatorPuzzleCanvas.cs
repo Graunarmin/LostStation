@@ -14,11 +14,12 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         gameObject.SetActive(true);
     }
 
-    public void Close()
+    public bool Close()
     {
         //only return to Controls Canvas, don't close everything completely
         gameObject.SetActive(false);
         controls.ReactivateAfterCircuit();
+        return true;
     }
 
     private void SetCircuit()
@@ -43,7 +44,7 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         DrawManager.pattern.DeleteForm();
         if (correctForm)
         {
-            AudioManager.audioManager.PlaySound(AudioManager.audioManager.passwordCorrect);
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
             SetCircuit();
         }
     }

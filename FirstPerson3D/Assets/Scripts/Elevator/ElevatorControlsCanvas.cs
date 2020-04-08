@@ -49,11 +49,12 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
         ResetButtons();
     }
 
-    public void Close()
+    public bool Close()
     {
         gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.gameManager.SwitchCameras("3D");
+        return true;
     }
 
     

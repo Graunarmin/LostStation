@@ -26,6 +26,7 @@ public class JigsawInspector : Interactable
 
         yield return new WaitForSecondsRealtime(1);
 
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
         JigsawManager.jigsawManager.canvas.solved = true;
         GetComponent<Collider>().enabled = false;
 

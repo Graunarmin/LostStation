@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public bool playTheme;
+
     #region Sound References
     public Sound theme;
-    public Sound doorOpen;
-    public Sound doorClose;
     public Sound doorLocked;
     public Sound smashDoor;
     public Sound flashlightToggle;
@@ -15,9 +15,12 @@ public class AudioManager : MonoBehaviour
     public Sound flashlightFilterCrack;
     public Sound flashlightFilterBroken;
     public Sound keypadButtons;
-    //Those should work for the correct pattern in the elevator as well
-    public Sound passwordCorrect;
-    public Sound passwordWrong;
+    //Those should be the same for keypad, jigsaw and elevator
+    public Sound solutionCorrect;
+    public Sound solutionWrong;
+    public Sound jigsawPieceCorrect;
+    public Sound jigsawPieceWrong;
+    public Sound returnJigsawPieceToInventory;
     public Sound newJournalPage;
     public Sound openJournal;
     public Sound turnPage;
@@ -25,13 +28,10 @@ public class AudioManager : MonoBehaviour
     public Sound openInventory;
     public Sound inventoryFull;
     public Sound craftingSlot;
-    public Sound dropItemWrong;
     public Sound crafting;
     public Sound craftingImpossible;
     public Sound getResult;
     public Sound elevatorButtons;
-    public Sound openPost;
-    public Sound insertAlien;
     public Sound portalControls;
     public Sound portalControlButtons;
     public Sound loadingPortal;
@@ -39,12 +39,12 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] BuildArray()
     {
-        return new Sound[]{theme,doorOpen, doorClose, doorLocked,
-        smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
-        flashlightFilterBroken, keypadButtons, passwordCorrect, passwordWrong,
-        newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, craftingSlot,
-        dropItemWrong, crafting, craftingImpossible, getResult, elevatorButtons,
-        openPost,insertAlien, portalControls, portalControlButtons, loadingPortal, errorPortal};
+        return new Sound[]{theme, doorLocked, smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
+        flashlightFilterBroken, keypadButtons, solutionCorrect, solutionWrong, jigsawPieceCorrect,
+        jigsawPieceWrong, returnJigsawPieceToInventory, 
+        newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, 
+        craftingSlot, crafting, craftingImpossible, getResult, elevatorButtons,
+        portalControls, portalControlButtons, loadingPortal, errorPortal};
     }
 
     #endregion
@@ -56,17 +56,17 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         //so sounds are not cut between scenes
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         if(audioManager == null)
         {
             audioManager = this;
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
         allSounds = BuildArray();
 
@@ -82,7 +82,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //PlaySound(theme);
+        if (playTheme)
+        {
+            PlaySound(theme);
+        }
+        
     }
 
     public void PlaySound(Sound sound)
