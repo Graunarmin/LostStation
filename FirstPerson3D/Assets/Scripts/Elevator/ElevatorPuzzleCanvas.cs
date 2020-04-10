@@ -49,6 +49,11 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         }
     }
 
+    public void CloseCanvas()
+    {
+        Close();
+    }
+
     private bool TestForm()
     {
         return DrawManager.pattern.TestForm(form);

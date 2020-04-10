@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10175f6929ea4eaaad9557185171140, type: 3}
   m_Name: FourElemntsBook
   m_EditorClassIdentifier: 
-  itemName: New Item
+  itemName: FourElementsBook
   icon: {fileID: 0}
   location: {fileID: 0}
   journalPage: {fileID: 0}
