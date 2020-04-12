@@ -6,6 +6,7 @@ using TMPro;
 public class KeyPadInspector : Interactable
 {
     public Keypad keypad;
+    public CorrectSolutionReaction reaction;
 
     [HideInInspector]
     public Coroutine checkPassword;
@@ -34,6 +35,13 @@ public class KeyPadInspector : Interactable
         //unlock the door
         keypad.door.UnlockDoor();
         GetComponent<Collider>().enabled = false;
+
+        //React in some way
+        if (reaction != null)
+        {
+            reaction.React();
+        }
+
         //and close the Keypad
         Reference.instance.keyPad.Close();
     }

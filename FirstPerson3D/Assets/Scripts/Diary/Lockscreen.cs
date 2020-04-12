@@ -8,6 +8,7 @@ public class Lockscreen : MonoBehaviour
     public bool unlocked;
     [SerializeField] GameObject textArea;
     [SerializeField] List<LinePoint> form;
+    public CorrectSolutionReaction reaction;
 
     public void Unlock()
     {
@@ -31,6 +32,11 @@ public class Lockscreen : MonoBehaviour
         DrawManager.pattern.DeleteForm();
         if (correctForm)
         {
+            if(reaction != null)
+            {
+                reaction.React();
+            }
+
             Unlock();
             textArea.gameObject.SetActive(true);
         }

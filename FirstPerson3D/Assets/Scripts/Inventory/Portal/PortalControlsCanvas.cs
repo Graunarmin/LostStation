@@ -44,6 +44,7 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
         controls.gameObject.SetActive(true);
     }
 
+    //called by PortalManager
     public void ActivateLoadingScreen()
     {
         //Play Sound
@@ -52,6 +53,7 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
         loadingScreen.gameObject.SetActive(true);
     }
 
+    //called by PortalManager
     public void ThrowErrorOrder()
     {
         //Play Sound
@@ -60,6 +62,7 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
         errorOrder.gameObject.SetActive(true);
     }
 
+    //called by PortalManager
     public void ThrowError()
     {
         //Play Sound

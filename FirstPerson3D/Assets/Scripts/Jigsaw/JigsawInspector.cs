@@ -6,6 +6,8 @@ public class JigsawInspector : Interactable
 {
     public JigsawCanvas JigsawCanvas;
 
+    public CorrectSolutionReaction reaction;
+
     public override void Interact()
     {
         JigsawCanvas.Activate();
@@ -26,7 +28,13 @@ public class JigsawInspector : Interactable
 
         yield return new WaitForSecondsRealtime(1);
 
+        //React in some way
         AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
+        if(reaction != null)
+        {
+            reaction.React();
+        }
+
         JigsawManager.jigsawManager.canvas.solved = true;
         GetComponent<Collider>().enabled = false;
 

@@ -8,6 +8,8 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
     [SerializeField] List<LinePoint> form;
     public bool circuitSet;
 
+    public CorrectSolutionReaction reaction;
+
 
     public void Activate()
     {
@@ -44,6 +46,11 @@ public class ElevatorPuzzleCanvas : MonoBehaviour, IPuzzleCanvas
         DrawManager.pattern.DeleteForm();
         if (correctForm)
         {
+            //React in some way
+            if (reaction != null)
+            {
+                reaction.React();
+            }
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.solutionCorrect);
             SetCircuit();
         }
