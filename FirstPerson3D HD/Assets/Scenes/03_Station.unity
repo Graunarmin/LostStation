@@ -1176,6 +1176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 466413504}
   keypad: {fileID: 34260757}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!65 &34260759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9167,6 +9169,8 @@ MonoBehaviour:
   - {fileID: 214668374}
   - {fileID: 774276987}
   circuitSet: 0
+  reaction:
+    reaction: {fileID: 0}
 --- !u!1 &188422583
 GameObject:
   m_ObjectHideFlags: 0
@@ -23893,7 +23897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1343dd016bcaa04983e43d9e29fbad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inPosession: 0
+  inPossession: 0
 --- !u!1 &493941030
 GameObject:
   m_ObjectHideFlags: 0
@@ -38895,6 +38899,8 @@ MonoBehaviour:
   unlocked: 0
   textArea: {fileID: 0}
   form: []
+  reaction:
+    reaction: {fileID: 0}
 --- !u!120 &865673018
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -49020,6 +49026,8 @@ MonoBehaviour:
   portalPanel: {fileID: 1063206752}
   controlPanel: {fileID: 584947099}
   end: {fileID: 1018318947}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!1001 &1081681124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65512,6 +65520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 466413504}
   JigsawCanvas: {fileID: 59297847}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!114 &1355445645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77486,6 +77496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 466413504}
   keypad: {fileID: 1613738413}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!65 &1613738415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83494,6 +83506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 466413504}
   keypad: {fileID: 1740257191}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!65 &1740257193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94118,6 +94132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 466413504}
   keypad: {fileID: 1994388757}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!65 &1994388759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95664,7 +95680,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 184032514}
-        m_MethodName: Close
+        m_MethodName: CloseCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -99051,6 +99067,8 @@ MonoBehaviour:
   - {fileID: 1280121254}
   - {fileID: 280084546}
   - {fileID: 1728841169}
+  reaction:
+    reaction: {fileID: 0}
 --- !u!1 &2129589426
 GameObject:
   m_ObjectHideFlags: 0

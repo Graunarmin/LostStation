@@ -18,22 +18,9 @@ public class MainMenu : MonoBehaviour
 
         foreach (TextMeshProUGUI text in texts)
         {
-           
             StartCoroutine(FadeTextToFullAlpha(3f, text));
         }
-
     }
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void QuitGame()
-    {
-        Debug.Log("I'm outta here!");
-        Application.Quit();
-    }
-
 
     public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI textElement)
     {
@@ -66,14 +53,4 @@ public class MainMenu : MonoBehaviour
             button.interactable = true;
         }
     }
-
-    //public IEnumerator FadeTextToZeroAlpha(float t, TextMeshProUGUI i)
-    //{
-    //    i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
-    //    while (i.color.a > 0.0f)
-    //    {
-    //        i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
-    //        yield return null; 
-    //    }
-    //}
 }

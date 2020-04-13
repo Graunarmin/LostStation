@@ -74,7 +74,8 @@ public class DialogueEvents : ScriptableObject
     public void SetFlashlight()
     {
         DialogueTracker.dialogueTracker.gotFlashlight = true;
-        GameManager.gameManager.flashlightEnabled = true;
+        //GameManager.gameManager.flashlightEnabled = true;
+        Reference.instance.flashlight.ReceiveFlashlight();
         TutorialManager.tutorialManager.StartCoroutine(TutorialManager.tutorialManager.WaitForEndOfDialogue());
         Debug.Log("Moving on");
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    public bool inPosession;
+    public bool inPossession;
     private Color baseColor;
 
     private void Awake()
@@ -12,9 +12,14 @@ public class Flashlight : MonoBehaviour
         baseColor = gameObject.GetComponent<Light>().color;
     }
 
+    public void ReceiveFlashlight()
+    {
+        inPossession = true;
+    }
+
     public bool IsInPossession()
     {
-        return inPosession;
+        return inPossession;
     }
 
     public bool SwitchedOn()

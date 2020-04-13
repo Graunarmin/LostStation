@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
             }
 
             //if F is pressed: switch flashlight on or off
-            if (flashlightEnabled && Input.GetKeyDown(flashlight))
+            if (Reference.instance.flashlight.IsInPossession() && Input.GetKeyDown(flashlight))
             {
                 Reference.instance.flashlight.Toggle();
             }

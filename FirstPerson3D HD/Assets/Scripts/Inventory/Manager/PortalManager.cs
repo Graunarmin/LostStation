@@ -24,6 +24,7 @@ public class PortalManager : ItemContainerManager
     [SerializeField] PortalPanel portalPanel;
     [SerializeField] PortalControlsCanvas controlPanel;
     [SerializeField] EndOfGame end;
+    [SerializeField] CorrectSolutionReaction reaction;
 
 
     private AlienSlot activeSlot;
@@ -151,7 +152,19 @@ public class PortalManager : ItemContainerManager
     private IEnumerator LoadPortal()
     {
         yield return new WaitForSecondsRealtime(5);
-        end.EndGame();
+
+        //close the loadingScreen
+        controlPanel.Close();
+
+        //Animation
+        if (reaction != null)
+        {
+            reaction.React();
+        }
+
+        //End the game and roll the credits:
+        //yield return new WaitForSecondsRealtime(10);
+        //end.EndGame();
     }
 
     private IEnumerator HideError()

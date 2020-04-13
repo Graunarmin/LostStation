@@ -56,17 +56,17 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         //so sounds are not cut between scenes
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         if(audioManager == null)
         {
             audioManager = this;
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
         allSounds = BuildArray();
 
