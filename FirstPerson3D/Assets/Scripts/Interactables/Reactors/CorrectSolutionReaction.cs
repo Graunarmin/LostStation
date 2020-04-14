@@ -14,7 +14,10 @@ public class CorrectSolutionReaction
     public void React()
     {
         //And all actions in here
-
-        reaction.gameObject.SetActive(true);
+        if(reaction != null)
+        {
+            reaction.gameObject.SetActive(true);
+        }
+        
     }
 }
