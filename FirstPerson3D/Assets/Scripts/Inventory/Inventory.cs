@@ -21,6 +21,12 @@ public class Inventory : MonoBehaviour, IItemContainer
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
             return false;
         }
+        if (ContainsItem(item))
+        {
+            Debug.Log("Already in inventory!");
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
+            return false;
+        }
         items.Add(item);
         return true;
     }
