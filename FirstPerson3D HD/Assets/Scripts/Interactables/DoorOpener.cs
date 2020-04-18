@@ -8,6 +8,8 @@ public class DoorOpener : Interactable
     public List<Animator> animators = new List<Animator>();
     public List<string> openingAnimations;
     public List<string> closingAnimations;
+    public GameObject OpenSound;
+    public GameObject CloseSound;
 
     public Collider doorLock;
     private Door door;
@@ -26,6 +28,7 @@ public class DoorOpener : Interactable
     {
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
+        OpenSound.SetActive(false);
 
         if (animators.Count == 0)
         {
@@ -38,6 +41,7 @@ public class DoorOpener : Interactable
             for (int i = 0; i < animators.Count; i++)
             {
                 animators[i].Play(openingAnimations[i]);
+                OpenSound.SetActive(true);
             }
         }
 
@@ -71,10 +75,13 @@ public class DoorOpener : Interactable
 
     public void CloseDoor()
     {
+        CloseSound.SetActive(false);
         //doorAnimation.Play(closeAnimationName);
         for (int i = 0; i < animators.Count; i++)
         {
             animators[i].Play(closingAnimations[i]);
+            CloseSound.SetActive(true);
+
         }
         if (doorLock != null)
         {

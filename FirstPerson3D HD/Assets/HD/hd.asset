@@ -122,6 +122,9 @@ MonoBehaviour:
   diffusionProfileSettings: {fileID: 0}
   diffusionProfileSettingsList:
   - {fileID: 11400000, guid: 0fcf1ba35b3f6424380498f6073091d9, type: 2}
+  - {fileID: 11400000, guid: cd48c1d7af6dfb84e90d11e45e9fd77c, type: 2}
+  - {fileID: 11400000, guid: 18a1d393cc8d7f845bca7c8ea235d2f8, type: 2}
+  - {fileID: 11400000, guid: cee013fe19b92df44b2017430275b233, type: 2}
   m_Version: 6
   m_ObsoleteFrameSettings:
     overrides: 0

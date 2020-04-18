@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: bb62abe92e18dd44d8308bc4e1790be1, type: 3}
+        m_Texture: {fileID: 2800000, guid: e5313600bb3f9e9448e2cbb60ae048f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissiveColorMap:
-        m_Texture: {fileID: 2800000, guid: 1fe3cc9279130194687c8529c760ffdc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 552dea929d552a14d93e287a86d0f698, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
@@ -69,15 +69,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bb62abe92e18dd44d8308bc4e1790be1, type: 3}
+        m_Texture: {fileID: 2800000, guid: e5313600bb3f9e9448e2cbb60ae048f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: d531b50d108105f4b84c50f323e282f3, type: 3}
+        m_Texture: {fileID: 2800000, guid: fdecf908a3e6e9c4a8717d9e04210978, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: e025ea0d0e907af499fcc752a3058444, type: 3}
+        m_Texture: {fileID: 2800000, guid: 56ae8cdee31ae3c45ba4236dd87cb9bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -236,7 +236,7 @@ Material:
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 9.189588, g: 9.189588, b: 9.189588, a: 1}
+    - _EmissiveColor: {r: 4.5412054, g: 4.5412054, b: 4.5412054, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

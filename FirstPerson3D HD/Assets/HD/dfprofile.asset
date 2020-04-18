@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: dfprofile
   m_EditorClassIdentifier: 
   profile:
-    scatteringDistance: {r: 1.8922104, g: 1.8922104, b: 1.8922104, a: 1}
-    transmissionTint: {r: 198.61752, g: 0, b: 0, a: 1}
+    scatteringDistance: {r: 6.4222345, g: 6.4222345, b: 6.4222345, a: 1}
+    transmissionTint: {r: 3.441235, g: 1.96642, b: 10.432951, a: 1}
     texturingMode: 0
-    transmissionMode: 0
-    thicknessRemap: {x: 0.03, y: 0.03}
+    transmissionMode: 1
+    thicknessRemap: {x: 0, y: 7.1715817}
     worldScale: 1
-    ior: 1.917
+    ior: 1.388
     hash: 1078732567
   m_Version: 1
   profiles: []
