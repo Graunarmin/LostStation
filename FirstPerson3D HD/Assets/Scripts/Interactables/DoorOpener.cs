@@ -28,7 +28,10 @@ public class DoorOpener : Interactable
     {
         //Debug.Log("Opening this door " + name);
         //doorAnimation.Play(openAnimationName);
-        OpenSound.SetActive(false);
+        if (OpenSound != null)
+        {
+            OpenSound.SetActive(false);
+        }
 
         if (animators.Count == 0)
         {
@@ -41,7 +44,10 @@ public class DoorOpener : Interactable
             for (int i = 0; i < animators.Count; i++)
             {
                 animators[i].Play(openingAnimations[i]);
-                OpenSound.SetActive(true);
+                if(OpenSound != null)
+                {
+                    OpenSound.SetActive(true);
+                }
             }
         }
 
@@ -75,12 +81,18 @@ public class DoorOpener : Interactable
 
     public void CloseDoor()
     {
-        CloseSound.SetActive(false);
+        if (CloseSound != null)
+        {
+            CloseSound.SetActive(false);
+        }
         //doorAnimation.Play(closeAnimationName);
         for (int i = 0; i < animators.Count; i++)
         {
             animators[i].Play(closingAnimations[i]);
-            CloseSound.SetActive(true);
+            if(CloseSound != null)
+            {
+                CloseSound.SetActive(true);
+            }
 
         }
         if (doorLock != null)

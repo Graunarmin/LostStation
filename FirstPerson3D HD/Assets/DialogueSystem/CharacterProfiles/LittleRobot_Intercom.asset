@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570e15988bb514d99b80320f9ae1c165, type: 3}
   m_Name: LittleRobot_Intercom
   m_EditorClassIdentifier: 
-  myName: Robot (tinny)
+  myName: Robot
   myPortrait: {fileID: 21300000, guid: 1c59029a401c8456a8aa50a8bd541c8d, type: 3}
   myTextColor: {r: 0, g: 0, b: 0, a: 0}

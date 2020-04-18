@@ -10,6 +10,12 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
     [SerializeField] AlienSlot fire;
     [SerializeField] AlienSlot earth;
 
+    [SerializeField] CorrectSolutionReaction airReaction;
+    [SerializeField] CorrectSolutionReaction waterReaction;
+    [SerializeField] CorrectSolutionReaction fireReaction;
+    [SerializeField] CorrectSolutionReaction earthReaction;
+
+
     [SerializeField] Sprite airPillarIcon;
     [SerializeField] Sprite waterPillarIcon;
     [SerializeField] Sprite firePillarIcon;
@@ -26,10 +32,12 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
     public void Activate()
     {
         gameObject.SetActive(true);
-        //get the right Pillar
-
         shade.gameObject.SetActive(true);
+
+        //ActivatePillar is called from PillarInspector as only that class knows which one was clicked
         //Cameras are already managed in InventoryManager
+
+        //Everythin takes place "inside" the inventory
         InventoryManager.invManager.OpenInventory();
         //so the inventory can no longer be opened by pressing I
         GameManager.gameManager.SetInventoryKey(KeyCode.None);
@@ -118,10 +126,20 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
 
     private void DeactivatePillars()
     {
-        air.gameObject.SetActive(false);
-        water.gameObject.SetActive(false);
-        fire.gameObject.SetActive(false);
-        earth.gameObject.SetActive(false);
+        if(PortalManager.portal.ActiveSlotName() == "Air")
+        {
+            DeactivateAir();
+        }else if(PortalManager.portal.ActiveSlotName() == "Water")
+        {
+            DeactivateWater();
+        }else if(PortalManager.portal.ActiveSlotName() == "Fire")
+        {
+            DeactivateFire();
+        }else if(PortalManager.portal.ActiveSlotName() == "Earth")
+        {
+            DeactivateEarth();
+        }
+
         submitButton.gameObject.SetActive(false);
         PortalManager.portal.SetSlot(null);
         gameObject.GetComponent<Image>().sprite = null;
@@ -142,5 +160,89 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
         return false;
     }
 
-    
+    private void DeactivateAir()
+    {
+        
+        if(air.GetItem() != null)
+        {
+            if(air.GetItem().itemInfo.itemName == "AirAlien")
+            {
+                airReaction.React();
+            }
+            else
+            {
+                airReaction.UndoReaction();
+            }
+        }
+        else
+        {
+            airReaction.UndoReaction();
+        }
+        air.gameObject.SetActive(false);
+    }
+
+    private void DeactivateWater()
+    {
+
+        if (water.GetItem() != null)
+        {
+            if (water.GetItem().itemInfo.itemName == "WaterAlien")
+            {
+                waterReaction.React();
+            }
+            else
+            {
+                waterReaction.UndoReaction();
+            }
+        }
+        else
+        {
+            waterReaction.UndoReaction();
+        }
+        water.gameObject.SetActive(false);
+    }
+
+    private void DeactivateFire()
+    {
+
+        if (fire.GetItem() != null)
+        {
+            if (fire.GetItem().itemInfo.itemName == "FireAlien")
+            {
+                fireReaction.React();
+            }
+            else
+            {
+                fireReaction.UndoReaction();
+            }
+        }
+        else
+        {
+            fireReaction.UndoReaction();
+        }
+        fire.gameObject.SetActive(false);
+    }
+
+    private void DeactivateEarth()
+    {
+
+        if (earth.GetItem() != null)
+        {
+            if (earth.GetItem().itemInfo.itemName == "EarthAlien")
+            {
+                earthReaction.React();
+            }
+            else
+            {
+                earthReaction.UndoReaction();
+            }
+        }
+        else
+        {
+            earthReaction.UndoReaction();
+        }
+        earth.gameObject.SetActive(false);
+    }
+
+
 }

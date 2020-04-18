@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GamePauseMenu : MonoBehaviour
 {
@@ -9,18 +11,6 @@ public class GamePauseMenu : MonoBehaviour
     //public bool paused = false;
     public GameObject pauseMenuUI;
     public bool gameIsPaused = false;
-
-    public void ResumeGame()
-    {
-        gameIsPaused = false;
-        //set speed back to normal
-        Time.timeScale = 1f;
-        //PauseMenus Game-Objekt deaktivieren
-        pauseMenuUI.SetActive(false);
-        GameManager.gameManager.SwitchCameras("3D");
-        
-        Debug.Log("Resume Game!");
-    }
 
     public void PauseGame()
     {
@@ -36,15 +26,75 @@ public class GamePauseMenu : MonoBehaviour
 
     }
 
+    public void ResumeButton()
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.playButton);
+        ResumeGame();
+    }
+
+    public void ResumeGame()
+    {
+        gameIsPaused = false;
+        //set speed back to normal
+        Time.timeScale = 1f;
+        //PauseMenus Game-Objekt deaktivieren
+        pauseMenuUI.SetActive(false);
+        GameManager.gameManager.SwitchCameras("3D");
+        
+        Debug.Log("Resume Game!");
+    }
+
+    public void ControlsButton(Button button)
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
+        button.enabled = false;
+        button.enabled = true;
+        button.gameObject.GetComponent<Animator>().SetTrigger("Normal");
+    }
+
     //load Main Menu
-    public void LoadMenu() {
+    public void MenuButton()
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
+        LoadMenu();
+    }
+
+
+    private void LoadMenu()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
-    public void QuitGame() {
+
+    public void QuitButton()
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        QuitGame();
+    }
+
+    private void QuitGame() {
         Debug.Log("Quitting Game");
         Application.Quit();
 
     }
+
+    public void BackButton(Button button)
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        button.enabled = false;
+        button.enabled = true;
+        button.gameObject.GetComponent<Animator>().SetTrigger("Normal");
+    }
+
+    public void HoverButton()
+    {
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.hover);
+    }
+
+    public void HoverExit()
+    {
+        AudioManagerMenu.audioManager.StopSound(AudioManagerMenu.audioManager.hover);
+    }
+
 }

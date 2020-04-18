@@ -41,6 +41,17 @@ public class PortalManager : ItemContainerManager
         activeSlot = slot as AlienSlot;
     }
 
+    public AlienSlot ActiveSlot()
+    {
+        return activeSlot;
+    }
+
+    public string ActiveSlotName()
+    {
+        Debug.Log("Active Slot: " + activeSlot.slotName);
+        return activeSlot.slotName;
+    }
+
     public override bool AddItem(Item item)
     {
         if (container.AddItem(item, GetIndexOfActiveSlot()))

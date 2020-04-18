@@ -20,4 +20,12 @@ public class CorrectSolutionReaction
         }
         
     }
+
+    public void UndoReaction()
+    {
+        if (reaction != null)
+        {
+            reaction.gameObject.SetActive(false);
+        }
+    }
 }
