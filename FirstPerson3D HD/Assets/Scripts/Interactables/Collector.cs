@@ -6,6 +6,7 @@ public class Collector : Interactable
 
     [HideInInspector]
     public Collectable collectableItem;
+    [SerializeField] bool inspectItem;
 
     private void Awake()
     {
@@ -22,7 +23,11 @@ public class Collector : Interactable
         //Hide the Object Information
         HideInfo();
         //Inspect Object before we add it to the backpack
-        InspectObject();
+        if (inspectItem)
+        {
+            InspectObject();
+        }
+        
 
         //pick item up if there is enough free space in inventory
         bool wasPickedUp =
