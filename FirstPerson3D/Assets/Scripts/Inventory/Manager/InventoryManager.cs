@@ -23,12 +23,18 @@ public class InventoryManager : ItemContainerManager
     }
     #endregion
 
-    public Canvas newItemInfo;
-    public GameObject descriptionPanel;
-    public TextMeshProUGUI itemDescription;
-    public Canvas warning;
-    public GameObject inventoryFull;
-    public GameObject cantCraft;
+    [SerializeField] Canvas newItemInfo;
+    [SerializeField] GameObject descriptionPanel;
+    [SerializeField] TextMeshProUGUI itemDescription;
+    [SerializeField] Canvas warning;
+    [SerializeField] GameObject inventoryFull;
+    [SerializeField] GameObject cantCraft;
+    [SerializeField] GameObject alreadyCollected;
+    [SerializeField] int inventorySize;
+    [SerializeField] List<ItemSlot> page2Slots;
+    [SerializeField] Button next;
+    [SerializeField] Button prev;
+    private List<ItemSlot> page1Slots;
 
     //notify everyone who needs the keycard
     public delegate void KeyCardCollected();
@@ -36,9 +42,22 @@ public class InventoryManager : ItemContainerManager
 
     protected override void Start()
     {
-        base.Start();
-        container.SetSpace(4);
+        container = new Inventory();
+        //activate all slots so they can be added to slots array
+        TogglePage2(true);
+        //get all the available slots
+        slots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        //and deactivte page 2 again so we only see the first page
+        TogglePage2(false);
+        container.SetSpace(inventorySize);
+        page1Slots = new List<ItemSlot>(itemsParent.GetComponentsInChildren<ItemSlot>());
+
+        //deactivate everything not visible in the beginning
         descriptionPanel.SetActive(false);
+        warning.gameObject.SetActive(false);
+        inventoryFull.gameObject.SetActive(false);
+        cantCraft.gameObject.SetActive(false);
+        alreadyCollected.gameObject.SetActive(false);
     }
 
     //is called by Collector
@@ -56,18 +75,9 @@ public class InventoryManager : ItemContainerManager
             UpdateUI();
             return true;
         }
-        //StartCoroutine(ShowWarning());
         return false;
     }
 
-    private IEnumerator ShowWarning()
-    {
-        warning.gameObject.SetActive(true);
-        inventoryFull.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
-        warning.gameObject.SetActive(false);
-        inventoryFull.gameObject.SetActive(false);
-    }
 
     //not called yet
     public override void RemoveItem(Item item)
@@ -97,7 +107,7 @@ public class InventoryManager : ItemContainerManager
 
     public void OpenInventory()
     {
-        
+
         if (Reference.instance.inventory.gameObject.activeInHierarchy)
         {
             CloseInventory();
@@ -108,7 +118,7 @@ public class InventoryManager : ItemContainerManager
             Reference.instance.inventoryCanvas.gameObject.SetActive(true);
             Reference.instance.inventory.gameObject.SetActive(true);
         }
-        if(!GameManager.gameManager.PortalPuzzle() && !GameManager.gameManager.Crafting())
+        if (!GameManager.gameManager.PortalPuzzle() && !GameManager.gameManager.Crafting())
         {
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.openInventory);
         }
@@ -132,6 +142,40 @@ public class InventoryManager : ItemContainerManager
             Reference.instance.inventory.gameObject.SetActive(false);
             //Debug.Log("Closing Inventory");
             GameManager.gameManager.SwitchCameras("3D");
+        }
+    }
+
+    public void TogglePage1(bool open)
+    {
+        foreach (ItemSlot slot in page1Slots)
+        {
+            slot.gameObject.SetActive(open);
+        }
+        //if page1 slots are being activated, we need the Button that leads to page2
+        if (open)
+        {
+            next.gameObject.SetActive(true);
+        }
+        else
+        {
+            next.gameObject.SetActive(false);
+        }
+    }
+
+    public void TogglePage2(bool open)
+    {
+        foreach (ItemSlot slot in page2Slots)
+        {
+            slot.gameObject.SetActive(open);
+        }
+        //if page2 slots are being activated, we need the Button that leads back to page 1
+        if (open)
+        {
+            prev.gameObject.SetActive(true);
+        }
+        else
+        {
+            prev.gameObject.SetActive(false);
         }
     }
 
@@ -163,5 +207,31 @@ public class InventoryManager : ItemContainerManager
         //hide pop-up
         newItemInfo.gameObject.SetActive(false);
     }
+
+    #region Warnings
+    public void BackpackFull()
+    {
+        StartCoroutine(ShowWarning(inventoryFull));
+    }
+
+    public void CantCraft()
+    {
+        StartCoroutine(ShowWarning(cantCraft));
+    }
+    public void AlreadyCollected()
+    {
+        StartCoroutine(ShowWarning(alreadyCollected));
+    }
+
+    private IEnumerator ShowWarning(GameObject text)
+    {
+        //Show Info that Backpack is fulll
+        warning.gameObject.SetActive(true);
+        text.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        text.gameObject.SetActive(false);
+        warning.gameObject.SetActive(false);
+    }
+    #endregion
 
 }

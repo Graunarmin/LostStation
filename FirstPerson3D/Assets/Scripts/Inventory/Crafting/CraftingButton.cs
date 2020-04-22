@@ -26,6 +26,7 @@ public class CraftingButton : MonoBehaviour
         }
         else
         {
+            InventoryManager.invManager.CantCraft();
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.craftingImpossible);
         }
         canCraft.Clear();

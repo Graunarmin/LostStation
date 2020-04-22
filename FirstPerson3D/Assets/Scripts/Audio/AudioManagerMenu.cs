@@ -10,14 +10,14 @@ public class AudioManagerMenu : MonoBehaviour
     public Sound optionsButton;
     public Sound quitButton;
 
-    public Sound[] BuildArray()
-    {
-        return new Sound[] { hover, playButton, optionsButton, quitButton };
-    }
+    //public Sound[] BuildArray()
+    //{
+    //    return new Sound[] { hover, playButton, optionsButton, quitButton };
+    //}
     #endregion
     public static AudioManagerMenu audioManager;
 
-    private Sound[] allSounds;
+    //private Sound[] allSounds;
 
     private void Awake()
     {
@@ -26,36 +26,17 @@ public class AudioManagerMenu : MonoBehaviour
             audioManager = this;
         }
 
-        allSounds = BuildArray();
-
-        foreach (Sound s in allSounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
+        //allSounds = BuildArray();
     }
 
     public void PlaySound(Sound sound)
     {
-        if (sound.clip == null)
-        {
-            Debug.LogWarning("Sound not defined");
-            return;
-        }
-        sound.source.Play();
+        sound.PlaySound();
     }
 
     public void StopSound(Sound sound)
     {
-        if (sound.clip == null)
-        {
-            Debug.LogWarning("Sound not defined");
-            return;
-        }
-        sound.source.Stop();
+        sound.StopSound();
 
     }
 

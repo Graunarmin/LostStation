@@ -53,15 +53,15 @@ public class ElevatorManager : MonoBehaviour
     private IEnumerator RideUp()
     {
         yield return new WaitForSecondsRealtime(4f);
-        Debug.Log("Arrived upstairs");
         exit.UnblockDoor();
+        Debug.Log("Arrived upstairs");
     }
 
     private IEnumerator RideDown()
     {
         yield return new WaitForSecondsRealtime(4f);
-        Debug.Log("Arrived downstairs");
         entrance.UnblockDoor();
+        Debug.Log("Arrived downstairs");
     }
 
     public void ButtonSound()

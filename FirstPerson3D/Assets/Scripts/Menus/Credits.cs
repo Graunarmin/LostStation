@@ -12,7 +12,7 @@ public class Credits : MonoBehaviour
 
     public IEnumerator NextScene()
     {
-        yield return new WaitForSecondsRealtime(36);
+        yield return new WaitForSecondsRealtime(30);
         LoadMainMenu();
 
     }

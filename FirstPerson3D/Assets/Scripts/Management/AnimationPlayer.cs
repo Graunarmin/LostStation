@@ -18,23 +18,23 @@ public class AnimationPlayer
         if (!alreadyPlayed)
         {
             //if we need an item to see the animation
-            if (requiredItem != null)
-            {
-                //do we have the item?
-                if (InventoryManager.invManager.ContainerContainsItem(requiredItem))
-                {
-                    Debug.Log("Item for Animation is in Backpack");
+            //if (requiredItem != null)
+            //{
+                ////do we have the item?
+                //if (InventoryManager.invManager.ContainerContainsItem(requiredItem))
+                //{
+                //    Debug.Log("Item for Animation is in Backpack");
                     animator.Play(animationName);
                     if (playOnlyOnce)
                     {
                         SetAlreadyPlayed();
                     }
-                }
-                else
-                {
-                    Debug.Log("Item for Animation not in Backpack");
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("Item for Animation not in Backpack");
+            //    }
+            //}
             else
             {
                 animator.Play(animationName);

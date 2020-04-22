@@ -169,6 +169,10 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
             {
                 airReaction.React();
             }
+            else
+            {
+                airReaction.UndoReaction();
+            }
         }
         else
         {
@@ -185,6 +189,10 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
             if (water.GetItem().itemInfo.itemName == "WaterAlien")
             {
                 waterReaction.React();
+            }
+            else
+            {
+                waterReaction.UndoReaction();
             }
         }
         else
@@ -203,6 +211,10 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
             {
                 fireReaction.React();
             }
+            else
+            {
+                fireReaction.UndoReaction();
+            }
         }
         else
         {
@@ -219,6 +231,10 @@ public class PortalPanel : MonoBehaviour, IPuzzleCanvas
             if (earth.GetItem().itemInfo.itemName == "EarthAlien")
             {
                 earthReaction.React();
+            }
+            else
+            {
+                earthReaction.UndoReaction();
             }
         }
         else
