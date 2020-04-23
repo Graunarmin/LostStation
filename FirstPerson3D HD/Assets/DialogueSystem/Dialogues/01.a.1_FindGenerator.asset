@@ -15,6 +15,9 @@ MonoBehaviour:
   givesJournalInfo: 1
   journalPage: {fileID: 8041559365772966473, guid: 1dda8c6979b01452ab4c7315808f9682,
     type: 3}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueInfo:
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
     myText: You need to find the generator and fix it.

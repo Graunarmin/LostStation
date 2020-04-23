@@ -40,7 +40,7 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
         if (circuit.circuitSet)
         {
             controlsButton.interactable = false;
-            ActivateUp();
+            ActivateDown();
 
         }
     }

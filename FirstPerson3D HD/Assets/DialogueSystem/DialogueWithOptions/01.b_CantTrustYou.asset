@@ -18,7 +18,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   dialogueInfo: []
-  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
   questionText: Well I can't trust you then, can I?
   optionsInfo:
   - buttonName: I guess not

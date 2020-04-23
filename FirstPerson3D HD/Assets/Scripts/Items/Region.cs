@@ -11,6 +11,7 @@ public class Region : MonoBehaviour
 
     //animations that are to be played when region is entered
     [SerializeField] List<AnimationPlayer> animations;
+    [SerializeField] List<CorrectSolutionReaction> reactions;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +31,14 @@ public class Region : MonoBehaviour
         if(animations.Count > 0)
         {
             PlayAnimationsEnter();
+        }
+
+        if(reactions.Count > 0)
+        {
+            foreach(CorrectSolutionReaction r in reactions)
+            {
+                r.React();
+            }
         }
     }
 
@@ -115,11 +124,37 @@ public class Region : MonoBehaviour
     {
         if(animations.Count > 0)
         {
-            foreach (AnimationPlayer animation in animations)
+            if (AllPrerequsComplete())
             {
-                animation.PlayAnimation();
+                foreach (AnimationPlayer animation in animations)
+                {
+                    animation.PlayAnimation();
+                }
             }
         }
         
+    }
+
+    public bool AllPrerequsComplete()
+    {
+        var prerequisites = gameObject.GetComponents<Prerequisite>();
+
+        //either there is none - in which case it's "complete"
+        if (prerequisites.Length == 0)
+        {
+            //Debug.Log("No Prerequisites");
+            return true;
+        }
+
+        //or we have to test each prerequ and as soon as one is not met, it's incomplete
+        foreach (Prerequisite p in prerequisites)
+        {
+            p.Print();
+            if (!p.Complete)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

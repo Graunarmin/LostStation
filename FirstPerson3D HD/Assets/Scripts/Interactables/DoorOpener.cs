@@ -54,7 +54,7 @@ public class DoorOpener : Interactable
 
         if (doorLock != null)
         {
-            doorLock.enabled = false;
+           StartCoroutine(EnableDoorCollider(false));
         }
         door.OpenDoor();
     }
@@ -97,9 +97,15 @@ public class DoorOpener : Interactable
         }
         if (doorLock != null)
         {
-            doorLock.enabled = true;
+            StartCoroutine(EnableDoorCollider(true));
         }
         door.CloseDoor();
+    }
+
+    private IEnumerator EnableDoorCollider(bool enable)
+    {
+        yield return new WaitForSeconds(2);
+        doorLock.enabled = enable;
     }
 
 }

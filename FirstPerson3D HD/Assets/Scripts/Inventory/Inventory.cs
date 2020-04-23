@@ -6,7 +6,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour, IItemContainer
 {
     [SerializeField] int space;
-    
+
     private List<Item> items = new List<Item>();
 
     public bool AddItem(Item item, int index = 0)
@@ -18,12 +18,14 @@ public class Inventory : MonoBehaviour, IItemContainer
         if (IsFull())
         {
             Debug.Log("Not enough room");
+            InventoryManager.invManager.BackpackFull();
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
             return false;
         }
-        if (ContainsItem(item.itemInfo))
+        if (ContainsItem(item))
         {
             Debug.Log("Already in inventory!");
+            InventoryManager.invManager.AlreadyCollected();
             AudioManager.audioManager.PlaySound(AudioManager.audioManager.inventoryFull);
             return false;
         }
@@ -31,7 +33,7 @@ public class Inventory : MonoBehaviour, IItemContainer
         return true;
     }
 
-    
+
     public bool RemoveItem(Item item)
     {
         items.Remove(item);
@@ -58,7 +60,7 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     public bool ContainsItem(Item item)
     {
-        if(items.Contains(item))
+        if (items.Contains(item))
         {
             Debug.Log("Inventory contains " + item.name);
             return true;
@@ -72,9 +74,9 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     public bool ContainsItem(ItemAsset item)
     {
-        foreach(Item containedItem in items)
+        foreach (Item containedItem in items)
         {
-            if(containedItem.itemInfo == item)
+            if (containedItem.itemInfo == item)
             {
                 Debug.Log("Inventory contains " + item.name);
                 return true;
@@ -86,7 +88,7 @@ public class Inventory : MonoBehaviour, IItemContainer
 
     public bool IsFull()
     {
-        if(items.Count >= space)
+        if (items.Count >= space)
         {
             return true;
         }

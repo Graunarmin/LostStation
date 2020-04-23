@@ -15,6 +15,9 @@ MonoBehaviour:
   givesJournalInfo: 1
   journalPage: {fileID: 7400533655403628545, guid: 7eea2b0c542594a94b87b83a72a6e302,
     type: 3}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueInfo:
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
     myText: I am not programmed to try new things.

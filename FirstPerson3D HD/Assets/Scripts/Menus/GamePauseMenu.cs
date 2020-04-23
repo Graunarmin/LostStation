@@ -28,7 +28,7 @@ public class GamePauseMenu : MonoBehaviour
 
     public void ResumeButton()
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.playButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.playButton);
         ResumeGame();
     }
 
@@ -46,7 +46,7 @@ public class GamePauseMenu : MonoBehaviour
 
     public void ControlsButton(Button button)
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
         button.enabled = false;
         button.enabled = true;
         button.gameObject.GetComponent<Animator>().SetTrigger("Normal");
@@ -55,7 +55,7 @@ public class GamePauseMenu : MonoBehaviour
     //load Main Menu
     public void MenuButton()
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
         LoadMenu();
     }
 
@@ -69,7 +69,7 @@ public class GamePauseMenu : MonoBehaviour
 
     public void QuitButton()
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
         QuitGame();
     }
 
@@ -81,7 +81,7 @@ public class GamePauseMenu : MonoBehaviour
 
     public void BackButton(Button button)
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
         button.enabled = false;
         button.enabled = true;
         button.gameObject.GetComponent<Animator>().SetTrigger("Normal");
@@ -89,12 +89,12 @@ public class GamePauseMenu : MonoBehaviour
 
     public void HoverButton()
     {
-        //AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.hover);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.hover);
     }
 
     public void HoverExit()
     {
-        //AudioManagerMenu.audioManager.StopSound(AudioManagerMenu.audioManager.hover);
+        AudioManagerMenu.audioManager.StopSound(AudioManagerMenu.audioManager.hover);
     }
 
 }

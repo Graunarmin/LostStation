@@ -37,47 +37,32 @@ public class AudioManager : MonoBehaviour
     public Sound loadingPortal;
     public Sound errorPortal;
 
-    public Sound[] BuildArray()
-    {
-        return new Sound[]{theme, doorLocked, smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
-        flashlightFilterBroken, keypadButtons, solutionCorrect, solutionWrong, jigsawPieceCorrect,
-        jigsawPieceWrong, returnJigsawPieceToInventory, 
-        newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, 
-        craftingSlot, crafting, craftingImpossible, getResult, elevatorButtons,
-        portalControls, portalControlButtons, loadingPortal, errorPortal};
-    }
+    //public Sound[] BuildArray()
+    //{
+    //    return new Sound[]{theme, doorLocked, smashDoor, flashlightToggle, flashlightFilter, flashlightFilterCrack,
+    //    flashlightFilterBroken, keypadButtons, solutionCorrect, solutionWrong, jigsawPieceCorrect,
+    //    jigsawPieceWrong, returnJigsawPieceToInventory, 
+    //    newJournalPage,openJournal, turnPage, newItem, openInventory, inventoryFull, 
+    //    craftingSlot, crafting, craftingImpossible, getResult, elevatorButtons,
+    //    portalControls, portalControlButtons, loadingPortal, errorPortal};
+    //}
 
     #endregion
 
     public static AudioManager audioManager;
 
-    private Sound[] allSounds;
+    //private Sound[] allSounds;
 
     private void Awake()
     {
-        //so sounds are not cut between scenes
-        //DontDestroyOnLoad(gameObject);
 
-        if(audioManager == null)
+        if (audioManager == null)
         {
             audioManager = this;
         }
-        //else
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
 
-        allSounds = BuildArray();
+        //allSounds = BuildArray();
 
-        foreach (Sound s in allSounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
     }
 
     private void Start()
@@ -86,27 +71,22 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(theme);
         }
-        
+
     }
 
     public void PlaySound(Sound sound)
     {
-        if (sound.clip == null)
+        if (sound != null)
         {
-            Debug.LogWarning("Sound not defined");
-            return;
+            sound.PlaySound();
         }
-        sound.source.Play();
     }
 
     public void StopSound(Sound sound)
     {
-        if(sound.clip == null)
+        if (sound != null)
         {
-            Debug.LogWarning("Sound not defined");
-            return;
+            sound.StopSound();
         }
-        sound.source.Stop();
-
     }
 }

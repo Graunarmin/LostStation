@@ -6,6 +6,10 @@ public class ElevatorManager : MonoBehaviour
 {
     [SerializeField] Door entrance;
     [SerializeField] Door exit;
+    [SerializeField] CorrectSolutionReaction firstRideAnim;
+    [SerializeField] CorrectSolutionReaction rideUpAnim;
+    [SerializeField] CorrectSolutionReaction rideDownAnim;
+    private bool firstRide = true;
 
     #region singleton
     public static ElevatorManager elevator;
@@ -34,13 +38,13 @@ public class ElevatorManager : MonoBehaviour
         }
         exit.BlockDoor();
     }
-
-    public void Up()
+     public void Up()
     {
         //play animation + Sound
         //...
         CloseDoors();
         StartCoroutine(RideUp());
+        rideUpAnim.React();
     }
 
     public void Down()
@@ -48,19 +52,29 @@ public class ElevatorManager : MonoBehaviour
         //...
         CloseDoors();
         StartCoroutine(RideDown());
+        if (firstRide)
+        {
+            firstRideAnim.React();
+            firstRide = false;
+        }
+        else
+        {
+            rideDownAnim.React();
+        }
     }
 
     private IEnumerator RideUp()
     {
-        yield return new WaitForSecondsRealtime(4f);
-        exit.UnblockDoor();
-        Debug.Log("Arrived upstairs");
+        yield return new WaitForSecondsRealtime(5f);
+        entrance.UnblockDoor();
+        Debug.Log("Arrived upstairs"); 
     }
 
     private IEnumerator RideDown()
     {
-        yield return new WaitForSecondsRealtime(4f);
-        entrance.UnblockDoor();
+        yield return new WaitForSecondsRealtime(5f);
+        exit.UnblockDoor();
+        Debug.Log("Arrived downstairs");
         Debug.Log("Arrived downstairs");
     }
 

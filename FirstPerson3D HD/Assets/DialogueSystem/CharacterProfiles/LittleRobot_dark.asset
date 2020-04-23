@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 570e15988bb514d99b80320f9ae1c165, type: 3}
-  m_Name: LittleRobot_Intercom
+  m_Name: LittleRobot_dark
   m_EditorClassIdentifier: 
   myName: Robot
-  myPortrait: {fileID: 21300000, guid: 770df905e812e1647b710fc8e606a988, type: 3}
+  myPortrait: {fileID: 21300000, guid: 0dd80e21e9a976f478dd1a6938ebb54d, type: 3}
   myTextColor: {r: 0, g: 0, b: 0, a: 0}

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   givesJournalInfo: 0
   journalPage: {fileID: 0}
-  keyword: 
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueInfo:
-  - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
     myText: Hello again.
-  character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
   questionText: Found out who you are yet?
   optionsInfo:
   - buttonName: Alice
-    keyword: 
     nextDialogue: {fileID: 11400000, guid: 27fb74600d93d41459f11607ec5fbbea, type: 2}
-    journalPage: {fileID: 0}
     myEvent:
       m_PersistentCalls:
         m_Calls:
@@ -40,9 +40,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - buttonName: Not yet
-    keyword: 
     nextDialogue: {fileID: 11400000, guid: 4737c910e94424c5a85fe7a9dfd8f7d5, type: 2}
-    journalPage: {fileID: 0}
     myEvent:
       m_PersistentCalls:
         m_Calls:
