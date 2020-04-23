@@ -10,6 +10,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject openInventory;
     public GameObject closeOverlay;
     public GameObject toggleFlashlight;
+    public GameObject object3D;
 
     [HideInInspector]
     public bool firstStep;
@@ -17,6 +18,8 @@ public class TutorialManager : MonoBehaviour
     public bool firstCanvas;
     [HideInInspector]
     public bool firstCollectable;
+    [HideInInspector]
+    public bool first3DObject;
 
     private List<GameObject> allTutorials = new List<GameObject>();
 
@@ -55,6 +58,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    public void First3DObject()
+    {
+        if (!first3DObject)
+        {
+            first3DObject = true;
+            ShowRotateTut();
+        }
+    }
+
     private IEnumerator WaitForEndOfInspect()
     {
         yield return new WaitUntil(()
@@ -84,6 +96,13 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         closeOverlay.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(closeOverlay, 2f));
+    }
+
+    public void ShowRotateTut()
+    {
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
+        object3D.gameObject.SetActive(true);
+        StartCoroutine(CloseTutorial(object3D, 2f));
     }
 
     //Is called from DialogueEvents when the flashlight is enabled

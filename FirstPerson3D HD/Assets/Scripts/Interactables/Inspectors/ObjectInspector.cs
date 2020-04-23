@@ -7,8 +7,9 @@ public class ObjectInspector : Interactable
 
     public override void Interact()
     {
-        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
+        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to close
         TutorialManager.tutorialManager.FirstCanvas();
+        TutorialManager.tutorialManager.First3DObject();
 
         //"duplicate" the clicked on Object
         GameObject item = Instantiate(gameObject);
@@ -23,12 +24,10 @@ public class ObjectInspector : Interactable
         item.transform.GetChild(0).localPosition = Vector3.zero;
 
         Reference.instance.obsCam.model = item.transform;
+        Reference.instance.obsCam.model.localScale = new Vector3(2f, 2f, 2f);
 
         //turn on observer Camera
         Reference.instance.obsCam.Activate();
-
-        //Test if this is the first ever Canvas that opens and if so, show Tutorial on how to clos
-        TutorialManager.tutorialManager.FirstCanvas();
 
     }
 }

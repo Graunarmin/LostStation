@@ -69,6 +69,7 @@ public class ObjectInspectorCam : MonoBehaviour, IPuzzleCanvas
     public bool Close()
     {
         //clear out model
+        model.localScale = new Vector3(1 / 2f, 1 / 2f, 1 / 2f);
         Destroy(model.gameObject);
 
         //reset rotation
