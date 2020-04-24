@@ -36,7 +36,8 @@ public class AlienManager : MonoBehaviour
         {
             alien.gameObject.SetActive(false);
         }
-        CraftingManager.OnFilterEquipped += TestForLights;
+        //CraftingManager.OnFilterEquipped += TestForLights;
+        CraftingManager.OnFilterEquipped += MakeAliensVisible;
         FilterTimer.OnFilterBroken += MakeAliensInvisible;
     }
 
@@ -44,8 +45,19 @@ public class AlienManager : MonoBehaviour
     {
         //Aliens are only visible if all lights but filtered lights (flashlight)
         //are switched off, so we have to wait until the lights are switched off
-        StartCoroutine(WaitForLightsOut());
+        //StartCoroutine(WaitForLightsOut());
+        StartCoroutine(WaitForFlashlightOn());
     }
+
+    private IEnumerator WaitForFlashlightOn()
+    {
+        yield return new WaitUntil(()
+            => Reference.instance.flashlight.SwitchedOn());
+
+        //Then we can make all aliens visible
+        MakeAliensVisible();
+    }
+
 
     private IEnumerator WaitForLightsOut()
     {

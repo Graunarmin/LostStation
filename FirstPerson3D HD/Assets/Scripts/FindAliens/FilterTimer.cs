@@ -50,9 +50,15 @@ public class FilterTimer : MonoBehaviour
 
     public IEnumerator Timer()
     {
-        yield return new WaitForSeconds(30);
+        //wait until Player switches on Flashlight
+        yield return new WaitUntil(()
+            => Reference.instance.flashlight.SwitchedOn());
+
+        //then they have 50 Seconds until Crack
+        yield return new WaitForSeconds(50);
         ShowCracks();
 
+        //and 30 with crack
         yield return new WaitForSeconds(30);
         AlienFilterBroken();
     }
@@ -64,9 +70,6 @@ public class FilterTimer : MonoBehaviour
         AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilterCrack);
         //show first cracks in Lense
         crack.gameObject.SetActive(true);
-
-        //play a cracking sound
-        //...
     }
 
     private void AlienFilterBroken()

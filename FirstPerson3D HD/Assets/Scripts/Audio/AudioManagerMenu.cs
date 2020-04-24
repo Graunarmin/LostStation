@@ -8,14 +8,8 @@ public class AudioManagerMenu : MonoBehaviour
     public Sound hover;
     public Sound button;
 
-    //public Sound[] BuildArray()
-    //{
-    //    return new Sound[] { hover, playButton, optionsButton, quitButton };
-    //}
     #endregion
     public static AudioManagerMenu audioManager;
-
-    //private Sound[] allSounds;
 
     private void Awake()
     {

@@ -80,6 +80,6 @@ public class ElevatorManager : MonoBehaviour
 
     public void ButtonSound()
     {
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.button);
     }
 }

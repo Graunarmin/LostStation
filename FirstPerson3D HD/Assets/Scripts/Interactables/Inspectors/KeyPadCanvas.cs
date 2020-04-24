@@ -42,7 +42,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
 
     public void InputFromButton(Button btn)
     {
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.keypadButtons);
+        AudioManager.audioManager.PlaySound(AudioManager.audioManager.button);
         //get password and passwordlength
         if (Reference.instance.currentKeypad.GetPassword() != "0")
         {
