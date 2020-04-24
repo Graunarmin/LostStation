@@ -29,7 +29,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: Well ... Yes. Sorry.
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
-    myText: Everytime, Bob,
+    myText: Everytime, Bob.
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: I'm sorry. I will remember this time. Promise.
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
