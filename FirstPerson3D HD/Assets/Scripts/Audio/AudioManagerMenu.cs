@@ -6,9 +6,7 @@ public class AudioManagerMenu : MonoBehaviour
 {
     #region Sound References
     public Sound hover;
-    public Sound playButton;
-    public Sound optionsButton;
-    public Sound quitButton;
+    public Sound button;
 
     //public Sound[] BuildArray()
     //{

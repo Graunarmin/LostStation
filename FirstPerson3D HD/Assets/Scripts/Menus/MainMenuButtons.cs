@@ -31,24 +31,24 @@ public class MainMenuButtons : MonoBehaviour
 
     public void PlayButton()
     {
-        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.playButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.button);
         PlayGame();
     }
 
     public void OptionsButton()
     {
-        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.optionsButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.button);
     }
 
     public void QuitButton()
     {
-        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.button);
         QuitGame();
     }
 
     public void BackButton()
     {
-        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.quitButton);
+        AudioManagerMenu.audioManager.PlaySound(AudioManagerMenu.audioManager.button);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
