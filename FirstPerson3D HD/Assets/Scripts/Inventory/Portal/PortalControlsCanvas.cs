@@ -37,6 +37,11 @@ public class PortalControlsCanvas : MonoBehaviour, IPuzzleCanvas
         return true;
     }
 
+    public void CloseButton()
+    {
+        Close();
+    }
+
     public void ActivateControls()
     {
         //Play Sound

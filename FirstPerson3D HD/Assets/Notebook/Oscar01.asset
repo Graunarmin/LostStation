@@ -14,13 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePage: 1
   pageNumber: 1
-  pagePic: {fileID: 21300000, guid: 8d5f84b40f8334504bc9c3025485f090, type: 3}
-  pageText: "Thursday\nWe finally found a way. Well, Laura did. She barely talks anymore.
-    No wonder. Don't really know, how I feel about this. They don't seem to be affected
-    in any way, but how can we know for sure? Olivia says they don't feel like we
-    do. I'm pretty certain they don't want to be used like that though. Who would?
-    And what right do we have to do this? But these questions are not asked aloud.
-    \n\nWednesday \nHow can Olivia claim they 'don't mind' when at least twice a week
-    they escape I have to go catch them?\n\nSaturday \nThey seem to have really strong
-    bonds. When in captivity, they are only calm when all three of them are together.
-    Try\n"
+  pagePic: {fileID: 21300000, guid: f585a8d358e270148956da7d9854106a, type: 3}
+  pageText: "Thursday\nWe finally found a way. Well, Laura did. And she hardly talks
+    anymore. No wonder. Don't really know, how I feel about this. They don't seem
+    to be affected in any way, but how can we know for sure? Olivia says they don't
+    feel like we do. I'm pretty certain they don't want to be used like that though.
+    Who would? And what right do we have to do this? But nobody asks that aloud.\n\nWednesday
+    \nHow can Olivia say they 'don't mind' when at least twice a week they escape
+    and I have to go catch them?"

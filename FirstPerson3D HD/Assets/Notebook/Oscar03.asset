@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePage: 1
   pageNumber: 3
-  pagePic: {fileID: 21300000, guid: 6425cec0c2f8f483990602e41e5bff80, type: 3}
-  pageText: what to think. She's changed so much. IT has changed her. She says it
-    wouldn't hurt at all, says it's barely a tickle. but I don't believe her. She's
-    not as good at controlling her faces as she thinks she is. I hate being in there
-    when we power it up. And everyone else does, too. But well. As long as we succeed,
-    right? As long as we succeed.
+  pagePic: {fileID: 21300000, guid: 57865310fe457224b997a1f7bbf5f644, type: 3}
+  pageText: "Wednesday\nI hope Bob can get the damn lense to last longer really soon.
+    It's so annoying to always switch them and anyway, any creature I might have catched
+    in the first round is already long gone as soon as the new lense is in place.
+    Unless I can get a hold of all three within the lifetime of one lense. \n\nMonday\nWhen
+    I look at Olivia, I don't know what to think. She's changed so much. IT has changed
+    her. She says it doesn't hurt, says it's barely a tickle, but I don't believe
+    her. She's not as good at controlling her face as she thinks she is. I hate being
+    in there when we power it up. Everbody else does, too."

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePage: 1
   pageNumber: 2
-  pagePic: {fileID: 21300000, guid: 3175a1dbf7d444708824cdad9a9f2fe8, type: 3}
-  pageText: "catching only one or two and they will escape within minutes. So I have
-    to manage finding all of them really quick to even get a chance to bring them
-    all back up. Once they found a way out again and are roaming the hallways, they
-    spilt up though, as if to make it as hard as possible fpr me. Smart little creatures.
-    We have not yet figured out what they eat, either. Or if. \n\nWednesday \nI hope
-    that Bob can get the damn lense to last longer that a few minutes very soon, or
-    maybe even install big filters in front of the ceiling lamps. It's really annoying
-    to always switch off the lights, screw a new filter on and be on such a timelimit
-    while 'hunting'.\n\nMonday\nWhen I look at Olivia, I don't know"
+  pagePic: {fileID: 21300000, guid: 104b25024de6b4c4c83ff1818ba9bc72, type: 3}
+  pageText: 'Saturday
+
+    They seem to have really strong bonds. When in captivity, they are only calm if
+    all three of them are together. But once they found a way out again and are roaming
+    the hallways, they split up and make it as hard as possible for me to find them.
+    In Addition, I can''t keep them in the cage for long unless I catch all three
+    within minutes. Doesn''t help that we can''t figure out what they ear. Or if.
+    Smart little creatures. I really wish there was a way to comminicate with them.
+    Explain. Ask.'
