@@ -104,7 +104,7 @@ public class DoorOpener : Interactable
 
     private IEnumerator EnableDoorCollider(bool enable)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         doorLock.enabled = enable;
     }
 
