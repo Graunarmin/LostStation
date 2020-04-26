@@ -35,6 +35,7 @@ MonoBehaviour:
       right, one up 45\xB0, one up 315\xB0, one up 45\xB0, one up straight and one
       to the left."
   character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
+  answerProfile: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
   questionText: And remember, only hit the keypoints, not every point on the way.
   optionsInfo:
   - buttonName: Got it.

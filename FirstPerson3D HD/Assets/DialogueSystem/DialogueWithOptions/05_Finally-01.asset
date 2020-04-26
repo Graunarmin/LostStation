@@ -44,6 +44,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
     myText: This is Bob Henderson's keycard.
   character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  answerProfile: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
   questionText: Are you Bob Henderson?
   optionsInfo:
   - buttonName: Yes, I'm Bob

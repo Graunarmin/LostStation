@@ -41,6 +41,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
     myText: I can hand you the emergency flashlight then, I guess.
   character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
+  answerProfile: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
   questionText: Amazing idea, really.
   optionsInfo:
   - buttonName: Thanks so much.

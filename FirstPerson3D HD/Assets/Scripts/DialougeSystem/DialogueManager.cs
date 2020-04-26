@@ -37,6 +37,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueOptionUI;
     public Image optionsPortrait;
     public TextMeshProUGUI optionsName;
+    public Image answerPortrait;
+    public TextMeshProUGUI answerName;
     public TextMeshProUGUI questionText;
     public GameObject[] optionButtons;
 
@@ -213,6 +215,8 @@ public class DialogueManager : MonoBehaviour
             questionText.text = dialogueOptions.questionText;
             optionsPortrait.sprite = dialogueOptions.character.myPortrait;
             optionsName.text = dialogueOptions.character.myName;
+            answerPortrait.sprite = dialogueOptions.answerProfile.myPortrait;
+            answerName.text = dialogueOptions.answerProfile.myName;
 
             //first turn off all "old buttons
             for (int i = 0; i < optionButtons.Length; i++)

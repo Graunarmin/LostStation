@@ -14,7 +14,7 @@ public class GamePauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        GameManager.gameManager.SwitchCameras("2D");
+        //GameManager.gameManager.SwitchCameras("2D");
         //PauseMenus Game-Objekt aktiveren
         pauseMenuUI.SetActive(true);
 
@@ -39,7 +39,7 @@ public class GamePauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         //PauseMenus Game-Objekt deaktivieren
         pauseMenuUI.SetActive(false);
-        GameManager.gameManager.SwitchCameras("3D");
+        //GameManager.gameManager.SwitchCameras("3D");
         
         Debug.Log("Resume Game!");
     }

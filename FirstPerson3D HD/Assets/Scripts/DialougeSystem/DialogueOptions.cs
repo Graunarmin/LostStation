@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class DialogueOptions : DialogueBase
 {
     public CharacterProfile character;
+    public CharacterProfile answerProfile;
 
     [TextArea(2, 8)]
     public string questionText;

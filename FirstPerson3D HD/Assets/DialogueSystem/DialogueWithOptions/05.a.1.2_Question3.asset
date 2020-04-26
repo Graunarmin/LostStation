@@ -21,6 +21,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
     myText: 'Question 3:'
   character: {fileID: 11400000, guid: 847995f841e344bb5a083de25cf7034d, type: 2}
+  answerProfile: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
   questionText: What is a ridiculous fear of Your's?
   optionsInfo:
   - buttonName: Birds

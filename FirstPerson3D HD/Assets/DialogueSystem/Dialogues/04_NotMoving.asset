@@ -19,4 +19,4 @@ MonoBehaviour:
       m_Calls: []
   dialogueInfo:
   - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
-    myText: Power's not back yet so I'm not moving.
+    myText: Power's not back yet so I'm not going anywhere.

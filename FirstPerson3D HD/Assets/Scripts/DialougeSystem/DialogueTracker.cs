@@ -23,6 +23,8 @@ public class DialogueTracker : MonoBehaviour
     public bool start = true;
     public DialogueBase currentDialogue;
 
+    public DialogueBase errorDialogue;
+
 
     #region Dialogue 01
     public bool endFirstDialogue;
@@ -150,7 +152,7 @@ public class DialogueTracker : MonoBehaviour
                 return helloBob;
             }
         }
-        return whoAreYou;
+        return errorDialogue;
     }
 
     #region Intercom Dialogue

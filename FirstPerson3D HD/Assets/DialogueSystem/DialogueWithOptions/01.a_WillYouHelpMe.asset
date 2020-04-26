@@ -29,8 +29,9 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
     myText: Can't you fix it?
   - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
-    myText: I'm not moving as long as there is any uncertainty regarding my lunch-charge.
+    myText: I'm not moving as long as there is any uncertainty regarding my lunch-recharge.
   character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
+  answerProfile: {fileID: 11400000, guid: 9021a10c736ac4986b3737fc1ded2057, type: 2}
   questionText: Will you help me?
   optionsInfo:
   - buttonName: Sure ...
