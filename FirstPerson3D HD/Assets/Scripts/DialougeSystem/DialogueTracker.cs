@@ -91,6 +91,7 @@ public class DialogueTracker : MonoBehaviour
             {
                 return whoAreYou;
             }
+           
             if (amAlice && wontHelp)
             {
                 return willYouHelp;
@@ -101,10 +102,15 @@ public class DialogueTracker : MonoBehaviour
             }
             if (amAlice && willHelp)
             {
-                endFirstDialogue = true;
+                //endFirstDialogue = true;
                 return tooDark;
             }
-        }else if (!endSecurityDialogue)
+            if (amAlice)
+            {
+                return willYouHelp;
+            }
+        }
+        else if (!endSecurityDialogue)
         {
             if (gotFlashlight && !GameManager.gameManager.powerIsBack)
             {

@@ -19,5 +19,5 @@ MonoBehaviour:
       m_Calls: []
   dialogueInfo:
   - character: {fileID: 11400000, guid: ca600a64b4d37a8449265e837819573e, type: 2}
-    myText: I'm sorry, there seems to be an error in the dialogue sytem the programmer
-      did not catch. Please restart the game - it's not really long after all.
+    myText: I'm sorry, this is a very secret place for errors und bugs. Please look
+      away, they are really shy (>_<)

@@ -58,10 +58,10 @@ public class GameManager : MonoBehaviour
                     {
                         Reference.instance.keyPad.Close();
                     }
-                    if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
-                    {
-                        Reference.instance.dialogueCanvas.Close();
-                    }
+                    //if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
+                    //{
+                    //    Reference.instance.dialogueCanvas.Close();
+                    //}
                     if (Reference.instance.diary.gameObject.activeInHierarchy)
                     {
                         Reference.instance.diary.Close();
@@ -253,14 +253,19 @@ public class GameManager : MonoBehaviour
         return (Reference.instance.ivCanvas.gameObject.activeInHierarchy ||
                 Reference.instance.obsCam.gameObject.activeInHierarchy ||
                 Reference.instance.keyPad.gameObject.activeInHierarchy ||
-                Reference.instance.dialogueCanvas.gameObject.activeInHierarchy||
                 Reference.instance.diary.gameObject.activeInHierarchy ||
                 Reference.instance.jigsawCanvas.gameObject.activeInHierarchy ||
                 Reference.instance.oscarsNotebook.gameObject.activeInHierarchy ||
                 Reference.instance.portalPanel.gameObject.activeInHierarchy ||
                 Reference.instance.portalControls.gameObject.activeInHierarchy ||
                 Reference.instance.elevatorPuzzle.gameObject.activeInHierarchy ||
-                Reference.instance.elevatorControls.gameObject.activeInHierarchy);
+                Reference.instance.elevatorControls.gameObject.activeInHierarchy ||
+                InDialogue());
+    }
+
+    public bool InDialogue()
+    {
+        return Reference.instance.dialogueCanvas.gameObject.activeInHierarchy;
     }
 
     public bool JournalOpen()
