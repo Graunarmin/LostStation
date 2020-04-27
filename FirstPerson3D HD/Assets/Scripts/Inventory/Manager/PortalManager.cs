@@ -26,6 +26,7 @@ public class PortalManager : ItemContainerManager
     [SerializeField] EndOfGame end;
     [SerializeField] CorrectSolutionReaction reaction;
     public Texture2D hoverCursorLastPost;
+    public GameObject mousePointerHand;
 
 
     private AlienSlot activeSlot;

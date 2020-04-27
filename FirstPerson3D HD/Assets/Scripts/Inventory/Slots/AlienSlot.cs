@@ -42,12 +42,17 @@ public class AlienSlot : ItemSlot
 
     public void HoverOverLastPost()
     {
-        Cursor.SetCursor(PortalManager.portal.hoverCursorLastPost, Vector2.zero, CursorMode.Auto);
+        //Cursor.SetCursor(PortalManager.portal.hoverCursorLastPost, Vector2.zero, CursorMode.Auto);
+        //Cursor.visible = false;
+        ////enable Hand Object
+        PortalManager.portal.mousePointerHand.SetActive(true);
     }
 
     public void HoverExitLastPost()
     {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        //Cursor.visible = true;
+        PortalManager.portal.mousePointerHand.SetActive(false);
     }
 
 }
