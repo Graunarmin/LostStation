@@ -3468,8 +3468,8 @@ MonoBehaviour:
     serve the storyline. Especially the hexagon symbol has in this context no other
     meaning than it's alchemic one as symbol for the combination of the four elements.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 290e84c5eed22440988873c3965f97f6, type: 2}
-  m_sharedMaterial: {fileID: 8578379075481992035, guid: 290e84c5eed22440988873c3965f97f6,
+  m_fontAsset: {fileID: 11400000, guid: 3e2069e268e222641a669eba7e91779a, type: 2}
+  m_sharedMaterial: {fileID: -8959218953862406669, guid: 3e2069e268e222641a669eba7e91779a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3542,7 +3542,7 @@ MonoBehaviour:
     spaceCount: 49
     wordCount: 50
     linkCount: 0
-    lineCount: 7
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3613,7 +3613,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128259881}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5324,10 +5324,10 @@ MonoBehaviour:
   m_margin: {x: -220.86719, y: -26.198853, z: -221.06958, w: -29.700928}
   m_textInfo:
     textComponent: {fileID: 1961252378}
-    characterCount: 84
+    characterCount: 66
     spriteCount: 0
-    spaceCount: 9
-    wordCount: 9
+    spaceCount: 7
+    wordCount: 6
     linkCount: 0
     lineCount: 2
     pageCount: 1
