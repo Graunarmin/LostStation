@@ -11,6 +11,9 @@ public class Tests : MonoBehaviour
     public Alien airAlien;
     public Alien waterAlien;
 
+    public Transform player;
+    public Transform endPos;
+
     private bool chapter1;
     private bool chapter2;
     private bool chapter3;
@@ -34,6 +37,10 @@ public class Tests : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             FinishChapter04();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            JumpToEnd();
         }
     }
 
@@ -59,6 +66,7 @@ public class Tests : MonoBehaviour
     {
         if (!chapter2)
         {
+            FinishChapter01();
             //get the crowbar and repair the generator
 
             //set crowbar to collected
@@ -77,6 +85,8 @@ public class Tests : MonoBehaviour
     {
         if (!chapter3)
         {
+            FinishChapter01();
+            FinishChapter02();
             InventoryManager.invManager.RemoveItem(crowbar);
             //craft Filter and put it in backpack
             InventoryManager.invManager.AddItem(filter);
@@ -90,6 +100,9 @@ public class Tests : MonoBehaviour
     {
         if (!chapter4)
         {
+            FinishChapter01();
+            FinishChapter02();
+            FinishChapter03();
             //CollectAllAliens
             InventoryManager.invManager.RemoveItem(filter);
             InventoryManager.invManager.AddItem(fireAlien);
@@ -98,6 +111,16 @@ public class Tests : MonoBehaviour
 
             chapter4 = true;
         }
+    }
+
+    private void JumpToEnd()
+    {
+        FinishChapter01();
+        FinishChapter02();
+        FinishChapter03();
+        FinishChapter04();
+        player.position = endPos.position;
+        //telepoprt Player to PortalRomm
     }
 
 }
