@@ -31,12 +31,23 @@ public class AlienSlot : ItemSlot
 
     public void ShowControls()
     {
+        HoverExitLastPost();
         Debug.Log("There was a Button Click!");
         if (item == null)
         {
             //open up Canvas with controls
             PortalManager.portal.OpenControls();
         }
+    }
+
+    public void HoverOverLastPost()
+    {
+        Cursor.SetCursor(PortalManager.portal.hoverCursorLastPost, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void HoverExitLastPost()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
 }
