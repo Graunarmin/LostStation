@@ -176,7 +176,7 @@ public class PortalManager : ItemContainerManager
         }
 
         //End the game and roll the credits:
-        yield return new WaitForSecondsRealtime(35);
+        yield return new WaitForSecondsRealtime(33);
         end.EndGame();
     }
 

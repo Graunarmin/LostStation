@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 14dd1524e647741c59b6f7b4b6c15224, type: 3}
   location: {fileID: 0}
   journalPage: {fileID: 0}
-  descriptionText: Some Copper Wire.
+  descriptionText: Some copper wire.
   craftingMaterial: 1
   isConsumed: 1
   isResultItem: 0

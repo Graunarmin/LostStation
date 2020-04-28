@@ -19,5 +19,5 @@ MonoBehaviour:
       m_Calls: []
   dialogueInfo:
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
-    myText: I'm on my lunchbreak right now. Stay inside and wash your hands. And Bob
-      - use your notebook, allright?
+    myText: I'm on my lunchbreak right now, so you'll have to manage by yourself.
+      And Bob - use your notebook, allright?

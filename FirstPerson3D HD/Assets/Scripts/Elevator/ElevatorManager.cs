@@ -49,11 +49,11 @@ public class ElevatorManager : MonoBehaviour
     {
         CloseDoors();
         
-        if (firstRide)
-        {
-            firstRideAnim.React();
-            firstRide = false;
-        }
+        //if (firstRide)
+        //{
+        //    firstRideAnim.React();
+        //    firstRide = false;
+        //}
         
         StartCoroutine(RideDown());
         rideDownAnim.React();
