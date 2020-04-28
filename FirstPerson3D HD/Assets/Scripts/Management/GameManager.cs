@@ -211,7 +211,7 @@ public class GameManager : MonoBehaviour
             
             case "2D":
                 //Camera.main.orthographic = true;
-                Debug.Log("Switching to 2D");
+                //Debug.Log("Switching to 2D");
                 Reference.instance.firstPersonCam.enabled = false;
                 Reference.instance.firstPersonCam.gameObject.SetActive(false);
 
