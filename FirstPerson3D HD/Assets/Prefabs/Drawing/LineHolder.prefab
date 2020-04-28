@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735236311593004159}
   - component: {fileID: 1735236311593004156}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: LineHolder
   m_TagString: DrawingLine
   m_Icon: {fileID: 0}

@@ -40,27 +40,23 @@ public class ElevatorManager : MonoBehaviour
     }
      public void Up()
     {
-        //play animation + Sound
-        //...
         CloseDoors();
         StartCoroutine(RideUp());
         rideUpAnim.React();
     }
 
     public void Down()
-    {   //play animation + Sound
-        //...
+    {
         CloseDoors();
-        StartCoroutine(RideDown());
+        
         if (firstRide)
         {
             firstRideAnim.React();
             firstRide = false;
         }
-        else
-        {
-            rideDownAnim.React();
-        }
+        
+        StartCoroutine(RideDown());
+        rideDownAnim.React();
     }
 
     private IEnumerator RideUp()
@@ -74,7 +70,6 @@ public class ElevatorManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(5f);
         exit.UnblockDoor();
-        Debug.Log("Arrived downstairs");
         Debug.Log("Arrived downstairs");
     }
 

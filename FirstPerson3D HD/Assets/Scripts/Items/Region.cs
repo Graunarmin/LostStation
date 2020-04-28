@@ -13,6 +13,8 @@ public class Region : MonoBehaviour
     [SerializeField] List<AnimationPlayer> animations;
     [SerializeField] List<CorrectSolutionReaction> reactions;
 
+    public Collider wallCollider;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Hi, I'm entering the " + name);
@@ -40,6 +42,11 @@ public class Region : MonoBehaviour
                 r.React();
             }
         }
+
+        if(wallCollider != null)
+        {
+            wallCollider.gameObject.SetActive(true);
+        }
     }
 
 
@@ -58,6 +65,11 @@ public class Region : MonoBehaviour
         CloseDoors();
         //switch off colliders of all contained Items
         SetContainedItems(false);
+
+        if (wallCollider != null)
+        {
+            wallCollider.gameObject.SetActive(false);
+        }
     }
 
 
