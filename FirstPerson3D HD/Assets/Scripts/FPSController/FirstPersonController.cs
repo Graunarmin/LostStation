@@ -84,6 +84,15 @@ public class FirstPersonController : MonoBehaviour
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
+        else if (GameManager.gameManager.TimelinePlaying())
+        {
+            m_MouseLook.HideCursor();
+            if (!GameManager.gameManager.OpeningScenePlaying())
+            {
+                RotateView();
+            }
+            
+        }
         else
         {
             m_MouseLook.UnlockCursor();

@@ -6,6 +6,10 @@ using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
+    public GameObject move;
+    public TextMeshProUGUI moveText;
+    public GameObject sprint;
+    public TextMeshProUGUI sprintText;
     public GameObject openJournal;
     public GameObject openInventory;
     public GameObject closeOverlay;
@@ -36,10 +40,18 @@ public class TutorialManager : MonoBehaviour
         openInventory.gameObject.SetActive(false);
         closeOverlay.gameObject.SetActive(false);
         toggleFlashlight.gameObject.SetActive(false);
+        StartCoroutine(ShowOpeningTutorial());
 
     }
     #endregion
 
+    private IEnumerator ShowOpeningTutorial()
+    {
+        yield return new WaitForSeconds(10f);
+        ShowMoveTut();
+    }
+
+    #region Test if first
     public void FirstCanvas()
     {
         if (!firstCanvas)
@@ -66,17 +78,60 @@ public class TutorialManager : MonoBehaviour
             ShowRotateTut();
         }
     }
+    #endregion
 
-    private IEnumerator WaitForEndOfInspect()
+    #region MoveTutorials
+    public void ShowMoveTut()
     {
-        yield return new WaitUntil(()
-            => !Reference.instance.obsCam.gameObject.activeInHierarchy);
-
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        ShowInventoryTut();
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
+        move.SetActive(true);
+        StartCoroutine(FadeTextToFullAlpha(1f, moveText));
+        StartCoroutine(CloseOpeningTut());
     }
 
+    private IEnumerator CloseOpeningTut()
+    {
+        yield return new WaitForSeconds(4f);
+        
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeTextToFullAlpha(1f, sprintText));
+
+        sprint.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        move.SetActive(false);
+        sprint.SetActive(false);
+        Reference.instance.TutorialCanvas.gameObject.SetActive(false);
+
+    }
+
+    public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI textElement)
+    {
+        //first set alpha to zero
+        textElement.color = new Color(textElement.color.r, textElement.color.g, textElement.color.b, 0.0f);
+
+        //the fade in text
+        while (textElement.color.a < 1.0f)
+        {
+            textElement.color = new Color(textElement.color.r, textElement.color.g, textElement.color.b, textElement.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(FadeTextToZeroAlpha(1f, textElement));
+    }
+
+    public IEnumerator FadeTextToZeroAlpha(float t, TextMeshProUGUI textElement)
+    {
+        textElement.color = new Color(textElement.color.r, textElement.color.g, textElement.color.b, 1.0f);
+        //the fade in text
+        while (textElement.color.a > 0.0f)
+        {
+            textElement.color = new Color(textElement.color.r, textElement.color.g, textElement.color.b, textElement.color.a - (Time.deltaTime / t));
+            yield return null;
+        }
+    }
+    #endregion
+
+    #region Show Tutorials
     public void ShowInventoryTut()
     {
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
@@ -105,6 +160,15 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(CloseTutorial(object3D, 2f));
     }
 
+    private void ShowFlashlightTut()
+    {
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
+        toggleFlashlight.gameObject.SetActive(true);
+        StartCoroutine(CloseTutorial(toggleFlashlight, 2f));
+    }
+    #endregion
+
+    #region Wait for Stuff
     //Is called from DialogueEvents when the flashlight is enabled
     public IEnumerator WaitForEndOfDialogue()
     {
@@ -116,12 +180,40 @@ public class TutorialManager : MonoBehaviour
         ShowFlashlightTut();
     }
 
-    private void ShowFlashlightTut()
+    private IEnumerator WaitForEndOfInspect()
     {
-        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
-        toggleFlashlight.gameObject.SetActive(true);
-        StartCoroutine(CloseTutorial(toggleFlashlight, 2f));
+        yield return new WaitUntil(()
+            => !Reference.instance.obsCam.gameObject.activeInHierarchy);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        ShowInventoryTut();
     }
+
+    private bool OtherTutorialOpen()
+    {
+        //match each tutorial with all the others
+        foreach (GameObject tutorial in allTutorials)
+        {
+            foreach (GameObject tut2 in allTutorials)
+            {
+                //if they are not the same
+                if (tutorial != tut2)
+                {
+                    //and if they are both active
+                    if (tutorial.activeInHierarchy && tut2.activeInHierarchy)
+                    {
+                        //then two tutorials are open and the camera can not yet be switched
+                        return true;
+                    }
+                }
+
+            }
+        }
+        return false;
+    }
+
+    #endregion
 
 
     private IEnumerator CloseTutorial(GameObject tutorial, float time)
@@ -136,26 +228,5 @@ public class TutorialManager : MonoBehaviour
         tutorial.SetActive(false);
     }
 
-    private bool OtherTutorialOpen()
-    {
-        //match each tutorial with all the others
-        foreach(GameObject tutorial in allTutorials)
-        {
-            foreach(GameObject tut2 in allTutorials)
-            {
-                //if they are not the same
-                if(tutorial != tut2)
-                {
-                    //and if they are both active
-                    if (tutorial.activeInHierarchy && tut2.activeInHierarchy)
-                    {
-                        //then two tutorials are open and the camera can not yet be switched
-                        return true;
-                    }
-                }
-                
-            }
-        }
-        return false;
-    }
+    
 }

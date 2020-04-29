@@ -81,4 +81,11 @@ public class MouseLook
         Reference.instance.crosshair.gameObject.SetActive(false);
     }
 
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Reference.instance.crosshair.gameObject.SetActive(false);
+    }
+
 }

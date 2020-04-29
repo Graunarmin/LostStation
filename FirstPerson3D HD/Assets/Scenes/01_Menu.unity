@@ -211,7 +211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3D Art, Modelling & Animations, Lights, Sound, Storyline & Logic
+  m_text: 3D Art, Modelling & Animations, Lights, Sound, VFX, Storyline
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b719b6eb2259441e7a2478d8c9f7089b, type: 2}
   m_sharedMaterial: {fileID: 4733503474228217159, guid: b719b6eb2259441e7a2478d8c9f7089b,

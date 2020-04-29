@@ -171,10 +171,11 @@ public class PortalManager : ItemContainerManager
         if (reaction != null)
         {
             reaction.React();
+            GameManager.gameManager.EndAnimPlaying(true);
         }
 
         //End the game and roll the credits:
-        yield return new WaitForSecondsRealtime(29f);
+        yield return new WaitForSecondsRealtime(29.5f);
         end.EndGame();
     }
 

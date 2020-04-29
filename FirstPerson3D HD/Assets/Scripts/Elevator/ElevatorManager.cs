@@ -41,20 +41,15 @@ public class ElevatorManager : MonoBehaviour
     {
         CloseDoors();
         StartCoroutine(RideUp());
+        GameManager.gameManager.RideUpPlaying(true);
         rideUpAnim.React();
     }
 
     public void Down()
     {
-        CloseDoors();
-        
-        //if (firstRide)
-        //{
-        //    firstRideAnim.React();
-        //    firstRide = false;
-        //}
-        
+        CloseDoors();        
         StartCoroutine(RideDown());
+        GameManager.gameManager.RideDownPlaying(true);
         rideDownAnim.React();
     }
 

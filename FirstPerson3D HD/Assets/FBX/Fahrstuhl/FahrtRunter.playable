@@ -38,10 +38,10 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: 1768396217929926924}
-  m_FixedDuration: 0
+  m_FixedDuration: 5
   m_EditorSettings:
     m_Framerate: 60
-  m_DurationMode: 0
+  m_DurationMode: 1
   m_MarkerTrack: {fileID: -8670333514480036195}
 --- !u!114 &1768396217929926924
 MonoBehaviour:

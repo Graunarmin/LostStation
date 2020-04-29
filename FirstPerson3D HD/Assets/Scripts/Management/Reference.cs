@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class Reference : MonoBehaviour
 {
     //Lights managermaent in Generator class!

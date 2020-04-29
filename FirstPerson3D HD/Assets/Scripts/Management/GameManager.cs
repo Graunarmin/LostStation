@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
 
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("More than one instance of GameManager!");
         }
-
+        
     }
     #endregion
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void Update(){
 
-        if (!Reference.instance.loadingScreen.activeInHierarchy)
+        if (!Reference.instance.loadingScreen.activeInHierarchy && !TimelinePlaying())
         {
             //on rightclick: close imageviewer/ oberserver cam / Keypad / Puzzle / DrawingPanel
             if (Input.GetMouseButtonDown(1))// && Reference.instance.currentItem != null)
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
                     {
                         Reference.instance.keyPad.Close();
                     }
+                    //not all cases are covered when dialogue gets just closed at any point during the dialogue
                     //if (Reference.instance.dialogueCanvas.gameObject.activeInHierarchy)
                     //{
                     //    Reference.instance.dialogueCanvas.Close();
@@ -162,6 +164,33 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Timeline Management
+    private bool openingScenePlaying;
+    private bool rideDownPlaying;
+    private bool rideUpPlaying;
+    private bool endPlaying;
+
+    public void OpeningScenePlaying(bool playing)
+    {
+        openingScenePlaying = playing;
+    }
+
+    public void RideDownPlaying(bool playing)
+    {
+        rideDownPlaying = playing;
+    }
+
+    public void RideUpPlaying(bool playing)
+    {
+        rideUpPlaying = playing;
+    }
+
+    public void EndAnimPlaying(bool playing)
+    {
+        endPlaying = playing;
+    }
+    #endregion
+
     #region keep track of journal
     public delegate void UpdateJournalInfo(JournalPage info);
     public static event UpdateJournalInfo OnNewJournalInfo;
@@ -245,7 +274,7 @@ public class GameManager : MonoBehaviour
     //test if there is currently an Inspector up
     public bool CurrentlyInteracting()
     {
-        return (InspectorOpen() || JournalOpen() || GameIsOnPause() || InventoryOpen());
+        return (InspectorOpen() || JournalOpen() || GameIsOnPause() || InventoryOpen() || TimelinePlaying());
     }
 
     public bool InspectorOpen()
@@ -261,6 +290,16 @@ public class GameManager : MonoBehaviour
                 Reference.instance.elevatorPuzzle.gameObject.activeInHierarchy ||
                 Reference.instance.elevatorControls.gameObject.activeInHierarchy ||
                 InDialogue());
+    }
+
+    public bool TimelinePlaying()
+    {
+        return (openingScenePlaying || rideDownPlaying || rideUpPlaying || endPlaying);
+    }
+
+    public bool OpeningScenePlaying()
+    {
+        return openingScenePlaying;
     }
 
     public bool InDialogue()
