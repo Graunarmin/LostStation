@@ -9,7 +9,7 @@ public class ItemSlot : MonoBehaviour
     public Image icon;
     //public Button removeButton;
 
-    public void AddItemToSlot(Item newItem)
+    public virtual void AddItemToSlot(Item newItem)
     {
         item = newItem;
 

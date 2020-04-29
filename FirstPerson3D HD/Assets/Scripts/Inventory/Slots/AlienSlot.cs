@@ -6,6 +6,20 @@ using UnityEngine.EventSystems;
 public class AlienSlot : ItemSlot
 {
     public string slotName;
+
+    public override void AddItemToSlot(Item newItem)
+    {
+        item = newItem;
+
+        icon.sprite = item.itemInfo.craftingIcon;
+        icon.enabled = true;
+        if (!GameManager.gameManager.PortalPuzzle() && !GameManager.gameManager.Crafting())
+        {
+            AudioManager.audioManager.PlaySound(AudioManager.audioManager.openInventory);
+        }
+        //removeButton.interactable = true;
+    }
+
     public override bool CanReceiveItem(Item receivedItem)
     {
         if (item == null && receivedItem is Alien)
@@ -31,28 +45,12 @@ public class AlienSlot : ItemSlot
 
     public void ShowControls()
     {
-        HoverExitLastPost();
         Debug.Log("There was a Button Click!");
         if (item == null)
         {
             //open up Canvas with controls
             PortalManager.portal.OpenControls();
         }
-    }
-
-    public void HoverOverLastPost()
-    {
-        //Cursor.SetCursor(PortalManager.portal.hoverCursorLastPost, Vector2.zero, CursorMode.Auto);
-        //Cursor.visible = false;
-        ////enable Hand Object
-        PortalManager.portal.mousePointerHand.SetActive(true);
-    }
-
-    public void HoverExitLastPost()
-    {
-        //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        //Cursor.visible = true;
-        PortalManager.portal.mousePointerHand.SetActive(false);
     }
 
 }

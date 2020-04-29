@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: FireAlien
   icon: {fileID: 21300000, guid: 3210e719abc5e456fa9529deabe2f2e3, type: 3}
+  craftingIcon: {fileID: 21300000, guid: 19aabf2c1da1a3a4a83fc7cba3316009, type: 3}
   location: {fileID: 0}
   journalPage: {fileID: 0}
   descriptionText: The tag around it's neck shows a flame.

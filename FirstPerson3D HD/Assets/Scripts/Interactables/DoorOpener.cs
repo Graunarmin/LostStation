@@ -11,7 +11,9 @@ public class DoorOpener : Interactable
     public GameObject OpenSound;
     public GameObject CloseSound;
 
+    public GameObject doorLightBlock;
     public Collider doorLock;
+
     private Door door;
 
     private void Awake()
@@ -32,7 +34,11 @@ public class DoorOpener : Interactable
         {
             OpenSound.SetActive(false);
         }
-
+        StopAllCoroutines();
+        if (doorLightBlock != null)
+        {
+            doorLightBlock.SetActive(false);
+        }
         if (animators.Count == 0)
         {
             //just a workaround in case animation is missing
@@ -86,6 +92,7 @@ public class DoorOpener : Interactable
             CloseSound.SetActive(false);
         }
         //doorAnimation.Play(closeAnimationName);
+
         for (int i = 0; i < animators.Count; i++)
         {
             animators[i].Play(closingAnimations[i]);
@@ -98,6 +105,7 @@ public class DoorOpener : Interactable
         if (doorLock != null)
         {
             StartCoroutine(EnableDoorCollider(true));
+            StartCoroutine(BlockLight());
         }
         door.CloseDoor();
     }
@@ -106,6 +114,16 @@ public class DoorOpener : Interactable
     {
         yield return new WaitForSeconds(1.5f);
         doorLock.enabled = enable;
+    }
+
+    private IEnumerator BlockLight()
+    {
+        yield return new WaitForSeconds(3f);
+        if(doorLightBlock != null)
+        {
+            doorLightBlock.SetActive(true);
+        }
+        
     }
 
 }

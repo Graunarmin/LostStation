@@ -6,6 +6,7 @@ public class ItemAsset : ScriptableObject
     //Basic Info
     public string itemName = "New Item";
     public Sprite icon = null;
+    public Sprite craftingIcon = null;
     public Region location;
 
     //if it adds a journalpage

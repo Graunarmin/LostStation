@@ -25,8 +25,6 @@ public class PortalManager : ItemContainerManager
     [SerializeField] PortalControlsCanvas controlPanel;
     [SerializeField] EndOfGame end;
     [SerializeField] CorrectSolutionReaction reaction;
-    public Texture2D hoverCursorLastPost;
-    public GameObject mousePointerHand;
 
 
     private AlienSlot activeSlot;
@@ -176,7 +174,7 @@ public class PortalManager : ItemContainerManager
         }
 
         //End the game and roll the credits:
-        yield return new WaitForSecondsRealtime(33);
+        yield return new WaitForSecondsRealtime(29f);
         end.EndGame();
     }
 

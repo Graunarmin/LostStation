@@ -7,6 +7,7 @@ using TMPro;
 
 public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
 {
+    public GameObject shade;
     public GameObject keypadUI;
     public GameObject displayField1;
     public GameObject displayField2;
@@ -21,6 +22,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         //open Keypad and freeze Game
         GameManager.gameManager.SwitchCameras("2D");
         keypadUI.SetActive(true);
+        shade.SetActive(true);
         Time.timeScale = 0f;
         //Debug.Log("Keypad activated");
     }
@@ -31,6 +33,7 @@ public class KeyPadCanvas : MonoBehaviour, IPuzzleCanvas
         keypadUI.SetActive(false);
         Time.timeScale = 1f;
         //Close Canvas
+        shade.SetActive(true);
         gameObject.SetActive(false);
         GameManager.gameManager.SwitchCameras("3D");
         //reset Input and Display

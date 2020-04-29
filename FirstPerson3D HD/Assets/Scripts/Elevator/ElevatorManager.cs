@@ -9,7 +9,6 @@ public class ElevatorManager : MonoBehaviour
     [SerializeField] CorrectSolutionReaction firstRideAnim;
     [SerializeField] CorrectSolutionReaction rideUpAnim;
     [SerializeField] CorrectSolutionReaction rideDownAnim;
-    private bool firstRide = true;
 
     #region singleton
     public static ElevatorManager elevator;
