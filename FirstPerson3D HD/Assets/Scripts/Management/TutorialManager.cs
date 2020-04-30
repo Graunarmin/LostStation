@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject closeOverlay;
     public GameObject toggleFlashlight;
     public GameObject object3D;
+    public GameObject hurry;
 
     [HideInInspector]
     public bool firstStep;
@@ -165,6 +166,13 @@ public class TutorialManager : MonoBehaviour
         Reference.instance.TutorialCanvas.gameObject.SetActive(true);
         toggleFlashlight.gameObject.SetActive(true);
         StartCoroutine(CloseTutorial(toggleFlashlight, 2f));
+    }
+
+    public void ShowHurry()
+    {
+        Reference.instance.TutorialCanvas.gameObject.SetActive(true);
+        hurry.gameObject.SetActive(true);
+        StartCoroutine(CloseTutorial(hurry, 2f));
     }
     #endregion
 

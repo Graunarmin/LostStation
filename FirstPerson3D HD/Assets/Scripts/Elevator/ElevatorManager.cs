@@ -49,6 +49,7 @@ public class ElevatorManager : MonoBehaviour
     {
         CloseDoors();        
         StartCoroutine(RideDown());
+        Reference.instance.flashlight.SwitchOff();
         GameManager.gameManager.RideDownPlaying(true);
         rideDownAnim.React();
     }

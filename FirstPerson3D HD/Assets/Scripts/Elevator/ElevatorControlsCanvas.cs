@@ -101,8 +101,9 @@ public class ElevatorControlsCanvas : MonoBehaviour, IPuzzleCanvas
     {
         //AudioManager.audioManager.PlaySound(AudioManager.audioManager.elevatorButtons);
         ActivateDown();
-        ElevatorManager.elevator.Up();
         Close();
+        ElevatorManager.elevator.Up();
+        
 
     }
 

@@ -28,16 +28,29 @@ public class Flashlight : MonoBehaviour
         return gameObject.activeInHierarchy;
     }
 
+    public void SwitchOff()
+    {
+        if (filterOn)
+        {
+            //AlienManager.mrSaru.PauseFlashlight(true);
+            TutorialManager.tutorialManager.ShowHurry();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+
+        }
+    }
+
     public void Toggle()
     {
-       
-
         if (gameObject.activeInHierarchy)
         {
             
             if (filterOn)
             {
                 //AlienManager.mrSaru.PauseFlashlight(true);
+                TutorialManager.tutorialManager.ShowHurry();
             }
             else
             {
