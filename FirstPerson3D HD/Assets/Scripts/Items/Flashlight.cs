@@ -6,6 +6,7 @@ public class Flashlight : MonoBehaviour
 {
     public bool inPossession;
     private Color baseColor;
+    public bool filterOn;
 
     private void Awake()
     {
@@ -29,15 +30,35 @@ public class Flashlight : MonoBehaviour
 
     public void Toggle()
     {
-        AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightToggle);
+       
 
         if (gameObject.activeInHierarchy)
         {
-            gameObject.SetActive(false);
+            
+            if (filterOn)
+            {
+                //AlienManager.mrSaru.PauseFlashlight(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                
+            }
         }
         else
         {
             gameObject.SetActive(true);
+            if (filterOn)
+            {
+                //AlienManager.mrSaru.PauseFlashlight(false);
+                gameObject.SetActive(true);
+                AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightToggle);
+            }
+            else 
+            {
+                gameObject.SetActive(true);
+                AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightToggle);
+            }
         }
     }
 

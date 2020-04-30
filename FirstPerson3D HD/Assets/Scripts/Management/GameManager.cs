@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private KeyCode flashlight = KeyCode.F;
     private KeyCode inventory = KeyCode.I;
     private KeyCode journal = KeyCode.J;
-    private KeyCode pause = KeyCode.P;
+    private KeyCode pause = KeyCode.Escape;
 
     public void SetInventoryKey(KeyCode code)
     {

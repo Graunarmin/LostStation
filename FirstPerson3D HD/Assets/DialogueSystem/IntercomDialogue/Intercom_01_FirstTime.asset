@@ -35,7 +35,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: Sure. All right.
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
-    myText: "You start three down from the top left. Then one up 45\xB0 clockwise
+    myText: "You start on the third down from the top left. Then one up 45\xB0 clockwise
       and one up straight. Two to the right, then three down. "
   - character: {fileID: 11400000, guid: edb5bedcc0ba74441b0fdcc502067362, type: 2}
     myText: "One to the left, one up, and 2 down with 225\xB0. From there 4 to the

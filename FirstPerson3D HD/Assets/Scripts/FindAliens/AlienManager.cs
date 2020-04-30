@@ -36,16 +36,14 @@ public class AlienManager : MonoBehaviour
         {
             alien.gameObject.SetActive(false);
         }
-        //CraftingManager.OnFilterEquipped += TestForLights;
-        CraftingManager.OnFilterEquipped += MakeAliensVisible;
-        FilterTimer.OnFilterBroken += MakeAliensInvisible;
+        CraftingManager.OnFilterEquipped += TestForLights;
+        //CraftingManager.OnFilterEquipped += MakeAliensVisible;
+        FilterTimer.OnFilterBroken += PutAliensBack;
     }
 
     private void TestForLights()
     {
-        //Aliens are only visible if all lights but filtered lights (flashlight)
-        //are switched off, so we have to wait until the lights are switched off
-        //StartCoroutine(WaitForLightsOut());
+        //Aliens are only visible if flashlight is on
         StartCoroutine(WaitForFlashlightOn());
     }
 
@@ -56,16 +54,8 @@ public class AlienManager : MonoBehaviour
 
         //Then we can make all aliens visible
         MakeAliensVisible();
-    }
-
-
-    private IEnumerator WaitForLightsOut()
-    {
-        yield return new WaitUntil(()
-            => lightSwitch.LightsAreOff());
-
-        //Then we can make all aliens visible
-        MakeAliensVisible();
+        //and start counting the collected aliens
+        StartCoroutine(CountAliens());
     }
 
     private void MakeAliensVisible()
@@ -76,17 +66,25 @@ public class AlienManager : MonoBehaviour
             alien.gameObject.SetActive(true);
         }
         alienRegion.EnterRegion();
+    }
 
-        //and start counting the collected aliens
-        StartCoroutine(CountAliens());
+    private void PutAliensBack()
+    {
+        MakeAliensInvisible();
+        //stop counting the aliens
+        StopCoroutine(CountAliens());
+        foreach (Alien alien in collectedAliens)
+        {
+            InventoryManager.invManager.RemoveItem(alien);
+        }
+        //and clear the List of collected aliens
+        collectedAliens.Clear();
     }
 
     private void MakeAliensInvisible()
     {
         //stop waiting for the lights to be switched off
-        StopCoroutine(WaitForLightsOut());
-        //and stop counting the aliens
-        StopCoroutine(CountAliens());
+        StopCoroutine(WaitForFlashlightOn());
 
         //disable colliders
         alienRegion.ExitRegion();
@@ -96,14 +94,6 @@ public class AlienManager : MonoBehaviour
         {
             alien.gameObject.SetActive(false);
         }
-
-        foreach(Alien alien in collectedAliens)
-        {
-            InventoryManager.invManager.RemoveItem(alien);
-        }
-        //and clear the List of collected aliens
-        collectedAliens.Clear();
-       
     }
 
     private IEnumerator CountAliens()
@@ -115,7 +105,7 @@ public class AlienManager : MonoBehaviour
         {
             //unsubscribe the methods because all aliens have been found
             CraftingManager.OnFilterEquipped -= MakeAliensVisible;
-            FilterTimer.OnFilterBroken -= MakeAliensInvisible;
+            FilterTimer.OnFilterBroken -= PutAliensBack;
             //tell everyone that all aliens have been found
             OnFoundAllAliens();
             //add the journal Page
@@ -126,5 +116,17 @@ public class AlienManager : MonoBehaviour
     public void AddAlien(Alien alien)
     {
         collectedAliens.Add(alien);
+    }
+
+    public void PauseFlashlight(bool pause)
+    {
+        if (pause)
+        {
+            MakeAliensInvisible();
+        }
+        else
+        {
+            MakeAliensVisible();
+        }
     }
 }

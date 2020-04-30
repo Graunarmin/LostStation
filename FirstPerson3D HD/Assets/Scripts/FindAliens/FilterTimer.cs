@@ -43,6 +43,7 @@ public class FilterTimer : MonoBehaviour
         AudioManager.audioManager.PlaySound(AudioManager.audioManager.flashlightFilter);
         //change color of flashlight
         Reference.instance.flashlight.ChangeColor( new Color(255/255, 194/255, 182/255, Reference.instance.flashlight.GetAlpha()));
+        Reference.instance.flashlight.filterOn = true;
 
         //start timer until Unequip
         StartCoroutine(Timer());
@@ -55,7 +56,7 @@ public class FilterTimer : MonoBehaviour
             => Reference.instance.flashlight.SwitchedOn());
 
         //then they have 50 Seconds until Crack
-        yield return new WaitForSeconds(50);
+        yield return new WaitForSeconds(40);
         ShowCracks();
 
         //and 30 with crack
@@ -93,6 +94,7 @@ public class FilterTimer : MonoBehaviour
         StopAllCoroutines();
         //change color of flashlight back to normal
         Reference.instance.flashlight.ResetColor();
+        Reference.instance.flashlight.filterOn = false;
 
         //remove crack
         crack.gameObject.SetActive(false);

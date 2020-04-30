@@ -12,7 +12,7 @@ public class IntroSkipButton : MonoBehaviour
 
     public IEnumerator NextScene()
     {
-        yield return new WaitForSecondsRealtime(32);
+        yield return new WaitForSecondsRealtime(32f);
         LoadNextScene();
 
     }
@@ -24,6 +24,7 @@ public class IntroSkipButton : MonoBehaviour
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1));
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
